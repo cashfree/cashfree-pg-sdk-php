@@ -1,5 +1,5 @@
 {
-    "name": "cashfree/cashfree-pg-php-sdk",
+    "name": "cashfree/cashfree-pg-sdk-php",
     "description": "Cashfree Payment Gateway Framework for PHP",
     "keywords": [
         "php",
