@@ -39,6 +39,50 @@ use OpenAPI\Client\ApiException;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
+use OpenAPI\Client\Model\CFLink;
+use OpenAPI\Client\Model\CFLinkCancelledResponse;
+
+class CFPaymentLinkCancelledResponse {
+    public CFLinkCancelledResponse $cfLinkCancelledResponse;
+    public mixed $headers;
+
+    public function __construct(CFLinkCancelledResponse $cfLinkCancelledResponse, mixed $headers) {
+        if($cfLinkCancelledResponse != null) {
+            $this->cfLinkCancelledResponse = $cfLinkCancelledResponse;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFLinkCancelledResponse() {
+        return $this->cfLinkCancelledResponse;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
+
+class CFPaymentLinkResponse {
+    public CFLink $cfLink;
+    public mixed $headers;
+
+    public function __construct(CFLink $cfLink, mixed $headers) {
+        if($cfLink != null) {
+            $this->cfLink = $cfLink;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFLink() {
+        return $this->cfLink;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
 
 /**
  * PaymentLinksApi Class Doc Comment
@@ -128,12 +172,14 @@ class PaymentLinksApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFLinkCancelledResponse|\OpenAPI\Client\Model\LinkCancelledError
+     * @return \OpenAPI\Client\Api\CFPaymentLinkCancelledResponse|\OpenAPI\Client\Model\LinkCancelledError
      */
     public function cancelPaymentLink($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01')
     {
-        list($response) = $this->cancelPaymentLinkWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version);
-        return $response;
+        $response = $this->cancelPaymentLinkWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version);
+        list($r) = $response;
+        $cfPaymentLinkCancelledResponse = new CFPaymentLinkCancelledResponse($r, $response[2]);
+        return $cfPaymentLinkCancelledResponse;
     }
 
     /**
@@ -461,12 +507,14 @@ class PaymentLinksApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFLink
+     * @return \OpenAPI\Client\Api\CFPaymentLinkResponse
      */
     public function createPaymentLink($x_client_id, $x_client_secret, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_link_request = null)
     {
-        list($response) = $this->createPaymentLinkWithHttpInfo($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_link_request);
-        return $response;
+        $response = $this->createPaymentLinkWithHttpInfo($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_link_request);
+        list($r) = $response;
+        $cfLinkResponse = new CFPaymentLinkResponse($r, $response[2]);
+        return $cfLinkResponse;
     }
 
     /**
@@ -790,12 +838,14 @@ class PaymentLinksApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFLink
+     * @return \OpenAPI\Client\Api\CFPaymentLinkResponse
      */
     public function getPaymentLinkDetails($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        list($response) = $this->getPaymentLinkDetailsWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
-        return $response;
+        $response = $this->getPaymentLinkDetailsWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
+        list($r) = $response;
+        $cfPaymentLinkResponse = new CFPaymentLinkResponse($r, $response[2]);
+        return $cfPaymentLinkResponse;
     }
 
     /**

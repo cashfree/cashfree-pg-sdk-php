@@ -39,6 +39,28 @@ use OpenAPI\Client\ApiException;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
+use OpenAPI\Client\Model\CFSettlementsEntity;
+
+class CFSettlementsResponse {
+    public CFSettlementsEntity $cfSettlementsEntity;
+    public mixed $headers;
+
+    public function __construct(CFSettlementsEntity $cfSettlementsEntity, mixed $headers) {
+        if($cfSettlementsEntity != null) {
+            $this->cfSettlementsEntity = $cfSettlementsEntity;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFSettlementsEntity() {
+        return $this->cfSettlementsEntity;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
 
 /**
  * SettlementsApi Class Doc Comment
@@ -131,12 +153,14 @@ class SettlementsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFSettlementsEntity|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFSettlementsResponse|\OpenAPI\Client\Model\CFError
      */
     public function getsettlements($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        list($response) = $this->getsettlementsWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
-        return $response;
+        $response = $this->getsettlementsWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
+        list($r) = $response;
+        $cfSettlementsResponse = new CFSettlementsResponse($r, $response[2]);
+        return $cfSettlementsResponse;
     }
 
     /**

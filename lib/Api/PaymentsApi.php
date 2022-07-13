@@ -40,6 +40,27 @@ use OpenAPI\Client\Configuration;
 use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
 
+class CFPaymentsEntityResponse {
+    public mixed $cfPaymentsEntity;
+    public mixed $headers;
+
+    public function __construct(mixed $cfPaymentsEntity, mixed $headers) {
+        if($cfPaymentsEntity != null) {
+            $this->cfPaymentsEntity = $cfPaymentsEntity;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFPaymentsEntity() {
+        return $this->cfPaymentsEntity;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
+
 /**
  * PaymentsApi Class Doc Comment
  *
@@ -132,12 +153,14 @@ class PaymentsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFPaymentsEntity|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFPaymentsEntityResponse|\OpenAPI\Client\Model\CFError
      */
     public function getPaymentbyId($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        list($response) = $this->getPaymentbyIdWithHttpInfo($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
-        return $response;
+        $response = $this->getPaymentbyIdWithHttpInfo($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
+        list($r) = $response;
+        $paymentsEntityResponse = new CFPaymentsEntityResponse($r, $response[2]);
+        return $paymentsEntityResponse;
     }
 
     /**
@@ -507,12 +530,14 @@ class PaymentsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFPaymentsEntity[]|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFPaymentsEntityResponse|\OpenAPI\Client\Model\CFError
      */
     public function getPaymentsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        list($response) = $this->getPaymentsfororderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
-        return $response;
+        $response = $this->getPaymentsfororderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
+        list($r) = $response;
+        $paymentsEntityResponse = new CFPaymentsEntityResponse($r, $response[2]);
+        return $paymentsEntityResponse;
     }
 
     /**

@@ -39,6 +39,72 @@ use OpenAPI\Client\ApiException;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
+use OpenAPI\Client\Model\CFOrder;
+use OpenAPI\Client\Model\CFOrderPayResponse;
+use OpenAPI\Client\Model\CFPaymentsEntity;
+
+class CFPreauthorizationRespomse {
+    public CFPaymentsEntity $cfPaymentsEntity;
+    public mixed $headers;
+
+    public function __construct(CFPaymentsEntity $cfPaymentsEntity, mixed $headers) {
+        if($cfPaymentsEntity != null) {
+            $this->cfPaymentsEntity = $cfPaymentsEntity;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFPaymentsEntity() {
+        return $this->cfPaymentsEntity;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
+
+class CFOrderResponse {
+    public CFOrder $cfOrder;
+    public mixed $headers;
+
+    public function __construct(CFOrder $cfOrder, mixed $headers) {
+        if($cfOrder != null) {
+            $this->cfOrder = $cfOrder;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFOrder() {
+        return $this->cfOrder;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
+
+class CFPaymentResponse {
+    public CFOrderPayResponse $cfOrderPayResponse;
+    public mixed $headers;
+
+    public function __construct(CFOrderPayResponse $cfOrderPayResponse, mixed $headers) {
+        if($cfOrderPayResponse != null) {
+            $this->cfOrderPayResponse = $cfOrderPayResponse;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFOrderPayResponse() {
+        return $this->cfOrderPayResponse;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
 
 /**
  * OrdersApi Class Doc Comment
@@ -131,12 +197,14 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFOrder|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFOrderResponse|\OpenAPI\Client\Model\CFError
      */
     public function createOrder($x_client_id, $x_client_secret, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_order_request = null)
     {
-        list($response) = $this->createOrderWithHttpInfo($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_order_request);
-        return $response;
+        $response = $this->createOrderWithHttpInfo($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_order_request);
+        list($r) = $response;
+        $cfOrderResponse = new CFOrderResponse($r, $response[2]);
+        return $cfOrderResponse;
     }
 
     /**
@@ -202,12 +270,12 @@ class OrdersApi
                     } else {
                         $content = (string) $response->getBody();
                     }
-
-                    return [
+                    $r = [
                         ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFOrder', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                    return $r;
                 default:
                     if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -400,8 +468,6 @@ class OrdersApi
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
 
-
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -480,12 +546,14 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFOrder|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFOrderResponse|\OpenAPI\Client\Model\CFError
      */
     public function getOrder($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        list($response) = $this->getOrderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
-        return $response;
+        $response = $this->getOrderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
+        list($r) = $response;
+        $cfOrderResponse = new CFOrderResponse($r, $response[2]);
+        return $cfOrderResponse;
     }
 
     /**
@@ -833,12 +901,14 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFOrderPayResponse|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFPaymentResponse|\OpenAPI\Client\Model\CFError
      */
     public function orderPay($x_api_version, $x_request_id = null, $cf_order_pay_request = null)
     {
-        list($response) = $this->orderPayWithHttpInfo($x_api_version, $x_request_id, $cf_order_pay_request);
-        return $response;
+        $response = $this->orderPayWithHttpInfo($x_api_version, $x_request_id, $cf_order_pay_request);
+        list($r) = $response;
+        $cfPayResponse = new CFPaymentResponse($r, $response[2]);
+        return $cfPayResponse;
     }
 
     /**
@@ -1145,12 +1215,14 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFPaymentsEntity|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFPreauthorizationRespomse|\OpenAPI\Client\Model\CFError
      */
     public function preauthorization($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_authorization_request = null)
     {
-        list($response) = $this->preauthorizationWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_authorization_request);
-        return $response;
+        $response = $this->preauthorizationWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_authorization_request);
+        list($r) = $response;
+        $preauth = new CFPreauthorizationRespomse($r, $response[2]);
+        return $preauth;
     }
 
     /**

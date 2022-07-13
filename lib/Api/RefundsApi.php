@@ -39,6 +39,49 @@ use OpenAPI\Client\ApiException;
 use OpenAPI\Client\Configuration;
 use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
+use OpenAPI\Client\Model\CFRefund;
+
+class CFRefundResponse {
+    public CFRefund $cfRefund;
+    public mixed $headers;
+
+    public function __construct(CFRefund $cfRefund, mixed $headers) {
+        if($cfRefund != null) {
+            $this->cfRefund = $cfRefund;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFRefund() {
+        return $this->cfRefund;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
+
+class CFAllRefundResponse {
+    public array $cfRefunds = [];
+    public mixed $headers;
+
+    public function __construct(array $cfRefunds, mixed $headers) {
+        if($cfRefunds != null) {
+            $this->cfRefunds = $cfRefunds;
+        }
+        if($headers != null) {
+            $this->headers = $headers;
+        }
+    }
+
+    public function getCFRefunds() {
+        return $this->cfRefunds;
+    }
+    public function getHeader() {
+        return $this->headers;
+    }
+}
 
 /**
  * RefundsApi Class Doc Comment
@@ -132,12 +175,14 @@ class RefundsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFRefund|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFRefundResponse|\OpenAPI\Client\Model\CFError
      */
     public function createrefund($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_refund_request = null)
     {
-        list($response) = $this->createrefundWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_refund_request);
-        return $response;
+        $response = $this->createrefundWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_refund_request);
+        list($r) = $response;
+        $cfRefundResponse = new CFRefundResponse($r, $response[2]);
+        return $cfRefundResponse;
     }
 
     /**
@@ -500,12 +545,14 @@ class RefundsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFRefund|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFRefundResponse|\OpenAPI\Client\Model\CFError
      */
     public function getRefund($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        list($response) = $this->getRefundWithHttpInfo($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
-        return $response;
+        $response = $this->getRefundWithHttpInfo($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
+        list($r) = $response;
+        $cfRefundResponse = new CFRefundResponse($r, $response[2]);
+        return $cfRefundResponse;
     }
 
     /**
@@ -872,12 +919,14 @@ class RefundsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFRefund[]|\OpenAPI\Client\Model\CFError
+     * @return \OpenAPI\Client\Api\CFAllRefundResponse|\OpenAPI\Client\Model\CFError
      */
     public function getallrefundsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01')
     {
-        list($response) = $this->getallrefundsfororderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version);
-        return $response;
+        $response = $this->getallrefundsfororderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version);
+        list($r) = $response;
+        $allRefunds = new CFAllRefundResponse($r, $response[2]);
+        return $allRefunds;
     }
 
     /**
