@@ -36,7 +36,7 @@ composer require cashfree/cashfree-pg-sdk-php
 The CFConfig type consists of properties that are necessary for every method call that is exposed by the SDK. The following code snippet can be used to create a CFSession instance :-
 
 ```
-$cfConfig = new CFConfig(CFEnvironment::SANDBOX, "1246921cc3ba7f37c7d3babbc2296421", "91aec11bc730e17d3f0df528c4a25782d0e9d6cb");
+$cfConfig = new CFConfig(CFEnvironment::SANDBOX, "APP_ID", "SECRET_KEY");
 ```
 
 `Note:` CFEnvironment is an enum consisting of 2 values -> `PRODUCTION` and `SANDBOX`
