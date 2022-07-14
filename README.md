@@ -29,11 +29,6 @@ Or Simply run the below command in your project directory:
 composer require cashfree/cashfree-pg-sdk-php
 ```
 
-# Importing
-
-use cashfree\Client\CFConfig\CFConfig;
-use cashfree\Client\CFHeader\CFHeader;
-
 # Documentation
 
 ## Creating a CFConfig instance
