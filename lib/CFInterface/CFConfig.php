@@ -1,5 +1,5 @@
 <?php
-namespace OpenAPI\Client\CFConfig;
+namespace OpenAPI\Client\CFInterface;
 
 enum CFEnvironment {
     case SANDBOX;

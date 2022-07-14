@@ -1,5 +1,5 @@
 <?php
-namespace OpenAPI\Client\CFHeader;
+namespace OpenAPI\Client\CFInterface;
 
 class CFHeader {
 
