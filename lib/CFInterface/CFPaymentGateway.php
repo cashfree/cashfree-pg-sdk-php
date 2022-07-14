@@ -1,24 +1,12 @@
 <?php
 namespace OpenAPI\Client\CFInterface;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Psr7\MultipartStream;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
-use OpenAPI\Client\Api;
-use OpenAPI\Client\Model;
 use GuzzleHttp\Client;
 use OpenAPI\Client\Api\OrdersApi;
 use Exception;
-use OpenAPI\Client\CFHeader\CFHeader;
-use OpenAPI\Client\CFConfig\CFEnvironment;
-use OpenAPI\Client\CFConfig\CFConfig;
+use OpenAPI\Client\CFInterface\CFHeader;
+use OpenAPI\Client\CFInterface\CFEnvironment;
+use OpenAPI\Client\CFInterface\CFConfig;
 use OpenAPI\Client\Model\CFOrderRequest;
 use OpenAPI\Client\Model\CFOrderPayRequest;
 use OpenAPI\Client\Model\CFAuthorizationRequest;
