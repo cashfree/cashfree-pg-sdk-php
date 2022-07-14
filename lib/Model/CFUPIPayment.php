@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFUPIPayment Class Doc Comment
@@ -60,7 +60,7 @@ class CFUPIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'upi' => '\OpenAPI\Client\Model\CFUPI'
+        'upi' => '\cashfree\Client\Model\CFUPI'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFUPIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets upi
      *
-     * @return \OpenAPI\Client\Model\CFUPI
+     * @return \cashfree\Client\Model\CFUPI
      */
     public function getUpi()
     {
@@ -222,7 +222,7 @@ class CFUPIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upi
      *
-     * @param \OpenAPI\Client\Model\CFUPI $upi upi
+     * @param \cashfree\Client\Model\CFUPI $upi upi
      *
      * @return self
      */

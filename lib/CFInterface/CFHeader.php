@@ -1,5 +1,5 @@
 <?php
-namespace OpenAPI\Client\CFHeader;
+namespace cashfree\Client\CFInterface;
 
 class CFHeader {
 

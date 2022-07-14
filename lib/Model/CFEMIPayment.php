@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFEMIPayment Class Doc Comment
@@ -60,7 +60,7 @@ class CFEMIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'emi' => '\OpenAPI\Client\Model\CFCardEMI'
+        'emi' => '\cashfree\Client\Model\CFCardEMI'
     ];
 
     /**
@@ -209,7 +209,7 @@ class CFEMIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets emi
      *
-     * @return \OpenAPI\Client\Model\CFCardEMI|null
+     * @return \cashfree\Client\Model\CFCardEMI|null
      */
     public function getEmi()
     {
@@ -219,7 +219,7 @@ class CFEMIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets emi
      *
-     * @param \OpenAPI\Client\Model\CFCardEMI|null $emi emi
+     * @param \cashfree\Client\Model\CFCardEMI|null $emi emi
      *
      * @return self
      */

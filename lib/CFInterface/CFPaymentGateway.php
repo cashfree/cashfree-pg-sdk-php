@@ -1,33 +1,21 @@
 <?php
-namespace OpenAPI\Client\CFInterface;
+namespace cashfree\Client\CFInterface;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Psr7\MultipartStream;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
-use OpenAPI\Client\Api;
-use OpenAPI\Client\Model;
 use GuzzleHttp\Client;
-use OpenAPI\Client\Api\OrdersApi;
+use cashfree\Client\Api\OrdersApi;
 use Exception;
-use OpenAPI\Client\CFHeader\CFHeader;
-use OpenAPI\Client\CFConfig\CFEnvironment;
-use OpenAPI\Client\CFConfig\CFConfig;
-use OpenAPI\Client\Model\CFOrderRequest;
-use OpenAPI\Client\Model\CFOrderPayRequest;
-use OpenAPI\Client\Model\CFAuthorizationRequest;
-use OpenAPI\Client\Api\PaymentsApi;
-use OpenAPI\Client\Api\RefundsApi;
-use OpenAPI\Client\Model\CFRefundRequest;
-use OpenAPI\Client\Api\SettlementsApi;
-use OpenAPI\Client\Api\PaymentLinksApi;
-use OpenAPI\Client\Model\CFLinkRequest;
+use cashfree\Client\CFInterface\CFHeader;
+use cashfree\Client\CFInterface\CFEnvironment;
+use cashfree\Client\CFInterface\CFConfig;
+use cashfree\Client\Model\CFOrderRequest;
+use cashfree\Client\Model\CFOrderPayRequest;
+use cashfree\Client\Model\CFAuthorizationRequest;
+use cashfree\Client\Api\PaymentsApi;
+use cashfree\Client\Api\RefundsApi;
+use cashfree\Client\Model\CFRefundRequest;
+use cashfree\Client\Api\SettlementsApi;
+use cashfree\Client\Api\PaymentLinksApi;
+use cashfree\Client\Model\CFLinkRequest;
 
 class CFPaymentGateway {
 

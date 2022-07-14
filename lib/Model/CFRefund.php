@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFRefund Class Doc Comment
@@ -73,7 +73,7 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_charge' => 'float',
         'status_description' => 'string',
         'metadata' => 'object',
-        'refund_splits' => '\OpenAPI\Client\Model\CFVendorSplit[]',
+        'refund_splits' => '\cashfree\Client\Model\CFVendorSplit[]',
         'refund_type' => 'string',
         'refund_mode' => 'string',
         'created_at' => 'string',
@@ -743,7 +743,7 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets refund_splits
      *
-     * @return \OpenAPI\Client\Model\CFVendorSplit[]|null
+     * @return \cashfree\Client\Model\CFVendorSplit[]|null
      */
     public function getRefundSplits()
     {
@@ -753,7 +753,7 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets refund_splits
      *
-     * @param \OpenAPI\Client\Model\CFVendorSplit[]|null $refund_splits refund_splits
+     * @param \cashfree\Client\Model\CFVendorSplit[]|null $refund_splits refund_splits
      *
      * @return self
      */

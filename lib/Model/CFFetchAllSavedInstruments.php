@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFFetchAllSavedInstruments Class Doc Comment
@@ -68,7 +68,7 @@ class CFFetchAllSavedInstruments implements ModelInterface, ArrayAccess, \JsonSe
         'instrument_display' => 'string',
         'instrument_status' => 'string',
         'created_at' => 'string',
-        'instrument_meta' => '\OpenAPI\Client\Model\CFSavedInstrumentMeta'
+        'instrument_meta' => '\cashfree\Client\Model\CFSavedInstrumentMeta'
     ];
 
     /**
@@ -515,7 +515,7 @@ class CFFetchAllSavedInstruments implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets instrument_meta
      *
-     * @return \OpenAPI\Client\Model\CFSavedInstrumentMeta|null
+     * @return \cashfree\Client\Model\CFSavedInstrumentMeta|null
      */
     public function getInstrumentMeta()
     {
@@ -525,7 +525,7 @@ class CFFetchAllSavedInstruments implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets instrument_meta
      *
-     * @param \OpenAPI\Client\Model\CFSavedInstrumentMeta|null $instrument_meta instrument_meta
+     * @param \cashfree\Client\Model\CFSavedInstrumentMeta|null $instrument_meta instrument_meta
      *
      * @return self
      */

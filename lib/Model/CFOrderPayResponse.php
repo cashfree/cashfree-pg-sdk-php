@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFOrderPayResponse Class Doc Comment
@@ -64,7 +64,7 @@ class CFOrderPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'payment_method' => 'string',
         'channel' => 'string',
         'action' => 'string',
-        'data' => '\OpenAPI\Client\Model\CFOrderPayData'
+        'data' => '\cashfree\Client\Model\CFOrderPayData'
     ];
 
     /**
@@ -443,7 +443,7 @@ class CFOrderPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CFOrderPayData|null
+     * @return \cashfree\Client\Model\CFOrderPayData|null
      */
     public function getData()
     {
@@ -453,7 +453,7 @@ class CFOrderPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CFOrderPayData|null $data data
+     * @param \cashfree\Client\Model\CFOrderPayData|null $data data
      *
      * @return self
      */

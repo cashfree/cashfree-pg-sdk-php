@@ -1,4 +1,4 @@
-# OpenAPI\Client\TokenVaultApi
+# cashfree\Client\TokenVaultApi
 
 All URIs are relative to https://sandbox.cashfree.com/pg.
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `deleteSpecificSavedInstrument()`
 
 ```php
-deleteSpecificSavedInstrument($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version): \OpenAPI\Client\Model\CFFetchAllSavedInstruments
+deleteSpecificSavedInstrument($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version): \cashfree\Client\Model\CFFetchAllSavedInstruments
 ```
 
 Delete Saved Instrument
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TokenVaultApi(
+$apiInstance = new cashfree\Client\Api\TokenVaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFFetchAllSavedInstruments**](../Model/CFFetchAllSavedInstruments.md)
+[**\cashfree\Client\Model\CFFetchAllSavedInstruments**](../Model/CFFetchAllSavedInstruments.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 ## `fetchAllSavedInstruments()`
 
 ```php
-fetchAllSavedInstruments($x_client_id, $x_client_secret, $customer_id, $instrument_type, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFFetchAllSavedInstruments[]
+fetchAllSavedInstruments($x_client_id, $x_client_secret, $customer_id, $instrument_type, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \cashfree\Client\Model\CFFetchAllSavedInstruments[]
 ```
 
 Fetch All Saved Instruments
@@ -92,7 +92,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TokenVaultApi(
+$apiInstance = new cashfree\Client\Api\TokenVaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFFetchAllSavedInstruments[]**](../Model/CFFetchAllSavedInstruments.md)
+[**\cashfree\Client\Model\CFFetchAllSavedInstruments[]**](../Model/CFFetchAllSavedInstruments.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ No authorization required
 ## `fetchCryptogram()`
 
 ```php
-fetchCryptogram($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFCryptogram
+fetchCryptogram($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \cashfree\Client\Model\CFCryptogram
 ```
 
 Fetch cryptogram for saved instrument
@@ -162,7 +162,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TokenVaultApi(
+$apiInstance = new cashfree\Client\Api\TokenVaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFCryptogram**](../Model/CFCryptogram.md)
+[**\cashfree\Client\Model\CFCryptogram**](../Model/CFCryptogram.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ No authorization required
 ## `fetchSpecificSavedInstrument()`
 
 ```php
-fetchSpecificSavedInstrument($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFFetchAllSavedInstruments
+fetchSpecificSavedInstrument($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \cashfree\Client\Model\CFFetchAllSavedInstruments
 ```
 
 Fetch Single Saved Instrument
@@ -232,7 +232,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\TokenVaultApi(
+$apiInstance = new cashfree\Client\Api\TokenVaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFFetchAllSavedInstruments**](../Model/CFFetchAllSavedInstruments.md)
+[**\cashfree\Client\Model\CFFetchAllSavedInstruments**](../Model/CFFetchAllSavedInstruments.md)
 
 ### Authorization
 

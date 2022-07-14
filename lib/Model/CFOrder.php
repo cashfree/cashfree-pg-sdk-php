@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFOrder Class Doc Comment
@@ -70,11 +70,11 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_expiry_time' => 'string',
         'order_note' => 'string',
         'payment_link' => 'string',
-        'customer_details' => '\OpenAPI\Client\Model\CFCustomerDetails',
-        'order_meta' => '\OpenAPI\Client\Model\CFOrderMeta',
-        'payments' => '\OpenAPI\Client\Model\CFPaymentURLObject',
-        'settlements' => '\OpenAPI\Client\Model\CFSettlementURLObject',
-        'refunds' => '\OpenAPI\Client\Model\CFRefundURLObject'
+        'customer_details' => '\cashfree\Client\Model\CFCustomerDetails',
+        'order_meta' => '\cashfree\Client\Model\CFOrderMeta',
+        'payments' => '\cashfree\Client\Model\CFPaymentURLObject',
+        'settlements' => '\cashfree\Client\Model\CFSettlementURLObject',
+        'refunds' => '\cashfree\Client\Model\CFRefundURLObject'
     ];
 
     /**
@@ -533,7 +533,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets customer_details
      *
-     * @return \OpenAPI\Client\Model\CFCustomerDetails|null
+     * @return \cashfree\Client\Model\CFCustomerDetails|null
      */
     public function getCustomerDetails()
     {
@@ -543,7 +543,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets customer_details
      *
-     * @param \OpenAPI\Client\Model\CFCustomerDetails|null $customer_details customer_details
+     * @param \cashfree\Client\Model\CFCustomerDetails|null $customer_details customer_details
      *
      * @return self
      */
@@ -557,7 +557,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_meta
      *
-     * @return \OpenAPI\Client\Model\CFOrderMeta|null
+     * @return \cashfree\Client\Model\CFOrderMeta|null
      */
     public function getOrderMeta()
     {
@@ -567,7 +567,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_meta
      *
-     * @param \OpenAPI\Client\Model\CFOrderMeta|null $order_meta order_meta
+     * @param \cashfree\Client\Model\CFOrderMeta|null $order_meta order_meta
      *
      * @return self
      */
@@ -581,7 +581,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payments
      *
-     * @return \OpenAPI\Client\Model\CFPaymentURLObject|null
+     * @return \cashfree\Client\Model\CFPaymentURLObject|null
      */
     public function getPayments()
     {
@@ -591,7 +591,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payments
      *
-     * @param \OpenAPI\Client\Model\CFPaymentURLObject|null $payments payments
+     * @param \cashfree\Client\Model\CFPaymentURLObject|null $payments payments
      *
      * @return self
      */
@@ -605,7 +605,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets settlements
      *
-     * @return \OpenAPI\Client\Model\CFSettlementURLObject|null
+     * @return \cashfree\Client\Model\CFSettlementURLObject|null
      */
     public function getSettlements()
     {
@@ -615,7 +615,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets settlements
      *
-     * @param \OpenAPI\Client\Model\CFSettlementURLObject|null $settlements settlements
+     * @param \cashfree\Client\Model\CFSettlementURLObject|null $settlements settlements
      *
      * @return self
      */
@@ -629,7 +629,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets refunds
      *
-     * @return \OpenAPI\Client\Model\CFRefundURLObject|null
+     * @return \cashfree\Client\Model\CFRefundURLObject|null
      */
     public function getRefunds()
     {
@@ -639,7 +639,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets refunds
      *
-     * @param \OpenAPI\Client\Model\CFRefundURLObject|null $refunds refunds
+     * @param \cashfree\Client\Model\CFRefundURLObject|null $refunds refunds
      *
      * @return self
      */

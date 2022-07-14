@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFUPI Class Doc Comment
@@ -63,7 +63,7 @@ class CFUPI implements ModelInterface, ArrayAccess, \JsonSerializable
         'channel' => 'string',
         'upi_id' => 'string',
         'authorize_only' => 'bool',
-        'authorization' => '\OpenAPI\Client\Model\CFUPIAuthorizeDetails'
+        'authorization' => '\cashfree\Client\Model\CFUPIAuthorizeDetails'
     ];
 
     /**
@@ -341,7 +341,7 @@ class CFUPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets authorization
      *
-     * @return \OpenAPI\Client\Model\CFUPIAuthorizeDetails|null
+     * @return \cashfree\Client\Model\CFUPIAuthorizeDetails|null
      */
     public function getAuthorization()
     {
@@ -351,7 +351,7 @@ class CFUPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets authorization
      *
-     * @param \OpenAPI\Client\Model\CFUPIAuthorizeDetails|null $authorization authorization
+     * @param \cashfree\Client\Model\CFUPIAuthorizeDetails|null $authorization authorization
      *
      * @return self
      */

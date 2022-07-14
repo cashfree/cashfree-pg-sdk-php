@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace cashfree\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,10 +35,10 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use cashfree\Client\ApiException;
+use cashfree\Client\Configuration;
+use cashfree\Client\HeaderSelector;
+use cashfree\Client\ObjectSerializer;
 
 /**
  * TokenVaultApi Class Doc Comment
@@ -127,9 +127,9 @@ class TokenVaultApi
      * @param  string $instrument_id instrument_id (required)
      * @param  string $x_api_version x_api_version (optional, default to '2022-01-01')
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFFetchAllSavedInstruments|\OpenAPI\Client\Model\CFError
+     * @return \cashfree\Client\Model\CFFetchAllSavedInstruments|\cashfree\Client\Model\CFError
      */
     public function deleteSpecificSavedInstrument($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01')
     {
@@ -148,9 +148,9 @@ class TokenVaultApi
      * @param  string $instrument_id (required)
      * @param  string $x_api_version (optional, default to '2022-01-01')
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFFetchAllSavedInstruments|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \cashfree\Client\Model\CFFetchAllSavedInstruments|\cashfree\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteSpecificSavedInstrumentWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01')
     {
@@ -193,32 +193,32 @@ class TokenVaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFFetchAllSavedInstruments' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFFetchAllSavedInstruments' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFFetchAllSavedInstruments', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFFetchAllSavedInstruments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFFetchAllSavedInstruments';
+            $returnType = '\cashfree\Client\Model\CFFetchAllSavedInstruments';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -236,7 +236,7 @@ class TokenVaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFFetchAllSavedInstruments',
+                        '\cashfree\Client\Model\CFFetchAllSavedInstruments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -244,7 +244,7 @@ class TokenVaultApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\cashfree\Client\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -294,7 +294,7 @@ class TokenVaultApi
      */
     public function deleteSpecificSavedInstrumentAsyncWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01')
     {
-        $returnType = '\OpenAPI\Client\Model\CFFetchAllSavedInstruments';
+        $returnType = '\cashfree\Client\Model\CFFetchAllSavedInstruments';
         $request = $this->deleteSpecificSavedInstrumentRequest($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version);
 
         return $this->client
@@ -479,9 +479,9 @@ class TokenVaultApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFFetchAllSavedInstruments[]|\OpenAPI\Client\Model\CFError
+     * @return \cashfree\Client\Model\CFFetchAllSavedInstruments[]|\cashfree\Client\Model\CFError
      */
     public function fetchAllSavedInstruments($x_client_id, $x_client_secret, $customer_id, $instrument_type, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -503,9 +503,9 @@ class TokenVaultApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFFetchAllSavedInstruments[]|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \cashfree\Client\Model\CFFetchAllSavedInstruments[]|\cashfree\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function fetchAllSavedInstrumentsWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_type, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -548,32 +548,32 @@ class TokenVaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFFetchAllSavedInstruments[]' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFFetchAllSavedInstruments[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFFetchAllSavedInstruments[]', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFFetchAllSavedInstruments[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFFetchAllSavedInstruments[]';
+            $returnType = '\cashfree\Client\Model\CFFetchAllSavedInstruments[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -591,7 +591,7 @@ class TokenVaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFFetchAllSavedInstruments[]',
+                        '\cashfree\Client\Model\CFFetchAllSavedInstruments[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -599,7 +599,7 @@ class TokenVaultApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\cashfree\Client\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -655,7 +655,7 @@ class TokenVaultApi
      */
     public function fetchAllSavedInstrumentsAsyncWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_type, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFFetchAllSavedInstruments[]';
+        $returnType = '\cashfree\Client\Model\CFFetchAllSavedInstruments[]';
         $request = $this->fetchAllSavedInstrumentsRequest($x_client_id, $x_client_secret, $customer_id, $instrument_type, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
@@ -858,9 +858,9 @@ class TokenVaultApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFCryptogram|\OpenAPI\Client\Model\CFError
+     * @return \cashfree\Client\Model\CFCryptogram|\cashfree\Client\Model\CFError
      */
     public function fetchCryptogram($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -882,9 +882,9 @@ class TokenVaultApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFCryptogram|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \cashfree\Client\Model\CFCryptogram|\cashfree\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function fetchCryptogramWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -927,32 +927,32 @@ class TokenVaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFCryptogram' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFCryptogram' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFCryptogram', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFCryptogram', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFCryptogram';
+            $returnType = '\cashfree\Client\Model\CFCryptogram';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -970,7 +970,7 @@ class TokenVaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFCryptogram',
+                        '\cashfree\Client\Model\CFCryptogram',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -978,7 +978,7 @@ class TokenVaultApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\cashfree\Client\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1034,7 +1034,7 @@ class TokenVaultApi
      */
     public function fetchCryptogramAsyncWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFCryptogram';
+        $returnType = '\cashfree\Client\Model\CFCryptogram';
         $request = $this->fetchCryptogramRequest($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
@@ -1234,9 +1234,9 @@ class TokenVaultApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFFetchAllSavedInstruments|\OpenAPI\Client\Model\CFError
+     * @return \cashfree\Client\Model\CFFetchAllSavedInstruments|\cashfree\Client\Model\CFError
      */
     public function fetchSpecificSavedInstrument($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -1258,9 +1258,9 @@ class TokenVaultApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFFetchAllSavedInstruments|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \cashfree\Client\Model\CFFetchAllSavedInstruments|\cashfree\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function fetchSpecificSavedInstrumentWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -1303,32 +1303,32 @@ class TokenVaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFFetchAllSavedInstruments' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFFetchAllSavedInstruments' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFFetchAllSavedInstruments', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFFetchAllSavedInstruments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFFetchAllSavedInstruments';
+            $returnType = '\cashfree\Client\Model\CFFetchAllSavedInstruments';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1346,7 +1346,7 @@ class TokenVaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFFetchAllSavedInstruments',
+                        '\cashfree\Client\Model\CFFetchAllSavedInstruments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1354,7 +1354,7 @@ class TokenVaultApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\cashfree\Client\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1410,7 +1410,7 @@ class TokenVaultApi
      */
     public function fetchSpecificSavedInstrumentAsyncWithHttpInfo($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFFetchAllSavedInstruments';
+        $returnType = '\cashfree\Client\Model\CFFetchAllSavedInstruments';
         $request = $this->fetchSpecificSavedInstrumentRequest($x_client_id, $x_client_secret, $customer_id, $instrument_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client

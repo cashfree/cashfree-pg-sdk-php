@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFNetbankingPayment Class Doc Comment
@@ -60,7 +60,7 @@ class CFNetbankingPayment implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'netbanking' => '\OpenAPI\Client\Model\CFNetbanking'
+        'netbanking' => '\cashfree\Client\Model\CFNetbanking'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFNetbankingPayment implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets netbanking
      *
-     * @return \OpenAPI\Client\Model\CFNetbanking
+     * @return \cashfree\Client\Model\CFNetbanking
      */
     public function getNetbanking()
     {
@@ -222,7 +222,7 @@ class CFNetbankingPayment implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets netbanking
      *
-     * @param \OpenAPI\Client\Model\CFNetbanking $netbanking netbanking
+     * @param \cashfree\Client\Model\CFNetbanking $netbanking netbanking
      *
      * @return self
      */

@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFAppPayment Class Doc Comment
@@ -60,7 +60,7 @@ class CFAppPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'app' => '\OpenAPI\Client\Model\CFApp'
+        'app' => '\cashfree\Client\Model\CFApp'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFAppPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets app
      *
-     * @return \OpenAPI\Client\Model\CFApp
+     * @return \cashfree\Client\Model\CFApp
      */
     public function getApp()
     {
@@ -222,7 +222,7 @@ class CFAppPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets app
      *
-     * @param \OpenAPI\Client\Model\CFApp $app app
+     * @param \cashfree\Client\Model\CFApp $app app
      *
      * @return self
      */

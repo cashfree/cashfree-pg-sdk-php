@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFPaylaterPayment Class Doc Comment
@@ -60,7 +60,7 @@ class CFPaylaterPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'paylater' => '\OpenAPI\Client\Model\CFPaylater'
+        'paylater' => '\cashfree\Client\Model\CFPaylater'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFPaylaterPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets paylater
      *
-     * @return \OpenAPI\Client\Model\CFPaylater
+     * @return \cashfree\Client\Model\CFPaylater
      */
     public function getPaylater()
     {
@@ -222,7 +222,7 @@ class CFPaylaterPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets paylater
      *
-     * @param \OpenAPI\Client\Model\CFPaylater $paylater paylater
+     * @param \cashfree\Client\Model\CFPaylater $paylater paylater
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\SettlementsApi
+# cashfree\Client\SettlementsApi
 
 All URIs are relative to https://sandbox.cashfree.com/pg.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `getsettlements()`
 
 ```php
-getsettlements($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFSettlementsEntity
+getsettlements($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \cashfree\Client\Model\CFSettlementsEntity
 ```
 
 Get Settlements
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\SettlementsApi(
+$apiInstance = new cashfree\Client\Api\SettlementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFSettlementsEntity**](../Model/CFSettlementsEntity.md)
+[**\cashfree\Client\Model\CFSettlementsEntity**](../Model/CFSettlementsEntity.md)
 
 ### Authorization
 

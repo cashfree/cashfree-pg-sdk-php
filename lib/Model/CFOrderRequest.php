@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFOrderRequest Class Doc Comment
@@ -63,12 +63,12 @@ class CFOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_id' => 'string',
         'order_amount' => 'double',
         'order_currency' => 'string',
-        'customer_details' => '\OpenAPI\Client\Model\CFCustomerDetails',
-        'order_meta' => '\OpenAPI\Client\Model\CFOrderMeta',
+        'customer_details' => '\cashfree\Client\Model\CFCustomerDetails',
+        'order_meta' => '\cashfree\Client\Model\CFOrderMeta',
         'order_expiry_time' => 'string',
         'order_note' => 'string',
         'order_tags' => 'array<string,string>',
-        'order_splits' => '\OpenAPI\Client\Model\CFVendorSplit[]'
+        'order_splits' => '\cashfree\Client\Model\CFVendorSplit[]'
     ];
 
     /**
@@ -361,7 +361,7 @@ class CFOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets customer_details
      *
-     * @return \OpenAPI\Client\Model\CFCustomerDetails
+     * @return \cashfree\Client\Model\CFCustomerDetails
      */
     public function getCustomerDetails()
     {
@@ -371,7 +371,7 @@ class CFOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets customer_details
      *
-     * @param \OpenAPI\Client\Model\CFCustomerDetails $customer_details customer_details
+     * @param \cashfree\Client\Model\CFCustomerDetails $customer_details customer_details
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class CFOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_meta
      *
-     * @return \OpenAPI\Client\Model\CFOrderMeta|null
+     * @return \cashfree\Client\Model\CFOrderMeta|null
      */
     public function getOrderMeta()
     {
@@ -395,7 +395,7 @@ class CFOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_meta
      *
-     * @param \OpenAPI\Client\Model\CFOrderMeta|null $order_meta order_meta
+     * @param \cashfree\Client\Model\CFOrderMeta|null $order_meta order_meta
      *
      * @return self
      */
@@ -488,7 +488,7 @@ class CFOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_splits
      *
-     * @return \OpenAPI\Client\Model\CFVendorSplit[]|null
+     * @return \cashfree\Client\Model\CFVendorSplit[]|null
      */
     public function getOrderSplits()
     {
@@ -498,7 +498,7 @@ class CFOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_splits
      *
-     * @param \OpenAPI\Client\Model\CFVendorSplit[]|null $order_splits order_splits
+     * @param \cashfree\Client\Model\CFVendorSplit[]|null $order_splits order_splits
      *
      * @return self
      */

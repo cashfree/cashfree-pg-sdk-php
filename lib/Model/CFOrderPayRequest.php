@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace cashfree\Client\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \cashfree\Client\ObjectSerializer;
 
 /**
  * CFOrderPayRequest Class Doc Comment
@@ -61,7 +61,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'order_token' => 'string',
-        'payment_method' => '\OpenAPI\Client\Model\CFPaymentMethod',
+        'payment_method' => '\cashfree\Client\Model\CFPaymentMethod',
         'save_instrument' => 'bool'
     ];
 
@@ -251,7 +251,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets payment_method
      *
-     * @return \OpenAPI\Client\Model\CFPaymentMethod
+     * @return \cashfree\Client\Model\CFPaymentMethod
      */
     public function getPaymentMethod()
     {
@@ -261,7 +261,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets payment_method
      *
-     * @param \OpenAPI\Client\Model\CFPaymentMethod $payment_method payment_method
+     * @param \cashfree\Client\Model\CFPaymentMethod $payment_method payment_method
      *
      * @return self
      */

@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace cashfree\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,10 +35,10 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use cashfree\Client\ApiException;
+use cashfree\Client\Configuration;
+use cashfree\Client\HeaderSelector;
+use cashfree\Client\ObjectSerializer;
 
 class CFPaymentsEntityResponse {
     public mixed $cfPaymentsEntity;
@@ -151,9 +151,9 @@ class PaymentsApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFPaymentsEntityResponse|\OpenAPI\Client\Model\CFError
+     * @return \cashfree\Client\Api\CFPaymentsEntityResponse|\cashfree\Client\Model\CFError
      */
     public function getPaymentbyId($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -177,9 +177,9 @@ class PaymentsApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFPaymentsEntity|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \cashfree\Client\Model\CFPaymentsEntity|\cashfree\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentbyIdWithHttpInfo($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -222,32 +222,32 @@ class PaymentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFPaymentsEntity' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFPaymentsEntity' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFPaymentsEntity', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFPaymentsEntity', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFPaymentsEntity';
+            $returnType = '\cashfree\Client\Model\CFPaymentsEntity';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -265,7 +265,7 @@ class PaymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFPaymentsEntity',
+                        '\cashfree\Client\Model\CFPaymentsEntity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -273,7 +273,7 @@ class PaymentsApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\cashfree\Client\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -329,7 +329,7 @@ class PaymentsApi
      */
     public function getPaymentbyIdAsyncWithHttpInfo($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFPaymentsEntity';
+        $returnType = '\cashfree\Client\Model\CFPaymentsEntity';
         $request = $this->getPaymentbyIdRequest($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
@@ -528,9 +528,9 @@ class PaymentsApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFPaymentsEntityResponse|\OpenAPI\Client\Model\CFError
+     * @return \cashfree\Client\Api\CFPaymentsEntityResponse|\cashfree\Client\Model\CFError
      */
     public function getPaymentsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -553,9 +553,9 @@ class PaymentsApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \cashfree\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFPaymentsEntity[]|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \cashfree\Client\Model\CFPaymentsEntity[]|\cashfree\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsfororderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -598,32 +598,32 @@ class PaymentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFPaymentsEntity[]' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFPaymentsEntity[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFPaymentsEntity[]', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFPaymentsEntity[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\cashfree\Client\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\cashfree\Client\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFPaymentsEntity[]';
+            $returnType = '\cashfree\Client\Model\CFPaymentsEntity[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -641,7 +641,7 @@ class PaymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFPaymentsEntity[]',
+                        '\cashfree\Client\Model\CFPaymentsEntity[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -649,7 +649,7 @@ class PaymentsApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\cashfree\Client\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -703,7 +703,7 @@ class PaymentsApi
      */
     public function getPaymentsfororderAsyncWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFPaymentsEntity[]';
+        $returnType = '\cashfree\Client\Model\CFPaymentsEntity[]';
         $request = $this->getPaymentsfororderRequest($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
