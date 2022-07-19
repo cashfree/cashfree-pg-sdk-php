@@ -74,7 +74,9 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_meta' => '\OpenAPI\Client\Model\CFOrderMeta',
         'payments' => '\OpenAPI\Client\Model\CFPaymentURLObject',
         'settlements' => '\OpenAPI\Client\Model\CFSettlementURLObject',
-        'refunds' => '\OpenAPI\Client\Model\CFRefundURLObject'
+        'refunds' => '\OpenAPI\Client\Model\CFRefundURLObject',
+        'order_splits' => 'mixed',
+        'order_tags' => 'mixed'
     ];
 
     /**
@@ -99,7 +101,9 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_meta' => null,
         'payments' => null,
         'settlements' => null,
-        'refunds' => null
+        'refunds' => null,
+        'order_splits' => null,
+        'order_tags' => null
     ];
 
     /**
@@ -143,7 +147,9 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_meta' => 'order_meta',
         'payments' => 'payments',
         'settlements' => 'settlements',
-        'refunds' => 'refunds'
+        'refunds' => 'refunds',
+        'order_splits' => 'order_splits',
+        'order_tags' => 'order_tags'
     ];
 
     /**
@@ -166,7 +172,9 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_meta' => 'setOrderMeta',
         'payments' => 'setPayments',
         'settlements' => 'setSettlements',
-        'refunds' => 'setRefunds'
+        'refunds' => 'setRefunds',
+        'order_splits' => 'setOrderSplits',
+        'order_tags' => 'setOrderTags'
     ];
 
     /**
@@ -189,7 +197,9 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_meta' => 'getOrderMeta',
         'payments' => 'getPayments',
         'settlements' => 'getSettlements',
-        'refunds' => 'getRefunds'
+        'refunds' => 'getRefunds',
+        'order_splits' => 'getOrderSplits',
+        'order_tags' => 'getOrderTags'
     ];
 
     /**
@@ -264,6 +274,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['payments'] = $data['payments'] ?? null;
         $this->container['settlements'] = $data['settlements'] ?? null;
         $this->container['refunds'] = $data['refunds'] ?? null;
+        $this->container['order_splits'] = $data['order_splits'] ?? null;
     }
 
     /**
@@ -298,6 +309,30 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getCfOrderId()
     {
         return $this->container['cf_order_id'];
+    }
+
+    public function getOrderSplits()
+    {
+        return $this->container['order_splits'];
+    }
+
+    public function setOrderSplits($order_splits)
+    {
+        $this->container['order_splits'] = $order_splits;
+
+        return $this;
+    }
+
+    public function getOrderTags()
+    {
+        return $this->container['order_tags'];
+    }
+
+    public function setOrderTags($order_tags)
+    {
+        $this->container['order_tags'] = $order_tags;
+
+        return $this;
     }
 
     /**

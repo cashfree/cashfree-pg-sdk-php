@@ -16,6 +16,7 @@ use OpenAPI\Client\Model\CFRefundRequest;
 use OpenAPI\Client\Api\SettlementsApi;
 use OpenAPI\Client\Api\PaymentLinksApi;
 use OpenAPI\Client\Model\CFLinkRequest;
+use OpenAPI\Client\Configuration;
 
 class CFPaymentGateway {
 
@@ -28,15 +29,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
         $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
         $x_client_id = $config->getClientId(); // string
         $x_client_secret = $config->getClientSecret(); // string
         $x_api_version = $config->getApiVersion(); // string
@@ -55,15 +62,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
         $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
         $x_client_id = $config->getClientId(); // string
         $x_client_secret = $config->getClientSecret(); // string
         $x_api_version = $config->getApiVersion(); // string
@@ -108,15 +121,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new PaymentsApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -135,15 +154,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new PaymentsApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -162,15 +187,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new RefundsApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -189,15 +220,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new RefundsApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -216,15 +253,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new RefundsApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -243,15 +286,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new SettlementsApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -270,15 +319,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new PaymentLinksApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -297,15 +352,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new PaymentLinksApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -324,15 +385,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
-        $apiInstance = new PaymentLinksApi(
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
@@ -351,15 +418,21 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
         $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
-                'proxy' => $config->getProxy(),
+                'proxy' => $config->getProxy()
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
-            );
+        );
             $x_client_id = $config->getClientId(); // string
             $x_client_secret = $config->getClientSecret(); // string
             $x_api_version = $config->getApiVersion(); // string
