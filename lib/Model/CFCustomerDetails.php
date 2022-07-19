@@ -62,6 +62,7 @@ class CFCustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'customer_id' => 'string',
         'customer_email' => 'string',
+        'customer_name' => 'string',
         'customer_phone' => 'string',
         'customer_bank_account_number' => 'string',
         'customer_bank_ifsc' => 'string',
@@ -79,6 +80,7 @@ class CFCustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
         'customer_id' => null,
         'customer_email' => null,
         'customer_phone' => null,
+        'customer_name' => null,
         'customer_bank_account_number' => null,
         'customer_bank_ifsc' => null,
         'customer_bank_code' => null
@@ -116,7 +118,8 @@ class CFCustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
         'customer_phone' => 'customer_phone',
         'customer_bank_account_number' => 'customer_bank_account_number',
         'customer_bank_ifsc' => 'customer_bank_ifsc',
-        'customer_bank_code' => 'customer_bank_code'
+        'customer_bank_code' => 'customer_bank_code',
+        'customer_name' => 'customer_name',
     ];
 
     /**
@@ -130,7 +133,8 @@ class CFCustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
         'customer_phone' => 'setCustomerPhone',
         'customer_bank_account_number' => 'setCustomerBankAccountNumber',
         'customer_bank_ifsc' => 'setCustomerBankIfsc',
-        'customer_bank_code' => 'setCustomerBankCode'
+        'customer_bank_code' => 'setCustomerBankCode',
+        'customer_name' => 'setCustomerName',
     ];
 
     /**
@@ -144,7 +148,8 @@ class CFCustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
         'customer_phone' => 'getCustomerPhone',
         'customer_bank_account_number' => 'getCustomerBankAccountNumber',
         'customer_bank_ifsc' => 'getCustomerBankIfsc',
-        'customer_bank_code' => 'getCustomerBankCode'
+        'customer_bank_code' => 'getCustomerBankCode',
+        'customer_name' => 'getCustomerName',
     ];
 
     /**
@@ -294,6 +299,17 @@ class CFCustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function getCustomerId()
     {
         return $this->container['customer_id'];
+    }
+
+    public function getCustomerName()
+    {
+        return $this->container['customer_name'];
+    }
+
+    public function setCustomerName($customer_name) {
+        $this->container['customer_name'] = $customer_name;
+
+        return $this;
     }
 
     /**
