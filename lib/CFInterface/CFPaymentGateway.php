@@ -127,7 +127,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new PaymentsApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -160,7 +160,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new PaymentsApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -193,7 +193,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new RefundsApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -226,7 +226,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new RefundsApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -259,7 +259,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new RefundsApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -292,7 +292,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new SettlementsApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -325,7 +325,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new PaymentLinksApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -358,7 +358,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new PaymentLinksApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
@@ -391,7 +391,7 @@ class CFPaymentGateway {
         } else {
             $configuration->setHost("https://api.cashfree.com/pg");
         }
-        $apiInstance = new OrdersApi(
+        $apiInstance = new PaymentLinksApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy()
