@@ -383,12 +383,6 @@ class CFCustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setCustomerPhone($customer_phone)
     {
-        if ((mb_strlen($customer_phone) > 10)) {
-            throw new \InvalidArgumentException('invalid length for $customer_phone when calling CFCustomerDetails., must be smaller than or equal to 10.');
-        }
-        if ((mb_strlen($customer_phone) < 10)) {
-            throw new \InvalidArgumentException('invalid length for $customer_phone when calling CFCustomerDetails., must be bigger than or equal to 10.');
-        }
 
         $this->container['customer_phone'] = $customer_phone;
 
