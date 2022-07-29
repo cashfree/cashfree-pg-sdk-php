@@ -66,7 +66,6 @@ class CFSettlementsResponse {
             'service_charge' => $this->cfSettlementsEntity->getServiceCharge(),
             'service_tax' => $this->cfSettlementsEntity->getServiceTax(),
             'settlement_amount' => $this->cfSettlementsEntity->getSettlementAmount(),
-            'settlement_id' => $this->cfSettlementsEntity->getSettlementId(),
             'transfer_id' => $this->cfSettlementsEntity->getTransferId(),
             'transfer_time' => $this->cfSettlementsEntity->getTransferTime(),
             'transfer_utr' => $this->cfSettlementsEntity->getTransferUtr()
