@@ -96,12 +96,18 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
         $apiInstance = new OrdersApi(
             new Client([
                 'timeout' => $config->getTimeout(),
                 'proxy' => $config->getProxy(),
             ]),
-            null,
+            $configuration,
             null,
             $hostURL
             );

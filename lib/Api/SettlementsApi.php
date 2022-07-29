@@ -55,22 +55,7 @@ class CFSettlementsResponse {
     }
 
     public function getCFSettlementsEntity() {
-        $cfSettlementsEntityObject = [
-            'cf_payment_id' => $this->cfSettlementsEntity->getCfPaymentId(),
-            'cf_settlement_id' => $this->cfSettlementsEntity->getCfSettlementId(),
-            'settlement_currency' => $this->cfSettlementsEntity->getSettlementCurrency(),
-            'order_id' => $this->cfSettlementsEntity->getOrderId(),
-            'entity' => $this->cfSettlementsEntity->getEntity(),
-            'order_amount' => $this->cfSettlementsEntity->getOrderAmount(),
-            'payment_time' => $this->cfSettlementsEntity->getPaymentTime(),
-            'service_charge' => $this->cfSettlementsEntity->getServiceCharge(),
-            'service_tax' => $this->cfSettlementsEntity->getServiceTax(),
-            'settlement_amount' => $this->cfSettlementsEntity->getSettlementAmount(),
-            'transfer_id' => $this->cfSettlementsEntity->getTransferId(),
-            'transfer_time' => $this->cfSettlementsEntity->getTransferTime(),
-            'transfer_utr' => $this->cfSettlementsEntity->getTransferUtr()
-        ];
-        return $cfSettlementsEntityObject;
+        return $this->cfSettlementsEntity;
     }
     public function getHeader() {
         return $this->headers;
