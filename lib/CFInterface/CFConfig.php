@@ -14,7 +14,7 @@ class CFConfig {
     public int $timeout = 180000;
     public string $proxy = "";
 
-    public function __construct(CFEnvironment $environment, string $clientId, string $clientSecret, string $apiVersion = "2022-01-01", string $proxy = "", int $timeout = 180000) {
+    public function __construct(CFEnvironment $environment, string $clientId, string $clientSecret, string $apiVersion = "2022-09-01", string $proxy = "", int $timeout = 180000) {
         $this->environment = $environment;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;

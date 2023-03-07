@@ -64,6 +64,7 @@ class CFSavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSeriali
         'card_bank_name' => 'string',
         'card_country' => 'string',
         'card_type' => 'string',
+        'card_sub_type' => 'string',
         'card_token_details' => 'object'
     ];
 
@@ -79,6 +80,7 @@ class CFSavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSeriali
         'card_bank_name' => null,
         'card_country' => null,
         'card_type' => null,
+        'card_sub_type' => null,
         'card_token_details' => null
     ];
 
@@ -113,6 +115,7 @@ class CFSavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSeriali
         'card_bank_name' => 'card_bank_name',
         'card_country' => 'card_country',
         'card_type' => 'card_type',
+        'card_sub_type' => 'card_sub_type',
         'card_token_details' => 'card_token_details'
     ];
 
@@ -126,7 +129,8 @@ class CFSavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSeriali
         'card_bank_name' => 'setCardBankName',
         'card_country' => 'setCardCountry',
         'card_type' => 'setCardType',
-        'card_token_details' => 'setCardTokenDetails'
+        'card_token_details' => 'setCardTokenDetails',
+        'card_sub_type' => 'setCardSubType'
     ];
 
     /**
@@ -139,7 +143,8 @@ class CFSavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSeriali
         'card_bank_name' => 'getCardBankName',
         'card_country' => 'getCardCountry',
         'card_type' => 'getCardType',
-        'card_token_details' => 'getCardTokenDetails'
+        'card_token_details' => 'getCardTokenDetails',
+        'card_sub_type' => 'getCardSubType'
     ];
 
     /**
@@ -203,6 +208,7 @@ class CFSavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['card_bank_name'] = $data['card_bank_name'] ?? null;
         $this->container['card_country'] = $data['card_country'] ?? null;
         $this->container['card_type'] = $data['card_type'] ?? null;
+        $this->container['card_sub_type'] = $data['card_sub_type'] ?? null;
         $this->container['card_token_details'] = $data['card_token_details'] ?? null;
     }
 
@@ -250,6 +256,30 @@ class CFSavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setCardNetwork($card_network)
     {
         $this->container['card_network'] = $card_network;
+
+        return $this;
+    }
+
+    /**
+     * Gets card_sub_type
+     *
+     * @return string|null
+     */
+    public function getCardSubType()
+    {
+        return $this->container['card_sub_type'];
+    }
+
+    /**
+     * Sets card_network
+     *
+     * @param string|null $card_sub_type 
+     *
+     * @return self
+     */
+    public function setCardSubType($card_sub_type)
+    {
+        $this->container['card_sub_type'] = $card_sub_type;
 
         return $this;
     }

@@ -77,7 +77,8 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_type' => 'string',
         'refund_mode' => 'string',
         'created_at' => 'string',
-        'processed_at' => 'string'
+        'processed_at' => 'string',
+        'refund_speed' => 'object',
     ];
 
     /**
@@ -105,7 +106,8 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_type' => null,
         'refund_mode' => null,
         'created_at' => null,
-        'processed_at' => null
+        'processed_at' => null,
+        'refund_speed' => null
     ];
 
     /**
@@ -152,7 +154,8 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_type' => 'refund_type',
         'refund_mode' => 'refund_mode',
         'created_at' => 'created_at',
-        'processed_at' => 'processed_at'
+        'processed_at' => 'processed_at',
+        'refund_speed' => 'refund_speed',
     ];
 
     /**
@@ -178,7 +181,8 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_type' => 'setRefundType',
         'refund_mode' => 'setRefundMode',
         'created_at' => 'setCreatedAt',
-        'processed_at' => 'setProcessedAt'
+        'processed_at' => 'setProcessedAt',
+        'refund_speed' => 'setRefundSpeed'
     ];
 
     /**
@@ -204,7 +208,8 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_type' => 'getRefundType',
         'refund_mode' => 'getRefundMode',
         'created_at' => 'getCreatedAt',
-        'processed_at' => 'getProcessedAt'
+        'processed_at' => 'getProcessedAt',
+        'refund_speed' => 'getRefundSpeed'
     ];
 
     /**
@@ -346,6 +351,7 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['refund_mode'] = $data['refund_mode'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['processed_at'] = $data['processed_at'] ?? null;
+        $this->container['refund_speed'] = $data['refund_speed'] ?? null;
     }
 
     /**
@@ -736,6 +742,30 @@ class CFRefund implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_speed
+     *
+     * @return object|null
+     */
+    public function getRefundSpeed()
+    {
+        return $this->container['refund_speed'];
+    }
+
+    /**
+     * Sets refund_speed
+     *
+     * @param object|null $refund_speed 
+     *
+     * @return self
+     */
+    public function setRefundSpeed($refundSpeed)
+    {
+        $this->container['refund_speed'] = $refundSpeed;
 
         return $this;
     }

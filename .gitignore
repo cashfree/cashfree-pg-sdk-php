@@ -11,4 +11,5 @@ composer.phar
 .php_cs.cache
 
 # PHPUnit cache
-.phpunit.result.cache
+.phpunit.result.cache.DS_Store
+**/.DS_Store

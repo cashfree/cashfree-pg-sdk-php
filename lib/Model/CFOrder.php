@@ -67,6 +67,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_amount' => 'float',
         'order_status' => 'string',
         'order_token' => 'string',
+        'payment_session_id' => 'string',
         'order_expiry_time' => 'string',
         'order_note' => 'string',
         'payment_link' => 'string',
@@ -103,7 +104,8 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'settlements' => null,
         'refunds' => null,
         'order_splits' => null,
-        'order_tags' => null
+        'order_tags' => null,
+        'payment_session_id' => null
     ];
 
     /**
@@ -149,7 +151,8 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'settlements' => 'settlements',
         'refunds' => 'refunds',
         'order_splits' => 'order_splits',
-        'order_tags' => 'order_tags'
+        'order_tags' => 'order_tags',
+        'payment_session_id' => 'payment_session_id'
     ];
 
     /**
@@ -174,7 +177,8 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'settlements' => 'setSettlements',
         'refunds' => 'setRefunds',
         'order_splits' => 'setOrderSplits',
-        'order_tags' => 'setOrderTags'
+        'order_tags' => 'setOrderTags',
+        'payment_session_id' => 'setPaymentSessionId'
     ];
 
     /**
@@ -199,7 +203,8 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'settlements' => 'getSettlements',
         'refunds' => 'getRefunds',
         'order_splits' => 'getOrderSplits',
-        'order_tags' => 'getOrderTags'
+        'order_tags' => 'getOrderTags',
+        'payment_session_id' => 'getPaymentSessionId'
     ];
 
     /**
@@ -275,6 +280,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['settlements'] = $data['settlements'] ?? null;
         $this->container['refunds'] = $data['refunds'] ?? null;
         $this->container['order_splits'] = $data['order_splits'] ?? null;
+        $this->container['payment_session_id'] = $data['payment_session_id'] ?? null
     }
 
     /**
@@ -309,6 +315,30 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getCfOrderId()
     {
         return $this->container['cf_order_id'];
+    }
+
+    /**
+     * Gets payment_session_id
+     *
+     * @return int|null
+     */
+    public function getPaymentSessionId()
+    {
+        return $this->container['payment_session_id'];
+    }
+
+    /**
+     * Sets payment_session_id
+     *
+     * @param string
+     *
+     * @return self
+     */
+    public function setPaymentSessionId($payment_session_id)
+    {
+        $this->container['payment_session_id'] = $payment_session_id;
+
+        return $this;
     }
 
     public function getOrderSplits()
@@ -772,5 +802,3 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

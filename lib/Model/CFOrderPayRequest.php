@@ -60,6 +60,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
+        'payment_session_id' => 'string',
         'order_token' => 'string',
         'payment_method' => '\OpenAPI\Client\Model\CFPaymentMethod',
         'save_instrument' => 'bool'
@@ -73,6 +74,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'payment_session_id' => null,
         'order_token' => null,
         'payment_method' => null,
         'save_instrument' => null
@@ -105,6 +107,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'payment_session_id' => 'payment_session_id',
         'order_token' => 'order_token',
         'payment_method' => 'payment_method',
         'save_instrument' => 'save_instrument'
@@ -116,6 +119,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'payment_session_id' => 'setPaymentSessionId',
         'order_token' => 'setOrderToken',
         'payment_method' => 'setPaymentMethod',
         'save_instrument' => 'setSaveInstrument'
@@ -127,6 +131,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'payment_session_id' => 'getPaymentSessionId',
         'order_token' => 'getOrderToken',
         'payment_method' => 'getPaymentMethod',
         'save_instrument' => 'getSaveInstrument'
@@ -189,6 +194,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
+        $this->container['payment_session_id'] = $data['payment_session_id'] ?? null;
         $this->container['order_token'] = $data['order_token'] ?? null;
         $this->container['payment_method'] = $data['payment_method'] ?? null;
         $this->container['save_instrument'] = $data['save_instrument'] ?? null;
@@ -203,8 +209,8 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['order_token'] === null) {
-            $invalidProperties[] = "'order_token' can't be null";
+        if ($this->container['order_token'] === null || $this->container['payment_session_id'] === null) {
+            $invalidProperties[] = "'order_token' or 'payment_session_id' can't be null";
         }
         if ($this->container['payment_method'] === null) {
             $invalidProperties[] = "'payment_method' can't be null";
@@ -235,6 +241,15 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets payment_session_id
+     *
+     * @return string
+     */
+    public function getPaymentSessionId() {
+        return $this->container['payment_session_id'];
+    }
+
+    /**
      * Sets order_token
      *
      * @param string $order_token order_token
@@ -246,6 +261,18 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['order_token'] = $order_token;
 
         return $this;
+    }
+
+    /**
+     * Sets payment_session_id
+     *
+     * @param string $payment_session_id payment_session_id
+     *
+     * @return self
+     */
+    public function setPaymentSessionId($paymentSessionId) {
+        $this->container['payment_session_id'] = $paymentSessionId;
+        return $this
     }
 
     /**
