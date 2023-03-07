@@ -14,7 +14,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "cashfree/cashfree-pg-php-sdk": "^0.0.6"
+    "cashfree/cashfree-pg-php-sdk": "^2.0.1"
   }
 }
 ```
@@ -94,7 +94,7 @@ try {
 
 ## Pay Order
 
-Once you have created the order, you can use the order to initiate payment. Order creation API returns "order_token" which contains information about the order and that has to be used in payment initiation stage. Cashfree provides multiple payment methods to choose to make payments for an order, namely, UPI, Netbanking, Wallet, Card, Card EMI, Cardless EMI and Pay later.
+Once you have created the order, you can use the order to initiate payment. Order creation API returns "payment_session_id" which contains information about the order and that has to be used in payment initiation stage. Cashfree provides multiple payment methods to choose to make payments for an order, namely, UPI, Netbanking, Wallet, Card, Card EMI, Cardless EMI and Pay later.
 
 ### Card
 
@@ -130,7 +130,7 @@ try {
             $result = $apiInstance->createOrder($cfConfig, $cfHeader, $cfOrderRequest);
             
             // USE THIS TOKEN IN ORDER PAY
-            $orderToken = $result->getCFOrder()->getOrderToken();
+            $paymentSessionId = $result->getCFOrder()->getPaymentSessionId();
 
             $card = [
                 "channel" => "link",
@@ -145,21 +145,21 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
 
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
         }
 ```
 
-`Note:` Order has to be created and then the order_token has to be used to make the payments for all the other payment methods as well. This step is covered in the above example and the same step has to be followed for all other payment methods.
+`Note:` Order has to be created and then the payment_session_id has to be used to make the payments for all the other payment methods as well. This step is covered in the above example and the same step has to be followed for all other payment methods.
 
 ## UPI
 
@@ -168,7 +168,7 @@ Below is the code to initiate payment with UPI - `Collect`
 ```
 try {
 
-            $orderToken = "order_token";
+            $paymentSessionId = "payment_session_id";
             $upi = [
                 "channel" => "collect",
                 "upi_id" => "testfailure@gocash"
@@ -178,7 +178,7 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
@@ -186,7 +186,7 @@ try {
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
             $apiInstance = new CFPaymentGateway();
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
@@ -198,7 +198,7 @@ Below is the code to initiate payment with UPI - `Intent`
 ```
 try {
 
-            $orderToken = "order_token";
+            $paymentSessionId = "payment_session_id";
             $upi = [
                 "channel" => "link",
             ];
@@ -207,7 +207,7 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
@@ -215,7 +215,7 @@ try {
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
             $apiInstance = new CFPaymentGateway();
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
@@ -227,7 +227,7 @@ Below is the code to initiate payment with UPI - `QRCode`
 ```
 try {
 
-            $orderToken = "order_token";
+            $paymentSessionId = "payment_session_id";
             $upi = [
                 "channel" => "qrcode",
             ];
@@ -236,7 +236,7 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
@@ -244,7 +244,7 @@ try {
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
             $apiInstance = new CFPaymentGateway();
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
@@ -258,7 +258,7 @@ Below is the code to initiate payment with Netbanking
 ```
 try {
 
-            $orderToken = "order_token";
+            $paymentSessionId = "payment_session_id";
             $netbanking = [
                 "channel" => "link",
                 "netbanking_bank_code" => 3028
@@ -268,7 +268,7 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
@@ -276,7 +276,7 @@ try {
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
             $apiInstance = new CFPaymentGateway();
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse()->getChannel();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
@@ -291,7 +291,7 @@ Below is the code to initiate payment with App (Wallet)
 
 ```
 try {
-            $orderToken = "order_token";
+            $paymentSessionId = "payment_session_id";
             $app = [
                 "channel" => "link",
                 "phone" => "8908908901",
@@ -302,7 +302,7 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
@@ -310,7 +310,7 @@ try {
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
             $apiInstance = new CFPaymentGateway();
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
@@ -324,7 +324,7 @@ Below is the code to initiate payment with Paylater
 
 ```
 try {
-            $orderToken = "order_token";
+            $paymentSessionId = "payment_session_id";
             $paylater = [
                 "channel" => "link",
                 "phone" => "8908908901",
@@ -335,7 +335,7 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
@@ -343,7 +343,7 @@ try {
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
             $apiInstance = new CFPaymentGateway();
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
@@ -358,7 +358,7 @@ Below is the code to initiate payment with EMI - Card
 
 ```
 try {
-            $orderToken = "order_token
+            $paymentSessionId = "payment_session_id"
 
             $emi = [
                 "channel" => "link",
@@ -375,14 +375,14 @@ try {
             ];
 
             $data = [
-                "order_token" => $orderToken,
+                "payment_session_id" => $paymentSessionId,
                 "payment_method" => $paymentMethod
             ];
 
 
             $cfOrderPayRequest = new CFOrderPayRequest($data);
 
-            $result = $apiInstance->orderPay($cfConfig, $cfHeader, $cfOrderPayRequest);
+            $result = $apiInstance->orderPaySessions($cfConfig, $cfHeader, $cfOrderPayRequest);
             echo $result->getCFOrderPayResponse();
         } catch (ApiException $e) {
             echo $e->getResponseBody();
@@ -576,4 +576,4 @@ nextgenapi@cashfree.com
 
 ## About this package
 
-- API version: `2022-01-01`
+- API version: `2022-09-01`
