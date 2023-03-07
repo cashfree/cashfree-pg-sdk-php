@@ -91,6 +91,37 @@ class CFPaymentGateway {
         }
     }
 
+    public function orderPaySessions(CFConfig $config, CFHeader $header, CFOrderPayRequest $cfOrderPayRequest) {
+        if($config != null) {
+            $environment = $config->getEnvironment();
+            $hostURL = $this->getURL($environment);
+        }
+        $configuration = new Configuration();
+        if($hostURL == 0) {
+            $configuration->setHost("https://sandbox.cashfree.com/pg");
+        } else {
+            $configuration->setHost("https://api.cashfree.com/pg");
+        }
+        $apiInstance = new OrdersApi(
+            new Client([
+                'timeout' => $config->getTimeout(),
+                'proxy' => $config->getProxy(),
+            ]),
+            $configuration,
+            null,
+            $hostURL
+            );
+        $x_api_version = $config->getApiVersion(); // string
+        $x_idempotency_key = $header->getIdempotencyKey(); // string
+        $x_request_id = $header->getRequestId(); // string
+        try {
+            $result = $apiInstance->orderPaySessions($x_api_version, $x_request_id, $cfOrderPayRequest);
+            return $result;
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
     public function orderPay(CFConfig $config, CFHeader $header, CFOrderPayRequest $cfOrderPayRequest) {
         if($config != null) {
             $environment = $config->getEnvironment();

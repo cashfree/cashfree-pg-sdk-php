@@ -63,6 +63,7 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_amount' => 'double',
         'refund_id' => 'string',
         'refund_note' => 'string',
+        'refund_speed' => 'string',
         'refund_splits' => '\OpenAPI\Client\Model\CFVendorSplit[]'
     ];
 
@@ -76,6 +77,7 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'refund_amount' => 'double',
         'refund_id' => null,
+        'refund_speed' => null,
         'refund_note' => null,
         'refund_splits' => null
     ];
@@ -110,7 +112,8 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_amount' => 'refund_amount',
         'refund_id' => 'refund_id',
         'refund_note' => 'refund_note',
-        'refund_splits' => 'refund_splits'
+        'refund_splits' => 'refund_splits',
+        'refund_speed' => 'refund_speed',
     ];
 
     /**
@@ -122,7 +125,8 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_amount' => 'setRefundAmount',
         'refund_id' => 'setRefundId',
         'refund_note' => 'setRefundNote',
-        'refund_splits' => 'setRefundSplits'
+        'refund_splits' => 'setRefundSplits',
+        'refund_speed' => 'setRefundSpeed'
     ];
 
     /**
@@ -134,7 +138,8 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_amount' => 'getRefundAmount',
         'refund_id' => 'getRefundId',
         'refund_note' => 'getRefundNote',
-        'refund_splits' => 'getRefundSplits'
+        'refund_splits' => 'getRefundSplits',
+        'refund_speed' => 'getRefundSpeed'
     ];
 
     /**
@@ -198,6 +203,7 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['refund_id'] = $data['refund_id'] ?? null;
         $this->container['refund_note'] = $data['refund_note'] ?? null;
         $this->container['refund_splits'] = $data['refund_splits'] ?? null;
+        $this->container['refund_speed'] = $data['refund_speed'] ?? null;
     }
 
     /**
@@ -266,6 +272,30 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRefundAmount($refund_amount)
     {
         $this->container['refund_amount'] = $refund_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_speed
+     *
+     * @return double
+     */
+    public function getRefundSpeed()
+    {
+        return $this->container['refund_speed'];
+    }
+
+    /**
+     * Sets refund_speed
+     *
+     * @param double $refund_speed
+     *
+     * @return self
+     */
+    public function setRefundSpeed($refund_speed)
+    {
+        $this->container['refund_speed'] = $refund_speed;
 
         return $this;
     }

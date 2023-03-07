@@ -911,6 +911,116 @@ class OrdersApi
         return $cfPayResponse;
     }
 
+    public function orderPaySessions($x_api_version, $x_request_id = null, $cf_order_pay_request = null)
+    {
+        $response = $this->orderPaySessionsWithHttpInfo($x_api_version, $x_request_id, $cf_order_pay_request);
+        list($r) = $response;
+        $cfPayResponse = new CFPaymentResponse($r, $response[2]);
+        return $cfPayResponse;
+    }
+
+    public function orderPaySessionsWithHttpInfo($x_api_version, $x_request_id = null, $cf_order_pay_request = null)
+    {
+        $request = $this->orderPaySessionsRequest($x_api_version, $x_request_id, $cf_order_pay_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\CFOrderPayResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFOrderPayResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CFOrderPayResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CFOrderPayResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CFError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
     /**
      * Operation orderPayWithHttpInfo
      *
@@ -1096,6 +1206,91 @@ class OrdersApi
                     );
                 }
             );
+    }
+
+    public function orderPaySessionsRequest($x_api_version, $x_request_id = null, $cf_order_pay_request = null)
+    {
+
+        $resourcePath = '/orders/sessions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($x_request_id !== null) {
+            $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
+        }
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($cf_order_pay_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($cf_order_pay_request));
+            } else {
+                $httpBody = $cf_order_pay_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
