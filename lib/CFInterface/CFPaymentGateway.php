@@ -29,6 +29,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_CREATEORDER",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -53,6 +60,7 @@ class CFPaymentGateway {
             $result = $apiInstance->createOrder($x_client_id, $x_client_secret, $x_api_version, false, $x_idempotency_key, $x_request_id, $cfOrderRequest);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -62,6 +70,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_GETORDER",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -87,6 +102,7 @@ class CFPaymentGateway {
             print $result->getCFOrder();
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -96,6 +112,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_ORDERPAYSESSIONS",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -118,6 +141,7 @@ class CFPaymentGateway {
             $result = $apiInstance->orderPaySessions($x_api_version, $x_request_id, $cfOrderPayRequest);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -127,6 +151,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_ORDERPAY",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -149,6 +180,7 @@ class CFPaymentGateway {
             $result = $apiInstance->orderPay($x_api_version, $x_request_id, $cfOrderPayRequest);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -158,6 +190,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_GETPAYMENTSFORORDER",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -182,6 +221,7 @@ class CFPaymentGateway {
             $result = $apiInstance->getPaymentsfororder($x_client_id, $x_client_secret, $orderId, $x_api_version, false, $x_idempotency_key, $x_request_id);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -191,6 +231,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_GETPAYMENTSBYID",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -215,6 +262,7 @@ class CFPaymentGateway {
             $result = $apiInstance->getPaymentbyId($x_client_id, $x_client_secret, $orderId, $cfPaymentId, $x_api_version, false, $x_idempotency_key, $x_request_id);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -224,6 +272,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_CREATEREFUND",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -248,6 +303,7 @@ class CFPaymentGateway {
             $result = $apiInstance->createrefund($x_client_id, $x_client_secret, $orderId, $x_api_version, false, $x_idempotency_key, $x_request_id, $cfRefundRequest);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -257,6 +313,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_GETREFUND",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -281,6 +344,7 @@ class CFPaymentGateway {
             $result = $apiInstance->getRefund($x_client_id, $x_client_secret, $orderId, $refundId, $x_api_version, false, $x_idempotency_key, $x_request_id);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -290,6 +354,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_GETALLREFUNDSFORANORDER",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -314,6 +385,7 @@ class CFPaymentGateway {
             $result = $apiInstance->getallrefundsfororder($x_client_id, $x_client_secret, $orderId, $x_api_version, false, $x_idempotency_key, $x_request_id);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -323,6 +395,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_GETSETTLEMENTS",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -347,6 +426,7 @@ class CFPaymentGateway {
             $result = $apiInstance->getsettlements($x_client_id, $x_client_secret, $orderId, $x_api_version, false, $x_idempotency_key, $x_request_id);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -356,6 +436,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_CREATEPAYMENTLINKS",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -380,6 +467,7 @@ class CFPaymentGateway {
             $result = $apiInstance->createPaymentLink($x_client_id, $x_client_secret, $x_api_version, false, $x_idempotency_key, $x_request_id, $cfLinkRequest);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -389,6 +477,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_GETPAYMENTLINKDETAILS",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -413,6 +508,7 @@ class CFPaymentGateway {
             $result = $apiInstance->getPaymentLinkDetails($x_client_id, $x_client_secret, $linkId, $x_api_version, false, $x_idempotency_key, $x_request_id);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -422,6 +518,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_CANCELPAYMENTLINK",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -446,6 +549,7 @@ class CFPaymentGateway {
             $result = $apiInstance->cancelPaymentLink($x_client_id, $x_client_secret, $linkId, $x_api_version, false, $x_idempotency_key, $x_request_id);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }
@@ -455,6 +559,13 @@ class CFPaymentGateway {
             $environment = $config->getEnvironment();
             $hostURL = $this->getURL($environment);
         }
+        \Sentry\init([
+            'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+            'environment' => $config->getEnvironment() + "_PREAUTH",
+            'attach_stacktrace' => true,
+            'release' => '2.0.2',
+            'traces_sample_rate' => 1.0
+        ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
             $configuration->setHost("https://sandbox.cashfree.com/pg");
@@ -479,6 +590,7 @@ class CFPaymentGateway {
             $result = $apiInstance->preauthorization($x_client_id, $x_client_secret, $orderId, $x_api_version, false, $x_idempotency_key, $x_request_id, $cfAuthorizationRequest);
             return $result;
         } catch (Exception $e) {
+            \Sentry\captureException($e);
             throw $e;
         }
     }

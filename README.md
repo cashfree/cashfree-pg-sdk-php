@@ -14,7 +14,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "cashfree/cashfree-pg-php-sdk": "^2.0.1"
+    "cashfree/cashfree-pg-php-sdk": "^2.0.2"
   }
 }
 ```
