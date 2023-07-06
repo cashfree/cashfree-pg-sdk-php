@@ -272,7 +272,7 @@ class CFOrderPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function setPaymentSessionId($paymentSessionId) {
         $this->container['payment_session_id'] = $paymentSessionId;
-        return $this
+        return $this;
     }
 
     /**
