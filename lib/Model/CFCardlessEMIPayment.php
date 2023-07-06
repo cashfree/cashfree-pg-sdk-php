@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFCardlessEMIPayment Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class CFCardlessEMIPayment implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cardless_emi' => '\OpenAPI\Client\Model\CFCardlessEMI'
+        'cardless_emi' => '\Cashfree\Model\CFCardlessEMI'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFCardlessEMIPayment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets cardless_emi
      *
-     * @return \OpenAPI\Client\Model\CFCardlessEMI
+     * @return \Cashfree\Model\CFCardlessEMI
      */
     public function getCardlessEmi()
     {
@@ -222,7 +222,7 @@ class CFCardlessEMIPayment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets cardless_emi
      *
-     * @param \OpenAPI\Client\Model\CFCardlessEMI $cardless_emi cardless_emi
+     * @param \Cashfree\Model\CFCardlessEMI $cardless_emi cardless_emi
      *
      * @return self
      */

@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Cashfree\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,12 +35,12 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
-use OpenAPI\Client\Model\CFLink;
-use OpenAPI\Client\Model\CFLinkCancelledResponse;
+use Cashfree\ApiException;
+use Cashfree\Configuration;
+use Cashfree\HeaderSelector;
+use Cashfree\ObjectSerializer;
+use Cashfree\Model\CFLink;
+use Cashfree\Model\CFLinkCancelledResponse;
 
 class CFPaymentLinkCancelledResponse {
     public CFLinkCancelledResponse $cfLinkCancelledResponse;
@@ -88,7 +88,7 @@ class CFPaymentLinkResponse {
  * PaymentLinksApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -170,9 +170,9 @@ class PaymentLinksApi
      * @param  string $link_id link_id (required)
      * @param  string $x_api_version x_api_version (optional, default to '2022-01-01')
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFPaymentLinkCancelledResponse|\OpenAPI\Client\Model\LinkCancelledError
+     * @return \Cashfree\Api\CFPaymentLinkCancelledResponse|\Cashfree\Model\LinkCancelledError
      */
     public function cancelPaymentLink($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01')
     {
@@ -192,9 +192,9 @@ class PaymentLinksApi
      * @param  string $link_id (required)
      * @param  string $x_api_version (optional, default to '2022-01-01')
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFLinkCancelledResponse|\OpenAPI\Client\Model\LinkCancelledError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFLinkCancelledResponse|\Cashfree\Model\LinkCancelledError, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelPaymentLinkWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01')
     {
@@ -237,32 +237,32 @@ class PaymentLinksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFLinkCancelledResponse' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFLinkCancelledResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFLinkCancelledResponse', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFLinkCancelledResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\LinkCancelledError' === '\SplFileObject') {
+                    if ('\Cashfree\Model\LinkCancelledError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\LinkCancelledError', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\LinkCancelledError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFLinkCancelledResponse';
+            $returnType = '\Cashfree\Model\CFLinkCancelledResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -280,7 +280,7 @@ class PaymentLinksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFLinkCancelledResponse',
+                        '\Cashfree\Model\CFLinkCancelledResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -288,7 +288,7 @@ class PaymentLinksApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\LinkCancelledError',
+                        '\Cashfree\Model\LinkCancelledError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -336,7 +336,7 @@ class PaymentLinksApi
      */
     public function cancelPaymentLinkAsyncWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01')
     {
-        $returnType = '\OpenAPI\Client\Model\CFLinkCancelledResponse';
+        $returnType = '\Cashfree\Model\CFLinkCancelledResponse';
         $request = $this->cancelPaymentLinkRequest($x_client_id, $x_client_secret, $link_id, $x_api_version);
 
         return $this->client
@@ -424,6 +424,8 @@ class PaymentLinksApi
         if ($x_api_version !== null) {
             $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($link_id !== null) {
@@ -503,11 +505,11 @@ class PaymentLinksApi
      * @param  bool $x_idempotency_replayed x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFLinkRequest $cf_link_request cf_link_request (optional)
+     * @param  \Cashfree\Model\CFLinkRequest $cf_link_request cf_link_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFPaymentLinkResponse
+     * @return \Cashfree\Api\CFPaymentLinkResponse
      */
     public function createPaymentLink($x_client_id, $x_client_secret, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_link_request = null)
     {
@@ -528,11 +530,11 @@ class PaymentLinksApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFLinkRequest $cf_link_request (optional)
+     * @param  \Cashfree\Model\CFLinkRequest $cf_link_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFLink, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFLink, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPaymentLinkWithHttpInfo($x_client_id, $x_client_secret, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_link_request = null)
     {
@@ -575,20 +577,20 @@ class PaymentLinksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFLink' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFLink' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFLink', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFLink', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFLink';
+            $returnType = '\Cashfree\Model\CFLink';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -606,7 +608,7 @@ class PaymentLinksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFLink',
+                        '\Cashfree\Model\CFLink',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -627,7 +629,7 @@ class PaymentLinksApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFLinkRequest $cf_link_request (optional)
+     * @param  \Cashfree\Model\CFLinkRequest $cf_link_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -653,14 +655,14 @@ class PaymentLinksApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFLinkRequest $cf_link_request (optional)
+     * @param  \Cashfree\Model\CFLinkRequest $cf_link_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPaymentLinkAsyncWithHttpInfo($x_client_id, $x_client_secret, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_link_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFLink';
+        $returnType = '\Cashfree\Model\CFLink';
         $request = $this->createPaymentLinkRequest($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_link_request);
 
         return $this->client
@@ -705,7 +707,7 @@ class PaymentLinksApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFLinkRequest $cf_link_request (optional)
+     * @param  \Cashfree\Model\CFLinkRequest $cf_link_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -757,6 +759,8 @@ class PaymentLinksApi
         if ($x_request_id !== null) {
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
 
 
@@ -836,9 +840,9 @@ class PaymentLinksApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFPaymentLinkResponse
+     * @return \Cashfree\Api\CFPaymentLinkResponse
      */
     public function getPaymentLinkDetails($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -861,9 +865,9 @@ class PaymentLinksApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFLink, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFLink, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentLinkDetailsWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -906,20 +910,20 @@ class PaymentLinksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFLink' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFLink' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFLink', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFLink', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFLink';
+            $returnType = '\Cashfree\Model\CFLink';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -937,7 +941,7 @@ class PaymentLinksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFLink',
+                        '\Cashfree\Model\CFLink',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -991,7 +995,7 @@ class PaymentLinksApi
      */
     public function getPaymentLinkDetailsAsyncWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFLink';
+        $returnType = '\Cashfree\Model\CFLink';
         $request = $this->getPaymentLinkDetailsRequest($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
@@ -1094,6 +1098,8 @@ class PaymentLinksApi
         if ($x_request_id !== null) {
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($link_id !== null) {
@@ -1175,9 +1181,9 @@ class PaymentLinksApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CFLinkOrders[]
+     * @return \Cashfree\Model\CFLinkOrders[]
      */
     public function getPaymentLinkOrders($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -1198,9 +1204,9 @@ class PaymentLinksApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFLinkOrders[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFLinkOrders[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentLinkOrdersWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -1243,20 +1249,20 @@ class PaymentLinksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFLinkOrders[]' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFLinkOrders[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFLinkOrders[]', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFLinkOrders[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFLinkOrders[]';
+            $returnType = '\Cashfree\Model\CFLinkOrders[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1274,7 +1280,7 @@ class PaymentLinksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFLinkOrders[]',
+                        '\Cashfree\Model\CFLinkOrders[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1328,7 +1334,7 @@ class PaymentLinksApi
      */
     public function getPaymentLinkOrdersAsyncWithHttpInfo($x_client_id, $x_client_secret, $link_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFLinkOrders[]';
+        $returnType = '\Cashfree\Model\CFLinkOrders[]';
         $request = $this->getPaymentLinkOrdersRequest($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
@@ -1431,6 +1437,8 @@ class PaymentLinksApi
         if ($x_request_id !== null) {
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($link_id !== null) {

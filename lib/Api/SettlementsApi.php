@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Cashfree\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +35,11 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
-use OpenAPI\Client\Model\CFSettlementsEntity;
+use Cashfree\ApiException;
+use Cashfree\Configuration;
+use Cashfree\HeaderSelector;
+use Cashfree\ObjectSerializer;
+use Cashfree\Model\CFSettlementsEntity;
 
 class CFSettlementsResponse {
     public CFSettlementsEntity $cfSettlementsEntity;
@@ -66,7 +66,7 @@ class CFSettlementsResponse {
  * SettlementsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -151,9 +151,9 @@ class SettlementsApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFSettlementsResponse|\OpenAPI\Client\Model\CFError
+     * @return \Cashfree\Api\CFSettlementsResponse|\Cashfree\Model\CFError
      */
     public function getsettlements($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -176,9 +176,9 @@ class SettlementsApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFSettlementsEntity|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFSettlementsEntity|\Cashfree\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getsettlementsWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -221,32 +221,32 @@ class SettlementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFSettlementsEntity' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFSettlementsEntity' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFSettlementsEntity', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFSettlementsEntity', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFSettlementsEntity';
+            $returnType = '\Cashfree\Model\CFSettlementsEntity';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -264,7 +264,7 @@ class SettlementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFSettlementsEntity',
+                        '\Cashfree\Model\CFSettlementsEntity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -272,7 +272,7 @@ class SettlementsApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\Cashfree\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -326,7 +326,7 @@ class SettlementsApi
      */
     public function getsettlementsAsyncWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFSettlementsEntity';
+        $returnType = '\Cashfree\Model\CFSettlementsEntity';
         $request = $this->getsettlementsRequest($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
@@ -429,6 +429,8 @@ class SettlementsApi
         if ($x_request_id !== null) {
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($order_id !== null) {

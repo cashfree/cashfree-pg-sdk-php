@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **instrument_display** | **string** | masked card number displayed to the customer | [optional]
 **instrument_status** | **string** | status of the saved instrument | [optional]
 **created_at** | **string** | timestamp at which instrument was saved | [optional]
-**instrument_meta** | [**\OpenAPI\Client\Model\CFSavedInstrumentMeta**](CFSavedInstrumentMeta.md) |  | [optional]
+**instrument_meta** | [**\Cashfree\Model\CFSavedInstrumentMeta**](CFSavedInstrumentMeta.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

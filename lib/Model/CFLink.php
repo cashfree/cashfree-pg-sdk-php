@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFLink Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -70,13 +70,13 @@ class CFLink implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_minimum_partial_amount' => 'float',
         'link_purpose' => 'string',
         'link_created_at' => 'string',
-        'customer_details' => '\OpenAPI\Client\Model\CFLinkCustomerDetailsEntity',
-        'link_meta' => '\OpenAPI\Client\Model\CFLinkMetaEntity',
+        'customer_details' => '\Cashfree\Model\CFLinkCustomerDetailsEntity',
+        'link_meta' => '\Cashfree\Model\CFLinkMetaEntity',
         'link_url' => 'string',
         'link_expiry_time' => 'string',
         'link_notes' => 'array<string,string>',
         'link_auto_reminders' => 'bool',
-        'link_notify' => '\OpenAPI\Client\Model\CFLinkNotifyEntity'
+        'link_notify' => '\Cashfree\Model\CFLinkNotifyEntity'
     ];
 
     /**
@@ -545,7 +545,7 @@ class CFLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets customer_details
      *
-     * @return \OpenAPI\Client\Model\CFLinkCustomerDetailsEntity|null
+     * @return \Cashfree\Model\CFLinkCustomerDetailsEntity|null
      */
     public function getCustomerDetails()
     {
@@ -555,7 +555,7 @@ class CFLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets customer_details
      *
-     * @param \OpenAPI\Client\Model\CFLinkCustomerDetailsEntity|null $customer_details customer_details
+     * @param \Cashfree\Model\CFLinkCustomerDetailsEntity|null $customer_details customer_details
      *
      * @return self
      */
@@ -569,7 +569,7 @@ class CFLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets link_meta
      *
-     * @return \OpenAPI\Client\Model\CFLinkMetaEntity|null
+     * @return \Cashfree\Model\CFLinkMetaEntity|null
      */
     public function getLinkMeta()
     {
@@ -579,7 +579,7 @@ class CFLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets link_meta
      *
-     * @param \OpenAPI\Client\Model\CFLinkMetaEntity|null $link_meta link_meta
+     * @param \Cashfree\Model\CFLinkMetaEntity|null $link_meta link_meta
      *
      * @return self
      */
@@ -689,7 +689,7 @@ class CFLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets link_notify
      *
-     * @return \OpenAPI\Client\Model\CFLinkNotifyEntity|null
+     * @return \Cashfree\Model\CFLinkNotifyEntity|null
      */
     public function getLinkNotify()
     {
@@ -699,7 +699,7 @@ class CFLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets link_notify
      *
-     * @param \OpenAPI\Client\Model\CFLinkNotifyEntity|null $link_notify link_notify
+     * @param \Cashfree\Model\CFLinkNotifyEntity|null $link_notify link_notify
      *
      * @return self
      */

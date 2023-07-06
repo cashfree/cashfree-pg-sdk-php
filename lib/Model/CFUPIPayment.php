@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFUPIPayment Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class CFUPIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'upi' => '\OpenAPI\Client\Model\CFUPI'
+        'upi' => '\Cashfree\Model\CFUPI'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFUPIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets upi
      *
-     * @return \OpenAPI\Client\Model\CFUPI
+     * @return \Cashfree\Model\CFUPI
      */
     public function getUpi()
     {
@@ -222,7 +222,7 @@ class CFUPIPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upi
      *
-     * @param \OpenAPI\Client\Model\CFUPI $upi upi
+     * @param \Cashfree\Model\CFUPI $upi upi
      *
      * @return self
      */

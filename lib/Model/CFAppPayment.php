@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFAppPayment Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class CFAppPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'app' => '\OpenAPI\Client\Model\CFApp'
+        'app' => '\Cashfree\Model\CFApp'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFAppPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets app
      *
-     * @return \OpenAPI\Client\Model\CFApp
+     * @return \Cashfree\Model\CFApp
      */
     public function getApp()
     {
@@ -222,7 +222,7 @@ class CFAppPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets app
      *
-     * @param \OpenAPI\Client\Model\CFApp $app app
+     * @param \Cashfree\Model\CFApp $app app
      *
      * @return self
      */

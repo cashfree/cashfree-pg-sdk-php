@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Cashfree\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +35,11 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
-use OpenAPI\Client\Model\CFRefund;
+use Cashfree\ApiException;
+use Cashfree\Configuration;
+use Cashfree\HeaderSelector;
+use Cashfree\ObjectSerializer;
+use Cashfree\Model\CFRefund;
 
 class CFRefundResponse {
     public CFRefund $cfRefund;
@@ -87,7 +87,7 @@ class CFAllRefundResponse {
  * RefundsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -171,11 +171,11 @@ class RefundsApi
      * @param  bool $x_idempotency_replayed x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFRefundRequest $cf_refund_request cf_refund_request (optional)
+     * @param  \Cashfree\Model\CFRefundRequest $cf_refund_request cf_refund_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFRefundResponse|\OpenAPI\Client\Model\CFError
+     * @return \Cashfree\Api\CFRefundResponse|\Cashfree\Model\CFError
      */
     public function createrefund($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_refund_request = null)
     {
@@ -197,11 +197,11 @@ class RefundsApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFRefundRequest $cf_refund_request (optional)
+     * @param  \Cashfree\Model\CFRefundRequest $cf_refund_request (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFRefund|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFRefund|\Cashfree\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createrefundWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_refund_request = null)
     {
@@ -244,32 +244,32 @@ class RefundsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFRefund' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFRefund' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFRefund', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFRefund', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFRefund';
+            $returnType = '\Cashfree\Model\CFRefund';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -287,7 +287,7 @@ class RefundsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFRefund',
+                        '\Cashfree\Model\CFRefund',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -295,7 +295,7 @@ class RefundsApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\Cashfree\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -317,7 +317,7 @@ class RefundsApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFRefundRequest $cf_refund_request (optional)
+     * @param  \Cashfree\Model\CFRefundRequest $cf_refund_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -344,14 +344,14 @@ class RefundsApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFRefundRequest $cf_refund_request (optional)
+     * @param  \Cashfree\Model\CFRefundRequest $cf_refund_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createrefundAsyncWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null, $cf_refund_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFRefund';
+        $returnType = '\Cashfree\Model\CFRefund';
         $request = $this->createrefundRequest($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_refund_request);
 
         return $this->client
@@ -397,7 +397,7 @@ class RefundsApi
      * @param  bool $x_idempotency_replayed (optional, default to false)
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
-     * @param  \OpenAPI\Client\Model\CFRefundRequest $cf_refund_request (optional)
+     * @param  \Cashfree\Model\CFRefundRequest $cf_refund_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -455,6 +455,8 @@ class RefundsApi
         if ($x_request_id !== null) {
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($order_id !== null) {
@@ -543,9 +545,9 @@ class RefundsApi
      * @param  string $x_idempotency_key x_idempotency_key (optional)
      * @param  string $x_request_id x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFRefundResponse|\OpenAPI\Client\Model\CFError
+     * @return \Cashfree\Api\CFRefundResponse|\Cashfree\Model\CFError
      */
     public function getRefund($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -569,9 +571,9 @@ class RefundsApi
      * @param  string $x_idempotency_key (optional)
      * @param  string $x_request_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFRefund|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFRefund|\Cashfree\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRefundWithHttpInfo($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
@@ -614,32 +616,32 @@ class RefundsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFRefund' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFRefund' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFRefund', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFRefund', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFRefund';
+            $returnType = '\Cashfree\Model\CFRefund';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -657,7 +659,7 @@ class RefundsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFRefund',
+                        '\Cashfree\Model\CFRefund',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -665,7 +667,7 @@ class RefundsApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\Cashfree\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -721,7 +723,7 @@ class RefundsApi
      */
     public function getRefundAsyncWithHttpInfo($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version = '2022-01-01', $x_idempotency_replayed = false, $x_idempotency_key = null, $x_request_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CFRefund';
+        $returnType = '\Cashfree\Model\CFRefund';
         $request = $this->getRefundRequest($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id);
 
         return $this->client
@@ -831,6 +833,8 @@ class RefundsApi
         if ($x_request_id !== null) {
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($order_id !== null) {
@@ -917,9 +921,9 @@ class RefundsApi
      * @param  string $order_id order_id (required)
      * @param  string $x_api_version x_api_version (optional, default to '2022-01-01')
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Api\CFAllRefundResponse|\OpenAPI\Client\Model\CFError
+     * @return \Cashfree\Api\CFAllRefundResponse|\Cashfree\Model\CFError
      */
     public function getallrefundsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01')
     {
@@ -939,9 +943,9 @@ class RefundsApi
      * @param  string $order_id (required)
      * @param  string $x_api_version (optional, default to '2022-01-01')
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Cashfree\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CFRefund[]|\OpenAPI\Client\Model\CFError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Cashfree\Model\CFRefund[]|\Cashfree\Model\CFError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getallrefundsfororderWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01')
     {
@@ -984,32 +988,32 @@ class RefundsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CFRefund[]' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFRefund[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFRefund[]', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFRefund[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 default:
-                    if ('\OpenAPI\Client\Model\CFError' === '\SplFileObject') {
+                    if ('\Cashfree\Model\CFError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CFError', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CFError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CFRefund[]';
+            $returnType = '\Cashfree\Model\CFRefund[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1027,7 +1031,7 @@ class RefundsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFRefund[]',
+                        '\Cashfree\Model\CFRefund[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1035,7 +1039,7 @@ class RefundsApi
                 default:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CFError',
+                        '\Cashfree\Model\CFError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1083,7 +1087,7 @@ class RefundsApi
      */
     public function getallrefundsfororderAsyncWithHttpInfo($x_client_id, $x_client_secret, $order_id, $x_api_version = '2022-01-01')
     {
-        $returnType = '\OpenAPI\Client\Model\CFRefund[]';
+        $returnType = '\Cashfree\Model\CFRefund[]';
         $request = $this->getallrefundsfororderRequest($x_client_id, $x_client_secret, $order_id, $x_api_version);
 
         return $this->client
@@ -1171,6 +1175,8 @@ class RefundsApi
         if ($x_api_version !== null) {
             $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
         }
+        $platform = 'phpsdk_2.1.0';
+        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($order_id !== null) {

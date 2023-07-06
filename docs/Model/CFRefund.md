@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **refund_charge** | **float** | Charges in INR for processing refund | [optional]
 **status_description** | **string** | Description of refund status | [optional]
 **metadata** | **object** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional]
-**refund_splits** | [**\OpenAPI\Client\Model\CFVendorSplit[]**](CFVendorSplit.md) |  | [optional]
+**refund_splits** | [**\Cashfree\Model\CFVendorSplit[]**](CFVendorSplit.md) |  | [optional]
 **refund_type** | **string** | This can be one of [\&quot;PAYMENT_AUTO_REFUND\&quot;, \&quot;MERCHANT_INITIATED\&quot;, \&quot;UNRECONCILED_AUTO_REFUND\&quot;] | [optional]
 **refund_mode** | **string** | Method or speed of processing refund | [optional]
 **created_at** | **string** | Time of refund creation | [optional]

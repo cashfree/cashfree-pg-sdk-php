@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **order_token** | **string** |  | [optional]
 **order_expiry_time** | **string** |  | [optional]
 **order_note** | **string** |  | [optional]
-**customer_details** | [**\OpenAPI\Client\Model\CFLinkCustomerDetailsEntity**](CFLinkCustomerDetailsEntity.md) |  | [optional]
-**payments** | [**\OpenAPI\Client\Model\CFPaymentURLObject**](CFPaymentURLObject.md) |  | [optional]
-**settlements** | [**\OpenAPI\Client\Model\CFSettlementURLObject**](CFSettlementURLObject.md) |  | [optional]
-**refunds** | [**\OpenAPI\Client\Model\CFRefundURLObject**](CFRefundURLObject.md) |  | [optional]
+**customer_details** | [**\Cashfree\Model\CFLinkCustomerDetailsEntity**](CFLinkCustomerDetailsEntity.md) |  | [optional]
+**payments** | [**\Cashfree\Model\CFPaymentURLObject**](CFPaymentURLObject.md) |  | [optional]
+**settlements** | [**\Cashfree\Model\CFSettlementURLObject**](CFSettlementURLObject.md) |  | [optional]
+**refunds** | [**\Cashfree\Model\CFRefundURLObject**](CFRefundURLObject.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

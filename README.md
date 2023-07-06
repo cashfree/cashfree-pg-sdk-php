@@ -14,7 +14,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "cashfree/cashfree-pg-php-sdk": "^2.0.2"
+    "cashfree/cashfree-pg-php-sdk": "^2.1.0"
   }
 }
 ```
@@ -59,8 +59,8 @@ To process any payment on Cashfree PG, the merchant needs to create an order in 
 ```
 try {
 
-            $cfConfig = new CFConfig(CFEnvironment::SANDBOX, "APP_ID", "SECRET_KEY");
-            $cfHeader = new CFHeader("x_request_id");
+            $cfConfig = new \Cashfree\CFInterface\CFConfig(\Cashfree\CFInterface\CFEnvironment::SANDBOX, "APP_ID", "SECRET_KEY");
+            $cfHeader = new \Cashfree\CFInterface\CFHeader("x_request_id");
 
             $data = [
                 "order_id" => "order_id",
@@ -80,9 +80,9 @@ try {
                 "order_note" => "some order note here"
             ];
 
-            $cfOrderRequest = new CFOrderRequest($data);
+            $cfOrderRequest = new \Cashfree\Model\CFOrderRequest($data);
 
-            $apiInstance = new CFPaymentGateway();
+            $apiInstance = new \Cashfree\CFInterface\CFPaymentGateway();
             $result = $apiInstance->createOrder($cfConfig, $cfHeader, $cfOrderRequest);
             print $result->getCFOrder();
         } catch (ApiException $e) {
@@ -103,8 +103,8 @@ Below is the code to initiate payment with Card
 ```
 try {
 
-            $cfConfig = new CFConfig(CFEnvironment::SANDBOX, "APP_ID", "SECRET_KEY");
-            $cfHeader = new CFHeader("x_request_id");
+            $cfConfig = new \Cashfree\CFInterface\CFConfig(\Cashfree\CFInterface\CFEnvironment::SANDBOX, "APP_ID", "SECRET_KEY");
+            $cfHeader = new \Cashfree\CFInterface\CFHeader("x_request_id");
 
             $data = [
                 "order_id" => "order_id"

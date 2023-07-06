@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFNetbankingPayment Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class CFNetbankingPayment implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'netbanking' => '\OpenAPI\Client\Model\CFNetbanking'
+        'netbanking' => '\Cashfree\Model\CFNetbanking'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFNetbankingPayment implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets netbanking
      *
-     * @return \OpenAPI\Client\Model\CFNetbanking
+     * @return \Cashfree\Model\CFNetbanking
      */
     public function getNetbanking()
     {
@@ -222,7 +222,7 @@ class CFNetbankingPayment implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets netbanking
      *
-     * @param \OpenAPI\Client\Model\CFNetbanking $netbanking netbanking
+     * @param \Cashfree\Model\CFNetbanking $netbanking netbanking
      *
      * @return self
      */

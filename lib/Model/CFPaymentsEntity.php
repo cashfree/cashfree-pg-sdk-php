@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFPaymentsEntity Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -73,8 +73,8 @@ class CFPaymentsEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_message' => 'string',
         'bank_reference' => 'string',
         'auth_id' => 'string',
-        'authorization' => '\OpenAPI\Client\Model\CFAuthorizationInPaymentsEntity',
-        'payment_method' => '\OpenAPI\Client\Model\CFPaymentsEntityPayment'
+        'authorization' => '\Cashfree\Model\CFAuthorizationInPaymentsEntity',
+        'payment_method' => '\Cashfree\Model\CFPaymentsEntityPayment'
     ];
 
     /**
@@ -649,7 +649,7 @@ class CFPaymentsEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets authorization
      *
-     * @return \OpenAPI\Client\Model\CFAuthorizationInPaymentsEntity|null
+     * @return \Cashfree\Model\CFAuthorizationInPaymentsEntity|null
      */
     public function getAuthorization()
     {
@@ -659,7 +659,7 @@ class CFPaymentsEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets authorization
      *
-     * @param \OpenAPI\Client\Model\CFAuthorizationInPaymentsEntity|null $authorization authorization
+     * @param \Cashfree\Model\CFAuthorizationInPaymentsEntity|null $authorization authorization
      *
      * @return self
      */
@@ -673,7 +673,7 @@ class CFPaymentsEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment_method
      *
-     * @return \OpenAPI\Client\Model\CFPaymentsEntityPayment|null
+     * @return \Cashfree\Model\CFPaymentsEntityPayment|null
      */
     public function getPaymentMethod()
     {
@@ -683,7 +683,7 @@ class CFPaymentsEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_method
      *
-     * @param \OpenAPI\Client\Model\CFPaymentsEntityPayment|null $payment_method payment_method
+     * @param \Cashfree\Model\CFPaymentsEntityPayment|null $payment_method payment_method
      *
      * @return self
      */

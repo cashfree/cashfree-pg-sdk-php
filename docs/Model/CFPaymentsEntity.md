@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **payment_message** | **string** |  | [optional]
 **bank_reference** | **string** |  | [optional]
 **auth_id** | **string** |  | [optional]
-**authorization** | [**\OpenAPI\Client\Model\CFAuthorizationInPaymentsEntity**](CFAuthorizationInPaymentsEntity.md) |  | [optional]
-**payment_method** | [**\OpenAPI\Client\Model\CFPaymentsEntityPayment**](CFPaymentsEntityPayment.md) |  | [optional]
+**authorization** | [**\Cashfree\Model\CFAuthorizationInPaymentsEntity**](CFAuthorizationInPaymentsEntity.md) |  | [optional]
+**payment_method** | [**\Cashfree\Model\CFPaymentsEntityPayment**](CFPaymentsEntityPayment.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

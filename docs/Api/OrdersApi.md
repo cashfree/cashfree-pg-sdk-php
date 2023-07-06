@@ -1,4 +1,4 @@
-# OpenAPI\Client\OrdersApi
+# Cashfree\OrdersApi
 
 All URIs are relative to https://sandbox.cashfree.com/pg.
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `createOrder()`
 
 ```php
-createOrder($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_order_request): \OpenAPI\Client\Model\CFOrder
+createOrder($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_order_request): \Cashfree\Model\CFOrder
 ```
 
 Create Order
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OrdersApi(
+$apiInstance = new Cashfree\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -39,7 +39,7 @@ $x_api_version = '2022-01-01'; // string
 $x_idempotency_replayed = false; // bool
 $x_idempotency_key = 'x_idempotency_key_example'; // string
 $x_request_id = 'x_request_id_example'; // string
-$cf_order_request = new \OpenAPI\Client\Model\CFOrderRequest(); // \OpenAPI\Client\Model\CFOrderRequest
+$cf_order_request = new \Cashfree\Model\CFOrderRequest(); // \Cashfree\Model\CFOrderRequest
 
 try {
     $result = $apiInstance->createOrder($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_order_request);
@@ -59,11 +59,11 @@ Name | Type | Description  | Notes
  **x_idempotency_replayed** | **bool**|  | [optional] [default to false]
  **x_idempotency_key** | **string**|  | [optional]
  **x_request_id** | **string**|  | [optional]
- **cf_order_request** | [**\OpenAPI\Client\Model\CFOrderRequest**](../Model/CFOrderRequest.md)|  | [optional]
+ **cf_order_request** | [**\Cashfree\Model\CFOrderRequest**](../Model/CFOrderRequest.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFOrder**](../Model/CFOrder.md)
+[**\Cashfree\Model\CFOrder**](../Model/CFOrder.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ No authorization required
 ## `getOrder()`
 
 ```php
-getOrder($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFOrder
+getOrder($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \Cashfree\Model\CFOrder
 ```
 
 Get Order
@@ -96,7 +96,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OrdersApi(
+$apiInstance = new Cashfree\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFOrder**](../Model/CFOrder.md)
+[**\Cashfree\Model\CFOrder**](../Model/CFOrder.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ No authorization required
 ## `orderPay()`
 
 ```php
-orderPay($x_api_version, $x_request_id, $cf_order_pay_request): \OpenAPI\Client\Model\CFOrderPayResponse
+orderPay($x_api_version, $x_request_id, $cf_order_pay_request): \Cashfree\Model\CFOrderPayResponse
 ```
 
 Order Pay
@@ -164,14 +164,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OrdersApi(
+$apiInstance = new Cashfree\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $x_api_version = 'x_api_version_example'; // string
 $x_request_id = 'x_request_id_example'; // string
-$cf_order_pay_request = new \OpenAPI\Client\Model\CFOrderPayRequest(); // \OpenAPI\Client\Model\CFOrderPayRequest
+$cf_order_pay_request = new \Cashfree\Model\CFOrderPayRequest(); // \Cashfree\Model\CFOrderPayRequest
 
 try {
     $result = $apiInstance->orderPay($x_api_version, $x_request_id, $cf_order_pay_request);
@@ -187,11 +187,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_api_version** | **string**|  |
  **x_request_id** | **string**|  | [optional]
- **cf_order_pay_request** | [**\OpenAPI\Client\Model\CFOrderPayRequest**](../Model/CFOrderPayRequest.md)|  | [optional]
+ **cf_order_pay_request** | [**\Cashfree\Model\CFOrderPayRequest**](../Model/CFOrderPayRequest.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFOrderPayResponse**](../Model/CFOrderPayResponse.md)
+[**\Cashfree\Model\CFOrderPayResponse**](../Model/CFOrderPayResponse.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ No authorization required
 ## `preauthorization()`
 
 ```php
-preauthorization($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_authorization_request): \OpenAPI\Client\Model\CFPaymentsEntity
+preauthorization($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_authorization_request): \Cashfree\Model\CFPaymentsEntity
 ```
 
 Preauthorization
@@ -224,7 +224,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OrdersApi(
+$apiInstance = new Cashfree\Api\OrdersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -236,7 +236,7 @@ $x_api_version = '2022-01-01'; // string
 $x_idempotency_replayed = false; // bool
 $x_idempotency_key = 'x_idempotency_key_example'; // string
 $x_request_id = 'x_request_id_example'; // string
-$cf_authorization_request = new \OpenAPI\Client\Model\CFAuthorizationRequest(); // \OpenAPI\Client\Model\CFAuthorizationRequest
+$cf_authorization_request = new \Cashfree\Model\CFAuthorizationRequest(); // \Cashfree\Model\CFAuthorizationRequest
 
 try {
     $result = $apiInstance->preauthorization($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_authorization_request);
@@ -257,11 +257,11 @@ Name | Type | Description  | Notes
  **x_idempotency_replayed** | **bool**|  | [optional] [default to false]
  **x_idempotency_key** | **string**|  | [optional]
  **x_request_id** | **string**|  | [optional]
- **cf_authorization_request** | [**\OpenAPI\Client\Model\CFAuthorizationRequest**](../Model/CFAuthorizationRequest.md)|  | [optional]
+ **cf_authorization_request** | [**\Cashfree\Model\CFAuthorizationRequest**](../Model/CFAuthorizationRequest.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFPaymentsEntity**](../Model/CFPaymentsEntity.md)
+[**\Cashfree\Model\CFPaymentsEntity**](../Model/CFPaymentsEntity.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFOrderPayResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -64,7 +64,7 @@ class CFOrderPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'payment_method' => 'string',
         'channel' => 'string',
         'action' => 'string',
-        'data' => '\OpenAPI\Client\Model\CFOrderPayData'
+        'data' => '\Cashfree\Model\CFOrderPayData'
     ];
 
     /**
@@ -443,7 +443,7 @@ class CFOrderPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\CFOrderPayData|null
+     * @return \Cashfree\Model\CFOrderPayData|null
      */
     public function getData()
     {
@@ -453,7 +453,7 @@ class CFOrderPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\CFOrderPayData|null $data data
+     * @param \Cashfree\Model\CFOrderPayData|null $data data
      *
      * @return self
      */
