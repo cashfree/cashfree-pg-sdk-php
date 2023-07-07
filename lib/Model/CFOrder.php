@@ -280,7 +280,7 @@ class CFOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['settlements'] = $data['settlements'] ?? null;
         $this->container['refunds'] = $data['refunds'] ?? null;
         $this->container['order_splits'] = $data['order_splits'] ?? null;
-        $this->container['payment_session_id'] = $data['payment_session_id'] ?? null
+        $this->container['payment_session_id'] = $data['payment_session_id'] ?? null;
     }
 
     /**
