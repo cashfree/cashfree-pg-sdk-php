@@ -63,7 +63,7 @@ try {
             $cfHeader = new \Cashfree\CFInterface\CFHeader("x_request_id");
 
             $data = [
-                "order_id" => "order_id",
+                "order_id" => "order_id"
                 "order_currency" => "INR",
                 "order_amount" => 1,
                 "customer_details" => [

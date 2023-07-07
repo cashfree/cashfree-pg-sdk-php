@@ -72,7 +72,7 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment()->name. "_GETORDER",
+            'environment' => $config->getEnvironment()->name . "_GETORDER",
             'attach_stacktrace' => true,
             'release' => '2.1.0',
             'traces_sample_rate' => 1.0
@@ -99,7 +99,6 @@ class CFPaymentGateway {
         $x_request_id = $header->getRequestId(); // string
         try {
             $result = $apiInstance->getOrder($x_client_id, $x_client_secret, $orderId, $x_api_version, false, $x_idempotency_key, $x_request_id);
-            print $result->getCFOrder();
             return $result;
         } catch (Exception $e) {
             \Sentry\captureException($e);
