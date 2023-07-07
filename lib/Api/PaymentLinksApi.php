@@ -425,7 +425,7 @@ class PaymentLinksApi
             $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
         }
         $platform = 'phpsdk_2.1.0';
-        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
+        $headerParams['x-sdk-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($link_id !== null) {
@@ -760,7 +760,7 @@ class PaymentLinksApi
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
         $platform = 'phpsdk_2.1.0';
-        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
+        $headerParams['x-sdk-platform'] = ObjectSerializer::toHeaderValue($platform);
 
 
 
@@ -1099,7 +1099,7 @@ class PaymentLinksApi
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
         $platform = 'phpsdk_2.1.0';
-        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
+        $headerParams['x-sdk-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($link_id !== null) {
@@ -1438,7 +1438,7 @@ class PaymentLinksApi
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
         $platform = 'phpsdk_2.1.0';
-        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
+        $headerParams['x-sdk-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($link_id !== null) {

@@ -440,7 +440,7 @@ class PaymentsApi
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
         $platform = 'phpsdk_2.1.0';
-        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
+        $headerParams['x-sdk-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($order_id !== null) {
@@ -809,7 +809,7 @@ class PaymentsApi
             $headerParams['x-request-id'] = ObjectSerializer::toHeaderValue($x_request_id);
         }
         $platform = 'phpsdk_2.1.0';
-        $headerParams['x-platform'] = ObjectSerializer::toHeaderValue($platform);
+        $headerParams['x-sdk-platform'] = ObjectSerializer::toHeaderValue($platform);
 
         // path params
         if ($order_id !== null) {
