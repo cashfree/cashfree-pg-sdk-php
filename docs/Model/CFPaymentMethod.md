@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**card** | [**\OpenAPI\Client\Model\CFCard**](CFCard.md) |  |
-**upi** | [**\OpenAPI\Client\Model\CFUPI**](CFUPI.md) |  |
-**netbanking** | [**\OpenAPI\Client\Model\CFNetbanking**](CFNetbanking.md) |  |
-**app** | [**\OpenAPI\Client\Model\CFApp**](CFApp.md) |  |
-**emi** | [**\OpenAPI\Client\Model\CFCardEMI**](CFCardEMI.md) |  | [optional]
-**cardless_emi** | [**\OpenAPI\Client\Model\CFCardlessEMI**](CFCardlessEMI.md) |  |
-**paylater** | [**\OpenAPI\Client\Model\CFPaylater**](CFPaylater.md) |  |
+**card** | [**\Cashfree\Model\CFCard**](CFCard.md) |  |
+**upi** | [**\Cashfree\Model\CFUPI**](CFUPI.md) |  |
+**netbanking** | [**\Cashfree\Model\CFNetbanking**](CFNetbanking.md) |  |
+**app** | [**\Cashfree\Model\CFApp**](CFApp.md) |  |
+**emi** | [**\Cashfree\Model\CFCardEMI**](CFCardEMI.md) |  | [optional]
+**cardless_emi** | [**\Cashfree\Model\CFCardlessEMI**](CFCardlessEMI.md) |  |
+**paylater** | [**\Cashfree\Model\CFPaylater**](CFPaylater.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

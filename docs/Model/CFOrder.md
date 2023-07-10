@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 **order_expiry_time** | **string** |  | [optional]
 **order_note** | **string** |  | [optional]
 **payment_link** | **string** |  | [optional]
-**customer_details** | [**\OpenAPI\Client\Model\CFCustomerDetails**](CFCustomerDetails.md) |  | [optional]
-**order_meta** | [**\OpenAPI\Client\Model\CFOrderMeta**](CFOrderMeta.md) |  | [optional]
-**payments** | [**\OpenAPI\Client\Model\CFPaymentURLObject**](CFPaymentURLObject.md) |  | [optional]
-**settlements** | [**\OpenAPI\Client\Model\CFSettlementURLObject**](CFSettlementURLObject.md) |  | [optional]
-**refunds** | [**\OpenAPI\Client\Model\CFRefundURLObject**](CFRefundURLObject.md) |  | [optional]
+**customer_details** | [**\Cashfree\Model\CFCustomerDetails**](CFCustomerDetails.md) |  | [optional]
+**order_meta** | [**\Cashfree\Model\CFOrderMeta**](CFOrderMeta.md) |  | [optional]
+**payments** | [**\Cashfree\Model\CFPaymentURLObject**](CFPaymentURLObject.md) |  | [optional]
+**settlements** | [**\Cashfree\Model\CFSettlementURLObject**](CFSettlementURLObject.md) |  | [optional]
+**refunds** | [**\Cashfree\Model\CFRefundURLObject**](CFRefundURLObject.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

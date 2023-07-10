@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFLinkNotifyEntity Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

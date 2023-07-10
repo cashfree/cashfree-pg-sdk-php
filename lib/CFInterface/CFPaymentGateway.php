@@ -1,22 +1,22 @@
 <?php
-namespace OpenAPI\Client\CFInterface;
+namespace Cashfree\CFInterface;
 
 use GuzzleHttp\Client;
-use OpenAPI\Client\Api\OrdersApi;
+use Cashfree\Api\OrdersApi;
 use Exception;
-use OpenAPI\Client\CFInterface\CFHeader;
-use OpenAPI\Client\CFInterface\CFEnvironment;
-use OpenAPI\Client\CFInterface\CFConfig;
-use OpenAPI\Client\Model\CFOrderRequest;
-use OpenAPI\Client\Model\CFOrderPayRequest;
-use OpenAPI\Client\Model\CFAuthorizationRequest;
-use OpenAPI\Client\Api\PaymentsApi;
-use OpenAPI\Client\Api\RefundsApi;
-use OpenAPI\Client\Model\CFRefundRequest;
-use OpenAPI\Client\Api\SettlementsApi;
-use OpenAPI\Client\Api\PaymentLinksApi;
-use OpenAPI\Client\Model\CFLinkRequest;
-use OpenAPI\Client\Configuration;
+use Cashfree\CFInterface\CFHeader;
+use Cashfree\CFInterface\CFEnvironment;
+use Cashfree\CFInterface\CFConfig;
+use Cashfree\Model\CFOrderRequest;
+use Cashfree\Model\CFOrderPayRequest;
+use Cashfree\Model\CFAuthorizationRequest;
+use Cashfree\Api\PaymentsApi;
+use Cashfree\Api\RefundsApi;
+use Cashfree\Model\CFRefundRequest;
+use Cashfree\Api\SettlementsApi;
+use Cashfree\Api\PaymentLinksApi;
+use Cashfree\Model\CFLinkRequest;
+use Cashfree\Configuration;
 
 class CFPaymentGateway {
 
@@ -33,7 +33,7 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_CREATEORDER",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -74,7 +74,7 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name . "_GETORDER",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -113,9 +113,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_ORDERPAYSESSIONS",
+            'environment' => $config->getEnvironment()->name. "_ORDERPAYSESSIONS",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -152,9 +152,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_ORDERPAY",
+            'environment' => $config->getEnvironment()->name. "_ORDERPAY",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -191,9 +191,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_GETPAYMENTSFORORDER",
+            'environment' => $config->getEnvironment()->name. "_GETPAYMENTSFORORDER",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -232,9 +232,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_GETPAYMENTSBYID",
+            'environment' => $config->getEnvironment()->name. "_GETPAYMENTSBYID",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -273,9 +273,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_CREATEREFUND",
+            'environment' => $config->getEnvironment()->name. "_CREATEREFUND",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -314,9 +314,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_GETREFUND",
+            'environment' => $config->getEnvironment()->name. "_GETREFUND",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -355,9 +355,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_GETALLREFUNDSFORANORDER",
+            'environment' => $config->getEnvironment()->name. "_GETALLREFUNDSFORANORDER",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -396,9 +396,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_GETSETTLEMENTS",
+            'environment' => $config->getEnvironment()->name. "_GETSETTLEMENTS",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -437,9 +437,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_CREATEPAYMENTLINKS",
+            'environment' => $config->getEnvironment()->name. "_CREATEPAYMENTLINKS",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -478,9 +478,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_GETPAYMENTLINKDETAILS",
+            'environment' => $config->getEnvironment()->name. "_GETPAYMENTLINKDETAILS",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -519,9 +519,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_CANCELPAYMENTLINK",
+            'environment' => $config->getEnvironment()->name. "_CANCELPAYMENTLINK",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();
@@ -560,9 +560,9 @@ class CFPaymentGateway {
         }
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $config->getEnvironment() + "_PREAUTH",
+            'environment' => $config->getEnvironment()->name. "_PREAUTH",
             'attach_stacktrace' => true,
-            'release' => '2.0.2',
+            'release' => '2.1.0',
             'traces_sample_rate' => 1.0
         ]);
         $configuration = new Configuration();

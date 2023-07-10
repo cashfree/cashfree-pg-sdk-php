@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFUPI Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -63,7 +63,7 @@ class CFUPI implements ModelInterface, ArrayAccess, \JsonSerializable
         'channel' => 'string',
         'upi_id' => 'string',
         'authorize_only' => 'bool',
-        'authorization' => '\OpenAPI\Client\Model\CFUPIAuthorizeDetails'
+        'authorization' => '\Cashfree\Model\CFUPIAuthorizeDetails'
     ];
 
     /**
@@ -341,7 +341,7 @@ class CFUPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets authorization
      *
-     * @return \OpenAPI\Client\Model\CFUPIAuthorizeDetails|null
+     * @return \Cashfree\Model\CFUPIAuthorizeDetails|null
      */
     public function getAuthorization()
     {
@@ -351,7 +351,7 @@ class CFUPI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets authorization
      *
-     * @param \OpenAPI\Client\Model\CFUPIAuthorizeDetails|null $authorization authorization
+     * @param \Cashfree\Model\CFUPIAuthorizeDetails|null $authorization authorization
      *
      * @return self
      */

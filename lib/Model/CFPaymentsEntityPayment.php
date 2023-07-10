@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFPaymentsEntityPayment Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class CFPaymentsEntityPayment implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payment_method' => '\OpenAPI\Client\Model\CFPaymentsEntityMethod'
+        'payment_method' => '\Cashfree\Model\CFPaymentsEntityMethod'
     ];
 
     /**
@@ -209,7 +209,7 @@ class CFPaymentsEntityPayment implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets payment_method
      *
-     * @return \OpenAPI\Client\Model\CFPaymentsEntityMethod|null
+     * @return \Cashfree\Model\CFPaymentsEntityMethod|null
      */
     public function getPaymentMethod()
     {
@@ -219,7 +219,7 @@ class CFPaymentsEntityPayment implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets payment_method
      *
-     * @param \OpenAPI\Client\Model\CFPaymentsEntityMethod|null $payment_method payment_method
+     * @param \Cashfree\Model\CFPaymentsEntityMethod|null $payment_method payment_method
      *
      * @return self
      */

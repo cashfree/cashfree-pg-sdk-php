@@ -1,4 +1,4 @@
-# OpenAPI\Client\PaymentLinksApi
+# Cashfree\PaymentLinksApi
 
 All URIs are relative to https://sandbox.cashfree.com/pg.
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `cancelPaymentLink()`
 
 ```php
-cancelPaymentLink($x_client_id, $x_client_secret, $link_id, $x_api_version): \OpenAPI\Client\Model\CFLinkCancelledResponse
+cancelPaymentLink($x_client_id, $x_client_secret, $link_id, $x_api_version): \Cashfree\Model\CFLinkCancelledResponse
 ```
 
 Cancel Payment Link
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentLinksApi(
+$apiInstance = new Cashfree\Api\PaymentLinksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFLinkCancelledResponse**](../Model/CFLinkCancelledResponse.md)
+[**\Cashfree\Model\CFLinkCancelledResponse**](../Model/CFLinkCancelledResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ No authorization required
 ## `createPaymentLink()`
 
 ```php
-createPaymentLink($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_link_request): \OpenAPI\Client\Model\CFLink
+createPaymentLink($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_link_request): \Cashfree\Model\CFLink
 ```
 
 Create Payment Link
@@ -90,7 +90,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentLinksApi(
+$apiInstance = new Cashfree\Api\PaymentLinksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -101,7 +101,7 @@ $x_api_version = '2022-01-01'; // string
 $x_idempotency_replayed = false; // bool
 $x_idempotency_key = 'x_idempotency_key_example'; // string
 $x_request_id = 'x_request_id_example'; // string
-$cf_link_request = new \OpenAPI\Client\Model\CFLinkRequest(); // \OpenAPI\Client\Model\CFLinkRequest
+$cf_link_request = new \Cashfree\Model\CFLinkRequest(); // \Cashfree\Model\CFLinkRequest
 
 try {
     $result = $apiInstance->createPaymentLink($x_client_id, $x_client_secret, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_link_request);
@@ -121,11 +121,11 @@ Name | Type | Description  | Notes
  **x_idempotency_replayed** | **bool**|  | [optional] [default to false]
  **x_idempotency_key** | **string**|  | [optional]
  **x_request_id** | **string**|  | [optional]
- **cf_link_request** | [**\OpenAPI\Client\Model\CFLinkRequest**](../Model/CFLinkRequest.md)|  | [optional]
+ **cf_link_request** | [**\Cashfree\Model\CFLinkRequest**](../Model/CFLinkRequest.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFLink**](../Model/CFLink.md)
+[**\Cashfree\Model\CFLink**](../Model/CFLink.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ No authorization required
 ## `getPaymentLinkDetails()`
 
 ```php
-getPaymentLinkDetails($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFLink
+getPaymentLinkDetails($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \Cashfree\Model\CFLink
 ```
 
 Fetch Payment Link Details
@@ -158,7 +158,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentLinksApi(
+$apiInstance = new Cashfree\Api\PaymentLinksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFLink**](../Model/CFLink.md)
+[**\Cashfree\Model\CFLink**](../Model/CFLink.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ No authorization required
 ## `getPaymentLinkOrders()`
 
 ```php
-getPaymentLinkOrders($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFLinkOrders[]
+getPaymentLinkOrders($x_client_id, $x_client_secret, $link_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \Cashfree\Model\CFLinkOrders[]
 ```
 
 Get Orders for a Payment Link
@@ -226,7 +226,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentLinksApi(
+$apiInstance = new Cashfree\Api\PaymentLinksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFLinkOrders[]**](../Model/CFLinkOrders.md)
+[**\Cashfree\Model\CFLinkOrders[]**](../Model/CFLinkOrders.md)
 
 ### Authorization
 

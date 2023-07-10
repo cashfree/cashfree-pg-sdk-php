@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFPaylaterPayment Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class CFPaylaterPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'paylater' => '\OpenAPI\Client\Model\CFPaylater'
+        'paylater' => '\Cashfree\Model\CFPaylater'
     ];
 
     /**
@@ -212,7 +212,7 @@ class CFPaylaterPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets paylater
      *
-     * @return \OpenAPI\Client\Model\CFPaylater
+     * @return \Cashfree\Model\CFPaylater
      */
     public function getPaylater()
     {
@@ -222,7 +222,7 @@ class CFPaylaterPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets paylater
      *
-     * @param \OpenAPI\Client\Model\CFPaylater $paylater paylater
+     * @param \Cashfree\Model\CFPaylater $paylater paylater
      *
      * @return self
      */

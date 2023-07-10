@@ -1,4 +1,4 @@
-# OpenAPI\Client\RefundsApi
+# Cashfree\RefundsApi
 
 All URIs are relative to https://sandbox.cashfree.com/pg.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `createrefund()`
 
 ```php
-createrefund($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_refund_request): \OpenAPI\Client\Model\CFRefund
+createrefund($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_refund_request): \Cashfree\Model\CFRefund
 ```
 
 Create Refund
@@ -27,7 +27,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\RefundsApi(
+$apiInstance = new Cashfree\Api\RefundsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -39,7 +39,7 @@ $x_api_version = '2022-01-01'; // string
 $x_idempotency_replayed = false; // bool
 $x_idempotency_key = 'x_idempotency_key_example'; // string
 $x_request_id = 'x_request_id_example'; // string
-$cf_refund_request = new \OpenAPI\Client\Model\CFRefundRequest(); // \OpenAPI\Client\Model\CFRefundRequest
+$cf_refund_request = new \Cashfree\Model\CFRefundRequest(); // \Cashfree\Model\CFRefundRequest
 
 try {
     $result = $apiInstance->createrefund($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id, $cf_refund_request);
@@ -60,11 +60,11 @@ Name | Type | Description  | Notes
  **x_idempotency_replayed** | **bool**|  | [optional] [default to false]
  **x_idempotency_key** | **string**|  | [optional]
  **x_request_id** | **string**|  | [optional]
- **cf_refund_request** | [**\OpenAPI\Client\Model\CFRefundRequest**](../Model/CFRefundRequest.md)|  | [optional]
+ **cf_refund_request** | [**\Cashfree\Model\CFRefundRequest**](../Model/CFRefundRequest.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFRefund**](../Model/CFRefund.md)
+[**\Cashfree\Model\CFRefund**](../Model/CFRefund.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ No authorization required
 ## `getRefund()`
 
 ```php
-getRefund($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFRefund
+getRefund($x_client_id, $x_client_secret, $order_id, $refund_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \Cashfree\Model\CFRefund
 ```
 
 Get Refund
@@ -97,7 +97,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\RefundsApi(
+$apiInstance = new Cashfree\Api\RefundsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFRefund**](../Model/CFRefund.md)
+[**\Cashfree\Model\CFRefund**](../Model/CFRefund.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ No authorization required
 ## `getallrefundsfororder()`
 
 ```php
-getallrefundsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version): \OpenAPI\Client\Model\CFRefund[]
+getallrefundsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version): \Cashfree\Model\CFRefund[]
 ```
 
 Get All Refunds for an Order
@@ -167,7 +167,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\RefundsApi(
+$apiInstance = new Cashfree\Api\RefundsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFRefund[]**](../Model/CFRefund.md)
+[**\Cashfree\Model\CFRefund[]**](../Model/CFRefund.md)
 
 ### Authorization
 

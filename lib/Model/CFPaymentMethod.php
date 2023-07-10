@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFPaymentMethod Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,13 +60,13 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'card' => '\OpenAPI\Client\Model\CFCard',
-        'upi' => '\OpenAPI\Client\Model\CFUPI',
-        'netbanking' => '\OpenAPI\Client\Model\CFNetbanking',
-        'app' => '\OpenAPI\Client\Model\CFApp',
-        'emi' => '\OpenAPI\Client\Model\CFCardEMI',
-        'cardless_emi' => '\OpenAPI\Client\Model\CFCardlessEMI',
-        'paylater' => '\OpenAPI\Client\Model\CFPaylater'
+        'card' => '\Cashfree\Model\CFCard',
+        'upi' => '\Cashfree\Model\CFUPI',
+        'netbanking' => '\Cashfree\Model\CFNetbanking',
+        'app' => '\Cashfree\Model\CFApp',
+        'emi' => '\Cashfree\Model\CFCardEMI',
+        'cardless_emi' => '\Cashfree\Model\CFCardlessEMI',
+        'paylater' => '\Cashfree\Model\CFPaylater'
     ];
 
     /**
@@ -263,7 +263,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card
      *
-     * @return \OpenAPI\Client\Model\CFCard
+     * @return \Cashfree\Model\CFCard
      */
     public function getCard()
     {
@@ -273,7 +273,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card
      *
-     * @param \OpenAPI\Client\Model\CFCard $card card
+     * @param \Cashfree\Model\CFCard $card card
      *
      * @return self
      */
@@ -287,7 +287,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets upi
      *
-     * @return \OpenAPI\Client\Model\CFUPI
+     * @return \Cashfree\Model\CFUPI
      */
     public function getUpi()
     {
@@ -297,7 +297,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upi
      *
-     * @param \OpenAPI\Client\Model\CFUPI $upi upi
+     * @param \Cashfree\Model\CFUPI $upi upi
      *
      * @return self
      */
@@ -311,7 +311,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets netbanking
      *
-     * @return \OpenAPI\Client\Model\CFNetbanking
+     * @return \Cashfree\Model\CFNetbanking
      */
     public function getNetbanking()
     {
@@ -321,7 +321,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets netbanking
      *
-     * @param \OpenAPI\Client\Model\CFNetbanking $netbanking netbanking
+     * @param \Cashfree\Model\CFNetbanking $netbanking netbanking
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets app
      *
-     * @return \OpenAPI\Client\Model\CFApp
+     * @return \Cashfree\Model\CFApp
      */
     public function getApp()
     {
@@ -345,7 +345,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets app
      *
-     * @param \OpenAPI\Client\Model\CFApp $app app
+     * @param \Cashfree\Model\CFApp $app app
      *
      * @return self
      */
@@ -359,7 +359,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets emi
      *
-     * @return \OpenAPI\Client\Model\CFCardEMI|null
+     * @return \Cashfree\Model\CFCardEMI|null
      */
     public function getEmi()
     {
@@ -369,7 +369,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets emi
      *
-     * @param \OpenAPI\Client\Model\CFCardEMI|null $emi emi
+     * @param \Cashfree\Model\CFCardEMI|null $emi emi
      *
      * @return self
      */
@@ -383,7 +383,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cardless_emi
      *
-     * @return \OpenAPI\Client\Model\CFCardlessEMI
+     * @return \Cashfree\Model\CFCardlessEMI
      */
     public function getCardlessEmi()
     {
@@ -393,7 +393,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cardless_emi
      *
-     * @param \OpenAPI\Client\Model\CFCardlessEMI $cardless_emi cardless_emi
+     * @param \Cashfree\Model\CFCardlessEMI $cardless_emi cardless_emi
      *
      * @return self
      */
@@ -407,7 +407,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets paylater
      *
-     * @return \OpenAPI\Client\Model\CFPaylater
+     * @return \Cashfree\Model\CFPaylater
      */
     public function getPaylater()
     {
@@ -417,7 +417,7 @@ class CFPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets paylater
      *
-     * @param \OpenAPI\Client\Model\CFPaylater $paylater paylater
+     * @param \Cashfree\Model\CFPaylater $paylater paylater
      *
      * @return self
      */

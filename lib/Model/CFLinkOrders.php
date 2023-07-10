@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFLinkOrders Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -69,10 +69,10 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_token' => 'string',
         'order_expiry_time' => 'string',
         'order_note' => 'string',
-        'customer_details' => '\OpenAPI\Client\Model\CFLinkCustomerDetailsEntity',
-        'payments' => '\OpenAPI\Client\Model\CFPaymentURLObject',
-        'settlements' => '\OpenAPI\Client\Model\CFSettlementURLObject',
-        'refunds' => '\OpenAPI\Client\Model\CFRefundURLObject'
+        'customer_details' => '\Cashfree\Model\CFLinkCustomerDetailsEntity',
+        'payments' => '\Cashfree\Model\CFPaymentURLObject',
+        'settlements' => '\Cashfree\Model\CFSettlementURLObject',
+        'refunds' => '\Cashfree\Model\CFRefundURLObject'
     ];
 
     /**
@@ -497,7 +497,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets customer_details
      *
-     * @return \OpenAPI\Client\Model\CFLinkCustomerDetailsEntity|null
+     * @return \Cashfree\Model\CFLinkCustomerDetailsEntity|null
      */
     public function getCustomerDetails()
     {
@@ -507,7 +507,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets customer_details
      *
-     * @param \OpenAPI\Client\Model\CFLinkCustomerDetailsEntity|null $customer_details customer_details
+     * @param \Cashfree\Model\CFLinkCustomerDetailsEntity|null $customer_details customer_details
      *
      * @return self
      */
@@ -521,7 +521,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payments
      *
-     * @return \OpenAPI\Client\Model\CFPaymentURLObject|null
+     * @return \Cashfree\Model\CFPaymentURLObject|null
      */
     public function getPayments()
     {
@@ -531,7 +531,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payments
      *
-     * @param \OpenAPI\Client\Model\CFPaymentURLObject|null $payments payments
+     * @param \Cashfree\Model\CFPaymentURLObject|null $payments payments
      *
      * @return self
      */
@@ -545,7 +545,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets settlements
      *
-     * @return \OpenAPI\Client\Model\CFSettlementURLObject|null
+     * @return \Cashfree\Model\CFSettlementURLObject|null
      */
     public function getSettlements()
     {
@@ -555,7 +555,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets settlements
      *
-     * @param \OpenAPI\Client\Model\CFSettlementURLObject|null $settlements settlements
+     * @param \Cashfree\Model\CFSettlementURLObject|null $settlements settlements
      *
      * @return self
      */
@@ -569,7 +569,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets refunds
      *
-     * @return \OpenAPI\Client\Model\CFRefundURLObject|null
+     * @return \Cashfree\Model\CFRefundURLObject|null
      */
     public function getRefunds()
     {
@@ -579,7 +579,7 @@ class CFLinkOrders implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets refunds
      *
-     * @param \OpenAPI\Client\Model\CFRefundURLObject|null $refunds refunds
+     * @param \Cashfree\Model\CFRefundURLObject|null $refunds refunds
      *
      * @return self
      */

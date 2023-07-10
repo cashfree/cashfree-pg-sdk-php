@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFFetchAllSavedInstruments Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -68,7 +68,7 @@ class CFFetchAllSavedInstruments implements ModelInterface, ArrayAccess, \JsonSe
         'instrument_display' => 'string',
         'instrument_status' => 'string',
         'created_at' => 'string',
-        'instrument_meta' => '\OpenAPI\Client\Model\CFSavedInstrumentMeta'
+        'instrument_meta' => '\Cashfree\Model\CFSavedInstrumentMeta'
     ];
 
     /**
@@ -515,7 +515,7 @@ class CFFetchAllSavedInstruments implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets instrument_meta
      *
-     * @return \OpenAPI\Client\Model\CFSavedInstrumentMeta|null
+     * @return \Cashfree\Model\CFSavedInstrumentMeta|null
      */
     public function getInstrumentMeta()
     {
@@ -525,7 +525,7 @@ class CFFetchAllSavedInstruments implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets instrument_meta
      *
-     * @param \OpenAPI\Client\Model\CFSavedInstrumentMeta|null $instrument_meta instrument_meta
+     * @param \Cashfree\Model\CFSavedInstrumentMeta|null $instrument_meta instrument_meta
      *
      * @return self
      */

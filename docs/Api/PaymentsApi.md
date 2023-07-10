@@ -1,4 +1,4 @@
-# OpenAPI\Client\PaymentsApi
+# Cashfree\PaymentsApi
 
 All URIs are relative to https://sandbox.cashfree.com/pg.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `getPaymentbyId()`
 
 ```php
-getPaymentbyId($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFPaymentsEntity
+getPaymentbyId($x_client_id, $x_client_secret, $order_id, $cf_payment_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \Cashfree\Model\CFPaymentsEntity
 ```
 
 Get Payment by ID
@@ -26,7 +26,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new Cashfree\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFPaymentsEntity**](../Model/CFPaymentsEntity.md)
+[**\Cashfree\Model\CFPaymentsEntity**](../Model/CFPaymentsEntity.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ No authorization required
 ## `getPaymentsfororder()`
 
 ```php
-getPaymentsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \OpenAPI\Client\Model\CFPaymentsEntity[]
+getPaymentsfororder($x_client_id, $x_client_secret, $order_id, $x_api_version, $x_idempotency_replayed, $x_idempotency_key, $x_request_id): \Cashfree\Model\CFPaymentsEntity[]
 ```
 
 Get Payments for an Order
@@ -96,7 +96,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new Cashfree\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CFPaymentsEntity[]**](../Model/CFPaymentsEntity.md)
+[**\Cashfree\Model\CFPaymentsEntity[]**](../Model/CFPaymentsEntity.md)
 
 ### Authorization
 

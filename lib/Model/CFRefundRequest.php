@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFRefundRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -64,7 +64,7 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'refund_id' => 'string',
         'refund_note' => 'string',
         'refund_speed' => 'string',
-        'refund_splits' => '\OpenAPI\Client\Model\CFVendorSplit[]'
+        'refund_splits' => '\Cashfree\Model\CFVendorSplit[]'
     ];
 
     /**
@@ -365,7 +365,7 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets refund_splits
      *
-     * @return \OpenAPI\Client\Model\CFVendorSplit[]|null
+     * @return \Cashfree\Model\CFVendorSplit[]|null
      */
     public function getRefundSplits()
     {
@@ -375,7 +375,7 @@ class CFRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets refund_splits
      *
-     * @param \OpenAPI\Client\Model\CFVendorSplit[]|null $refund_splits refund_splits
+     * @param \Cashfree\Model\CFVendorSplit[]|null $refund_splits refund_splits
      *
      * @return self
      */

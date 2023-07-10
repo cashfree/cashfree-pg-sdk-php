@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Cashfree\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Cashfree\ObjectSerializer;
 
 /**
  * CFCardPayment Class Doc Comment
  *
  * @category Class
  * @description The card payment object is used to make payment using either plain card number, saved card instrument id or using cryptogram
- * @package  OpenAPI\Client
+ * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class CFCardPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'card' => '\OpenAPI\Client\Model\CFCard'
+        'card' => '\Cashfree\Model\CFCard'
     ];
 
     /**
@@ -213,7 +213,7 @@ class CFCardPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card
      *
-     * @return \OpenAPI\Client\Model\CFCard
+     * @return \Cashfree\Model\CFCard
      */
     public function getCard()
     {
@@ -223,7 +223,7 @@ class CFCardPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card
      *
-     * @param \OpenAPI\Client\Model\CFCard $card card
+     * @param \Cashfree\Model\CFCard $card card
      *
      * @return self
      */
