@@ -13,8 +13,9 @@ class CFConfig {
     public string $clientSecret;
     public int $timeout = 180000;
     public string $proxy = "";
+    public bool allowExceptionCapture = true
 
-    public function __construct(CFEnvironment $environment, string $clientId, string $clientSecret, string $apiVersion = "2022-09-01", string $proxy = "", int $timeout = 180000) {
+    public function __construct(CFEnvironment $environment, string $clientId, string $clientSecret, string $apiVersion = "2022-09-01", string $proxy = "", int $timeout = 180000, bool $allowExceptionCapture = true) {
         $this->environment = $environment;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
@@ -23,6 +24,7 @@ class CFConfig {
             $this->proxy = $proxy;
         }
         $this->timeout = $timeout;
+        $this->allowExceptionCapture = $allowExceptionCapture;
     }
 
     public function getEnvironment() {
@@ -43,6 +45,9 @@ class CFConfig {
     }
     public function getTimeout() {
         return $this->timeout;
+    }
+    public function getExceptionCaptureBoolean() {
+        return $this->allowExceptionCapture;
     }
 }
 

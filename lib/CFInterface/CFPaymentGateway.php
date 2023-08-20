@@ -33,8 +33,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_CREATEORDER",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -74,8 +98,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name . "_GETORDER",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -115,8 +163,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_ORDERPAYSESSIONS",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -154,8 +226,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_ORDERPAY",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -193,8 +289,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_GETPAYMENTSFORORDER",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -234,8 +354,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_GETPAYMENTSBYID",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -275,8 +419,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_CREATEREFUND",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -316,8 +484,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_GETREFUND",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -357,8 +549,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_GETALLREFUNDSFORANORDER",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -398,8 +614,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_GETSETTLEMENTS",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -439,8 +679,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_CREATEPAYMENTLINKS",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -480,8 +744,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_GETPAYMENTLINKDETAILS",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -521,8 +809,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_CANCELPAYMENTLINK",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
@@ -562,8 +874,32 @@ class CFPaymentGateway {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $config->getEnvironment()->name. "_PREAUTH",
             'attach_stacktrace' => true,
-            'release' => '2.1.0',
-            'traces_sample_rate' => 1.0
+            'release' => '2.2.0',
+            'traces_sample_rate' => 1.0,
+            'before_send' => function (\Sentry\Event $event, \Sentry\State\Scope $scope): ?\Sentry\Event {
+                if($config->getExceptionCaptureBoolean() === false) {
+                    $exception = $event->getExceptions()[0] ?? null;
+                    if ($exception instanceof \Throwable) {
+                        $frames = $exception->getTrace();
+                        foreach ($frames as &$frame) {
+                            if (isset($frame['file'])) {
+                                $frame['file'] = "";
+                            }
+                        }
+                        unset($frame); // Clear the reference
+            
+                        $exception->setTrace($frames);
+                    }
+
+                    $extraData = $event->getExtra();
+                    
+                    unset($extraData['system']['kernel_version']);
+                    unset($extraData['system']['kernel_release']);
+                    
+                    $event->setExtra($extraData);
+                }
+                return $event;
+            }
         ]);
         $configuration = new Configuration();
         if($hostURL == 0) {
