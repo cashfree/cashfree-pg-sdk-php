@@ -13,3 +13,13 @@ composer.phar
 # PHPUnit cache
 .phpunit.result.cache.DS_Store
 **/.DS_Store
+
+*.iml
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+.idea
