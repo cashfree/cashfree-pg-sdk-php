@@ -11,7 +11,7 @@
         "payment gateway"
     ],
     "homepage": "https://www.cashfree.com",
-    "license": "Apache",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Cashfree Payments",
