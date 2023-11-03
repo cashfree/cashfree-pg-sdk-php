@@ -1,0 +1,45 @@
+{
+    "name": "cashfree/cashfree-pg-sdk-php",
+    "version": "3.0.0",
+    "description": "Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.",
+    "keywords": [
+        "php",
+        "sdk",
+        "rest",
+        "api",
+        "cashfree",
+        "payment gateway"
+    ],
+    "homepage": "https://www.cashfree.com",
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "Cashfree Payments",
+            "homepage": "https://www.cashfree.com"
+        }
+    ],
+    "support": {
+        "email": "care@cashfree.com",
+        "issues": "https://github.com/cashfree/cashfree-pg-sdk-php/issues",
+        "source": "https://github.com/cashfree/cashfree-pg-sdk-php"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0",
+        "sentry/sdk": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": { "Cashfree\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Cashfree\\Test\\" : "test/" }
+    }
+}
