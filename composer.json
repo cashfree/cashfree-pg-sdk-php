@@ -1,6 +1,6 @@
 {
     "name": "cashfree/cashfree-pg",
-    "version": "3.0.0",
+    "version": "3.0.2",
     "description": "Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.",
     "keywords": [
         "php",
@@ -11,7 +11,7 @@
         "payment gateway"
     ],
     "homepage": "https://www.cashfree.com",
-    "license": "Apache",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Cashfree Payments",
