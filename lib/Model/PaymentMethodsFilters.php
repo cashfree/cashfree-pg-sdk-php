@@ -36,7 +36,7 @@ use \Cashfree\ObjectSerializer;
  * PaymentMethodsFilters Class Doc Comment
  *
  * @category Class
- * @description Filter for Payment Methods
+ * @description Filter for specific Payment Methods
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -304,7 +304,7 @@ class PaymentMethodsFilters implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets payment_methods
      *
-     * @param string[]|null $payment_methods Array of payment methods to be filtered.
+     * @param string[]|null $payment_methods Array of payment methods to be filtered. This is optional, by default all payment methods will be returned. Possible values in [ 'debit_card', 'credit_card', 'prepaid_card', 'corporate_credit_card', 'upi', 'wallet', 'netbanking', 'banktransfer', 'paylater', 'paypal', 'debit_card_emi', 'credit_card_emi', 'upi_credit_card', 'upi_ppi', 'cardless_emi', 'account_based_payment' ]
      *
      * @return self
      */

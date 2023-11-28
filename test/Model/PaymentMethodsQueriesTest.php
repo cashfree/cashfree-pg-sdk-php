@@ -88,4 +88,13 @@ class PaymentMethodsQueriesTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "order_id"
+     */
+    public function testPropertyOrderId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

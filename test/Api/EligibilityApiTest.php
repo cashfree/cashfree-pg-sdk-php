@@ -75,7 +75,7 @@ class EligibilityApiTest extends TestCase
     /**
      * Test case for pGEligibilityFetchCardlessEMI
      *
-     * Get Eligible Cardless EMI Payment Methods for a customer on an order.
+     * Get Eligible Cardless EMI.
      *
      */
     public function testPGEligibilityFetchCardlessEMI()
@@ -87,7 +87,7 @@ class EligibilityApiTest extends TestCase
     /**
      * Test case for pGEligibilityFetchOffers
      *
-     * Get Eligible Offers for an Order.
+     * Get Eligible Offers.
      *
      */
     public function testPGEligibilityFetchOffers()
@@ -99,7 +99,7 @@ class EligibilityApiTest extends TestCase
     /**
      * Test case for pGEligibilityFetchPaylater
      *
-     * Get Eligible Paylater for a customer on an order.
+     * Get Eligible Paylater.
      *
      */
     public function testPGEligibilityFetchPaylater()
@@ -111,7 +111,7 @@ class EligibilityApiTest extends TestCase
     /**
      * Test case for pGEligibilityFetchPaymentMethods
      *
-     * Get eligible Payment Methods.
+     * Get Eligible Payment Methods.
      *
      */
     public function testPGEligibilityFetchPaymentMethods()

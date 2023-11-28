@@ -293,8 +293,8 @@ class Netbanking implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['channel'] === null) {
             $invalidProperties[] = "'channel' can't be null";
         }
-        if (!is_null($this->container['netbanking_bank_name']) && !preg_match("/^[A-Z]{4}$/", $this->container['netbanking_bank_name'])) {
-            $invalidProperties[] = "invalid value for 'netbanking_bank_name', must be conform to the pattern /^[A-Z]{4}$/.";
+        if (!is_null($this->container['netbanking_bank_name']) && !preg_match("/^[A-Z]{5}$/", $this->container['netbanking_bank_name'])) {
+            $invalidProperties[] = "invalid value for 'netbanking_bank_name', must be conform to the pattern /^[A-Z]{5}$/.";
         }
 
         return $invalidProperties;
@@ -391,8 +391,8 @@ class Netbanking implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable netbanking_bank_name cannot be null');
         }
 
-        if ((!preg_match("/^[A-Z]{4}$/", $netbanking_bank_name))) {
-            throw new \InvalidArgumentException("invalid value for \$netbanking_bank_name when calling Netbanking., must conform to the pattern /^[A-Z]{4}$/.");
+        if ((!preg_match("/^[A-Z]{5}$/", $netbanking_bank_name))) {
+            throw new \InvalidArgumentException("invalid value for \$netbanking_bank_name when calling Netbanking., must conform to the pattern /^[A-Z]{5}$/.");
         }
 
         $this->container['netbanking_bank_name'] = $netbanking_bank_name;

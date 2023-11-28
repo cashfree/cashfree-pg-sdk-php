@@ -75,7 +75,7 @@ class TerminalTransactionEntity implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cf_payment_id' => 'int64',
+        'cf_payment_id' => null,
         'payment_amount' => null,
         'payment_method' => null,
         'payment_url' => null,

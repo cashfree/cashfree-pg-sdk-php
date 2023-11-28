@@ -373,6 +373,24 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
+        if ($this->container['card_number'] === null) {
+            $invalidProperties[] = "'card_number' can't be null";
+        }
+        if ($this->container['card_expiry_mm'] === null) {
+            $invalidProperties[] = "'card_expiry_mm' can't be null";
+        }
+        if ($this->container['card_expiry_yy'] === null) {
+            $invalidProperties[] = "'card_expiry_yy' can't be null";
+        }
+        if ($this->container['card_cvv'] === null) {
+            $invalidProperties[] = "'card_cvv' can't be null";
+        }
+        if ($this->container['card_bank_name'] === null) {
+            $invalidProperties[] = "'card_bank_name' can't be null";
+        }
         $allowedValues = $this->getCardBankNameAllowableValues();
         if (!is_null($this->container['card_bank_name']) && !in_array($this->container['card_bank_name'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -382,6 +400,9 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['emi_tenure'] === null) {
+            $invalidProperties[] = "'emi_tenure' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -400,7 +421,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets channel
      *
-     * @return string|null
+     * @return string
      */
     public function getChannel()
     {
@@ -410,7 +431,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets channel
      *
-     * @param string|null $channel The channel for card payments will always be \"link\"
+     * @param string $channel The channel for card payments will always be \"link\"
      *
      * @return self
      */
@@ -427,7 +448,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card_number
      *
-     * @return string|null
+     * @return string
      */
     public function getCardNumber()
     {
@@ -437,7 +458,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_number
      *
-     * @param string|null $card_number Customer card number.
+     * @param string $card_number Customer card number.
      *
      * @return self
      */
@@ -481,7 +502,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card_expiry_mm
      *
-     * @return string|null
+     * @return string
      */
     public function getCardExpiryMm()
     {
@@ -491,7 +512,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_expiry_mm
      *
-     * @param string|null $card_expiry_mm Card expiry month.
+     * @param string $card_expiry_mm Card expiry month.
      *
      * @return self
      */
@@ -508,7 +529,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card_expiry_yy
      *
-     * @return string|null
+     * @return string
      */
     public function getCardExpiryYy()
     {
@@ -518,7 +539,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_expiry_yy
      *
-     * @param string|null $card_expiry_yy Card expiry year.
+     * @param string $card_expiry_yy Card expiry year.
      *
      * @return self
      */
@@ -535,7 +556,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card_cvv
      *
-     * @return string|null
+     * @return string
      */
     public function getCardCvv()
     {
@@ -545,7 +566,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_cvv
      *
-     * @param string|null $card_cvv CVV mentioned on the card.
+     * @param string $card_cvv CVV mentioned on the card.
      *
      * @return self
      */
@@ -589,7 +610,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card_bank_name
      *
-     * @return string|null
+     * @return string
      */
     public function getCardBankName()
     {
@@ -599,7 +620,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_bank_name
      *
-     * @param string|null $card_bank_name Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\"hdfc, \"kotak\", \"icici\", \"rbl\", \"bob\", \"standard chartered\", \"axis\", \"au\", \"yes\", \"sbi\", \"fed\", \"hsbc\", \"citi\", \"amex\"]
+     * @param string $card_bank_name Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\"hdfc, \"kotak\", \"icici\", \"rbl\", \"bob\", \"standard chartered\", \"axis\", \"au\", \"yes\", \"sbi\", \"fed\", \"hsbc\", \"citi\", \"amex\"]
      *
      * @return self
      */
@@ -626,7 +647,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets emi_tenure
      *
-     * @return int|null
+     * @return int
      */
     public function getEmiTenure()
     {
@@ -636,7 +657,7 @@ class CardEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets emi_tenure
      *
-     * @param int|null $emi_tenure EMI tenure selected by the user
+     * @param int $emi_tenure EMI tenure selected by the user
      *
      * @return self
      */
