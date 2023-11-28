@@ -73,8 +73,8 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cf_order_id' => 'int64',
-        'cf_terminal_id' => 'int64',
+        'cf_order_id' => null,
+        'cf_terminal_id' => null,
         'payment_method' => null,
         'terminal_phone_no' => null
     ];

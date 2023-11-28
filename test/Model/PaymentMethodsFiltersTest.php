@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PaymentMethodsFiltersTest Class Doc Comment
  *
  * @category    Class
- * @description Filter for Payment Methods
+ * @description Filter for specific Payment Methods
  * @package     Cashfree
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

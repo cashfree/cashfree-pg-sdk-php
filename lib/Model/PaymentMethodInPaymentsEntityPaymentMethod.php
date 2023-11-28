@@ -43,7 +43,7 @@ use \Cashfree\ObjectSerializer;
  */
 class PaymentMethodInPaymentsEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -323,6 +323,9 @@ class PaymentMethodInPaymentsEntityPaymentMethod implements ModelInterface, Arra
         $this->setIfExists('upi_id', $data ?? [], null);
         $this->setIfExists('provider', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**

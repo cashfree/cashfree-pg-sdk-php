@@ -276,6 +276,9 @@ class OfferWallet implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['app'] === null) {
+            $invalidProperties[] = "'app' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -294,7 +297,7 @@ class OfferWallet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets app
      *
-     * @return \Cashfree\Model\WalletOffer|null
+     * @return \Cashfree\Model\WalletOffer
      */
     public function getApp()
     {
@@ -304,7 +307,7 @@ class OfferWallet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets app
      *
-     * @param \Cashfree\Model\WalletOffer|null $app app
+     * @param \Cashfree\Model\WalletOffer $app app
      *
      * @return self
      */

@@ -43,7 +43,7 @@ use \Cashfree\ObjectSerializer;
  */
 class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -288,6 +288,9 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('upi', $data ?? [], null);
         $this->setIfExists('paylater', $data ?? [], null);
         $this->setIfExists('emi', $data ?? [], null);
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -325,6 +328,9 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
         }
         if ($this->container['netbanking'] === null) {
             $invalidProperties[] = "'netbanking' can't be null";
+        }
+        if ($this->container['app'] === null) {
+            $invalidProperties[] = "'app' can't be null";
         }
         if ($this->container['upi'] === null) {
             $invalidProperties[] = "'upi' can't be null";
@@ -434,7 +440,7 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets app
      *
-     * @return \Cashfree\Model\WalletOffer|null
+     * @return \Cashfree\Model\WalletOffer
      */
     public function getApp()
     {
@@ -444,7 +450,7 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets app
      *
-     * @param \Cashfree\Model\WalletOffer|null $app app
+     * @param \Cashfree\Model\WalletOffer $app app
      *
      * @return self
      */

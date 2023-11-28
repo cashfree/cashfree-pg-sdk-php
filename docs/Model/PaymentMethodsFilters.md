@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_methods** | **string[]** | Array of payment methods to be filtered. | [optional]
+**payment_methods** | **string[]** | Array of payment methods to be filtered. This is optional, by default all payment methods will be returned. Possible values in [ &#39;debit_card&#39;, &#39;credit_card&#39;, &#39;prepaid_card&#39;, &#39;corporate_credit_card&#39;, &#39;upi&#39;, &#39;wallet&#39;, &#39;netbanking&#39;, &#39;banktransfer&#39;, &#39;paylater&#39;, &#39;paypal&#39;, &#39;debit_card_emi&#39;, &#39;credit_card_emi&#39;, &#39;upi_credit_card&#39;, &#39;upi_ppi&#39;, &#39;cardless_emi&#39;, &#39;account_based_payment&#39; ] | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

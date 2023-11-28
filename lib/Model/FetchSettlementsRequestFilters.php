@@ -73,7 +73,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cf_settlement_ids' => 'int64',
+        'cf_settlement_ids' => null,
         'settlement_utrs' => null,
         'start_date' => null,
         'end_date' => null

@@ -127,7 +127,6 @@ docs/Model/RefundURLObject.md
 docs/Model/SavedInstrumentMeta.md
 docs/Model/SettlementEntity.md
 docs/Model/SettlementFetchReconRequest.md
-docs/Model/SettlementFetchReconRequestFilters.md
 docs/Model/SettlementReconEntity.md
 docs/Model/SettlementReconEntityDataInner.md
 docs/Model/SettlementURLObject.md
@@ -270,7 +269,6 @@ lib/Model/RefundURLObject.php
 lib/Model/SavedInstrumentMeta.php
 lib/Model/SettlementEntity.php
 lib/Model/SettlementFetchReconRequest.php
-lib/Model/SettlementFetchReconRequestFilters.php
 lib/Model/SettlementReconEntity.php
 lib/Model/SettlementReconEntityDataInner.php
 lib/Model/SettlementURLObject.php
@@ -409,7 +407,6 @@ test/Model/RefundSpeedTest.php
 test/Model/RefundURLObjectTest.php
 test/Model/SavedInstrumentMetaTest.php
 test/Model/SettlementEntityTest.php
-test/Model/SettlementFetchReconRequestFiltersTest.php
 test/Model/SettlementFetchReconRequestTest.php
 test/Model/SettlementReconEntityDataInnerTest.php
 test/Model/SettlementReconEntityTest.php

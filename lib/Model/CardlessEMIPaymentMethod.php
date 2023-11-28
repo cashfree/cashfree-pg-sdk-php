@@ -276,6 +276,9 @@ class CardlessEMIPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        if ($this->container['cardless_emi'] === null) {
+            $invalidProperties[] = "'cardless_emi' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -294,7 +297,7 @@ class CardlessEMIPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets cardless_emi
      *
-     * @return \Cashfree\Model\CardlessEMI|null
+     * @return \Cashfree\Model\CardlessEMI
      */
     public function getCardlessEmi()
     {
@@ -304,7 +307,7 @@ class CardlessEMIPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets cardless_emi
      *
-     * @param \Cashfree\Model\CardlessEMI|null $cardless_emi cardless_emi
+     * @param \Cashfree\Model\CardlessEMI $cardless_emi cardless_emi
      *
      * @return self
      */

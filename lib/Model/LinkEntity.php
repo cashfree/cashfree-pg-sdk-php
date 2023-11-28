@@ -86,7 +86,7 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cf_link_id' => 'int64',
+        'cf_link_id' => null,
         'link_id' => null,
         'link_status' => null,
         'link_currency' => null,

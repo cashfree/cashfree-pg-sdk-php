@@ -60,7 +60,7 @@ class SettlementFetchReconRequest implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'pagination' => '\Cashfree\Model\FetchSettlementsRequestPagination',
-        'filters' => '\Cashfree\Model\SettlementFetchReconRequestFilters'
+        'filters' => '\Cashfree\Model\FetchSettlementsRequestFilters'
     ];
 
     /**
@@ -334,7 +334,7 @@ class SettlementFetchReconRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets filters
      *
-     * @return \Cashfree\Model\SettlementFetchReconRequestFilters
+     * @return \Cashfree\Model\FetchSettlementsRequestFilters
      */
     public function getFilters()
     {
@@ -344,7 +344,7 @@ class SettlementFetchReconRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets filters
      *
-     * @param \Cashfree\Model\SettlementFetchReconRequestFilters $filters filters
+     * @param \Cashfree\Model\FetchSettlementsRequestFilters $filters filters
      *
      * @return self
      */

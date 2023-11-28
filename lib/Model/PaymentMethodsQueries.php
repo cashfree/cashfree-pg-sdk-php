@@ -59,7 +59,8 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amount' => 'float'
+        'amount' => 'float',
+        'order_id' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'amount' => null
+        'amount' => null,
+        'order_id' => 'string'
     ];
 
     /**
@@ -79,7 +81,8 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false
+        'amount' => false,
+		'order_id' => false
     ];
 
     /**
@@ -168,7 +171,8 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount' => 'amount'
+        'amount' => 'amount',
+        'order_id' => 'order_id'
     ];
 
     /**
@@ -177,7 +181,8 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'amount' => 'setAmount'
+        'amount' => 'setAmount',
+        'order_id' => 'setOrderId'
     ];
 
     /**
@@ -186,7 +191,8 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'amount' => 'getAmount'
+        'amount' => 'getAmount',
+        'order_id' => 'getOrderId'
     ];
 
     /**
@@ -247,6 +253,7 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('order_id', $data ?? [], null);
     }
 
     /**
@@ -278,6 +285,14 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
 
         if (!is_null($this->container['amount']) && ($this->container['amount'] < 1)) {
             $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['order_id']) && (mb_strlen($this->container['order_id']) > 50)) {
+            $invalidProperties[] = "invalid value for 'order_id', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['order_id']) && (mb_strlen($this->container['order_id']) < 3)) {
+            $invalidProperties[] = "invalid value for 'order_id', the character length must be bigger than or equal to 3.";
         }
 
         return $invalidProperties;
@@ -323,6 +338,40 @@ class PaymentMethodsQueries implements ModelInterface, ArrayAccess, \JsonSeriali
         }
 
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return string|null
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param string|null $order_id OrderId of the order. Either of `order_id` or `order_amount` is mandatory.
+     *
+     * @return self
+     */
+    public function setOrderId($order_id)
+    {
+        if (is_null($order_id)) {
+            throw new \InvalidArgumentException('non-nullable order_id cannot be null');
+        }
+        if ((mb_strlen($order_id) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $order_id when calling PaymentMethodsQueries., must be smaller than or equal to 50.');
+        }
+        if ((mb_strlen($order_id) < 3)) {
+            throw new \InvalidArgumentException('invalid length for $order_id when calling PaymentMethodsQueries., must be bigger than or equal to 3.');
+        }
+
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }

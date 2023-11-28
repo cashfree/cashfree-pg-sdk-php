@@ -426,6 +426,9 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
         $allowedValues = $this->getChannelAllowableValues();
         if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -471,7 +474,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets channel
      *
-     * @return string|null
+     * @return string
      */
     public function getChannel()
     {
@@ -481,7 +484,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets channel
      *
-     * @param string|null $channel The channel for card payments can be \"link\" or \"post\". Post is used for seamless OTP payments where merchant captures OTP on their own page.
+     * @param string $channel The channel for card payments can be \"link\" or \"post\". Post is used for seamless OTP payments where merchant captures OTP on their own page.
      *
      * @return self
      */
