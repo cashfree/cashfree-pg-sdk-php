@@ -4,10 +4,10 @@ All URIs are relative to https://sandbox.cashfree.com/pg, except if the operatio
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**PGEligibilityFetchCardlessEMI()**](EligibilityApi.md#PGEligibilityFetchCardlessEMI) | **POST** /eligibility/cardlessemi | Get Eligible Cardless EMI Payment Methods for a customer on an order |
-| [**PGEligibilityFetchOffers()**](EligibilityApi.md#PGEligibilityFetchOffers) | **POST** /eligibility/offers | Get Eligible Offers for an Order |
-| [**PGEligibilityFetchPaylater()**](EligibilityApi.md#PGEligibilityFetchPaylater) | **POST** /eligibility/paylater | Get Eligible Paylater for a customer on an order |
-| [**PGEligibilityFetchPaymentMethods()**](EligibilityApi.md#PGEligibilityFetchPaymentMethods) | **POST** /eligibility/payment_methods | Get eligible Payment Methods |
+| [**PGEligibilityFetchCardlessEMI()**](EligibilityApi.md#PGEligibilityFetchCardlessEMI) | **POST** /eligibility/cardlessemi | Get Eligible Cardless EMI |
+| [**PGEligibilityFetchOffers()**](EligibilityApi.md#PGEligibilityFetchOffers) | **POST** /eligibility/offers | Get Eligible Offers |
+| [**PGEligibilityFetchPaylater()**](EligibilityApi.md#PGEligibilityFetchPaylater) | **POST** /eligibility/paylater | Get Eligible Paylater |
+| [**PGEligibilityFetchPaymentMethods()**](EligibilityApi.md#PGEligibilityFetchPaymentMethods) | **POST** /eligibility/payment_methods | Get Eligible Payment Methods |
 
 
 ## `PGEligibilityFetchCardlessEMI()`
@@ -16,7 +16,7 @@ All URIs are relative to https://sandbox.cashfree.com/pg, except if the operatio
 PGEligibilityFetchCardlessEMI($x_api_version, $eligibility_fetch_cardless_emi_request, $x_request_id, $x_idempotency_key): \Cashfree\Model\EligibilityCardlessEMIEntity[]
 ```
 
-Get Eligible Cardless EMI Payment Methods for a customer on an order
+Get Eligible Cardless EMI
 
 Use this API to get eligible Cardless EMI Payment Methods available for a customer on an order basis their phone number.
 
@@ -77,7 +77,7 @@ try {
 PGEligibilityFetchOffers($x_api_version, $eligibility_fetch_offers_request, $x_request_id, $x_idempotency_key): \Cashfree\Model\EligibilityOfferEntity[]
 ```
 
-Get Eligible Offers for an Order
+Get Eligible Offers
 
 Use this API to get eligible offers for an order_id or order amount.
 
@@ -138,7 +138,7 @@ try {
 PGEligibilityFetchPaylater($x_api_version, $eligibility_fetch_paylater_request, $x_request_id, $x_idempotency_key): \Cashfree\Model\EligibilityPaylaterEntity[]
 ```
 
-Get Eligible Paylater for a customer on an order
+Get Eligible Paylater
 
 Use this API to get eligible Paylater Payment Methods for a customer on an order.
 
@@ -199,7 +199,7 @@ try {
 PGEligibilityFetchPaymentMethods($x_api_version, $eligibility_fetch_payment_methods_request, $x_request_id, $x_idempotency_key): \Cashfree\Model\EligibilityPaymentMethodsEntity[]
 ```
 
-Get eligible Payment Methods
+Get Eligible Payment Methods
 
 Use this API to get eligible Payment Methods
 

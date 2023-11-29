@@ -276,6 +276,9 @@ class PaylaterPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['paylater'] === null) {
+            $invalidProperties[] = "'paylater' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -294,7 +297,7 @@ class PaylaterPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets paylater
      *
-     * @return \Cashfree\Model\Paylater|null
+     * @return \Cashfree\Model\Paylater
      */
     public function getPaylater()
     {
@@ -304,7 +307,7 @@ class PaylaterPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets paylater
      *
-     * @param \Cashfree\Model\Paylater|null $paylater paylater
+     * @param \Cashfree\Model\Paylater $paylater paylater
      *
      * @return self
      */

@@ -79,7 +79,7 @@ class CreateOrderRequestTerminal implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPIFormats = [
         'added_on' => null,
-        'cf_terminal_id' => 'int64',
+        'cf_terminal_id' => null,
         'last_updated_on' => null,
         'terminal_address' => null,
         'terminal_id' => null,

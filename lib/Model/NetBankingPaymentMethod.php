@@ -79,7 +79,7 @@ class NetBankingPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'netbanking' => true
+        'netbanking' => false
     ];
 
     /**
@@ -314,14 +314,7 @@ class NetBankingPaymentMethod implements ModelInterface, ArrayAccess, \JsonSeria
     public function setNetbanking($netbanking)
     {
         if (is_null($netbanking)) {
-            array_push($this->openAPINullablesSetToNull, 'netbanking');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('netbanking', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable netbanking cannot be null');
         }
         $this->container['netbanking'] = $netbanking;
 

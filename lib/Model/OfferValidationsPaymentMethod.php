@@ -326,6 +326,9 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['netbanking'] === null) {
             $invalidProperties[] = "'netbanking' can't be null";
         }
+        if ($this->container['app'] === null) {
+            $invalidProperties[] = "'app' can't be null";
+        }
         if ($this->container['upi'] === null) {
             $invalidProperties[] = "'upi' can't be null";
         }
@@ -434,7 +437,7 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets app
      *
-     * @return \Cashfree\Model\WalletOffer|null
+     * @return \Cashfree\Model\WalletOffer
      */
     public function getApp()
     {
@@ -444,7 +447,7 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets app
      *
-     * @param \Cashfree\Model\WalletOffer|null $app app
+     * @param \Cashfree\Model\WalletOffer $app app
      *
      * @return self
      */

@@ -92,7 +92,7 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
     protected static array $openAPINullables = [
         'card' => false,
 		'upi' => false,
-		'netbanking' => true,
+		'netbanking' => false,
 		'app' => false,
 		'emi' => false,
 		'cardless_emi' => false,
@@ -332,6 +332,12 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         if ($this->container['emi'] === null) {
             $invalidProperties[] = "'emi' can't be null";
         }
+        if ($this->container['cardless_emi'] === null) {
+            $invalidProperties[] = "'cardless_emi' can't be null";
+        }
+        if ($this->container['paylater'] === null) {
+            $invalidProperties[] = "'paylater' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -421,14 +427,7 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
     public function setNetbanking($netbanking)
     {
         if (is_null($netbanking)) {
-            array_push($this->openAPINullablesSetToNull, 'netbanking');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('netbanking', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable netbanking cannot be null');
         }
         $this->container['netbanking'] = $netbanking;
 
@@ -492,7 +491,7 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets cardless_emi
      *
-     * @return \Cashfree\Model\CardlessEMI|null
+     * @return \Cashfree\Model\CardlessEMI
      */
     public function getCardlessEmi()
     {
@@ -502,7 +501,7 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets cardless_emi
      *
-     * @param \Cashfree\Model\CardlessEMI|null $cardless_emi cardless_emi
+     * @param \Cashfree\Model\CardlessEMI $cardless_emi cardless_emi
      *
      * @return self
      */
@@ -519,7 +518,7 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets paylater
      *
-     * @return \Cashfree\Model\Paylater|null
+     * @return \Cashfree\Model\Paylater
      */
     public function getPaylater()
     {
@@ -529,7 +528,7 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets paylater
      *
-     * @param \Cashfree\Model\Paylater|null $paylater paylater
+     * @param \Cashfree\Model\Paylater $paylater paylater
      *
      * @return self
      */
