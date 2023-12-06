@@ -11,8 +11,6 @@ Cashfree's PG API Documentation - https://docs.cashfree.com/reference/pg-new-api
 
 Learn and understand payment gateway workflows at Cashfree Payments [here](https://docs.cashfree.com/docs/payment-gateway)
 
-Try out our interactive guides at [Cashfree Labs](https://labs.cashfree.com/) !
-
 ## Getting Started
 
 ### Installation
