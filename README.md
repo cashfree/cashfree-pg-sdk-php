@@ -11,6 +11,8 @@ Cashfree's PG API Documentation - https://docs.cashfree.com/reference/pg-new-api
 
 Learn and understand payment gateway workflows at Cashfree Payments [here](https://docs.cashfree.com/docs/payment-gateway)
 
+Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com/devstudio) !
+
 ## Getting Started
 
 ### Installation
@@ -37,7 +39,7 @@ $create_orders_request = new \Cashfree\Model\CreateOrdersRequest();
 $create_orders_request->setOrderAmount(1.0);
 $create_orders_request->setOrderCurrency("INR");
 $customer_details = new \Cashfree\Model\CustomerDetails();
-$customer_details->setCustomerId("123");
+$customer_details->setCustomerId("walterwNrcMi");
 $customer_details->setCustomerPhone("9999999999");
 $create_orders_request->setCustomerDetails($customer_details);
 

@@ -83,8 +83,8 @@ class SettlementEntity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cf_payment_id' => null,
-        'cf_settlement_id' => null,
+        'cf_payment_id' => 'int64',
+        'cf_settlement_id' => 'int64',
         'settlement_currency' => null,
         'order_id' => null,
         'entity' => null,

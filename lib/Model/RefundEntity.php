@@ -88,7 +88,7 @@ class RefundEntity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cf_payment_id' => null,
+        'cf_payment_id' => 'int64',
         'cf_refund_id' => null,
         'order_id' => null,
         'refund_id' => null,
