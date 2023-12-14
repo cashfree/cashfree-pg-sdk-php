@@ -60,7 +60,7 @@ class LinkMetaEntity implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'notify_url' => 'string',
-        'upi_intent' => 'bool',
+        'upi_intent' => 'string',
         'return_url' => 'string',
         'payment_methods' => 'string'
     ];
@@ -342,7 +342,7 @@ class LinkMetaEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets upi_intent
      *
-     * @return bool|null
+     * @return string|null
      */
     public function getUpiIntent()
     {
@@ -352,7 +352,7 @@ class LinkMetaEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upi_intent
      *
-     * @param bool|null $upi_intent If \"true\", link will directly open UPI Intent flow on mobile, and normal link flow elsewhere
+     * @param string|null $upi_intent If \"true\", link will directly open UPI Intent flow on mobile, and normal link flow elsewhere
      *
      * @return self
      */

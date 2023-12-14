@@ -122,7 +122,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
         'payment_time' => null,
         'payment_service_charge' => null,
         'payment_service_tax' => null,
-        'cf_payment_id' => null,
+        'cf_payment_id' => 'int64',
         'cf_settlement_id' => null,
         'settlement_date' => null,
         'settlement_utr' => null,

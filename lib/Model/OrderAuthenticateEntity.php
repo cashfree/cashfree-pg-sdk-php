@@ -73,7 +73,7 @@ class OrderAuthenticateEntity implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cf_payment_id' => null,
+        'cf_payment_id' => 'int64',
         'action' => null,
         'authenticate_status' => null,
         'payment_message' => null
