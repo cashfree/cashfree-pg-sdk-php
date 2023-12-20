@@ -169,7 +169,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGEligibilityFetchCardlessEMI",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -492,7 +492,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -589,7 +589,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGEligibilityFetchOffers",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -889,7 +889,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -986,7 +986,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGEligibilityFetchPaylater",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -1309,7 +1309,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -1406,7 +1406,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGEligibilityFetchPaymentMethods",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -1729,7 +1729,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -1826,7 +1826,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCreateOffer",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -2126,7 +2126,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -2223,7 +2223,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGFetchOffer",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -2523,7 +2523,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -2621,7 +2621,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCreateOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -2921,7 +2921,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3018,7 +3018,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGFetchOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -3318,7 +3318,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3416,7 +3416,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGFetchRecon",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -3718,7 +3718,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3815,7 +3815,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCancelLink",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -4115,7 +4115,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -4213,7 +4213,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCreateLink",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -4513,7 +4513,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -4610,7 +4610,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGFetchLink",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -4933,7 +4933,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5031,7 +5031,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGLinkFetchOrders",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -5331,7 +5331,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5429,7 +5429,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGAuthorizeOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -5759,7 +5759,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5864,7 +5864,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGOrderAuthenticatePayment",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -6194,7 +6194,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -6299,7 +6299,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGOrderFetchPayment",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -6629,7 +6629,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -6735,7 +6735,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGOrderFetchPayments",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -7058,7 +7058,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -7156,7 +7156,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGPayOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -7479,7 +7479,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -7576,7 +7576,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGOrderCreateRefund",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -7906,7 +7906,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8011,7 +8011,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGOrderFetchRefund",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -8341,7 +8341,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8447,7 +8447,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGOrderFetchRefunds",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -8747,7 +8747,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8845,7 +8845,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGFetchSettlements",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -9147,7 +9147,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -9244,7 +9244,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGSettlementFetchRecon",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -9546,7 +9546,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -9643,7 +9643,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGOrderFetchSettlement",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -9966,7 +9966,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10064,7 +10064,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "sposCreateTerminal",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -10364,7 +10364,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10461,7 +10461,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "sposCreateTerminalTransaction",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -10761,7 +10761,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10858,7 +10858,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "sposFetchTerminal",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -11158,7 +11158,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -11256,7 +11256,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "sposFetchTerminalQRCodes",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -11581,7 +11581,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -11671,7 +11671,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCustomerDeleteInstrument",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -12001,7 +12001,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12107,7 +12107,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCustomerFetchInstrument",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -12437,7 +12437,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12543,7 +12543,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCustomerFetchInstruments",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -12859,7 +12859,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12957,7 +12957,7 @@ class Cashfree {
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
             'environment' => $env. "pGCustomerInstrumentsFetchCryptogram",
             'attach_stacktrace' => true,
-            'release' => '3.0.6',
+            'release' => '3.0.8',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                 $osContext = $event->getOsContext();
@@ -13287,7 +13287,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.6";
+        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
