@@ -70,7 +70,7 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_purpose' => 'string',
         'link_created_at' => 'string',
         'customer_details' => '\Cashfree\Model\LinkCustomerDetailsEntity',
-        'link_meta' => '\Cashfree\Model\LinkMetaEntity',
+        'link_meta' => 'array<string,string>',
         'link_url' => 'string',
         'link_expiry_time' => 'string',
         'link_notes' => 'array<string,string>',
@@ -703,7 +703,7 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets link_meta
      *
-     * @return \Cashfree\Model\LinkMetaEntity|null
+     * @return array<string,string>|null
      */
     public function getLinkMeta()
     {
@@ -713,7 +713,7 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets link_meta
      *
-     * @param \Cashfree\Model\LinkMetaEntity|null $link_meta link_meta
+     * @param array<string,string>|null $link_meta Payment link meta information object.
      *
      * @return self
      */
