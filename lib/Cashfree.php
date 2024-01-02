@@ -165,20 +165,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGEligibilityFetchCardlessEMI",
+            'environment' => $env."PGEligibilityFetchCardlessEMI",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -198,8 +205,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -492,7 +499,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -585,20 +592,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGEligibilityFetchOffers",
+            'environment' => $env."PGEligibilityFetchOffers",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -618,8 +632,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -889,7 +903,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -982,20 +996,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGEligibilityFetchPaylater",
+            'environment' => $env."PGEligibilityFetchPaylater",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -1015,8 +1036,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1309,7 +1330,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -1402,20 +1423,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGEligibilityFetchPaymentMethods",
+            'environment' => $env."PGEligibilityFetchPaymentMethods",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -1435,8 +1463,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -1729,7 +1757,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -1822,20 +1850,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCreateOffer",
+            'environment' => $env."PGCreateOffer",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -1855,8 +1890,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -2126,7 +2161,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -2219,20 +2254,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGFetchOffer",
+            'environment' => $env."PGFetchOffer",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -2252,8 +2294,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -2523,7 +2565,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -2617,20 +2659,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCreateOrder",
+            'environment' => $env."PGCreateOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -2650,8 +2699,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -2921,7 +2970,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3014,20 +3063,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGFetchOrder",
+            'environment' => $env."PGFetchOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -3047,8 +3103,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -3318,7 +3374,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3412,20 +3468,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGFetchRecon",
+            'environment' => $env."PGFetchRecon",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -3445,8 +3508,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -3718,7 +3781,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3811,20 +3874,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCancelLink",
+            'environment' => $env."PGCancelLink",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -3844,8 +3914,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -4115,7 +4185,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -4209,20 +4279,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCreateLink",
+            'environment' => $env."PGCreateLink",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -4242,8 +4319,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -4513,7 +4590,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -4606,20 +4683,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGFetchLink",
+            'environment' => $env."PGFetchLink",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -4639,8 +4723,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -4933,7 +5017,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5027,20 +5111,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGLinkFetchOrders",
+            'environment' => $env."PGLinkFetchOrders",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -5060,8 +5151,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -5331,7 +5422,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5425,20 +5516,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGAuthorizeOrder",
+            'environment' => $env."PGAuthorizeOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -5458,8 +5556,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -5759,7 +5857,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5860,20 +5958,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGOrderAuthenticatePayment",
+            'environment' => $env."PGOrderAuthenticatePayment",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -5893,8 +5998,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -6194,7 +6299,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -6295,20 +6400,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGOrderFetchPayment",
+            'environment' => $env."PGOrderFetchPayment",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -6328,8 +6440,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -6629,7 +6741,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -6731,20 +6843,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGOrderFetchPayments",
+            'environment' => $env."PGOrderFetchPayments",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -6764,8 +6883,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -7058,7 +7177,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -7152,20 +7271,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGPayOrder",
+            'environment' => $env."PGPayOrder",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -7185,8 +7311,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -7479,7 +7605,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -7572,20 +7698,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGOrderCreateRefund",
+            'environment' => $env."PGOrderCreateRefund",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -7605,8 +7738,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -7906,7 +8039,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8007,20 +8140,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGOrderFetchRefund",
+            'environment' => $env."PGOrderFetchRefund",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -8040,8 +8180,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -8341,7 +8481,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8443,20 +8583,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGOrderFetchRefunds",
+            'environment' => $env."PGOrderFetchRefunds",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -8476,8 +8623,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -8747,7 +8894,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8841,20 +8988,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGFetchSettlements",
+            'environment' => $env."PGFetchSettlements",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -8874,8 +9028,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -9147,7 +9301,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -9240,20 +9394,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGSettlementFetchRecon",
+            'environment' => $env."PGSettlementFetchRecon",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -9273,8 +9434,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -9546,7 +9707,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -9639,20 +9800,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGOrderFetchSettlement",
+            'environment' => $env."PGOrderFetchSettlement",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -9672,8 +9840,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -9966,7 +10134,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10060,20 +10228,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "sposCreateTerminal",
+            'environment' => $env."SposCreateTerminal",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -10093,8 +10268,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -10364,7 +10539,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10457,20 +10632,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "sposCreateTerminalTransaction",
+            'environment' => $env."SposCreateTerminalTransaction",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -10490,8 +10672,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -10761,7 +10943,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10854,20 +11036,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "sposFetchTerminal",
+            'environment' => $env."SposFetchTerminal",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -10887,8 +11076,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -11158,7 +11347,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -11252,20 +11441,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "sposFetchTerminalQRCodes",
+            'environment' => $env."SposFetchTerminalQRCodes",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -11285,8 +11481,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -11581,7 +11777,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -11667,20 +11863,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCustomerDeleteInstrument",
+            'environment' => $env."PGCustomerDeleteInstrument",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -11700,8 +11903,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -12001,7 +12204,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12103,20 +12306,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCustomerFetchInstrument",
+            'environment' => $env."PGCustomerFetchInstrument",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -12136,8 +12346,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -12437,7 +12647,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12539,20 +12749,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCustomerFetchInstruments",
+            'environment' => $env."PGCustomerFetchInstruments",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -12572,8 +12789,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -12859,7 +13076,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12953,20 +13170,27 @@ class Cashfree {
         if(Cashfree::$XEnvironment == CFEnvironment::PRODUCTION) {
             $env = "production";
         }
+
         \Sentry\init([
             'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-            'environment' => $env. "pGCustomerInstrumentsFetchCryptogram",
+            'environment' => $env."PGCustomerInstrumentsFetchCryptogram",
             'attach_stacktrace' => true,
-            'release' => '3.0.8',
+            'release' => '3.1.0',
             'traces_sample_rate' => 1.0,
             'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
-                $osContext = $event->getOsContext();
-                $osContext->setKernelVersion("");
-                $osContext->setMachineType("");
-                $osContext->setKernelVersion("");
-                $osContext->setVersion("");
-                $event->setOsContext($osContext);
-                return $event;
+                $cashfreepg = "cashfree-pg";
+                if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                    $osContext = $event->getOsContext();
+                    $osContext->setKernelVersion("");
+                    $osContext->setMachineType("");
+                    $osContext->setKernelVersion("");
+                    $osContext->setVersion("");
+                    $event->setOsContext($osContext);
+                    return $event;
+                }
+                }
+            return null;
             },
         ]);
 
@@ -12986,8 +13210,8 @@ class Cashfree {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    null,
+                    null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
@@ -13287,7 +13511,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-3.0.8";
+        $headers['x-sdk-platform'] = "phpsdk-3.1.0";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }

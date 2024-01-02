@@ -63,8 +63,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'order_amount' => 'float',
         'order_currency' => 'string',
         'customer_details' => '\Cashfree\Model\CustomerDetails',
-        'terminal' => '\Cashfree\Model\CreateOrderRequestTerminal',
-        'order_meta' => '\Cashfree\Model\CreateOrderRequestOrderMeta',
+        'terminal' => '\Cashfree\Model\TerminalDetails',
+        'order_meta' => '\Cashfree\Model\OrderMeta',
         'order_expiry_time' => 'string',
         'order_note' => 'string',
         'order_tags' => 'array<string,string>',
@@ -97,16 +97,16 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'order_id' => true,
+        'order_id' => false,
 		'order_amount' => false,
 		'order_currency' => false,
 		'customer_details' => false,
-		'terminal' => true,
-		'order_meta' => true,
+		'terminal' => false,
+		'order_meta' => false,
 		'order_expiry_time' => false,
-		'order_note' => true,
-		'order_tags' => true,
-		'order_splits' => true
+		'order_note' => false,
+		'order_tags' => false,
+		'order_splits' => false
     ];
 
     /**
@@ -407,19 +407,12 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setOrderId($order_id)
     {
         if (is_null($order_id)) {
-            array_push($this->openAPINullablesSetToNull, 'order_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_id cannot be null');
         }
-        if (!is_null($order_id) && (mb_strlen($order_id) > 45)) {
+        if ((mb_strlen($order_id) > 45)) {
             throw new \InvalidArgumentException('invalid length for $order_id when calling CreateOrderRequest., must be smaller than or equal to 45.');
         }
-        if (!is_null($order_id) && (mb_strlen($order_id) < 3)) {
+        if ((mb_strlen($order_id) < 3)) {
             throw new \InvalidArgumentException('invalid length for $order_id when calling CreateOrderRequest., must be bigger than or equal to 3.');
         }
 
@@ -517,7 +510,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets terminal
      *
-     * @return \Cashfree\Model\CreateOrderRequestTerminal|null
+     * @return \Cashfree\Model\TerminalDetails|null
      */
     public function getTerminal()
     {
@@ -527,21 +520,14 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets terminal
      *
-     * @param \Cashfree\Model\CreateOrderRequestTerminal|null $terminal terminal
+     * @param \Cashfree\Model\TerminalDetails|null $terminal terminal
      *
      * @return self
      */
     public function setTerminal($terminal)
     {
         if (is_null($terminal)) {
-            array_push($this->openAPINullablesSetToNull, 'terminal');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('terminal', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable terminal cannot be null');
         }
         $this->container['terminal'] = $terminal;
 
@@ -551,7 +537,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets order_meta
      *
-     * @return \Cashfree\Model\CreateOrderRequestOrderMeta|null
+     * @return \Cashfree\Model\OrderMeta|null
      */
     public function getOrderMeta()
     {
@@ -561,21 +547,14 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets order_meta
      *
-     * @param \Cashfree\Model\CreateOrderRequestOrderMeta|null $order_meta order_meta
+     * @param \Cashfree\Model\OrderMeta|null $order_meta order_meta
      *
      * @return self
      */
     public function setOrderMeta($order_meta)
     {
         if (is_null($order_meta)) {
-            array_push($this->openAPINullablesSetToNull, 'order_meta');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_meta', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_meta cannot be null');
         }
         $this->container['order_meta'] = $order_meta;
 
@@ -629,19 +608,12 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setOrderNote($order_note)
     {
         if (is_null($order_note)) {
-            array_push($this->openAPINullablesSetToNull, 'order_note');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_note', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_note cannot be null');
         }
-        if (!is_null($order_note) && (mb_strlen($order_note) > 200)) {
+        if ((mb_strlen($order_note) > 200)) {
             throw new \InvalidArgumentException('invalid length for $order_note when calling CreateOrderRequest., must be smaller than or equal to 200.');
         }
-        if (!is_null($order_note) && (mb_strlen($order_note) < 3)) {
+        if ((mb_strlen($order_note) < 3)) {
             throw new \InvalidArgumentException('invalid length for $order_note when calling CreateOrderRequest., must be bigger than or equal to 3.');
         }
 
@@ -670,17 +642,10 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setOrderTags($order_tags)
     {
         if (is_null($order_tags)) {
-            array_push($this->openAPINullablesSetToNull, 'order_tags');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_tags', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_tags cannot be null');
         }
 
-        if (!is_null($order_tags) && (count($order_tags) > 15)) {
+        if ((count($order_tags) > 15)) {
             throw new \InvalidArgumentException('invalid value for $order_tags when calling CreateOrderRequest., number of items must be less than or equal to 15.');
         }
         $this->container['order_tags'] = $order_tags;
@@ -708,14 +673,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setOrderSplits($order_splits)
     {
         if (is_null($order_splits)) {
-            array_push($this->openAPINullablesSetToNull, 'order_splits');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_splits', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_splits cannot be null');
         }
         $this->container['order_splits'] = $order_splits;
 

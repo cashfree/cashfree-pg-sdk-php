@@ -35,7 +35,7 @@ Create Order
 $cashfree = new \Cashfree\Cashfree();
 
 $x_api_version = "2022-09-01";
-$create_orders_request = new \Cashfree\Model\CreateOrdersRequest();
+$create_orders_request = new \Cashfree\Model\CreateOrderRequest();
 $create_orders_request->setOrderAmount(1.0);
 $create_orders_request->setOrderCurrency("INR");
 $customer_details = new \Cashfree\Model\CustomerDetails();

@@ -85,10 +85,10 @@ class OrderPayData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'url' => true,
-		'payload' => true,
-		'content_type' => true,
-		'method' => true
+        'url' => false,
+		'payload' => false,
+		'content_type' => false,
+		'method' => false
     ];
 
     /**
@@ -332,14 +332,7 @@ class OrderPayData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUrl($url)
     {
         if (is_null($url)) {
-            array_push($this->openAPINullablesSetToNull, 'url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
 
@@ -366,14 +359,7 @@ class OrderPayData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPayload($payload)
     {
         if (is_null($payload)) {
-            array_push($this->openAPINullablesSetToNull, 'payload');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payload', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payload cannot be null');
         }
         $this->container['payload'] = $payload;
 
@@ -400,14 +386,7 @@ class OrderPayData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setContentType($content_type)
     {
         if (is_null($content_type)) {
-            array_push($this->openAPINullablesSetToNull, 'content_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('content_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable content_type cannot be null');
         }
         $this->container['content_type'] = $content_type;
 
@@ -434,14 +413,7 @@ class OrderPayData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMethod($method)
     {
         if (is_null($method)) {
-            array_push($this->openAPINullablesSetToNull, 'method');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('method', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable method cannot be null');
         }
         $this->container['method'] = $method;
 

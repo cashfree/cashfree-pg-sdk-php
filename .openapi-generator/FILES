@@ -38,8 +38,6 @@ docs/Model/CashbackDetails.md
 docs/Model/CreateLinkRequest.md
 docs/Model/CreateOfferRequest.md
 docs/Model/CreateOrderRequest.md
-docs/Model/CreateOrderRequestOrderMeta.md
-docs/Model/CreateOrderRequestTerminal.md
 docs/Model/CreateTerminalRequest.md
 docs/Model/CreateTerminalRequestTerminalMeta.md
 docs/Model/CreateTerminalTransactionRequest.md
@@ -180,8 +178,6 @@ lib/Model/CashbackDetails.php
 lib/Model/CreateLinkRequest.php
 lib/Model/CreateOfferRequest.php
 lib/Model/CreateOrderRequest.php
-lib/Model/CreateOrderRequestOrderMeta.php
-lib/Model/CreateOrderRequestTerminal.php
 lib/Model/CreateTerminalRequest.php
 lib/Model/CreateTerminalRequestTerminalMeta.php
 lib/Model/CreateTerminalTransactionRequest.php
@@ -320,8 +316,6 @@ test/Model/CardlessEMITest.php
 test/Model/CashbackDetailsTest.php
 test/Model/CreateLinkRequestTest.php
 test/Model/CreateOfferRequestTest.php
-test/Model/CreateOrderRequestOrderMetaTest.php
-test/Model/CreateOrderRequestTerminalTest.php
 test/Model/CreateOrderRequestTest.php
 test/Model/CreateTerminalRequestTerminalMetaTest.php
 test/Model/CreateTerminalRequestTest.php

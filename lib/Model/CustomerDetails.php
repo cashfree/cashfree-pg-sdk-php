@@ -92,12 +92,12 @@ class CustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'customer_id' => false,
-		'customer_email' => true,
+		'customer_email' => false,
 		'customer_phone' => false,
-		'customer_name' => true,
-		'customer_bank_account_number' => true,
-		'customer_bank_ifsc' => true,
-		'customer_bank_code' => true
+		'customer_name' => false,
+		'customer_bank_account_number' => false,
+		'customer_bank_ifsc' => false,
+		'customer_bank_code' => false
     ];
 
     /**
@@ -433,19 +433,12 @@ class CustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomerEmail($customer_email)
     {
         if (is_null($customer_email)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_email');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_email', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_email cannot be null');
         }
-        if (!is_null($customer_email) && (mb_strlen($customer_email) > 100)) {
+        if ((mb_strlen($customer_email) > 100)) {
             throw new \InvalidArgumentException('invalid length for $customer_email when calling CustomerDetails., must be smaller than or equal to 100.');
         }
-        if (!is_null($customer_email) && (mb_strlen($customer_email) < 3)) {
+        if ((mb_strlen($customer_email) < 3)) {
             throw new \InvalidArgumentException('invalid length for $customer_email when calling CustomerDetails., must be bigger than or equal to 3.');
         }
 
@@ -508,19 +501,12 @@ class CustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomerName($customer_name)
     {
         if (is_null($customer_name)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_name cannot be null');
         }
-        if (!is_null($customer_name) && (mb_strlen($customer_name) > 100)) {
+        if ((mb_strlen($customer_name) > 100)) {
             throw new \InvalidArgumentException('invalid length for $customer_name when calling CustomerDetails., must be smaller than or equal to 100.');
         }
-        if (!is_null($customer_name) && (mb_strlen($customer_name) < 3)) {
+        if ((mb_strlen($customer_name) < 3)) {
             throw new \InvalidArgumentException('invalid length for $customer_name when calling CustomerDetails., must be bigger than or equal to 3.');
         }
 
@@ -549,19 +535,12 @@ class CustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomerBankAccountNumber($customer_bank_account_number)
     {
         if (is_null($customer_bank_account_number)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_bank_account_number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_bank_account_number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_bank_account_number cannot be null');
         }
-        if (!is_null($customer_bank_account_number) && (mb_strlen($customer_bank_account_number) > 20)) {
+        if ((mb_strlen($customer_bank_account_number) > 20)) {
             throw new \InvalidArgumentException('invalid length for $customer_bank_account_number when calling CustomerDetails., must be smaller than or equal to 20.');
         }
-        if (!is_null($customer_bank_account_number) && (mb_strlen($customer_bank_account_number) < 3)) {
+        if ((mb_strlen($customer_bank_account_number) < 3)) {
             throw new \InvalidArgumentException('invalid length for $customer_bank_account_number when calling CustomerDetails., must be bigger than or equal to 3.');
         }
 
@@ -590,14 +569,7 @@ class CustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomerBankIfsc($customer_bank_ifsc)
     {
         if (is_null($customer_bank_ifsc)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_bank_ifsc');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_bank_ifsc', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_bank_ifsc cannot be null');
         }
         $this->container['customer_bank_ifsc'] = $customer_bank_ifsc;
 
@@ -624,14 +596,7 @@ class CustomerDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomerBankCode($customer_bank_code)
     {
         if (is_null($customer_bank_code)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_bank_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_bank_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_bank_code cannot be null');
         }
         $this->container['customer_bank_code'] = $customer_bank_code;
 
