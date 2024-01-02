@@ -93,7 +93,7 @@ class PayOrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'cf_payment_id' => false,
 		'payment_method' => false,
 		'channel' => false,
-		'action' => true,
+		'action' => false,
 		'data' => false
     ];
 
@@ -570,17 +570,10 @@ class PayOrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAction($action)
     {
         if (is_null($action)) {
-            array_push($this->openAPINullablesSetToNull, 'action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable action cannot be null');
         }
         $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+        if (!in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'action', must be one of '%s'",

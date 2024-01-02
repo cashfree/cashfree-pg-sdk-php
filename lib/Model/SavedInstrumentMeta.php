@@ -91,7 +91,7 @@ class SavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSerializa
 		'card_bank_name' => false,
 		'card_country' => false,
 		'card_type' => false,
-		'card_token_details' => true
+		'card_token_details' => false
     ];
 
     /**
@@ -447,14 +447,7 @@ class SavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setCardTokenDetails($card_token_details)
     {
         if (is_null($card_token_details)) {
-            array_push($this->openAPINullablesSetToNull, 'card_token_details');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('card_token_details', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable card_token_details cannot be null');
         }
         $this->container['card_token_details'] = $card_token_details;
 

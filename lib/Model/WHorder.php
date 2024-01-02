@@ -88,7 +88,7 @@ class WHorder implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_id' => false,
 		'order_amount' => false,
 		'order_currency' => false,
-		'order_tags' => true
+		'order_tags' => false
     ];
 
     /**
@@ -417,17 +417,10 @@ class WHorder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOrderTags($order_tags)
     {
         if (is_null($order_tags)) {
-            array_push($this->openAPINullablesSetToNull, 'order_tags');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_tags', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_tags cannot be null');
         }
 
-        if (!is_null($order_tags) && (count($order_tags) > 15)) {
+        if ((count($order_tags) > 15)) {
             throw new \InvalidArgumentException('invalid value for $order_tags when calling WHorder., number of items must be less than or equal to 15.');
         }
         $this->container['order_tags'] = $order_tags;

@@ -83,8 +83,8 @@ class OrderMeta implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'return_url' => true,
-		'notify_url' => true,
+        'return_url' => false,
+		'notify_url' => false,
 		'payment_methods' => true
     ];
 
@@ -325,14 +325,7 @@ class OrderMeta implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReturnUrl($return_url)
     {
         if (is_null($return_url)) {
-            array_push($this->openAPINullablesSetToNull, 'return_url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('return_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable return_url cannot be null');
         }
         $this->container['return_url'] = $return_url;
 
@@ -359,14 +352,7 @@ class OrderMeta implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNotifyUrl($notify_url)
     {
         if (is_null($notify_url)) {
-            array_push($this->openAPINullablesSetToNull, 'notify_url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('notify_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable notify_url cannot be null');
         }
         $this->container['notify_url'] = $notify_url;
 

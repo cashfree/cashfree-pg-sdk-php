@@ -126,7 +126,7 @@ class PaymentEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'payment_message' => false,
 		'bank_reference' => false,
 		'auth_id' => false,
-		'authorization' => true,
+		'authorization' => false,
 		'payment_method' => false
     ];
 
@@ -874,14 +874,7 @@ class PaymentEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAuthorization($authorization)
     {
         if (is_null($authorization)) {
-            array_push($this->openAPINullablesSetToNull, 'authorization');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('authorization', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable authorization cannot be null');
         }
         $this->container['authorization'] = $authorization;
 
