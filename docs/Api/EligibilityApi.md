@@ -52,7 +52,7 @@ try {
 | **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **eligibility_fetch_cardless_emi_request** | [**\Cashfree\Model\EligibilityFetchCardlessEMIRequest**](../Model/EligibilityFetchCardlessEMIRequest.md)| Request Body to get eligible cardless emi options for a customer and order | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
-| **x_idempotency_key** | **string**| Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders | [optional] |
+| **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
 
 ### Return type
 
@@ -113,7 +113,7 @@ try {
 | **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **eligibility_fetch_offers_request** | [**\Cashfree\Model\EligibilityFetchOffersRequest**](../Model/EligibilityFetchOffersRequest.md)| Request Body to get eligible offers for a customer and order | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
-| **x_idempotency_key** | **string**| Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders | [optional] |
+| **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
 
 ### Return type
 
@@ -174,7 +174,7 @@ try {
 | **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **eligibility_fetch_paylater_request** | [**\Cashfree\Model\EligibilityFetchPaylaterRequest**](../Model/EligibilityFetchPaylaterRequest.md)| Request Body to get eligible paylater options for a customer and order | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
-| **x_idempotency_key** | **string**| Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders | [optional] |
+| **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
 
 ### Return type
 
@@ -235,7 +235,7 @@ try {
 | **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **eligibility_fetch_payment_methods_request** | [**\Cashfree\Model\EligibilityFetchPaymentMethodsRequest**](../Model/EligibilityFetchPaymentMethodsRequest.md)| Request Body to get eligible payment methods for an account and order | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
-| **x_idempotency_key** | **string**| Idempotency works by saving the resulting status code and body of the first request made for any given idempotency key, regardless of whether it succeeded or failed. Subsequent requests with the same key return the same result, including 500 errors.  Currently supported on all POST calls that uses x-client-id &amp; x-client-secret. To use enable, pass x-idempotency-key in the request header. The value of this header must be unique to each operation you are trying to do. One example can be to use the same order_id that you pass while creating orders | [optional] |
+| **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
 
 ### Return type
 

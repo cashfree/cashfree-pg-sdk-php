@@ -174,49 +174,49 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
 		'event_type' => false,
 		'event_settlement_amount' => false,
 		'event_amount' => false,
-		'sale_type' => true,
-		'event_status' => true,
+		'sale_type' => false,
+		'event_status' => false,
 		'entity' => false,
 		'event_time' => false,
-		'event_currency' => true,
-		'order_id' => true,
-		'order_amount' => true,
-		'customer_phone' => true,
-		'customer_email' => true,
-		'customer_name' => true,
-		'payment_amount' => true,
-		'payment_utr' => true,
-		'payment_time' => true,
-		'payment_service_charge' => true,
-		'payment_service_tax' => true,
-		'cf_payment_id' => true,
-		'cf_settlement_id' => true,
-		'settlement_date' => true,
-		'settlement_utr' => true,
-		'split_service_charge' => true,
-		'split_service_tax' => true,
-		'vendor_commission' => true,
-		'closed_in_favor_of' => true,
-		'dispute_resolved_on' => true,
-		'dispute_category' => true,
-		'dispute_note' => true,
-		'refund_processed_at' => true,
-		'refund_arn' => true,
-		'refund_note' => true,
-		'refund_id' => true,
-		'adjustment_remarks' => true,
-		'adjustment' => true,
-		'service_tax' => true,
-		'service_charge' => true,
-		'amount_settled' => true,
-		'payment_from' => true,
-		'payment_till' => true,
-		'reason' => true,
-		'settlement_initiated_on' => true,
-		'settlement_type' => true,
-		'settlement_charge' => true,
-		'settlement_tax' => true,
-		'remarks' => true
+		'event_currency' => false,
+		'order_id' => false,
+		'order_amount' => false,
+		'customer_phone' => false,
+		'customer_email' => false,
+		'customer_name' => false,
+		'payment_amount' => false,
+		'payment_utr' => false,
+		'payment_time' => false,
+		'payment_service_charge' => false,
+		'payment_service_tax' => false,
+		'cf_payment_id' => false,
+		'cf_settlement_id' => false,
+		'settlement_date' => false,
+		'settlement_utr' => false,
+		'split_service_charge' => false,
+		'split_service_tax' => false,
+		'vendor_commission' => false,
+		'closed_in_favor_of' => false,
+		'dispute_resolved_on' => false,
+		'dispute_category' => false,
+		'dispute_note' => false,
+		'refund_processed_at' => false,
+		'refund_arn' => false,
+		'refund_note' => false,
+		'refund_id' => false,
+		'adjustment_remarks' => false,
+		'adjustment' => false,
+		'service_tax' => false,
+		'service_charge' => false,
+		'amount_settled' => false,
+		'payment_from' => false,
+		'payment_till' => false,
+		'reason' => false,
+		'settlement_initiated_on' => false,
+		'settlement_type' => false,
+		'settlement_charge' => false,
+		'settlement_tax' => false,
+		'remarks' => false
     ];
 
     /**
@@ -740,14 +740,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSaleType($sale_type)
     {
         if (is_null($sale_type)) {
-            array_push($this->openAPINullablesSetToNull, 'sale_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sale_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable sale_type cannot be null');
         }
         $this->container['sale_type'] = $sale_type;
 
@@ -774,14 +767,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setEventStatus($event_status)
     {
         if (is_null($event_status)) {
-            array_push($this->openAPINullablesSetToNull, 'event_status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('event_status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable event_status cannot be null');
         }
         $this->container['event_status'] = $event_status;
 
@@ -862,14 +848,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setEventCurrency($event_currency)
     {
         if (is_null($event_currency)) {
-            array_push($this->openAPINullablesSetToNull, 'event_currency');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('event_currency', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable event_currency cannot be null');
         }
         $this->container['event_currency'] = $event_currency;
 
@@ -896,14 +875,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setOrderId($order_id)
     {
         if (is_null($order_id)) {
-            array_push($this->openAPINullablesSetToNull, 'order_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_id cannot be null');
         }
         $this->container['order_id'] = $order_id;
 
@@ -930,14 +902,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setOrderAmount($order_amount)
     {
         if (is_null($order_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'order_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_amount cannot be null');
         }
         $this->container['order_amount'] = $order_amount;
 
@@ -964,14 +929,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCustomerPhone($customer_phone)
     {
         if (is_null($customer_phone)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_phone');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_phone', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_phone cannot be null');
         }
         $this->container['customer_phone'] = $customer_phone;
 
@@ -998,14 +956,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCustomerEmail($customer_email)
     {
         if (is_null($customer_email)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_email');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_email', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_email cannot be null');
         }
         $this->container['customer_email'] = $customer_email;
 
@@ -1032,14 +983,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCustomerName($customer_name)
     {
         if (is_null($customer_name)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer_name cannot be null');
         }
         $this->container['customer_name'] = $customer_name;
 
@@ -1066,14 +1010,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPaymentAmount($payment_amount)
     {
         if (is_null($payment_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_amount cannot be null');
         }
         $this->container['payment_amount'] = $payment_amount;
 
@@ -1100,14 +1037,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPaymentUtr($payment_utr)
     {
         if (is_null($payment_utr)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_utr');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_utr', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_utr cannot be null');
         }
         $this->container['payment_utr'] = $payment_utr;
 
@@ -1134,14 +1064,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPaymentTime($payment_time)
     {
         if (is_null($payment_time)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_time');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_time', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_time cannot be null');
         }
         $this->container['payment_time'] = $payment_time;
 
@@ -1168,14 +1091,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPaymentServiceCharge($payment_service_charge)
     {
         if (is_null($payment_service_charge)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_service_charge');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_service_charge', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_service_charge cannot be null');
         }
         $this->container['payment_service_charge'] = $payment_service_charge;
 
@@ -1202,14 +1118,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPaymentServiceTax($payment_service_tax)
     {
         if (is_null($payment_service_tax)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_service_tax');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_service_tax', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_service_tax cannot be null');
         }
         $this->container['payment_service_tax'] = $payment_service_tax;
 
@@ -1236,14 +1145,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCfPaymentId($cf_payment_id)
     {
         if (is_null($cf_payment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'cf_payment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cf_payment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable cf_payment_id cannot be null');
         }
         $this->container['cf_payment_id'] = $cf_payment_id;
 
@@ -1270,14 +1172,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCfSettlementId($cf_settlement_id)
     {
         if (is_null($cf_settlement_id)) {
-            array_push($this->openAPINullablesSetToNull, 'cf_settlement_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cf_settlement_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable cf_settlement_id cannot be null');
         }
         $this->container['cf_settlement_id'] = $cf_settlement_id;
 
@@ -1304,14 +1199,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSettlementDate($settlement_date)
     {
         if (is_null($settlement_date)) {
-            array_push($this->openAPINullablesSetToNull, 'settlement_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('settlement_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable settlement_date cannot be null');
         }
         $this->container['settlement_date'] = $settlement_date;
 
@@ -1338,14 +1226,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSettlementUtr($settlement_utr)
     {
         if (is_null($settlement_utr)) {
-            array_push($this->openAPINullablesSetToNull, 'settlement_utr');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('settlement_utr', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable settlement_utr cannot be null');
         }
         $this->container['settlement_utr'] = $settlement_utr;
 
@@ -1372,14 +1253,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSplitServiceCharge($split_service_charge)
     {
         if (is_null($split_service_charge)) {
-            array_push($this->openAPINullablesSetToNull, 'split_service_charge');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('split_service_charge', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable split_service_charge cannot be null');
         }
         $this->container['split_service_charge'] = $split_service_charge;
 
@@ -1406,14 +1280,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSplitServiceTax($split_service_tax)
     {
         if (is_null($split_service_tax)) {
-            array_push($this->openAPINullablesSetToNull, 'split_service_tax');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('split_service_tax', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable split_service_tax cannot be null');
         }
         $this->container['split_service_tax'] = $split_service_tax;
 
@@ -1440,14 +1307,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setVendorCommission($vendor_commission)
     {
         if (is_null($vendor_commission)) {
-            array_push($this->openAPINullablesSetToNull, 'vendor_commission');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('vendor_commission', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable vendor_commission cannot be null');
         }
         $this->container['vendor_commission'] = $vendor_commission;
 
@@ -1474,14 +1334,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setClosedInFavorOf($closed_in_favor_of)
     {
         if (is_null($closed_in_favor_of)) {
-            array_push($this->openAPINullablesSetToNull, 'closed_in_favor_of');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('closed_in_favor_of', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable closed_in_favor_of cannot be null');
         }
         $this->container['closed_in_favor_of'] = $closed_in_favor_of;
 
@@ -1508,14 +1361,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setDisputeResolvedOn($dispute_resolved_on)
     {
         if (is_null($dispute_resolved_on)) {
-            array_push($this->openAPINullablesSetToNull, 'dispute_resolved_on');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dispute_resolved_on', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable dispute_resolved_on cannot be null');
         }
         $this->container['dispute_resolved_on'] = $dispute_resolved_on;
 
@@ -1542,14 +1388,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setDisputeCategory($dispute_category)
     {
         if (is_null($dispute_category)) {
-            array_push($this->openAPINullablesSetToNull, 'dispute_category');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dispute_category', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable dispute_category cannot be null');
         }
         $this->container['dispute_category'] = $dispute_category;
 
@@ -1576,14 +1415,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setDisputeNote($dispute_note)
     {
         if (is_null($dispute_note)) {
-            array_push($this->openAPINullablesSetToNull, 'dispute_note');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('dispute_note', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable dispute_note cannot be null');
         }
         $this->container['dispute_note'] = $dispute_note;
 
@@ -1610,14 +1442,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setRefundProcessedAt($refund_processed_at)
     {
         if (is_null($refund_processed_at)) {
-            array_push($this->openAPINullablesSetToNull, 'refund_processed_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('refund_processed_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable refund_processed_at cannot be null');
         }
         $this->container['refund_processed_at'] = $refund_processed_at;
 
@@ -1644,14 +1469,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setRefundArn($refund_arn)
     {
         if (is_null($refund_arn)) {
-            array_push($this->openAPINullablesSetToNull, 'refund_arn');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('refund_arn', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable refund_arn cannot be null');
         }
         $this->container['refund_arn'] = $refund_arn;
 
@@ -1678,14 +1496,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setRefundNote($refund_note)
     {
         if (is_null($refund_note)) {
-            array_push($this->openAPINullablesSetToNull, 'refund_note');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('refund_note', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable refund_note cannot be null');
         }
         $this->container['refund_note'] = $refund_note;
 
@@ -1712,14 +1523,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setRefundId($refund_id)
     {
         if (is_null($refund_id)) {
-            array_push($this->openAPINullablesSetToNull, 'refund_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('refund_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable refund_id cannot be null');
         }
         $this->container['refund_id'] = $refund_id;
 
@@ -1746,14 +1550,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setAdjustmentRemarks($adjustment_remarks)
     {
         if (is_null($adjustment_remarks)) {
-            array_push($this->openAPINullablesSetToNull, 'adjustment_remarks');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('adjustment_remarks', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable adjustment_remarks cannot be null');
         }
         $this->container['adjustment_remarks'] = $adjustment_remarks;
 
@@ -1780,14 +1577,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setAdjustment($adjustment)
     {
         if (is_null($adjustment)) {
-            array_push($this->openAPINullablesSetToNull, 'adjustment');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('adjustment', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable adjustment cannot be null');
         }
         $this->container['adjustment'] = $adjustment;
 
@@ -1814,14 +1604,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setServiceTax($service_tax)
     {
         if (is_null($service_tax)) {
-            array_push($this->openAPINullablesSetToNull, 'service_tax');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('service_tax', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable service_tax cannot be null');
         }
         $this->container['service_tax'] = $service_tax;
 
@@ -1848,14 +1631,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setServiceCharge($service_charge)
     {
         if (is_null($service_charge)) {
-            array_push($this->openAPINullablesSetToNull, 'service_charge');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('service_charge', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable service_charge cannot be null');
         }
         $this->container['service_charge'] = $service_charge;
 
@@ -1882,14 +1658,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setAmountSettled($amount_settled)
     {
         if (is_null($amount_settled)) {
-            array_push($this->openAPINullablesSetToNull, 'amount_settled');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('amount_settled', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable amount_settled cannot be null');
         }
         $this->container['amount_settled'] = $amount_settled;
 
@@ -1916,14 +1685,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPaymentFrom($payment_from)
     {
         if (is_null($payment_from)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_from');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_from', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_from cannot be null');
         }
         $this->container['payment_from'] = $payment_from;
 
@@ -1950,14 +1712,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setPaymentTill($payment_till)
     {
         if (is_null($payment_till)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_till');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_till', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_till cannot be null');
         }
         $this->container['payment_till'] = $payment_till;
 
@@ -1984,14 +1739,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            array_push($this->openAPINullablesSetToNull, 'reason');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reason', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable reason cannot be null');
         }
         $this->container['reason'] = $reason;
 
@@ -2018,14 +1766,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSettlementInitiatedOn($settlement_initiated_on)
     {
         if (is_null($settlement_initiated_on)) {
-            array_push($this->openAPINullablesSetToNull, 'settlement_initiated_on');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('settlement_initiated_on', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable settlement_initiated_on cannot be null');
         }
         $this->container['settlement_initiated_on'] = $settlement_initiated_on;
 
@@ -2052,14 +1793,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSettlementType($settlement_type)
     {
         if (is_null($settlement_type)) {
-            array_push($this->openAPINullablesSetToNull, 'settlement_type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('settlement_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable settlement_type cannot be null');
         }
         $this->container['settlement_type'] = $settlement_type;
 
@@ -2086,14 +1820,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSettlementCharge($settlement_charge)
     {
         if (is_null($settlement_charge)) {
-            array_push($this->openAPINullablesSetToNull, 'settlement_charge');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('settlement_charge', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable settlement_charge cannot be null');
         }
         $this->container['settlement_charge'] = $settlement_charge;
 
@@ -2120,14 +1847,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSettlementTax($settlement_tax)
     {
         if (is_null($settlement_tax)) {
-            array_push($this->openAPINullablesSetToNull, 'settlement_tax');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('settlement_tax', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable settlement_tax cannot be null');
         }
         $this->container['settlement_tax'] = $settlement_tax;
 
@@ -2154,14 +1874,7 @@ class ReconEntityDataInner implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setRemarks($remarks)
     {
         if (is_null($remarks)) {
-            array_push($this->openAPINullablesSetToNull, 'remarks');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('remarks', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable remarks cannot be null');
         }
         $this->container['remarks'] = $remarks;
 

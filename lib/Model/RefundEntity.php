@@ -127,7 +127,7 @@ class RefundEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'refund_arn' => false,
 		'refund_charge' => false,
 		'status_description' => false,
-		'metadata' => true,
+		'metadata' => false,
 		'refund_splits' => false,
 		'refund_type' => false,
 		'refund_mode' => false,
@@ -889,14 +889,7 @@ class RefundEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            array_push($this->openAPINullablesSetToNull, 'metadata');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('metadata', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
 

@@ -119,7 +119,7 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'order_status' => false,
 		'payment_session_id' => false,
 		'order_expiry_time' => false,
-		'order_note' => true,
+		'order_note' => false,
 		'created_at' => false,
 		'order_splits' => false,
 		'customer_details' => false,
@@ -127,7 +127,7 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'payments' => false,
 		'settlements' => false,
 		'refunds' => false,
-		'order_tags' => true
+		'order_tags' => false
     ];
 
     /**
@@ -643,14 +643,7 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOrderNote($order_note)
     {
         if (is_null($order_note)) {
-            array_push($this->openAPINullablesSetToNull, 'order_note');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_note', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_note cannot be null');
         }
         $this->container['order_note'] = $order_note;
 
@@ -866,17 +859,10 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOrderTags($order_tags)
     {
         if (is_null($order_tags)) {
-            array_push($this->openAPINullablesSetToNull, 'order_tags');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order_tags', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order_tags cannot be null');
         }
 
-        if (!is_null($order_tags) && (count($order_tags) > 15)) {
+        if ((count($order_tags) > 15)) {
             throw new \InvalidArgumentException('invalid value for $order_tags when calling OrderEntity., number of items must be less than or equal to 15.');
         }
         $this->container['order_tags'] = $order_tags;
