@@ -1,6 +1,6 @@
 <?php
 /**
- * RefundWebhook
+ * RefundWebhookDataEntity
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Cashfree\ObjectSerializer;
 
 /**
- * RefundWebhook Class Doc Comment
+ * RefundWebhookDataEntity Class Doc Comment
  *
  * @category Class
- * @description refund webhook object
+ * @description data entity in webhook
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
+class RefundWebhookDataEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RefundWebhook';
+    protected static $openAPIModelName = 'RefundWebhookDataEntity';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Cashfree\Model\RefundWebhookDataEntity',
-        'event_time' => 'string',
-        'type' => 'string'
+        'refund' => '\Cashfree\Model\RefundEntity'
     ];
 
     /**
@@ -72,9 +70,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'event_time' => null,
-        'type' => null
+        'refund' => null
     ];
 
     /**
@@ -83,9 +79,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'data' => false,
-		'event_time' => false,
-		'type' => false
+        'refund' => false
     ];
 
     /**
@@ -174,9 +168,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'event_time' => 'event_time',
-        'type' => 'type'
+        'refund' => 'refund'
     ];
 
     /**
@@ -185,9 +177,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'event_time' => 'setEventTime',
-        'type' => 'setType'
+        'refund' => 'setRefund'
     ];
 
     /**
@@ -196,9 +186,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'event_time' => 'getEventTime',
-        'type' => 'getType'
+        'refund' => 'getRefund'
     ];
 
     /**
@@ -258,9 +246,7 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('event_time', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('refund', $data ?? [], null);
     }
 
     /**
@@ -306,82 +292,28 @@ class RefundWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets data
+     * Gets refund
      *
-     * @return \Cashfree\Model\RefundWebhookDataEntity|null
+     * @return \Cashfree\Model\RefundEntity|null
      */
-    public function getData()
+    public function getRefund()
     {
-        return $this->container['data'];
+        return $this->container['refund'];
     }
 
     /**
-     * Sets data
+     * Sets refund
      *
-     * @param \Cashfree\Model\RefundWebhookDataEntity|null $data data
+     * @param \Cashfree\Model\RefundEntity|null $refund refund
      *
      * @return self
      */
-    public function setData($data)
+    public function setRefund($refund)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($refund)) {
+            throw new \InvalidArgumentException('non-nullable refund cannot be null');
         }
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_time
-     *
-     * @return string|null
-     */
-    public function getEventTime()
-    {
-        return $this->container['event_time'];
-    }
-
-    /**
-     * Sets event_time
-     *
-     * @param string|null $event_time event_time
-     *
-     * @return self
-     */
-    public function setEventTime($event_time)
-    {
-        if (is_null($event_time)) {
-            throw new \InvalidArgumentException('non-nullable event_time cannot be null');
-        }
-        $this->container['event_time'] = $event_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
+        $this->container['refund'] = $refund;
 
         return $this;
     }

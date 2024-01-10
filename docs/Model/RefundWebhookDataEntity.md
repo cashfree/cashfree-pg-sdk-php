@@ -1,11 +1,9 @@
-# # RefundWebhook
+# # RefundWebhookDataEntity
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Cashfree\Model\RefundWebhookDataEntity**](RefundWebhookDataEntity.md) |  | [optional]
-**event_time** | **string** |  | [optional]
-**type** | **string** |  | [optional]
+**refund** | [**\Cashfree\Model\RefundEntity**](RefundEntity.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
