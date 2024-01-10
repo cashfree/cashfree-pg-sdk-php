@@ -86,7 +86,7 @@ class OrderCreateRefundRequest implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'refund_amount' => false,
 		'refund_id' => false,
 		'refund_note' => false,
@@ -99,7 +99,7 @@ class OrderCreateRefundRequest implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

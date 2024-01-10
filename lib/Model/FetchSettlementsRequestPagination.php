@@ -80,7 +80,7 @@ class FetchSettlementsRequestPagination implements ModelInterface, ArrayAccess, 
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'limit' => false,
 		'cursor' => false
     ];
@@ -90,7 +90,7 @@ class FetchSettlementsRequestPagination implements ModelInterface, ArrayAccess, 
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

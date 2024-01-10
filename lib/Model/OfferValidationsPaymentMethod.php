@@ -89,7 +89,7 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'all' => false,
 		'card' => false,
 		'netbanking' => false,
@@ -104,7 +104,7 @@ class OfferValidationsPaymentMethod implements ModelInterface, ArrayAccess, \Jso
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

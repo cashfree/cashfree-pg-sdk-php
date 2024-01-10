@@ -82,7 +82,7 @@ class PaymentMethodNetBankingInPaymentsEntity implements ModelInterface, ArrayAc
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'channel' => false,
 		'netbanking_bank_code' => false,
 		'netbanking_bank_name' => false
@@ -93,7 +93,7 @@ class PaymentMethodNetBankingInPaymentsEntity implements ModelInterface, ArrayAc
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

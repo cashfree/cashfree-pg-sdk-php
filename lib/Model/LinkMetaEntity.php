@@ -84,7 +84,7 @@ class LinkMetaEntity implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'notify_url' => false,
 		'upi_intent' => false,
 		'return_url' => false,
@@ -96,7 +96,7 @@ class LinkMetaEntity implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

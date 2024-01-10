@@ -80,7 +80,7 @@ class EligibilityFetchPaymentMethodsRequest implements ModelInterface, ArrayAcce
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'queries' => false,
 		'filters' => false
     ];
@@ -90,7 +90,7 @@ class EligibilityFetchPaymentMethodsRequest implements ModelInterface, ArrayAcce
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

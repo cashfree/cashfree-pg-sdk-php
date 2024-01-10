@@ -96,7 +96,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'order_id' => false,
 		'order_amount' => false,
 		'order_currency' => false,
@@ -114,7 +114,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

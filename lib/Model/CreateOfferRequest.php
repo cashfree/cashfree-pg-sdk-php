@@ -84,7 +84,7 @@ class CreateOfferRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'offer_meta' => false,
 		'offer_tnc' => false,
 		'offer_details' => false,
@@ -96,7 +96,7 @@ class CreateOfferRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

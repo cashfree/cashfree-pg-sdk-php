@@ -80,7 +80,7 @@ class OrderAuthenticatePaymentRequest implements ModelInterface, ArrayAccess, \J
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'otp' => false,
 		'action' => false
     ];
@@ -90,7 +90,7 @@ class OrderAuthenticatePaymentRequest implements ModelInterface, ArrayAccess, \J
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

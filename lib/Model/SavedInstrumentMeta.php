@@ -86,7 +86,7 @@ class SavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'card_network' => false,
 		'card_bank_name' => false,
 		'card_country' => false,
@@ -99,7 +99,7 @@ class SavedInstrumentMeta implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
