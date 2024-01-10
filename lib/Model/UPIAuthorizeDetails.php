@@ -82,7 +82,7 @@ class UPIAuthorizeDetails implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'approve_by' => false,
 		'start_time' => false,
 		'end_time' => false
@@ -93,7 +93,7 @@ class UPIAuthorizeDetails implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

@@ -90,7 +90,7 @@ class ErrorDetailsInPaymentsEntity implements ModelInterface, ArrayAccess, \Json
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'error_code' => false,
 		'error_description' => false,
 		'error_reason' => false,
@@ -105,7 +105,7 @@ class ErrorDetailsInPaymentsEntity implements ModelInterface, ArrayAccess, \Json
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

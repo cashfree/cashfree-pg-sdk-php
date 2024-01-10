@@ -80,7 +80,7 @@ class FetchSettlementsRequest implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'pagination' => false,
 		'filters' => false
     ];
@@ -90,7 +90,7 @@ class FetchSettlementsRequest implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

@@ -84,7 +84,7 @@ class OrderAuthenticateEntity implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'cf_payment_id' => false,
 		'action' => false,
 		'authenticate_status' => false,
@@ -96,7 +96,7 @@ class OrderAuthenticateEntity implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

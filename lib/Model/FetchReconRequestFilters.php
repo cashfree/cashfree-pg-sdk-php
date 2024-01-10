@@ -79,7 +79,7 @@ class FetchReconRequestFilters implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var boolean[]
       */
-    protected static array $openAPINullables = [
+    protected static $openAPINullables = [
         'start_date' => false,
 		'end_date' => false
     ];
@@ -89,7 +89,7 @@ class FetchReconRequestFilters implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var boolean[]
       */
-    protected array $openAPINullablesSetToNull = [];
+    protected $openAPINullablesSetToNull = [];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
