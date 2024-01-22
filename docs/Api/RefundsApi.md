@@ -31,7 +31,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $order_id = your-order-id;
 $order_create_refund_request = new \Cashfree\Model\OrderCreateRefundRequest();
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
@@ -49,7 +49,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **order_id** | **string**| The id which uniquely identifies your order | |
 | **order_create_refund_request** | [**\Cashfree\Model\OrderCreateRefundRequest**](../Model/OrderCreateRefundRequest.md)| Request Body to Create Refunds | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
@@ -94,7 +94,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $order_id = your-order-id;
 $refund_id = some-refund-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
@@ -112,7 +112,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **order_id** | **string**| The id which uniquely identifies your order | |
 | **refund_id** | **string**| Refund Id of the refund you want to fetch. | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
@@ -157,7 +157,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $order_id = your-order-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -174,7 +174,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **order_id** | **string**| The id which uniquely identifies your order | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
