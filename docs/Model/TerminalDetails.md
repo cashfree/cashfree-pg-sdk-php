@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **added_on** | **string** | date time at which terminal is added | [optional]
-**cf_terminal_id** | **int** | cashfree terminal id | [optional]
+**cf_terminal_id** | **string** | cashfree terminal id | [optional]
 **last_updated_on** | **string** | last instant when this terminal was updated | [optional]
 **terminal_address** | **string** | location of terminal | [optional]
 **terminal_id** | **string** | terminal id for merchant reference |
