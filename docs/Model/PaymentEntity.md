@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cf_payment_id** | **string** |  | [optional]
+**cf_payment_id** | **int** |  | [optional]
 **order_id** | **string** |  | [optional]
 **entity** | **string** |  | [optional]
 **error_details** | [**\Cashfree\Model\ErrorDetailsInPaymentsEntity**](ErrorDetailsInPaymentsEntity.md) |  | [optional]

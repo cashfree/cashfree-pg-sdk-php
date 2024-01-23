@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **link_notify** | [**\Cashfree\Model\LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional]
 **link_auto_reminders** | **bool** | If \&quot;true\&quot;, reminders will be sent to customers for collecting payments. | [optional]
 **link_notes** | **array<string,string>** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional]
-**link_meta** | [**\Cashfree\Model\LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional]
+**link_meta** | [**\Cashfree\Model\LinkMetaEntity**](LinkMetaEntity.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
