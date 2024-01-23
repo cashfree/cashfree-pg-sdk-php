@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cf_payment_id** | **string** |  | [optional]
-**cf_settlement_id** | **string** |  | [optional]
+**cf_payment_id** | **int** |  | [optional]
+**cf_settlement_id** | **int** |  | [optional]
 **settlement_currency** | **string** |  | [optional]
 **order_id** | **string** |  | [optional]
 **entity** | **string** |  | [optional]

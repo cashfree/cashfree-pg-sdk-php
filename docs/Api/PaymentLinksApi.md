@@ -32,7 +32,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $link_id = your-link-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -49,7 +49,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **link_id** | **string**| The payment link ID for which you want to view the details. | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
@@ -93,7 +93,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $create_link_request = new \Cashfree\Model\CreateLinkRequest();
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -110,7 +110,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **create_link_request** | [**\Cashfree\Model\CreateLinkRequest**](../Model/CreateLinkRequest.md)| Request Body to Create Payment Links | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
@@ -154,7 +154,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $link_id = your-link-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -171,7 +171,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **link_id** | **string**| The payment link ID for which you want to view the details. | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
@@ -196,7 +196,7 @@ try {
 ## `PGLinkFetchOrders()`
 
 ```php
-PGLinkFetchOrders($x_api_version, $link_id, $x_request_id, $x_idempotency_key): \Cashfree\Model\OrderEntity[]
+PGLinkFetchOrders($x_api_version, $link_id, $x_request_id, $x_idempotency_key): \Cashfree\Model\PaymentLinkOrderEntity[]
 ```
 
 Get Orders for a Payment Link
@@ -215,7 +215,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $link_id = your-link-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -232,14 +232,14 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **link_id** | **string**| The payment link ID for which you want to view the details. | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
 
 ### Return type
 
-[**\Cashfree\Model\OrderEntity[]**](../Model/OrderEntity.md)
+[**\Cashfree\Model\PaymentLinkOrderEntity[]**](../Model/PaymentLinkOrderEntity.md)
 
 ### Authorization
 
