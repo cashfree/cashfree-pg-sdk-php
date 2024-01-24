@@ -116,8 +116,6 @@ docs/Model/PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails.md
 docs/Model/PaymentMethodCardInPaymentsEntity.md
 docs/Model/PaymentMethodCardInPaymentsEntityCard.md
 docs/Model/PaymentMethodCardlessEMIInPaymentsEntity.md
-docs/Model/PaymentMethodInPaymentsEntity.md
-docs/Model/PaymentMethodInPaymentsEntityPaymentMethod.md
 docs/Model/PaymentMethodNetBankingInPaymentsEntity.md
 docs/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
 docs/Model/PaymentMethodPaylaterInPaymentsEntity.md
@@ -275,8 +273,6 @@ lib/Model/PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails.php
 lib/Model/PaymentMethodCardInPaymentsEntity.php
 lib/Model/PaymentMethodCardInPaymentsEntityCard.php
 lib/Model/PaymentMethodCardlessEMIInPaymentsEntity.php
-lib/Model/PaymentMethodInPaymentsEntity.php
-lib/Model/PaymentMethodInPaymentsEntityPaymentMethod.php
 lib/Model/PaymentMethodNetBankingInPaymentsEntity.php
 lib/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.php
 lib/Model/PaymentMethodPaylaterInPaymentsEntity.php
@@ -431,8 +427,6 @@ test/Model/PaymentMethodCardEMIInPaymentsEntityTest.php
 test/Model/PaymentMethodCardInPaymentsEntityCardTest.php
 test/Model/PaymentMethodCardInPaymentsEntityTest.php
 test/Model/PaymentMethodCardlessEMIInPaymentsEntityTest.php
-test/Model/PaymentMethodInPaymentsEntityPaymentMethodTest.php
-test/Model/PaymentMethodInPaymentsEntityTest.php
 test/Model/PaymentMethodNetBankingInPaymentsEntityNetbankingTest.php
 test/Model/PaymentMethodNetBankingInPaymentsEntityTest.php
 test/Model/PaymentMethodPaylaterInPaymentsEntityTest.php

@@ -20,6 +20,6 @@ Name | Type | Description | Notes
 **bank_reference** | **string** |  | [optional]
 **auth_id** | **string** |  | [optional]
 **authorization** | [**\Cashfree\Model\AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional]
-**payment_method** | [**\Cashfree\Model\PaymentMethodInPaymentsEntity**](PaymentMethodInPaymentsEntity.md) |  | [optional]
+**payment_method** | **object** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
