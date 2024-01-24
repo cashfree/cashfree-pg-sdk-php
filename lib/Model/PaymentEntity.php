@@ -75,7 +75,7 @@ class PaymentEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'bank_reference' => 'string',
         'auth_id' => 'string',
         'authorization' => '\Cashfree\Model\AuthorizationInPaymentsEntity',
-        'payment_method' => '\Cashfree\Model\PaymentMethodInPaymentsEntity'
+        'payment_method' => '\Cashfree\Model\PaymentEntityPaymentMethod'
     ];
 
     /**
@@ -884,7 +884,7 @@ class PaymentEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment_method
      *
-     * @return \Cashfree\Model\PaymentMethodInPaymentsEntity|null
+     * @return \Cashfree\Model\PaymentEntityPaymentMethod|null
      */
     public function getPaymentMethod()
     {
@@ -894,7 +894,7 @@ class PaymentEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_method
      *
-     * @param \Cashfree\Model\PaymentMethodInPaymentsEntity|null $payment_method payment_method
+     * @param \Cashfree\Model\PaymentEntityPaymentMethod|null $payment_method payment_method
      *
      * @return self
      */

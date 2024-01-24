@@ -106,6 +106,7 @@ docs/Model/PaylaterEntity.md
 docs/Model/PaylaterOffer.md
 docs/Model/PaylaterPaymentMethod.md
 docs/Model/PaymentEntity.md
+docs/Model/PaymentEntityPaymentMethod.md
 docs/Model/PaymentLinkCustomerDetails.md
 docs/Model/PaymentLinkOrderEntity.md
 docs/Model/PaymentMethodAppInPaymentsEntity.md
@@ -116,8 +117,6 @@ docs/Model/PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails.md
 docs/Model/PaymentMethodCardInPaymentsEntity.md
 docs/Model/PaymentMethodCardInPaymentsEntityCard.md
 docs/Model/PaymentMethodCardlessEMIInPaymentsEntity.md
-docs/Model/PaymentMethodInPaymentsEntity.md
-docs/Model/PaymentMethodInPaymentsEntityPaymentMethod.md
 docs/Model/PaymentMethodNetBankingInPaymentsEntity.md
 docs/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
 docs/Model/PaymentMethodPaylaterInPaymentsEntity.md
@@ -265,6 +264,7 @@ lib/Model/PaylaterEntity.php
 lib/Model/PaylaterOffer.php
 lib/Model/PaylaterPaymentMethod.php
 lib/Model/PaymentEntity.php
+lib/Model/PaymentEntityPaymentMethod.php
 lib/Model/PaymentLinkCustomerDetails.php
 lib/Model/PaymentLinkOrderEntity.php
 lib/Model/PaymentMethodAppInPaymentsEntity.php
@@ -275,8 +275,6 @@ lib/Model/PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails.php
 lib/Model/PaymentMethodCardInPaymentsEntity.php
 lib/Model/PaymentMethodCardInPaymentsEntityCard.php
 lib/Model/PaymentMethodCardlessEMIInPaymentsEntity.php
-lib/Model/PaymentMethodInPaymentsEntity.php
-lib/Model/PaymentMethodInPaymentsEntityPaymentMethod.php
 lib/Model/PaymentMethodNetBankingInPaymentsEntity.php
 lib/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.php
 lib/Model/PaymentMethodPaylaterInPaymentsEntity.php
@@ -420,6 +418,7 @@ test/Model/PaylaterEntityTest.php
 test/Model/PaylaterOfferTest.php
 test/Model/PaylaterPaymentMethodTest.php
 test/Model/PaylaterTest.php
+test/Model/PaymentEntityPaymentMethodTest.php
 test/Model/PaymentEntityTest.php
 test/Model/PaymentLinkCustomerDetailsTest.php
 test/Model/PaymentLinkOrderEntityTest.php
@@ -431,8 +430,6 @@ test/Model/PaymentMethodCardEMIInPaymentsEntityTest.php
 test/Model/PaymentMethodCardInPaymentsEntityCardTest.php
 test/Model/PaymentMethodCardInPaymentsEntityTest.php
 test/Model/PaymentMethodCardlessEMIInPaymentsEntityTest.php
-test/Model/PaymentMethodInPaymentsEntityPaymentMethodTest.php
-test/Model/PaymentMethodInPaymentsEntityTest.php
 test/Model/PaymentMethodNetBankingInPaymentsEntityNetbankingTest.php
 test/Model/PaymentMethodNetBankingInPaymentsEntityTest.php
 test/Model/PaymentMethodPaylaterInPaymentsEntityTest.php
