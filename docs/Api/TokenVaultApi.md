@@ -32,7 +32,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $customer_id = your-customer-id;
 $instrument_id = some-instrument-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **customer_id** | **string**| Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | |
 | **instrument_id** | **string**| The instrument_id which needs to be deleted | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
@@ -95,7 +95,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $customer_id = your-customer-id;
 $instrument_id = some-instrument-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
@@ -113,7 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **customer_id** | **string**| Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | |
 | **instrument_id** | **string**| The instrument_id of the saved instrument which needs to be queried | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
@@ -158,7 +158,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $customer_id = your-customer-id;
 $instrument_type = card;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
@@ -176,7 +176,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **customer_id** | **string**| Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | |
 | **instrument_type** | **string**| Payment mode or type of saved instrument | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
@@ -221,7 +221,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2023-08-01;
+$x_api_version = 2022-09-01;
 $customer_id = your-customer-id;
 $instrument_id = some-instrument-id;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
@@ -239,7 +239,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
 | **customer_id** | **string**| Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | |
 | **instrument_id** | **string**| The instrument_id of the saved card instrument which needs to be queried | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
