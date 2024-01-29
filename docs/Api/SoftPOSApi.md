@@ -5,7 +5,7 @@ All URIs are relative to https://sandbox.cashfree.com/pg, except if the operatio
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**SposCreateTerminal()**](SoftPOSApi.md#SposCreateTerminal) | **POST** /terminal | Create Terminal |
-| [**SposCreateTerminalTransaction()**](SoftPOSApi.md#SposCreateTerminalTransaction) | **POST** /terminal/transactions | Create Terminal |
+| [**SposCreateTerminalTransaction()**](SoftPOSApi.md#SposCreateTerminalTransaction) | **POST** /terminal/transactions | Create Terminal Transaction |
 | [**SposFetchTerminal()**](SoftPOSApi.md#SposFetchTerminal) | **GET** /terminal/{terminal_phone_no} | Get terminal status using phone number |
 | [**SposFetchTerminalQRCodes()**](SoftPOSApi.md#SposFetchTerminalQRCodes) | **GET** /terminal/qrcodes | Fetch Terminal QR Codes |
 
@@ -32,7 +32,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $create_terminal_request = new \Cashfree\Model\CreateTerminalRequest();
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -49,7 +49,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **create_terminal_request** | [**\Cashfree\Model\CreateTerminalRequest**](../Model/CreateTerminalRequest.md)| Request Body to Create Terminal for SPOS | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
@@ -77,7 +77,7 @@ try {
 SposCreateTerminalTransaction($x_api_version, $create_terminal_transaction_request, $x_request_id, $x_idempotency_key): \Cashfree\Model\TerminalTransactionEntity
 ```
 
-Create Terminal
+Create Terminal Transaction
 
 Use this API to create a new terminal transaction. To use this API you should first create an order using the Create Order API. Also, you need to enter the terminal details while creating the order and pass the same terminal information while creating a transaction using the below mentioned API.
 
@@ -93,7 +93,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $create_terminal_transaction_request = new \Cashfree\Model\CreateTerminalTransactionRequest();
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -110,7 +110,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **create_terminal_transaction_request** | [**\Cashfree\Model\CreateTerminalTransactionRequest**](../Model/CreateTerminalTransactionRequest.md)| Request body to create a terminal transaction | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
@@ -154,7 +154,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $terminal_phone_no = 6309291183;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -171,7 +171,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **terminal_phone_no** | **string**| The terminal for which you want to view the order details. | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
@@ -215,7 +215,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $terminal_phone_no = 9876543214;
 $cf_terminal_id = 123344;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
@@ -233,7 +233,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **terminal_phone_no** | **string**| Phone number assigned to the terminal. Required if you are not providing the cf_terminal_id in the request. | |
 | **cf_terminal_id** | **string**| Cashfree terminal id for which you want to get staticQRs. Required if you are not providing the terminal_phone_number in the request. | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |

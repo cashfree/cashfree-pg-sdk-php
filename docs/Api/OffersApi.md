@@ -30,7 +30,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $create_offer_request = new \Cashfree\Model\CreateOfferRequest();
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -47,7 +47,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **create_offer_request** | [**\Cashfree\Model\CreateOfferRequest**](../Model/CreateOfferRequest.md)| Request body to create an offer at Cashfree | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
@@ -91,7 +91,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = 2022-09-01;
+$x_api_version = 2023-08-01;
 $offer_id = d2b430fb-1afe-455a-af31-66d00377b29a;
 $x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
 $x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
@@ -108,7 +108,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2022-09-01&#39;] |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
 | **offer_id** | **string**| The offer ID for which you want to view the offer details. | |
 | **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
 | **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |

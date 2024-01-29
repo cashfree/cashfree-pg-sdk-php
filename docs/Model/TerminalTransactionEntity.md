@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cf_payment_id** | **int** |  | [optional]
+**cf_payment_id** | **string** |  | [optional]
 **payment_amount** | **int** |  | [optional]
 **payment_method** | **string** |  | [optional]
 **payment_url** | **string** |  | [optional]
