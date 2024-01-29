@@ -60,8 +60,8 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'cashback_type' => 'string',
-        'cashback_value' => 'string',
-        'max_cashback_amount' => 'string'
+        'cashback_value' => 'float',
+        'max_cashback_amount' => 'float'
     ];
 
     /**
@@ -73,8 +73,8 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'cashback_type' => null,
-        'cashback_value' => null,
-        'max_cashback_amount' => null
+        'cashback_value' => 'float64',
+        'max_cashback_amount' => 'float64'
     ];
 
     /**
@@ -330,25 +330,9 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['cashback_value'] === null) {
             $invalidProperties[] = "'cashback_value' can't be null";
         }
-        if ((mb_strlen($this->container['cashback_value']) > 100)) {
-            $invalidProperties[] = "invalid value for 'cashback_value', the character length must be smaller than or equal to 100.";
-        }
-
-        if ((mb_strlen($this->container['cashback_value']) < 1)) {
-            $invalidProperties[] = "invalid value for 'cashback_value', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['max_cashback_amount'] === null) {
             $invalidProperties[] = "'max_cashback_amount' can't be null";
         }
-        if ((mb_strlen($this->container['max_cashback_amount']) > 100)) {
-            $invalidProperties[] = "invalid value for 'max_cashback_amount', the character length must be smaller than or equal to 100.";
-        }
-
-        if ((mb_strlen($this->container['max_cashback_amount']) < 1)) {
-            $invalidProperties[] = "invalid value for 'max_cashback_amount', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -411,7 +395,7 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cashback_value
      *
-     * @return string
+     * @return float
      */
     public function getCashbackValue()
     {
@@ -421,7 +405,7 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cashback_value
      *
-     * @param string $cashback_value Value of Discount.
+     * @param float $cashback_value Value of Discount.
      *
      * @return self
      */
@@ -430,13 +414,6 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($cashback_value)) {
             throw new \InvalidArgumentException('non-nullable cashback_value cannot be null');
         }
-        if ((mb_strlen($cashback_value) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $cashback_value when calling CashbackDetails., must be smaller than or equal to 100.');
-        }
-        if ((mb_strlen($cashback_value) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $cashback_value when calling CashbackDetails., must be bigger than or equal to 1.');
-        }
-
         $this->container['cashback_value'] = $cashback_value;
 
         return $this;
@@ -445,7 +422,7 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets max_cashback_amount
      *
-     * @return string
+     * @return float
      */
     public function getMaxCashbackAmount()
     {
@@ -455,7 +432,7 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets max_cashback_amount
      *
-     * @param string $max_cashback_amount Maximum Value of Cashback allowed.
+     * @param float $max_cashback_amount Maximum Value of Cashback allowed.
      *
      * @return self
      */
@@ -464,13 +441,6 @@ class CashbackDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($max_cashback_amount)) {
             throw new \InvalidArgumentException('non-nullable max_cashback_amount cannot be null');
         }
-        if ((mb_strlen($max_cashback_amount) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $max_cashback_amount when calling CashbackDetails., must be smaller than or equal to 100.');
-        }
-        if ((mb_strlen($max_cashback_amount) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $max_cashback_amount when calling CashbackDetails., must be bigger than or equal to 1.');
-        }
-
         $this->container['max_cashback_amount'] = $max_cashback_amount;
 
         return $this;

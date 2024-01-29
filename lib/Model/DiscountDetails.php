@@ -60,8 +60,8 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'discount_type' => 'string',
-        'discount_value' => 'string',
-        'max_discount_amount' => 'string'
+        'discount_value' => 'float',
+        'max_discount_amount' => 'float'
     ];
 
     /**
@@ -73,8 +73,8 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'discount_type' => null,
-        'discount_value' => null,
-        'max_discount_amount' => null
+        'discount_value' => 'float64',
+        'max_discount_amount' => 'float64'
     ];
 
     /**
@@ -330,25 +330,9 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['discount_value'] === null) {
             $invalidProperties[] = "'discount_value' can't be null";
         }
-        if ((mb_strlen($this->container['discount_value']) > 100)) {
-            $invalidProperties[] = "invalid value for 'discount_value', the character length must be smaller than or equal to 100.";
-        }
-
-        if ((mb_strlen($this->container['discount_value']) < 1)) {
-            $invalidProperties[] = "invalid value for 'discount_value', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['max_discount_amount'] === null) {
             $invalidProperties[] = "'max_discount_amount' can't be null";
         }
-        if ((mb_strlen($this->container['max_discount_amount']) > 100)) {
-            $invalidProperties[] = "invalid value for 'max_discount_amount', the character length must be smaller than or equal to 100.";
-        }
-
-        if ((mb_strlen($this->container['max_discount_amount']) < 1)) {
-            $invalidProperties[] = "invalid value for 'max_discount_amount', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -411,7 +395,7 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets discount_value
      *
-     * @return string
+     * @return float
      */
     public function getDiscountValue()
     {
@@ -421,7 +405,7 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets discount_value
      *
-     * @param string $discount_value Value of Discount.
+     * @param float $discount_value Value of Discount.
      *
      * @return self
      */
@@ -430,13 +414,6 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($discount_value)) {
             throw new \InvalidArgumentException('non-nullable discount_value cannot be null');
         }
-        if ((mb_strlen($discount_value) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $discount_value when calling DiscountDetails., must be smaller than or equal to 100.');
-        }
-        if ((mb_strlen($discount_value) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $discount_value when calling DiscountDetails., must be bigger than or equal to 1.');
-        }
-
         $this->container['discount_value'] = $discount_value;
 
         return $this;
@@ -445,7 +422,7 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets max_discount_amount
      *
-     * @return string
+     * @return float
      */
     public function getMaxDiscountAmount()
     {
@@ -455,7 +432,7 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets max_discount_amount
      *
-     * @param string $max_discount_amount Maximum Value of Discount allowed.
+     * @param float $max_discount_amount Maximum Value of Discount allowed.
      *
      * @return self
      */
@@ -464,13 +441,6 @@ class DiscountDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($max_discount_amount)) {
             throw new \InvalidArgumentException('non-nullable max_discount_amount cannot be null');
         }
-        if ((mb_strlen($max_discount_amount) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $max_discount_amount when calling DiscountDetails., must be smaller than or equal to 100.');
-        }
-        if ((mb_strlen($max_discount_amount) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $max_discount_amount when calling DiscountDetails., must be bigger than or equal to 1.');
-        }
-
         $this->container['max_discount_amount'] = $max_discount_amount;
 
         return $this;
