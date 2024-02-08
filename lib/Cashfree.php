@@ -8704,17 +8704,17 @@ class Cashfree {
 
             switch($statusCode) {
                 case 200:
-                    if ('RefundEntity' === '\SplFileObject') {
+                    if ('\Cashfree\Model\RefundEntity' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('RefundEntity' !== 'string') {
+                        if ('\Cashfree\Model\RefundEntity' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'RefundEntity', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\RefundEntity', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8861,7 +8861,7 @@ class Cashfree {
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'RefundEntity',
+                        '\Cashfree\Model\RefundEntity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
