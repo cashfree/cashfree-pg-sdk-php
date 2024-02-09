@@ -6,8 +6,10 @@ All URIs are relative to https://sandbox.cashfree.com/pg, except if the operatio
 | ------------- | ------------- | ------------- |
 | [**SposCreateTerminal()**](SoftPOSApi.md#SposCreateTerminal) | **POST** /terminal | Create Terminal |
 | [**SposCreateTerminalTransaction()**](SoftPOSApi.md#SposCreateTerminalTransaction) | **POST** /terminal/transactions | Create Terminal Transaction |
-| [**SposFetchTerminal()**](SoftPOSApi.md#SposFetchTerminal) | **GET** /terminal/{terminal_phone_no} | Get terminal status using phone number |
+| [**SposFetchTerminal()**](SoftPOSApi.md#SposFetchTerminal) | **GET** /terminal/{terminal_phone_no} | Get Terminal Status using Phone Number |
 | [**SposFetchTerminalQRCodes()**](SoftPOSApi.md#SposFetchTerminalQRCodes) | **GET** /terminal/qrcodes | Fetch Terminal QR Codes |
+| [**SposUpdateTerminal()**](SoftPOSApi.md#SposUpdateTerminal) | **PATCH** /terminal/{cf_terminal_id} | Update Terminal |
+| [**SposUploadTerminalDocs()**](SoftPOSApi.md#SposUploadTerminalDocs) | **POST** /terminal/{cf_terminal_id}/docs | Upload Terminal Docs |
 
 
 ## `SposCreateTerminal()`
@@ -138,7 +140,7 @@ try {
 SposFetchTerminal($x_api_version, $terminal_phone_no, $x_request_id, $x_idempotency_key): \Cashfree\Model\TerminalEntity
 ```
 
-Get terminal status using phone number
+Get Terminal Status using Phone Number
 
 Use this API to view all details of a terminal.
 
@@ -250,6 +252,132 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `SposUpdateTerminal()`
+
+```php
+SposUpdateTerminal($x_api_version, $cf_terminal_id, $update_terminal_request, $x_request_id, $x_idempotency_key): \Cashfree\Model\UpdateTerminalEntity[]
+```
+
+Update Terminal
+
+Use this API to update the terminal details. Email, Phone Number, and Terminal Meta are updatable for \"Storefront\". Only account status change is possible in case of \"Agent\".
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+\Cashfree\Cashfree::$XClientId = "<x-client-id>";
+\Cashfree\Cashfree::$XClientSecret = "<x-client-secret>";
+\Cashfree\Cashfree::$XEnvironment = Cashfree\Cashfree::$SANDBOX;
+
+$cashfree = new \Cashfree\Cashfree();
+
+$x_api_version = 2023-08-01;
+$cf_terminal_id = 123344;
+$update_terminal_request = new \Cashfree\Model\UpdateTerminalRequest();
+$x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
+$x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
+
+try {
+    $result = $cashfree->SposUpdateTerminal($x_api_version, $cf_terminal_id, $update_terminal_request, $x_request_id, $x_idempotency_key);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SoftPOSApi->SposUpdateTerminal: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **cf_terminal_id** | **string**| Provide the Cashfree terminal ID for which the details have to be updated. | |
+| **update_terminal_request** | [**\Cashfree\Model\UpdateTerminalRequest**](../Model/UpdateTerminalRequest.md)| Request Body to update terminal for SPOS. | |
+| **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
+| **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
+
+### Return type
+
+[**\Cashfree\Model\UpdateTerminalEntity[]**](../Model/UpdateTerminalEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../../README.md#XPartnerAPIKey), [XClientSecret](../../README.md#XClientSecret), [XPartnerMerchantID](../../README.md#XPartnerMerchantID), [XClientID](../../README.md#XClientID), [XClientSignatureHeader](../../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `SposUploadTerminalDocs()`
+
+```php
+SposUploadTerminalDocs($x_api_version, $cf_terminal_id, $upload_terminal_docs, $x_request_id, $x_idempotency_key): \Cashfree\Model\UploadTerminalDocsEntity[]
+```
+
+Upload Terminal Docs
+
+Use this API to upload the terminal documents.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+\Cashfree\Cashfree::$XClientId = "<x-client-id>";
+\Cashfree\Cashfree::$XClientSecret = "<x-client-secret>";
+\Cashfree\Cashfree::$XEnvironment = Cashfree\Cashfree::$SANDBOX;
+
+$cashfree = new \Cashfree\Cashfree();
+
+$x_api_version = 2023-08-01;
+$cf_terminal_id = 123344;
+$upload_terminal_docs = new \Cashfree\Model\UploadTerminalDocs();
+$x_request_id = 4dfb9780-46fe-11ee-be56-0242ac120002;
+$x_idempotency_key = 47bf8872-46fe-11ee-be56-0242ac120002;
+
+try {
+    $result = $cashfree->SposUploadTerminalDocs($x_api_version, $cf_terminal_id, $upload_terminal_docs, $x_request_id, $x_idempotency_key);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SoftPOSApi->SposUploadTerminalDocs: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **x_api_version** | **string**| API version to be used. Format is in YYYY-MM-DD | [default to &#39;2023-08-01&#39;] |
+| **cf_terminal_id** | **string**| Provide the Cashfree terminal ID for which the details have to be updated. | |
+| **upload_terminal_docs** | [**\Cashfree\Model\UploadTerminalDocs**](../Model/UploadTerminalDocs.md)| Request Body to update terminal documents for SPOS. | |
+| **x_request_id** | **string**| Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | [optional] |
+| **x_idempotency_key** | **string**| An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | [optional] |
+
+### Return type
+
+[**\Cashfree\Model\UploadTerminalDocsEntity[]**](../Model/UploadTerminalDocsEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../../README.md#XPartnerAPIKey), [XClientSecret](../../README.md#XClientSecret), [XPartnerMerchantID](../../README.md#XPartnerMerchantID), [XClientID](../../README.md#XClientID), [XClientSignatureHeader](../../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
