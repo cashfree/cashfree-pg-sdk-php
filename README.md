@@ -15,6 +15,8 @@ Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com
 
 ## Getting Started
 
+`Note:` This README is for the current branch and not necessarily what's released in `Composer`
+
 ### Installation
 ```bash
 composer require cashfree/cashfree-pg
