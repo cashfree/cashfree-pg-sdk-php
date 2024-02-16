@@ -64,6 +64,26 @@ try {
 }
 ```
 
+## Supported Resources
+
+- [Order](docs/Orders.md)
+
+- [Payment](docs/Payments.md)
+
+- [Refund](docs/Refunds.md)
+
+- [Token Vault](docs/TokenVault.md)
+
+- [Eligiblity](docs/Eligibility.md)
+
+- [PaymentLink](docs/PaymentLink.md)
+
+- [Settlements](docs/Settlements.md)
+
+- [Offers](docs/Offers.md)
+
+- [Reconciliation](docs/Reconciliation.md)
+
 ## Licence
 
 Apache Licensed. See [LICENSE.md](LICENSE.md) for more details
