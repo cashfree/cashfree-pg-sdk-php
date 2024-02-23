@@ -60,7 +60,9 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
     protected static $openAPITypes = [
         'channel' => 'string',
         'netbanking_bank_code' => 'int',
-        'netbanking_bank_name' => 'string'
+        'netbanking_bank_name' => 'string',
+        'netbanking_ifsc' => 'string',
+        'netbanking_account_number' => 'string'
     ];
 
     /**
@@ -73,7 +75,9 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
     protected static $openAPIFormats = [
         'channel' => null,
         'netbanking_bank_code' => null,
-        'netbanking_bank_name' => null
+        'netbanking_bank_name' => null,
+        'netbanking_ifsc' => null,
+        'netbanking_account_number' => null
     ];
 
     /**
@@ -84,7 +88,9 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
     protected static $openAPINullables = [
         'channel' => false,
 		'netbanking_bank_code' => false,
-		'netbanking_bank_name' => false
+		'netbanking_bank_name' => false,
+		'netbanking_ifsc' => false,
+		'netbanking_account_number' => false
     ];
 
     /**
@@ -175,7 +181,9 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
     protected static $attributeMap = [
         'channel' => 'channel',
         'netbanking_bank_code' => 'netbanking_bank_code',
-        'netbanking_bank_name' => 'netbanking_bank_name'
+        'netbanking_bank_name' => 'netbanking_bank_name',
+        'netbanking_ifsc' => 'netbanking_ifsc',
+        'netbanking_account_number' => 'netbanking_account_number'
     ];
 
     /**
@@ -186,7 +194,9 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
     protected static $setters = [
         'channel' => 'setChannel',
         'netbanking_bank_code' => 'setNetbankingBankCode',
-        'netbanking_bank_name' => 'setNetbankingBankName'
+        'netbanking_bank_name' => 'setNetbankingBankName',
+        'netbanking_ifsc' => 'setNetbankingIfsc',
+        'netbanking_account_number' => 'setNetbankingAccountNumber'
     ];
 
     /**
@@ -197,7 +207,9 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
     protected static $getters = [
         'channel' => 'getChannel',
         'netbanking_bank_code' => 'getNetbankingBankCode',
-        'netbanking_bank_name' => 'getNetbankingBankName'
+        'netbanking_bank_name' => 'getNetbankingBankName',
+        'netbanking_ifsc' => 'getNetbankingIfsc',
+        'netbanking_account_number' => 'getNetbankingAccountNumber'
     ];
 
     /**
@@ -260,6 +272,8 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
         $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('netbanking_bank_code', $data ?? [], null);
         $this->setIfExists('netbanking_bank_name', $data ?? [], null);
+        $this->setIfExists('netbanking_ifsc', $data ?? [], null);
+        $this->setIfExists('netbanking_account_number', $data ?? [], null);
     }
 
     /**
@@ -381,6 +395,60 @@ class PaymentMethodNetBankingInPaymentsEntityNetbanking implements ModelInterfac
             throw new \InvalidArgumentException('non-nullable netbanking_bank_name cannot be null');
         }
         $this->container['netbanking_bank_name'] = $netbanking_bank_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets netbanking_ifsc
+     *
+     * @return string|null
+     */
+    public function getNetbankingIfsc()
+    {
+        return $this->container['netbanking_ifsc'];
+    }
+
+    /**
+     * Sets netbanking_ifsc
+     *
+     * @param string|null $netbanking_ifsc netbanking_ifsc
+     *
+     * @return self
+     */
+    public function setNetbankingIfsc($netbanking_ifsc)
+    {
+        if (is_null($netbanking_ifsc)) {
+            throw new \InvalidArgumentException('non-nullable netbanking_ifsc cannot be null');
+        }
+        $this->container['netbanking_ifsc'] = $netbanking_ifsc;
+
+        return $this;
+    }
+
+    /**
+     * Gets netbanking_account_number
+     *
+     * @return string|null
+     */
+    public function getNetbankingAccountNumber()
+    {
+        return $this->container['netbanking_account_number'];
+    }
+
+    /**
+     * Sets netbanking_account_number
+     *
+     * @param string|null $netbanking_account_number netbanking_account_number
+     *
+     * @return self
+     */
+    public function setNetbankingAccountNumber($netbanking_account_number)
+    {
+        if (is_null($netbanking_account_number)) {
+            throw new \InvalidArgumentException('non-nullable netbanking_account_number cannot be null');
+        }
+        $this->container['netbanking_account_number'] = $netbanking_account_number;
 
         return $this;
     }
