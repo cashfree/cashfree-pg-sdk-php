@@ -106,4 +106,22 @@ class PaymentMethodNetBankingInPaymentsEntityNetbankingTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "netbanking_ifsc"
+     */
+    public function testPropertyNetbankingIfsc()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "netbanking_account_number"
+     */
+    public function testPropertyNetbankingAccountNumber()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

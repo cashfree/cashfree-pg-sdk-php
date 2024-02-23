@@ -80,9 +80,9 @@ try {
 
 - [Settlements](docs/Settlements.md)
 
-- [Offers](docs/Offers.md)
-
 - [Reconciliation](docs/Reconciliation.md)
+
+- [Webhook](docs/Webhook.md)
 
 ## Licence
 
