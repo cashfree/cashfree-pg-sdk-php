@@ -90,6 +90,15 @@ class OfferValidationsTest extends TestCase
     }
 
     /**
+     * Test attribute "max_allowed"
+     */
+    public function testPropertyMaxAllowed()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "payment_method"
      */
     public function testPropertyPaymentMethod()

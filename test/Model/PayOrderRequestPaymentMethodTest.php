@@ -142,4 +142,13 @@ class PayOrderRequestPaymentMethodTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "banktransfer"
+     */
+    public function testPropertyBanktransfer()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

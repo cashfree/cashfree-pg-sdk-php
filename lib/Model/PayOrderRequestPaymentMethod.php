@@ -64,7 +64,8 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         'app' => '\Cashfree\Model\App',
         'emi' => '\Cashfree\Model\CardEMI',
         'cardless_emi' => '\Cashfree\Model\CardlessEMI',
-        'paylater' => '\Cashfree\Model\Paylater'
+        'paylater' => '\Cashfree\Model\Paylater',
+        'banktransfer' => '\Cashfree\Model\Banktransfer'
     ];
 
     /**
@@ -81,7 +82,8 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         'app' => null,
         'emi' => null,
         'cardless_emi' => null,
-        'paylater' => null
+        'paylater' => null,
+        'banktransfer' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
 		'app' => false,
 		'emi' => false,
 		'cardless_emi' => false,
-		'paylater' => false
+		'paylater' => false,
+		'banktransfer' => false
     ];
 
     /**
@@ -191,7 +194,8 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         'app' => 'app',
         'emi' => 'emi',
         'cardless_emi' => 'cardless_emi',
-        'paylater' => 'paylater'
+        'paylater' => 'paylater',
+        'banktransfer' => 'banktransfer'
     ];
 
     /**
@@ -206,7 +210,8 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         'app' => 'setApp',
         'emi' => 'setEmi',
         'cardless_emi' => 'setCardlessEmi',
-        'paylater' => 'setPaylater'
+        'paylater' => 'setPaylater',
+        'banktransfer' => 'setBanktransfer'
     ];
 
     /**
@@ -221,7 +226,8 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         'app' => 'getApp',
         'emi' => 'getEmi',
         'cardless_emi' => 'getCardlessEmi',
-        'paylater' => 'getPaylater'
+        'paylater' => 'getPaylater',
+        'banktransfer' => 'getBanktransfer'
     ];
 
     /**
@@ -288,6 +294,7 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('emi', $data ?? [], null);
         $this->setIfExists('cardless_emi', $data ?? [], null);
         $this->setIfExists('paylater', $data ?? [], null);
+        $this->setIfExists('banktransfer', $data ?? [], null);
     }
 
     /**
@@ -337,6 +344,9 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
         }
         if ($this->container['paylater'] === null) {
             $invalidProperties[] = "'paylater' can't be null";
+        }
+        if ($this->container['banktransfer'] === null) {
+            $invalidProperties[] = "'banktransfer' can't be null";
         }
         return $invalidProperties;
     }
@@ -538,6 +548,33 @@ class PayOrderRequestPaymentMethod implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable paylater cannot be null');
         }
         $this->container['paylater'] = $paylater;
+
+        return $this;
+    }
+
+    /**
+     * Gets banktransfer
+     *
+     * @return \Cashfree\Model\Banktransfer
+     */
+    public function getBanktransfer()
+    {
+        return $this->container['banktransfer'];
+    }
+
+    /**
+     * Sets banktransfer
+     *
+     * @param \Cashfree\Model\Banktransfer $banktransfer banktransfer
+     *
+     * @return self
+     */
+    public function setBanktransfer($banktransfer)
+    {
+        if (is_null($banktransfer)) {
+            throw new \InvalidArgumentException('non-nullable banktransfer cannot be null');
+        }
+        $this->container['banktransfer'] = $banktransfer;
 
         return $this;
     }

@@ -75,7 +75,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_expiry_time' => 'string',
         'link_notes' => 'array<string,string>',
         'link_auto_reminders' => 'bool',
-        'link_notify' => '\Cashfree\Model\LinkNotifyEntity'
+        'link_notify' => '\Cashfree\Model\LinkNotifyEntity',
+        'link_qrcode' => 'string'
     ];
 
     /**
@@ -102,7 +103,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_expiry_time' => null,
         'link_notes' => null,
         'link_auto_reminders' => null,
-        'link_notify' => null
+        'link_notify' => null,
+        'link_qrcode' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'link_expiry_time' => false,
 		'link_notes' => false,
 		'link_auto_reminders' => false,
-		'link_notify' => false
+		'link_notify' => false,
+		'link_qrcode' => false
     ];
 
     /**
@@ -232,7 +235,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_expiry_time' => 'link_expiry_time',
         'link_notes' => 'link_notes',
         'link_auto_reminders' => 'link_auto_reminders',
-        'link_notify' => 'link_notify'
+        'link_notify' => 'link_notify',
+        'link_qrcode' => 'link_qrcode'
     ];
 
     /**
@@ -257,7 +261,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_expiry_time' => 'setLinkExpiryTime',
         'link_notes' => 'setLinkNotes',
         'link_auto_reminders' => 'setLinkAutoReminders',
-        'link_notify' => 'setLinkNotify'
+        'link_notify' => 'setLinkNotify',
+        'link_qrcode' => 'setLinkQrcode'
     ];
 
     /**
@@ -282,7 +287,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_expiry_time' => 'getLinkExpiryTime',
         'link_notes' => 'getLinkNotes',
         'link_auto_reminders' => 'getLinkAutoReminders',
-        'link_notify' => 'getLinkNotify'
+        'link_notify' => 'getLinkNotify',
+        'link_qrcode' => 'getLinkQrcode'
     ];
 
     /**
@@ -359,6 +365,7 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('link_notes', $data ?? [], null);
         $this->setIfExists('link_auto_reminders', $data ?? [], null);
         $this->setIfExists('link_notify', $data ?? [], null);
+        $this->setIfExists('link_qrcode', $data ?? [], null);
     }
 
     /**
@@ -858,6 +865,33 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable link_notify cannot be null');
         }
         $this->container['link_notify'] = $link_notify;
+
+        return $this;
+    }
+
+    /**
+     * Gets link_qrcode
+     *
+     * @return string|null
+     */
+    public function getLinkQrcode()
+    {
+        return $this->container['link_qrcode'];
+    }
+
+    /**
+     * Sets link_qrcode
+     *
+     * @param string|null $link_qrcode Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.
+     *
+     * @return self
+     */
+    public function setLinkQrcode($link_qrcode)
+    {
+        if (is_null($link_qrcode)) {
+            throw new \InvalidArgumentException('non-nullable link_qrcode cannot be null');
+        }
+        $this->container['link_qrcode'] = $link_qrcode;
 
         return $this;
     }
