@@ -61,7 +61,7 @@ class SplitAfterPaymentRequestSplitInner implements ModelInterface, ArrayAccess,
         'vendor_id' => 'string',
         'amount' => 'float',
         'percentage' => 'float',
-        'tags' => '\Cashfree\Model\SplitAfterPaymentRequestSplitInnerTagsInner[]'
+        'tags' => 'array<string,string>'
     ];
 
     /**
@@ -296,6 +296,10 @@ class SplitAfterPaymentRequestSplitInner implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['tags']) && (count($this->container['tags']) > 20)) {
+            $invalidProperties[] = "invalid value for 'tags', number of items must be less than or equal to 20.";
+        }
+
         return $invalidProperties;
     }
 
@@ -395,7 +399,7 @@ class SplitAfterPaymentRequestSplitInner implements ModelInterface, ArrayAccess,
     /**
      * Gets tags
      *
-     * @return \Cashfree\Model\SplitAfterPaymentRequestSplitInnerTagsInner[]|null
+     * @return array<string,string>|null
      */
     public function getTags()
     {
@@ -405,7 +409,7 @@ class SplitAfterPaymentRequestSplitInner implements ModelInterface, ArrayAccess,
     /**
      * Sets tags
      *
-     * @param \Cashfree\Model\SplitAfterPaymentRequestSplitInnerTagsInner[]|null $tags Provide additional data fields using tags. Sample data fields are mentioned below.
+     * @param array<string,string>|null $tags Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
      *
      * @return self
      */
@@ -413,6 +417,10 @@ class SplitAfterPaymentRequestSplitInner implements ModelInterface, ArrayAccess,
     {
         if (is_null($tags)) {
             throw new \InvalidArgumentException('non-nullable tags cannot be null');
+        }
+
+        if ((count($tags) > 20)) {
+            throw new \InvalidArgumentException('invalid value for $tags when calling SplitAfterPaymentRequestSplitInner., number of items must be less than or equal to 20.');
         }
         $this->container['tags'] = $tags;
 
