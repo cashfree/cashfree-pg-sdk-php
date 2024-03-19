@@ -162,6 +162,15 @@ class CardTest extends TestCase
     }
 
     /**
+     * Test attribute "token_reference_id"
+     */
+    public function testPropertyTokenReferenceId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "token_type"
      */
     public function testPropertyTokenType()

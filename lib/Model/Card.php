@@ -68,6 +68,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
         'instrument_id' => 'string',
         'cryptogram' => 'string',
         'token_requestor_id' => 'string',
+        'token_reference_id' => 'string',
         'token_type' => 'string',
         'card_display' => 'string',
         'card_alias' => 'string',
@@ -92,6 +93,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
         'instrument_id' => null,
         'cryptogram' => null,
         'token_requestor_id' => null,
+        'token_reference_id' => null,
         'token_type' => null,
         'card_display' => null,
         'card_alias' => null,
@@ -114,6 +116,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
 		'instrument_id' => false,
 		'cryptogram' => false,
 		'token_requestor_id' => false,
+		'token_reference_id' => false,
 		'token_type' => false,
 		'card_display' => false,
 		'card_alias' => false,
@@ -216,6 +219,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
         'instrument_id' => 'instrument_id',
         'cryptogram' => 'cryptogram',
         'token_requestor_id' => 'token_requestor_id',
+        'token_reference_id' => 'token_reference_id',
         'token_type' => 'token_type',
         'card_display' => 'card_display',
         'card_alias' => 'card_alias',
@@ -238,6 +242,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
         'instrument_id' => 'setInstrumentId',
         'cryptogram' => 'setCryptogram',
         'token_requestor_id' => 'setTokenRequestorId',
+        'token_reference_id' => 'setTokenReferenceId',
         'token_type' => 'setTokenType',
         'card_display' => 'setCardDisplay',
         'card_alias' => 'setCardAlias',
@@ -260,6 +265,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
         'instrument_id' => 'getInstrumentId',
         'cryptogram' => 'getCryptogram',
         'token_requestor_id' => 'getTokenRequestorId',
+        'token_reference_id' => 'getTokenReferenceId',
         'token_type' => 'getTokenType',
         'card_display' => 'getCardDisplay',
         'card_alias' => 'getCardAlias',
@@ -392,6 +398,7 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('instrument_id', $data ?? [], null);
         $this->setIfExists('cryptogram', $data ?? [], null);
         $this->setIfExists('token_requestor_id', $data ?? [], null);
+        $this->setIfExists('token_reference_id', $data ?? [], null);
         $this->setIfExists('token_type', $data ?? [], null);
         $this->setIfExists('card_display', $data ?? [], null);
         $this->setIfExists('card_alias', $data ?? [], null);
@@ -720,6 +727,33 @@ class Card implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable token_requestor_id cannot be null');
         }
         $this->container['token_requestor_id'] = $token_requestor_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_reference_id
+     *
+     * @return string|null
+     */
+    public function getTokenReferenceId()
+    {
+        return $this->container['token_reference_id'];
+    }
+
+    /**
+     * Sets token_reference_id
+     *
+     * @param string|null $token_reference_id Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards.
+     *
+     * @return self
+     */
+    public function setTokenReferenceId($token_reference_id)
+    {
+        if (is_null($token_reference_id)) {
+            throw new \InvalidArgumentException('non-nullable token_reference_id cannot be null');
+        }
+        $this->container['token_reference_id'] = $token_reference_id;
 
         return $this;
     }
