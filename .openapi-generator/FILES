@@ -171,7 +171,6 @@ docs/Model/SettlementWebhook.md
 docs/Model/SettlementWebhookDataEntity.md
 docs/Model/SplitAfterPaymentRequest.md
 docs/Model/SplitAfterPaymentRequestSplitInner.md
-docs/Model/SplitAfterPaymentRequestSplitInnerTagsInner.md
 docs/Model/SplitAfterPaymentResponse.md
 docs/Model/StaticSplitRequest.md
 docs/Model/StaticSplitRequestSchemeInner.md
@@ -378,7 +377,6 @@ lib/Model/SettlementWebhook.php
 lib/Model/SettlementWebhookDataEntity.php
 lib/Model/SplitAfterPaymentRequest.php
 lib/Model/SplitAfterPaymentRequestSplitInner.php
-lib/Model/SplitAfterPaymentRequestSplitInnerTagsInner.php
 lib/Model/SplitAfterPaymentResponse.php
 lib/Model/StaticSplitRequest.php
 lib/Model/StaticSplitRequestSchemeInner.php
@@ -580,7 +578,6 @@ test/Model/SettlementReconEntityDataInnerTest.php
 test/Model/SettlementReconEntityTest.php
 test/Model/SettlementWebhookDataEntityTest.php
 test/Model/SettlementWebhookTest.php
-test/Model/SplitAfterPaymentRequestSplitInnerTagsInnerTest.php
 test/Model/SplitAfterPaymentRequestSplitInnerTest.php
 test/Model/SplitAfterPaymentRequestTest.php
 test/Model/SplitAfterPaymentResponseTest.php
