@@ -85,6 +85,39 @@ class Cashfree {
         'pGCreateCustomer' => [
             'application/json',
         ],
+        'pGESCreateOnDemandTransfer' => [
+            'application/json',
+        ],
+        'pGESCreateVendors' => [
+            'application/json',
+        ],
+        'pGESDownloadVendorsDocs' => [
+            'application/json',
+        ],
+        'pGESFetchVendors' => [
+            'application/json',
+        ],
+        'pGESGetVendorBalance' => [
+            'application/json',
+        ],
+        'pGESGetVendorBalanceTransferCharges' => [
+            'application/json',
+        ],
+        'pGESGetVendorsDocs' => [
+            'application/json',
+        ],
+        'pGESOrderRecon' => [
+            'application/json',
+        ],
+        'pGESUpdateVendors' => [
+            'application/json',
+        ],
+        'pGOrderSplitAfterPayment' => [
+            'application/json',
+        ],
+        'pGOrderStaticSplit' => [
+            'application/json',
+        ],
         'pGEligibilityFetchCardlessEMI' => [
             'application/json',
         ],
@@ -172,6 +205,9 @@ class Cashfree {
         'sposFetchTerminalQRCodes' => [
             'application/json',
         ],
+        'sposFetchTerminalTransaction' => [
+            'application/json',
+        ],
         'sposUpdateTerminal' => [
             'application/json',
         ],
@@ -209,7 +245,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCreateCustomer",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -519,7 +555,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -605,6 +641,3081 @@ class Cashfree {
     }
 
 
+    public function PGESCreateOnDemandTransfer($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, $adjust_vendor_balance_request = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESCreateOnDemandTransfer",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESCreateOnDemandTransfer'][0];
+        $request = $this->pGESCreateOnDemandTransferRequest($x_api_version, $vendor_id, $x_request_id, $x_idempotency_key, $adjust_vendor_balance_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\AdjustVendorBalanceResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\AdjustVendorBalanceResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\AdjustVendorBalanceResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\AdjustVendorBalanceResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\AdjustVendorBalanceResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESCreateOnDemandTransferRequest($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, $adjust_vendor_balance_request = null, string $contentType = self::contentTypes['pGESCreateOnDemandTransfer'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESCreateOnDemandTransfer'
+            );
+        }
+
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null || (is_array($vendor_id) && count($vendor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vendor_id when calling pGESCreateOnDemandTransfer'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/easy-split/vendors/{vendor_id}/transfer';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'vendor_id' . '}',
+                ObjectSerializer::toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (isset($adjust_vendor_balance_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($adjust_vendor_balance_request));
+            } else {
+                $httpBody = $adjust_vendor_balance_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESCreateVendors($x_api_version, $x_request_id = null, $x_idempotency_key = null, $create_vendor_request = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESCreateVendors",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESCreateVendors'][0];
+        $request = $this->pGESCreateVendorsRequest($x_api_version, $x_request_id, $x_idempotency_key, $create_vendor_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\CreateVendorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\CreateVendorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\CreateVendorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\CreateVendorResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\CreateVendorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESCreateVendorsRequest($x_api_version, $x_request_id = null, $x_idempotency_key = null, $create_vendor_request = null, string $contentType = self::contentTypes['pGESCreateVendors'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESCreateVendors'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/easy-split/vendors';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+
+
+        // for model (json/xml)
+        if (isset($create_vendor_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_vendor_request));
+            } else {
+                $httpBody = $create_vendor_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESDownloadVendorsDocs($doc_type, $vendor_id, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESDownloadVendorsDocs",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESDownloadVendorsDocs'][0];
+        $request = $this->pGESDownloadVendorsDocsRequest($doc_type, $vendor_id, $x_request_id, $x_idempotency_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\VendorDocumentDownloadResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\VendorDocumentDownloadResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\VendorDocumentDownloadResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\VendorDocumentDownloadResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\VendorDocumentDownloadResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESDownloadVendorsDocsRequest($doc_type, $vendor_id, $x_request_id = null, $x_idempotency_key = null, string $contentType = self::contentTypes['pGESDownloadVendorsDocs'][0])
+    {
+
+        // verify the required parameter 'doc_type' is set
+        if ($doc_type === null || (is_array($doc_type) && count($doc_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $doc_type when calling pGESDownloadVendorsDocs'
+            );
+        }
+
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null || (is_array($vendor_id) && count($vendor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vendor_id when calling pGESDownloadVendorsDocs'
+            );
+        }
+
+
+
+
+        $resourcePath = '/easy-split/vendor-docs/{vendor_id}/download/{doc_type}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($doc_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'doc_type' . '}',
+                ObjectSerializer::toPathValue($doc_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'vendor_id' . '}',
+                ObjectSerializer::toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESFetchVendors($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESFetchVendors",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESFetchVendors'][0];
+        $request = $this->pGESFetchVendorsRequest($x_api_version, $vendor_id, $x_request_id, $x_idempotency_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\VendorEntity' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\VendorEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\VendorEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\VendorEntity';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\VendorEntity',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESFetchVendorsRequest($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, string $contentType = self::contentTypes['pGESFetchVendors'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESFetchVendors'
+            );
+        }
+
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null || (is_array($vendor_id) && count($vendor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vendor_id when calling pGESFetchVendors'
+            );
+        }
+
+
+
+
+        $resourcePath = '/easy-split/vendors/{vendor_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'vendor_id' . '}',
+                ObjectSerializer::toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESGetVendorBalance($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESGetVendorBalance",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESGetVendorBalance'][0];
+        $request = $this->pGESGetVendorBalanceRequest($x_api_version, $vendor_id, $x_request_id, $x_idempotency_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\VendorBalance' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\VendorBalance' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\VendorBalance', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\VendorBalance';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\VendorBalance',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESGetVendorBalanceRequest($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, string $contentType = self::contentTypes['pGESGetVendorBalance'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESGetVendorBalance'
+            );
+        }
+
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null || (is_array($vendor_id) && count($vendor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vendor_id when calling pGESGetVendorBalance'
+            );
+        }
+
+
+
+
+        $resourcePath = '/easy-split/vendors/{vendor_id}/balances';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'vendor_id' . '}',
+                ObjectSerializer::toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESGetVendorBalanceTransferCharges($x_api_version, $amount, $rate_type, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESGetVendorBalanceTransferCharges",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESGetVendorBalanceTransferCharges'][0];
+        $request = $this->pGESGetVendorBalanceTransferChargesRequest($x_api_version, $amount, $rate_type, $x_request_id, $x_idempotency_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\VendorBalanceTransferCharges' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\VendorBalanceTransferCharges' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\VendorBalanceTransferCharges', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\VendorBalanceTransferCharges';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\VendorBalanceTransferCharges',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESGetVendorBalanceTransferChargesRequest($x_api_version, $amount, $rate_type, $x_request_id = null, $x_idempotency_key = null, string $contentType = self::contentTypes['pGESGetVendorBalanceTransferCharges'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESGetVendorBalanceTransferCharges'
+            );
+        }
+
+        // verify the required parameter 'amount' is set
+        if ($amount === null || (is_array($amount) && count($amount) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $amount when calling pGESGetVendorBalanceTransferCharges'
+            );
+        }
+
+        // verify the required parameter 'rate_type' is set
+        if ($rate_type === null || (is_array($rate_type) && count($rate_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $rate_type when calling pGESGetVendorBalanceTransferCharges'
+            );
+        }
+
+
+
+
+        $resourcePath = '/easy-split/amount/{amount}/charges';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $rate_type,
+            'rate_type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($amount !== null) {
+            $resourcePath = str_replace(
+                '{' . 'amount' . '}',
+                ObjectSerializer::toPathValue($amount),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESGetVendorsDocs($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESGetVendorsDocs",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESGetVendorsDocs'][0];
+        $request = $this->pGESGetVendorsDocsRequest($x_api_version, $vendor_id, $x_request_id, $x_idempotency_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\VendorDocumentsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\VendorDocumentsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\VendorDocumentsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\VendorDocumentsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\VendorDocumentsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESGetVendorsDocsRequest($x_api_version, $vendor_id, $x_request_id = null, $x_idempotency_key = null, string $contentType = self::contentTypes['pGESGetVendorsDocs'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESGetVendorsDocs'
+            );
+        }
+
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null || (is_array($vendor_id) && count($vendor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vendor_id when calling pGESGetVendorsDocs'
+            );
+        }
+
+
+
+
+        $resourcePath = '/easy-split/vendor-docs/{vendor_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'vendor_id' . '}',
+                ObjectSerializer::toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESOrderRecon($x_api_version, $x_request_id = null, $x_idempotency_key = null, $es_order_recon_request = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESOrderRecon",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESOrderRecon'][0];
+        $request = $this->pGESOrderReconRequest($x_api_version, $x_request_id, $x_idempotency_key, $es_order_recon_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\ESOrderReconResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\ESOrderReconResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\ESOrderReconResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\ESOrderReconResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\ESOrderReconResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESOrderReconRequest($x_api_version, $x_request_id = null, $x_idempotency_key = null, $es_order_recon_request = null, string $contentType = self::contentTypes['pGESOrderRecon'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESOrderRecon'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/split/order/vendor/recon';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+
+
+        // for model (json/xml)
+        if (isset($es_order_recon_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($es_order_recon_request));
+            } else {
+                $httpBody = $es_order_recon_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGESUpdateVendors($x_api_version, $vendor_id, $update_vendor_request = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGESUpdateVendors",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGESUpdateVendors'][0];
+        $request = $this->pGESUpdateVendorsRequest($x_api_version, $vendor_id, $update_vendor_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\UpdateVendorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\UpdateVendorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\UpdateVendorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\UpdateVendorResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\UpdateVendorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGESUpdateVendorsRequest($x_api_version, $vendor_id, $update_vendor_request = null, string $contentType = self::contentTypes['pGESUpdateVendors'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGESUpdateVendors'
+            );
+        }
+
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null || (is_array($vendor_id) && count($vendor_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vendor_id when calling pGESUpdateVendors'
+            );
+        }
+
+
+
+        $resourcePath = '/easy-split/vendors/{vendor_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'vendor_id' . '}',
+                ObjectSerializer::toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (isset($update_vendor_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_vendor_request));
+            } else {
+                $httpBody = $update_vendor_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGOrderSplitAfterPayment($x_api_version, $order_id, $x_request_id = null, $x_idempotency_key = null, $split_after_payment_request = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGOrderSplitAfterPayment",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGOrderSplitAfterPayment'][0];
+        $request = $this->pGOrderSplitAfterPaymentRequest($x_api_version, $order_id, $x_request_id, $x_idempotency_key, $split_after_payment_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\SplitAfterPaymentResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\SplitAfterPaymentResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\SplitAfterPaymentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Cashfree\Model\ApiError404' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\ApiError404' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\ApiError404', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Cashfree\Model\ApiError409' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\ApiError409' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\ApiError409', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\SplitAfterPaymentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\SplitAfterPaymentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\ApiError404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\ApiError409',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGOrderSplitAfterPaymentRequest($x_api_version, $order_id, $x_request_id = null, $x_idempotency_key = null, $split_after_payment_request = null, string $contentType = self::contentTypes['pGOrderSplitAfterPayment'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGOrderSplitAfterPayment'
+            );
+        }
+
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling pGOrderSplitAfterPayment'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/easy-split/orders/{order_id}/split';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (isset($split_after_payment_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($split_after_payment_request));
+            } else {
+                $httpBody = $split_after_payment_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    public function PGOrderStaticSplit($x_api_version, $x_request_id = null, $x_idempotency_key = null, $static_split_request = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."PGOrderStaticSplit",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['pGOrderStaticSplit'][0];
+        $request = $this->pGOrderStaticSplitRequest($x_api_version, $x_request_id, $x_idempotency_key, $static_split_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\StaticSplitResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\StaticSplitResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\StaticSplitResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\StaticSplitResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\StaticSplitResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function pGOrderStaticSplitRequest($x_api_version, $x_request_id = null, $x_idempotency_key = null, $static_split_request = null, string $contentType = self::contentTypes['pGOrderStaticSplit'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling pGOrderStaticSplit'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/easy-split/static-split';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+
+
+        // for model (json/xml)
+        if (isset($static_split_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($static_split_request));
+            } else {
+                $httpBody = $static_split_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
     public function PGEligibilityFetchCardlessEMI($x_api_version, $eligibility_fetch_cardless_emi_request, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
     {
 
@@ -617,7 +3728,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGEligibilityFetchCardlessEMI",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -950,7 +4061,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -1048,7 +4159,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGEligibilityFetchOffers",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -1358,7 +4469,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -1456,7 +4567,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGEligibilityFetchPaylater",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -1789,7 +4900,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -1887,7 +4998,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGEligibilityFetchPaymentMethods",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -2220,7 +5331,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -2318,7 +5429,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCreateOffer",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -2628,7 +5739,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -2726,7 +5837,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGFetchOffer",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -3036,7 +6147,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3135,7 +6246,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCreateOrder",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -3445,7 +6556,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3543,7 +6654,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGFetchOrder",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -3853,7 +6964,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -3952,7 +7063,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGTerminateOrder",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -4269,7 +7380,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -4375,7 +7486,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGFetchRecon",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -4687,7 +7798,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -4785,7 +7896,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCancelLink",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -5095,7 +8206,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5194,7 +8305,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCreateLink",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -5504,7 +8615,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -5602,7 +8713,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGFetchLink",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -5935,7 +9046,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -6034,7 +9145,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGLinkFetchOrders",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -6344,7 +9455,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -6443,7 +9554,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGAuthorizeOrder",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -6783,7 +9894,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -6889,7 +10000,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGOrderAuthenticatePayment",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -7229,7 +10340,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -7335,7 +10446,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGOrderFetchPayment",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -7675,7 +10786,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -7782,7 +10893,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGOrderFetchPayments",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -8115,7 +11226,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8214,7 +11325,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGPayOrder",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -8547,7 +11658,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -8645,7 +11756,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGOrderCreateRefund",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -8985,7 +12096,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -9091,7 +12202,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGOrderFetchRefund",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -9431,7 +12542,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -9538,7 +12649,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGOrderFetchRefunds",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -9848,7 +12959,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -9947,7 +13058,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGFetchSettlements",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -10259,7 +13370,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10357,7 +13468,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGSettlementFetchRecon",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -10669,7 +13780,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -10767,7 +13878,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGOrderFetchSettlement",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -11100,7 +14211,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -11199,7 +14310,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."SposCreateTerminal",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -11509,7 +14620,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -11607,7 +14718,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."SposCreateTerminalTransaction",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -11917,7 +15028,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12015,7 +15126,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."SposFetchTerminal",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -12325,7 +15436,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12424,7 +15535,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."SposFetchTerminalQRCodes",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -12759,7 +15870,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -12838,6 +15949,431 @@ class Cashfree {
     }
 
 
+    public function SposFetchTerminalTransaction($x_api_version, $utr, $cf_terminal_id, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
+    {
+
+        $env = "sandbox";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $env = "production";
+        }
+        if(Cashfree::$XEnableErrorAnalytics) {
+            \Sentry\init([
+                'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
+                'environment' => $env."SposFetchTerminalTransaction",
+                'attach_stacktrace' => true,
+                'release' => '4.0.8',
+                'traces_sample_rate' => 1.0,
+                'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
+                    $cashfreepg = "cashfree-pg";
+                    if (count($event->getExceptions()) > 0 && count($event->getExceptions()[0]->getStackTrace()->getFrames()) > 0) {
+                    if (strpos($event->getExceptions()[0]->getStackTrace()->getFrames()[0]->getFile(), $cashfreepg) !== false) {
+                        $osContext = $event->getOsContext();
+                        $osContext->setKernelVersion("");
+                        $osContext->setMachineType("");
+                        $osContext->setKernelVersion("");
+                        $osContext->setVersion("");
+                        $event->setOsContext($osContext);
+                        if(Cashfree::$XEnableErrorAnalytics) {
+                            return $event;
+                        }
+                        return null;
+                    }
+                    }
+                return null;
+                },
+            ]);
+        }
+
+        $this->client = new Client();
+        if($http_client !== null) {
+            $this->client = $http_client;
+        }
+        $this->headerSelector = new HeaderSelector();
+        $contentType = self::contentTypes['sposFetchTerminalTransaction'][0];
+        $request = $this->sposFetchTerminalTransactionRequest($x_api_version, $utr, $cf_terminal_id, $x_request_id, $x_idempotency_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Cashfree\Model\TerminalPaymentEntity' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\TerminalPaymentEntity' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\TerminalPaymentEntity', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Cashfree\Model\BadRequestError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\BadRequestError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\BadRequestError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Cashfree\Model\AuthenticationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\AuthenticationError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\AuthenticationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Cashfree\Model\ApiError404' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\ApiError404' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\ApiError404', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Cashfree\Model\ApiError409' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\ApiError409' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\ApiError409', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Cashfree\Model\IdempotencyError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\IdempotencyError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\IdempotencyError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\Cashfree\Model\RateLimitError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\RateLimitError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\RateLimitError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Cashfree\Model\ApiError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Cashfree\Model\ApiError' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\ApiError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Cashfree\Model\TerminalPaymentEntity';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\TerminalPaymentEntity',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\BadRequestError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\AuthenticationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\ApiError404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\ApiError409',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\IdempotencyError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\RateLimitError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Cashfree\Model\ApiError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    public function sposFetchTerminalTransactionRequest($x_api_version, $utr, $cf_terminal_id, $x_request_id = null, $x_idempotency_key = null, string $contentType = self::contentTypes['sposFetchTerminalTransaction'][0])
+    {
+
+        // verify the required parameter 'x_api_version' is set
+        if ($x_api_version === null || (is_array($x_api_version) && count($x_api_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_api_version when calling sposFetchTerminalTransaction'
+            );
+        }
+
+        // verify the required parameter 'utr' is set
+        if ($utr === null || (is_array($utr) && count($utr) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $utr when calling sposFetchTerminalTransaction'
+            );
+        }
+
+        // verify the required parameter 'cf_terminal_id' is set
+        if ($cf_terminal_id === null || (is_array($cf_terminal_id) && count($cf_terminal_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cf_terminal_id when calling sposFetchTerminalTransaction'
+            );
+        }
+
+
+
+
+        $resourcePath = '/terminal/{cf_terminal_id}/payments';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $utr,
+            'utr', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
+        if (Cashfree::$XPartnerApiKey !== null) {
+            $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
+        }
+
+        if (Cashfree::$XClientSecret !== null) {
+            $headers['x-client-secret'] = Cashfree::$XClientSecret;
+        }
+
+        if (Cashfree::$XPartnerMerchantId !== null) {
+            $headers['x-partner-merchantid'] = Cashfree::$XPartnerMerchantId;
+        }
+
+        if (Cashfree::$XClientId !== null) {
+            $headers['x-client-id'] = Cashfree::$XClientId;
+        }
+
+        if (Cashfree::$XClientSignature !== null) {
+            $headers['x-client-signature'] = Cashfree::$XClientSignature;
+        }
+
+        $headers['x-api-version'] = $x_api_version;
+        if($x_request_id !== null) {
+            $headers['x-request-id'] = $x_request_id;
+        }
+
+  //      if($x_idempotency_key !== null) {
+ //           $headers['x-idempotency-key'] = $x_idempotency_key;
+//        }
+
+        // path params
+        if ($cf_terminal_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'cf_terminal_id' . '}',
+                ObjectSerializer::toPathValue($cf_terminal_id),
+                $resourcePath
+            );
+        }
+
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        $defaultHeaders = [];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = "https://sandbox.cashfree.com/pg";
+        if(Cashfree::$XEnvironment == Cashfree::$PRODUCTION) {
+            $operationHost = "https://api.cashfree.com/pg";
+        }
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
     public function SposUpdateTerminal($x_api_version, $cf_terminal_id, $update_terminal_request, $x_request_id = null, $x_idempotency_key = null, GuzzleHttp\Client $http_client = null)
     {
 
@@ -12850,7 +16386,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."SposUpdateTerminal",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -13167,7 +16703,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -13273,7 +16809,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."SposUpdateTerminalStatus",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -13590,7 +17126,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -13696,7 +17232,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."SposUploadTerminalDocs",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -14013,7 +17549,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -14119,7 +17655,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCustomerDeleteInstrument",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -14459,7 +17995,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -14566,7 +18102,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCustomerFetchInstrument",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -14906,7 +18442,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -15013,7 +18549,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCustomerFetchInstruments",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -15339,7 +18875,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }
@@ -15438,7 +18974,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."PGCustomerInstrumentsFetchCryptogram",
                 'attach_stacktrace' => true,
-                'release' => '4.0.7',
+                'release' => '4.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -15778,7 +19314,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-4.0.7";
+        $headers['x-sdk-platform'] = "phpsdk-4.0.8";
         if (Cashfree::$XPartnerApiKey !== null) {
             $headers['x-partner-apikey'] = Cashfree::$XPartnerApiKey;
         }

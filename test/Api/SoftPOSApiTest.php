@@ -121,6 +121,18 @@ class SoftPOSApiTest extends TestCase
     }
 
     /**
+     * Test case for sposFetchTerminalTransaction
+     *
+     * Get Terminal Transaction.
+     *
+     */
+    public function testSposFetchTerminalTransaction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for sposUpdateTerminal
      *
      * Update Terminal.
@@ -135,7 +147,7 @@ class SoftPOSApiTest extends TestCase
     /**
      * Test case for sposUpdateTerminalStatus
      *
-     * Update Terminal Sttus.
+     * Update Terminal Status.
      *
      */
     public function testSposUpdateTerminalStatus()

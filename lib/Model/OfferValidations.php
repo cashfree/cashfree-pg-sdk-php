@@ -60,6 +60,7 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'min_amount' => 'float',
+        'max_allowed' => 'float',
         'payment_method' => '\Cashfree\Model\OfferValidationsPaymentMethod'
     ];
 
@@ -72,6 +73,7 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'min_amount' => null,
+        'max_allowed' => null,
         'payment_method' => null
     ];
 
@@ -82,6 +84,7 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPINullables = [
         'min_amount' => false,
+		'max_allowed' => false,
 		'payment_method' => false
     ];
 
@@ -172,6 +175,7 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'min_amount' => 'min_amount',
+        'max_allowed' => 'max_allowed',
         'payment_method' => 'payment_method'
     ];
 
@@ -182,6 +186,7 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'min_amount' => 'setMinAmount',
+        'max_allowed' => 'setMaxAllowed',
         'payment_method' => 'setPaymentMethod'
     ];
 
@@ -192,6 +197,7 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'min_amount' => 'getMinAmount',
+        'max_allowed' => 'getMaxAllowed',
         'payment_method' => 'getPaymentMethod'
     ];
 
@@ -253,6 +259,7 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('min_amount', $data ?? [], null);
+        $this->setIfExists('max_allowed', $data ?? [], null);
         $this->setIfExists('payment_method', $data ?? [], null);
     }
 
@@ -285,6 +292,13 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['min_amount']) && ($this->container['min_amount'] < 1)) {
             $invalidProperties[] = "invalid value for 'min_amount', must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['max_allowed'] === null) {
+            $invalidProperties[] = "'max_allowed' can't be null";
+        }
+        if (($this->container['max_allowed'] < 1)) {
+            $invalidProperties[] = "invalid value for 'max_allowed', must be bigger than or equal to 1.";
         }
 
         if ($this->container['payment_method'] === null) {
@@ -333,6 +347,38 @@ class OfferValidations implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['min_amount'] = $min_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_allowed
+     *
+     * @return float
+     */
+    public function getMaxAllowed()
+    {
+        return $this->container['max_allowed'];
+    }
+
+    /**
+     * Sets max_allowed
+     *
+     * @param float $max_allowed Maximum Amount for Offer to be Applicable
+     *
+     * @return self
+     */
+    public function setMaxAllowed($max_allowed)
+    {
+        if (is_null($max_allowed)) {
+            throw new \InvalidArgumentException('non-nullable max_allowed cannot be null');
+        }
+
+        if (($max_allowed < 1)) {
+            throw new \InvalidArgumentException('invalid value for $max_allowed when calling OfferValidations., must be bigger than or equal to 1.');
+        }
+
+        $this->container['max_allowed'] = $max_allowed;
 
         return $this;
     }

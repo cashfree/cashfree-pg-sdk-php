@@ -232,4 +232,13 @@ class LinkEntityTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "link_qrcode"
+     */
+    public function testPropertyLinkQrcode()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
