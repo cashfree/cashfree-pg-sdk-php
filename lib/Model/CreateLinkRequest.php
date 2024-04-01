@@ -70,7 +70,8 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'link_notify' => '\Cashfree\Model\LinkNotifyEntity',
         'link_auto_reminders' => 'bool',
         'link_notes' => 'array<string,string>',
-        'link_meta' => '\Cashfree\Model\LinkMetaResponseEntity'
+        'link_meta' => '\Cashfree\Model\LinkMetaResponseEntity',
+        'order_splits' => '\Cashfree\Model\VendorSplit[]'
     ];
 
     /**
@@ -92,7 +93,8 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'link_notify' => null,
         'link_auto_reminders' => null,
         'link_notes' => null,
-        'link_meta' => null
+        'link_meta' => null,
+        'order_splits' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'link_notify' => false,
 		'link_auto_reminders' => false,
 		'link_notes' => false,
-		'link_meta' => false
+		'link_meta' => false,
+		'order_splits' => false
     ];
 
     /**
@@ -212,7 +215,8 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'link_notify' => 'link_notify',
         'link_auto_reminders' => 'link_auto_reminders',
         'link_notes' => 'link_notes',
-        'link_meta' => 'link_meta'
+        'link_meta' => 'link_meta',
+        'order_splits' => 'order_splits'
     ];
 
     /**
@@ -232,7 +236,8 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'link_notify' => 'setLinkNotify',
         'link_auto_reminders' => 'setLinkAutoReminders',
         'link_notes' => 'setLinkNotes',
-        'link_meta' => 'setLinkMeta'
+        'link_meta' => 'setLinkMeta',
+        'order_splits' => 'setOrderSplits'
     ];
 
     /**
@@ -252,7 +257,8 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'link_notify' => 'getLinkNotify',
         'link_auto_reminders' => 'getLinkAutoReminders',
         'link_notes' => 'getLinkNotes',
-        'link_meta' => 'getLinkMeta'
+        'link_meta' => 'getLinkMeta',
+        'order_splits' => 'getOrderSplits'
     ];
 
     /**
@@ -324,6 +330,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('link_auto_reminders', $data ?? [], null);
         $this->setIfExists('link_notes', $data ?? [], null);
         $this->setIfExists('link_meta', $data ?? [], null);
+        $this->setIfExists('order_splits', $data ?? [], null);
     }
 
     /**
@@ -721,6 +728,33 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable link_meta cannot be null');
         }
         $this->container['link_meta'] = $link_meta;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_splits
+     *
+     * @return \Cashfree\Model\VendorSplit[]|null
+     */
+    public function getOrderSplits()
+    {
+        return $this->container['order_splits'];
+    }
+
+    /**
+     * Sets order_splits
+     *
+     * @param \Cashfree\Model\VendorSplit[]|null $order_splits If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
+     *
+     * @return self
+     */
+    public function setOrderSplits($order_splits)
+    {
+        if (is_null($order_splits)) {
+            throw new \InvalidArgumentException('non-nullable order_splits cannot be null');
+        }
+        $this->container['order_splits'] = $order_splits;
 
         return $this;
     }
