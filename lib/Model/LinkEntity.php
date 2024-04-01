@@ -76,7 +76,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_notes' => 'array<string,string>',
         'link_auto_reminders' => 'bool',
         'link_notify' => '\Cashfree\Model\LinkNotifyEntity',
-        'link_qrcode' => 'string'
+        'link_qrcode' => 'string',
+        'order_splits' => '\Cashfree\Model\VendorSplit[]'
     ];
 
     /**
@@ -104,7 +105,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_notes' => null,
         'link_auto_reminders' => null,
         'link_notify' => null,
-        'link_qrcode' => null
+        'link_qrcode' => null,
+        'order_splits' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'link_notes' => false,
 		'link_auto_reminders' => false,
 		'link_notify' => false,
-		'link_qrcode' => false
+		'link_qrcode' => false,
+		'order_splits' => false
     ];
 
     /**
@@ -236,7 +239,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_notes' => 'link_notes',
         'link_auto_reminders' => 'link_auto_reminders',
         'link_notify' => 'link_notify',
-        'link_qrcode' => 'link_qrcode'
+        'link_qrcode' => 'link_qrcode',
+        'order_splits' => 'order_splits'
     ];
 
     /**
@@ -262,7 +266,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_notes' => 'setLinkNotes',
         'link_auto_reminders' => 'setLinkAutoReminders',
         'link_notify' => 'setLinkNotify',
-        'link_qrcode' => 'setLinkQrcode'
+        'link_qrcode' => 'setLinkQrcode',
+        'order_splits' => 'setOrderSplits'
     ];
 
     /**
@@ -288,7 +293,8 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'link_notes' => 'getLinkNotes',
         'link_auto_reminders' => 'getLinkAutoReminders',
         'link_notify' => 'getLinkNotify',
-        'link_qrcode' => 'getLinkQrcode'
+        'link_qrcode' => 'getLinkQrcode',
+        'order_splits' => 'getOrderSplits'
     ];
 
     /**
@@ -366,6 +372,7 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('link_auto_reminders', $data ?? [], null);
         $this->setIfExists('link_notify', $data ?? [], null);
         $this->setIfExists('link_qrcode', $data ?? [], null);
+        $this->setIfExists('order_splits', $data ?? [], null);
     }
 
     /**
@@ -892,6 +899,33 @@ class LinkEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable link_qrcode cannot be null');
         }
         $this->container['link_qrcode'] = $link_qrcode;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_splits
+     *
+     * @return \Cashfree\Model\VendorSplit[]|null
+     */
+    public function getOrderSplits()
+    {
+        return $this->container['order_splits'];
+    }
+
+    /**
+     * Sets order_splits
+     *
+     * @param \Cashfree\Model\VendorSplit[]|null $order_splits order_splits
+     *
+     * @return self
+     */
+    public function setOrderSplits($order_splits)
+    {
+        if (is_null($order_splits)) {
+            throw new \InvalidArgumentException('non-nullable order_splits cannot be null');
+        }
+        $this->container['order_splits'] = $order_splits;
 
         return $this;
     }

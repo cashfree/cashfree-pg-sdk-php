@@ -181,6 +181,18 @@ class EasySplitApiTest extends TestCase
     }
 
     /**
+     * Test case for pGESUploadVendorsDocs
+     *
+     * Upload Vendor Docs.
+     *
+     */
+    public function testPGESUploadVendorsDocs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for pGOrderSplitAfterPayment
      *
      * Split After Payment.

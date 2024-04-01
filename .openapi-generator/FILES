@@ -195,7 +195,6 @@ docs/Model/Upi.md
 docs/Model/UpiDetails.md
 docs/Model/UploadTerminalDocs.md
 docs/Model/UploadTerminalDocsEntity.md
-docs/Model/UploadVendorDocsRequest.md
 docs/Model/UploadVendorDocumentsResponse.md
 docs/Model/VendorBalance.md
 docs/Model/VendorBalanceTransferCharges.md
@@ -401,7 +400,6 @@ lib/Model/Upi.php
 lib/Model/UpiDetails.php
 lib/Model/UploadTerminalDocs.php
 lib/Model/UploadTerminalDocsEntity.php
-lib/Model/UploadVendorDocsRequest.php
 lib/Model/UploadVendorDocumentsResponse.php
 lib/Model/VendorBalance.php
 lib/Model/VendorBalanceTransferCharges.php
@@ -604,7 +602,6 @@ test/Model/UpiDetailsTest.php
 test/Model/UpiTest.php
 test/Model/UploadTerminalDocsEntityTest.php
 test/Model/UploadTerminalDocsTest.php
-test/Model/UploadVendorDocsRequestTest.php
 test/Model/UploadVendorDocumentsResponseTest.php
 test/Model/VendorBalanceTest.php
 test/Model/VendorBalanceTransferChargesTest.php

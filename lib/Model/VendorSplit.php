@@ -61,7 +61,8 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'vendor_id' => 'string',
         'amount' => 'float',
-        'percentage' => 'float'
+        'percentage' => 'float',
+        'tags' => 'array<string,object>'
     ];
 
     /**
@@ -74,7 +75,8 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'vendor_id' => null,
         'amount' => null,
-        'percentage' => null
+        'percentage' => null,
+        'tags' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPINullables = [
         'vendor_id' => false,
 		'amount' => false,
-		'percentage' => false
+		'percentage' => false,
+		'tags' => false
     ];
 
     /**
@@ -176,7 +179,8 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'vendor_id' => 'vendor_id',
         'amount' => 'amount',
-        'percentage' => 'percentage'
+        'percentage' => 'percentage',
+        'tags' => 'tags'
     ];
 
     /**
@@ -187,7 +191,8 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'vendor_id' => 'setVendorId',
         'amount' => 'setAmount',
-        'percentage' => 'setPercentage'
+        'percentage' => 'setPercentage',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -198,7 +203,8 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'vendor_id' => 'getVendorId',
         'amount' => 'getAmount',
-        'percentage' => 'getPercentage'
+        'percentage' => 'getPercentage',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -261,6 +267,7 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('vendor_id', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('percentage', $data ?? [], null);
+        $this->setIfExists('tags', $data ?? [], null);
     }
 
     /**
@@ -290,6 +297,13 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['vendor_id'] === null) {
+            $invalidProperties[] = "'vendor_id' can't be null";
+        }
+        if (!is_null($this->container['tags']) && (count($this->container['tags']) > 15)) {
+            $invalidProperties[] = "invalid value for 'tags', number of items must be less than or equal to 15.";
+        }
+
         return $invalidProperties;
     }
 
@@ -308,7 +322,7 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vendor_id
      *
-     * @return string|null
+     * @return string
      */
     public function getVendorId()
     {
@@ -318,7 +332,7 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vendor_id
      *
-     * @param string|null $vendor_id Vendor id created in Cashfree system
+     * @param string $vendor_id Vendor id created in Cashfree system
      *
      * @return self
      */
@@ -382,6 +396,37 @@ class VendorSplit implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable percentage cannot be null');
         }
         $this->container['percentage'] = $percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return array<string,object>|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param array<string,object>|null $tags Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        if (is_null($tags)) {
+            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+        }
+
+        if ((count($tags) > 15)) {
+            throw new \InvalidArgumentException('invalid value for $tags when calling VendorSplit., number of items must be less than or equal to 15.');
+        }
+        $this->container['tags'] = $tags;
 
         return $this;
     }
