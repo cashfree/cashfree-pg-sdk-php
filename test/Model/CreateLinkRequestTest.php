@@ -187,4 +187,13 @@ class CreateLinkRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "order_splits"
+     */
+    public function testPropertyOrderSplits()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
