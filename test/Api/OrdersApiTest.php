@@ -28,9 +28,10 @@
 
 namespace Cashfree\Test\Api;
 
+use Cashfree\Cashfree;
 use \Cashfree\Configuration;
-use \Cashfree\ApiException;
-use \Cashfree\ObjectSerializer;
+use Cashfree\Model\CreateOrderRequest;
+use Cashfree\Model\CustomerDetails;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -40,6 +41,8 @@ use PHPUnit\Framework\TestCase;
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @method assertTrue(array $result)
+ * @method assertArrayHasKey(string $string, $toArray)
  */
 class OrdersApiTest extends TestCase
 {
@@ -80,8 +83,21 @@ class OrdersApiTest extends TestCase
      */
     public function testPGCreateOrder()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $cashfree = new Cashfree();
+        $x_api_version = "2022-09-01";
+        $create_orders_request = new CreateOrderRequest();
+        $customer_details = new CustomerDetails();
+        $customer_details->setCustomerId("walterwNrcMi");
+        $customer_details->setCustomerPhone("9999999999");
+        $create_orders_request->setCustomerDetails($customer_details);
+        $create_orders_request->setOrderAmount(1.0);
+        $create_orders_request->setOrderCurrency("INR");
+
+        $result = $cashfree->PGCreateOrder($x_api_version, $create_orders_request, null, null, null);
+
+        $this->assertTrue($result);
+
+        $this->assertArrayHasKey('payment_session_id',$result->toArray());
     }
 
     /**
@@ -92,19 +108,52 @@ class OrdersApiTest extends TestCase
      */
     public function testPGFetchOrder()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $cashfree = new Cashfree();
+        $x_api_version = "2022-09-01";
+        $order_id = "order_306362cJ3scxkcQxn0F38Q5HxF7j5UoP";
+
+        $result = $cashfree->PGFetchOrder($x_api_version, $order_id, null, null, null);
+
+        $this->assertTrue($result);
+
+        $this->assertArrayHasKey('payment_session_id',$result->toArray());
+
     }
 
     /**
-     * Test case for pGTerminateOrder
+     * Test case for PGOrderFetchPayment
      *
      * Terminate Order.
      *
      */
-    public function testPGTerminateOrder()
+    public function testPGOrderFetchPayment()
     {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        $cashfree = new Cashfree();
+        $x_api_version = "2022-09-01";
+        $order_id = "order_id";
+        $cf_payment_id = "cf_payment_id";
+        $result = $cashfree->PGOrderFetchPayment($x_api_version, $order_id, $cf_payment_id, null, null, null);
+        $this->assertTrue($result);
+
+        $this->assertArrayHasKey('cf_payment_id',$result->toArray());
+
+    }
+
+    /**
+     * Test case for PGOrderFetchPayment
+     *
+     * Terminate Order.
+     *
+     */
+    public function testPGOrderFetchPayments()
+    {
+        $cashfree = new Cashfree();
+        $x_api_version = "2022-09-01";
+        $order_id = "order00002";
+        $result = $cashfree->PGOrderFetchPayments($x_api_version, $order_id, null, null, null);
+        $this->assertTrue($result);
+
+        $this->assertArrayHasKey('cf_payment_id',$result->toArray());
+
     }
 }
