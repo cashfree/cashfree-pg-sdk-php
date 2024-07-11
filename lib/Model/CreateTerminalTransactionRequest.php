@@ -62,7 +62,8 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         'cf_order_id' => 'string',
         'cf_terminal_id' => 'string',
         'payment_method' => 'string',
-        'terminal_phone_no' => 'string'
+        'terminal_phone_no' => 'string',
+        'add_invoice' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         'cf_order_id' => null,
         'cf_terminal_id' => null,
         'payment_method' => null,
-        'terminal_phone_no' => null
+        'terminal_phone_no' => null,
+        'add_invoice' => null
     ];
 
     /**
@@ -88,7 +90,8 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         'cf_order_id' => false,
 		'cf_terminal_id' => false,
 		'payment_method' => false,
-		'terminal_phone_no' => false
+		'terminal_phone_no' => false,
+		'add_invoice' => false
     ];
 
     /**
@@ -180,7 +183,8 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         'cf_order_id' => 'cf_order_id',
         'cf_terminal_id' => 'cf_terminal_id',
         'payment_method' => 'payment_method',
-        'terminal_phone_no' => 'terminal_phone_no'
+        'terminal_phone_no' => 'terminal_phone_no',
+        'add_invoice' => 'add_invoice'
     ];
 
     /**
@@ -192,7 +196,8 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         'cf_order_id' => 'setCfOrderId',
         'cf_terminal_id' => 'setCfTerminalId',
         'payment_method' => 'setPaymentMethod',
-        'terminal_phone_no' => 'setTerminalPhoneNo'
+        'terminal_phone_no' => 'setTerminalPhoneNo',
+        'add_invoice' => 'setAddInvoice'
     ];
 
     /**
@@ -204,7 +209,8 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         'cf_order_id' => 'getCfOrderId',
         'cf_terminal_id' => 'getCfTerminalId',
         'payment_method' => 'getPaymentMethod',
-        'terminal_phone_no' => 'getTerminalPhoneNo'
+        'terminal_phone_no' => 'getTerminalPhoneNo',
+        'add_invoice' => 'getAddInvoice'
     ];
 
     /**
@@ -268,6 +274,7 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         $this->setIfExists('cf_terminal_id', $data ?? [], null);
         $this->setIfExists('payment_method', $data ?? [], null);
         $this->setIfExists('terminal_phone_no', $data ?? [], null);
+        $this->setIfExists('add_invoice', $data ?? [], null);
     }
 
     /**
@@ -452,6 +459,33 @@ class CreateTerminalTransactionRequest implements ModelInterface, ArrayAccess, \
         }
 
         $this->container['terminal_phone_no'] = $terminal_phone_no;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_invoice
+     *
+     * @return bool|null
+     */
+    public function getAddInvoice()
+    {
+        return $this->container['add_invoice'];
+    }
+
+    /**
+     * Sets add_invoice
+     *
+     * @param bool|null $add_invoice make it true to have request be sent to create a Dynamic GST QR Code.
+     *
+     * @return self
+     */
+    public function setAddInvoice($add_invoice)
+    {
+        if (is_null($add_invoice)) {
+            throw new \InvalidArgumentException('non-nullable add_invoice cannot be null');
+        }
+        $this->container['add_invoice'] = $add_invoice;
 
         return $this;
     }

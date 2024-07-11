@@ -339,14 +339,11 @@ class TerminalDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['terminal_id'] === null) {
-            $invalidProperties[] = "'terminal_id' can't be null";
-        }
-        if ((mb_strlen($this->container['terminal_id']) > 100)) {
+        if (!is_null($this->container['terminal_id']) && (mb_strlen($this->container['terminal_id']) > 100)) {
             $invalidProperties[] = "invalid value for 'terminal_id', the character length must be smaller than or equal to 100.";
         }
 
-        if ((mb_strlen($this->container['terminal_id']) < 3)) {
+        if (!is_null($this->container['terminal_id']) && (mb_strlen($this->container['terminal_id']) < 3)) {
             $invalidProperties[] = "invalid value for 'terminal_id', the character length must be bigger than or equal to 3.";
         }
 
@@ -490,7 +487,7 @@ class TerminalDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets terminal_id
      *
-     * @return string
+     * @return string|null
      */
     public function getTerminalId()
     {
@@ -500,7 +497,7 @@ class TerminalDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets terminal_id
      *
-     * @param string $terminal_id terminal id for merchant reference
+     * @param string|null $terminal_id terminal id for merchant reference
      *
      * @return self
      */

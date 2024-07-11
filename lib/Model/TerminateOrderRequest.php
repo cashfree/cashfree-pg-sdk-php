@@ -307,7 +307,7 @@ class TerminateOrderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets order_status
      *
-     * @param string $order_status To terminate an order, pass order_status as \"TERMINATE\". Please note, order might not be terminated - confirm with the order_status in response. \"TERMINATION_REQUESTED\" states that the request is recieved and we are working on it. If the order terminates successfully, status will change to \"TERMINATED\". Incase there's any active transaction which moved to success - order might not get terminated.
+     * @param string $order_status To terminate an order, pass order_status as \"TERMINATED\". Please note, order might not be terminated - confirm with the order_status in response. \"TERMINATION_REQUESTED\" states that the request is recieved and we are working on it. If the order terminates successfully, status will change to \"TERMINATED\". Incase there's any active transaction which moved to success - order might not get terminated.
      *
      * @return self
      */

@@ -581,7 +581,7 @@ class CreateVendorRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets schedule_option
      *
-     * @param float|null $schedule_option Specify the settlement cycle to be updated. View the settlement cycle details from the \"Settlement Cycles Supported\" table. If no schedule option is configured, the settlement cycle ID \"1\" will be in effect. Select \"8\" or \"9\" if you want to schedule instant vendor settlements.
+     * @param float|null $schedule_option Specify the settlement cycle to be updated. View the settlement cycle details from the \"Settlement Cycles Supported\" table.  If no schedule option is configured, the settlement cycle ID \"1\" will be in effect. Select \"8\" or \"9\" if you want to schedule instant vendor settlements.
      *
      * @return self
      */
