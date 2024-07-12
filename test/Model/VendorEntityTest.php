@@ -198,6 +198,15 @@ class VendorEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "remarks"
+     */
+    public function testPropertyRemarks()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "related_docs"
      */
     public function testPropertyRelatedDocs()

@@ -106,4 +106,31 @@ class LinkCustomerDetailsEntityTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "customer_bank_account_number"
+     */
+    public function testPropertyCustomerBankAccountNumber()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "customer_bank_ifsc"
+     */
+    public function testPropertyCustomerBankIfsc()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "customer_bank_code"
+     */
+    public function testPropertyCustomerBankCode()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

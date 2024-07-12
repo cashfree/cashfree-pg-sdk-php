@@ -72,7 +72,8 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_type' => 'string',
         'account_type' => 'string',
         'business_type' => 'string',
-        'related_docs' => '\Cashfree\Model\VendorEntityRelatedDocsInner[]'
+        'remarks' => 'string',
+        'related_docs' => '\Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]'
     ];
 
     /**
@@ -96,6 +97,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_type' => null,
         'account_type' => null,
         'business_type' => null,
+        'remarks' => null,
         'related_docs' => null
     ];
 
@@ -118,6 +120,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'vendor_type' => false,
 		'account_type' => false,
 		'business_type' => false,
+		'remarks' => false,
 		'related_docs' => false
     ];
 
@@ -220,6 +223,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_type' => 'vendor_type',
         'account_type' => 'account_type',
         'business_type' => 'business_type',
+        'remarks' => 'remarks',
         'related_docs' => 'related_docs'
     ];
 
@@ -242,6 +246,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_type' => 'setVendorType',
         'account_type' => 'setAccountType',
         'business_type' => 'setBusinessType',
+        'remarks' => 'setRemarks',
         'related_docs' => 'setRelatedDocs'
     ];
 
@@ -264,6 +269,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_type' => 'getVendorType',
         'account_type' => 'getAccountType',
         'business_type' => 'getBusinessType',
+        'remarks' => 'getRemarks',
         'related_docs' => 'getRelatedDocs'
     ];
 
@@ -337,6 +343,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('vendor_type', $data ?? [], null);
         $this->setIfExists('account_type', $data ?? [], null);
         $this->setIfExists('business_type', $data ?? [], null);
+        $this->setIfExists('remarks', $data ?? [], null);
         $this->setIfExists('related_docs', $data ?? [], null);
     }
 
@@ -734,9 +741,36 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets remarks
+     *
+     * @return string|null
+     */
+    public function getRemarks()
+    {
+        return $this->container['remarks'];
+    }
+
+    /**
+     * Sets remarks
+     *
+     * @param string|null $remarks remarks
+     *
+     * @return self
+     */
+    public function setRemarks($remarks)
+    {
+        if (is_null($remarks)) {
+            throw new \InvalidArgumentException('non-nullable remarks cannot be null');
+        }
+        $this->container['remarks'] = $remarks;
+
+        return $this;
+    }
+
+    /**
      * Gets related_docs
      *
-     * @return \Cashfree\Model\VendorEntityRelatedDocsInner[]|null
+     * @return \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null
      */
     public function getRelatedDocs()
     {
@@ -746,7 +780,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets related_docs
      *
-     * @param \Cashfree\Model\VendorEntityRelatedDocsInner[]|null $related_docs related_docs
+     * @param \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null $related_docs related_docs
      *
      * @return self
      */

@@ -73,6 +73,18 @@ class SettlementsApiTest extends TestCase
     }
 
     /**
+     * Test case for markForSettlement
+     *
+     * Mark Order For Settlement.
+     *
+     */
+    public function testMarkForSettlement()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for pGOrderFetchSettlement
      *
      * Get Settlements by Order ID.
