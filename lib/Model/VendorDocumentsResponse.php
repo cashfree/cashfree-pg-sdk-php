@@ -59,7 +59,7 @@ class VendorDocumentsResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'documents' => '\Cashfree\Model\VendorEntityRelatedDocsInner[]'
+        'documents' => '\Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]'
     ];
 
     /**
@@ -294,7 +294,7 @@ class VendorDocumentsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets documents
      *
-     * @return \Cashfree\Model\VendorEntityRelatedDocsInner[]|null
+     * @return \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null
      */
     public function getDocuments()
     {
@@ -304,7 +304,7 @@ class VendorDocumentsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets documents
      *
-     * @param \Cashfree\Model\VendorEntityRelatedDocsInner[]|null $documents documents
+     * @param \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null $documents documents
      *
      * @return self
      */

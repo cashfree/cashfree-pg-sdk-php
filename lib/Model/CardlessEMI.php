@@ -255,6 +255,8 @@ class CardlessEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PROVIDER_CASHE = 'cashe';
     public const PROVIDER_IDFC = 'idfc';
     public const PROVIDER_KOTAK = 'kotak';
+    public const PROVIDER_SNAPMINT = 'snapmint';
+    public const PROVIDER_BHARATX = 'bharatx';
     public const PROVIDER_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
@@ -272,6 +274,8 @@ class CardlessEMI implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PROVIDER_CASHE,
             self::PROVIDER_IDFC,
             self::PROVIDER_KOTAK,
+            self::PROVIDER_SNAPMINT,
+            self::PROVIDER_BHARATX,
             self::PROVIDER_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
@@ -388,7 +392,7 @@ class CardlessEMI implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets provider
      *
-     * @param string|null $provider One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`]
+     * @param string|null $provider One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`, `snapmint`, `bharatx`]
      *
      * @return self
      */
