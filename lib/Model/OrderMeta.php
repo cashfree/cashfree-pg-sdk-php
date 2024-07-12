@@ -318,7 +318,7 @@ class OrderMeta implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets return_url
      *
-     * @param string|null $return_url The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://example.com/return?order_id=myOrderId
+     * @param string|null $return_url The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou
      *
      * @return self
      */

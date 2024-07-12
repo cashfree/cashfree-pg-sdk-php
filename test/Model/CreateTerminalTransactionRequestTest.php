@@ -115,4 +115,13 @@ class CreateTerminalTransactionRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "add_invoice"
+     */
+    public function testPropertyAddInvoice()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

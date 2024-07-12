@@ -61,7 +61,10 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'customer_phone' => 'string',
         'customer_email' => 'string',
-        'customer_name' => 'string'
+        'customer_name' => 'string',
+        'customer_bank_account_number' => 'string',
+        'customer_bank_ifsc' => 'string',
+        'customer_bank_code' => 'int'
     ];
 
     /**
@@ -74,7 +77,10 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'customer_phone' => null,
         'customer_email' => null,
-        'customer_name' => null
+        'customer_name' => null,
+        'customer_bank_account_number' => null,
+        'customer_bank_ifsc' => null,
+        'customer_bank_code' => null
     ];
 
     /**
@@ -85,7 +91,10 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPINullables = [
         'customer_phone' => false,
 		'customer_email' => false,
-		'customer_name' => false
+		'customer_name' => false,
+		'customer_bank_account_number' => false,
+		'customer_bank_ifsc' => false,
+		'customer_bank_code' => false
     ];
 
     /**
@@ -176,7 +185,10 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'customer_phone' => 'customer_phone',
         'customer_email' => 'customer_email',
-        'customer_name' => 'customer_name'
+        'customer_name' => 'customer_name',
+        'customer_bank_account_number' => 'customer_bank_account_number',
+        'customer_bank_ifsc' => 'customer_bank_ifsc',
+        'customer_bank_code' => 'customer_bank_code'
     ];
 
     /**
@@ -187,7 +199,10 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'customer_phone' => 'setCustomerPhone',
         'customer_email' => 'setCustomerEmail',
-        'customer_name' => 'setCustomerName'
+        'customer_name' => 'setCustomerName',
+        'customer_bank_account_number' => 'setCustomerBankAccountNumber',
+        'customer_bank_ifsc' => 'setCustomerBankIfsc',
+        'customer_bank_code' => 'setCustomerBankCode'
     ];
 
     /**
@@ -198,7 +213,10 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'customer_phone' => 'getCustomerPhone',
         'customer_email' => 'getCustomerEmail',
-        'customer_name' => 'getCustomerName'
+        'customer_name' => 'getCustomerName',
+        'customer_bank_account_number' => 'getCustomerBankAccountNumber',
+        'customer_bank_ifsc' => 'getCustomerBankIfsc',
+        'customer_bank_code' => 'getCustomerBankCode'
     ];
 
     /**
@@ -242,6 +260,97 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
+    public const CUSTOMER_BANK_CODE_3003 = 3003;
+    public const CUSTOMER_BANK_CODE_3005 = 3005;
+    public const CUSTOMER_BANK_CODE_3006 = 3006;
+    public const CUSTOMER_BANK_CODE_3010 = 3010;
+    public const CUSTOMER_BANK_CODE_3012 = 3012;
+    public const CUSTOMER_BANK_CODE_3016 = 3016;
+    public const CUSTOMER_BANK_CODE_3019 = 3019;
+    public const CUSTOMER_BANK_CODE_3020 = 3020;
+    public const CUSTOMER_BANK_CODE_3021 = 3021;
+    public const CUSTOMER_BANK_CODE_3022 = 3022;
+    public const CUSTOMER_BANK_CODE_3023 = 3023;
+    public const CUSTOMER_BANK_CODE_3024 = 3024;
+    public const CUSTOMER_BANK_CODE_3026 = 3026;
+    public const CUSTOMER_BANK_CODE_3027 = 3027;
+    public const CUSTOMER_BANK_CODE_3028 = 3028;
+    public const CUSTOMER_BANK_CODE_3029 = 3029;
+    public const CUSTOMER_BANK_CODE_3030 = 3030;
+    public const CUSTOMER_BANK_CODE_3031 = 3031;
+    public const CUSTOMER_BANK_CODE_3032 = 3032;
+    public const CUSTOMER_BANK_CODE_3033 = 3033;
+    public const CUSTOMER_BANK_CODE_3038 = 3038;
+    public const CUSTOMER_BANK_CODE_3039 = 3039;
+    public const CUSTOMER_BANK_CODE_3040 = 3040;
+    public const CUSTOMER_BANK_CODE_3042 = 3042;
+    public const CUSTOMER_BANK_CODE_3044 = 3044;
+    public const CUSTOMER_BANK_CODE_3054 = 3054;
+    public const CUSTOMER_BANK_CODE_3055 = 3055;
+    public const CUSTOMER_BANK_CODE_3058 = 3058;
+    public const CUSTOMER_BANK_CODE_3086 = 3086;
+    public const CUSTOMER_BANK_CODE_3087 = 3087;
+    public const CUSTOMER_BANK_CODE_3088 = 3088;
+    public const CUSTOMER_BANK_CODE_3089 = 3089;
+    public const CUSTOMER_BANK_CODE_3090 = 3090;
+    public const CUSTOMER_BANK_CODE_3091 = 3091;
+    public const CUSTOMER_BANK_CODE_3092 = 3092;
+    public const CUSTOMER_BANK_CODE_3098 = 3098;
+    public const CUSTOMER_BANK_CODE_3115 = 3115;
+    public const CUSTOMER_BANK_CODE_3117 = 3117;
+    public const CUSTOMER_BANK_CODE_7001 = 7001;
+    public const CUSTOMER_BANK_CODE_unknown_default_open_api = 11184809;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCustomerBankCodeAllowableValues()
+    {
+        return [
+            self::CUSTOMER_BANK_CODE_3003,
+            self::CUSTOMER_BANK_CODE_3005,
+            self::CUSTOMER_BANK_CODE_3006,
+            self::CUSTOMER_BANK_CODE_3010,
+            self::CUSTOMER_BANK_CODE_3012,
+            self::CUSTOMER_BANK_CODE_3016,
+            self::CUSTOMER_BANK_CODE_3019,
+            self::CUSTOMER_BANK_CODE_3020,
+            self::CUSTOMER_BANK_CODE_3021,
+            self::CUSTOMER_BANK_CODE_3022,
+            self::CUSTOMER_BANK_CODE_3023,
+            self::CUSTOMER_BANK_CODE_3024,
+            self::CUSTOMER_BANK_CODE_3026,
+            self::CUSTOMER_BANK_CODE_3027,
+            self::CUSTOMER_BANK_CODE_3028,
+            self::CUSTOMER_BANK_CODE_3029,
+            self::CUSTOMER_BANK_CODE_3030,
+            self::CUSTOMER_BANK_CODE_3031,
+            self::CUSTOMER_BANK_CODE_3032,
+            self::CUSTOMER_BANK_CODE_3033,
+            self::CUSTOMER_BANK_CODE_3038,
+            self::CUSTOMER_BANK_CODE_3039,
+            self::CUSTOMER_BANK_CODE_3040,
+            self::CUSTOMER_BANK_CODE_3042,
+            self::CUSTOMER_BANK_CODE_3044,
+            self::CUSTOMER_BANK_CODE_3054,
+            self::CUSTOMER_BANK_CODE_3055,
+            self::CUSTOMER_BANK_CODE_3058,
+            self::CUSTOMER_BANK_CODE_3086,
+            self::CUSTOMER_BANK_CODE_3087,
+            self::CUSTOMER_BANK_CODE_3088,
+            self::CUSTOMER_BANK_CODE_3089,
+            self::CUSTOMER_BANK_CODE_3090,
+            self::CUSTOMER_BANK_CODE_3091,
+            self::CUSTOMER_BANK_CODE_3092,
+            self::CUSTOMER_BANK_CODE_3098,
+            self::CUSTOMER_BANK_CODE_3115,
+            self::CUSTOMER_BANK_CODE_3117,
+            self::CUSTOMER_BANK_CODE_7001,
+            self::CUSTOMER_BANK_CODE_unknown_default_open_api,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -261,6 +370,9 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('customer_phone', $data ?? [], null);
         $this->setIfExists('customer_email', $data ?? [], null);
         $this->setIfExists('customer_name', $data ?? [], null);
+        $this->setIfExists('customer_bank_account_number', $data ?? [], null);
+        $this->setIfExists('customer_bank_ifsc', $data ?? [], null);
+        $this->setIfExists('customer_bank_code', $data ?? [], null);
     }
 
     /**
@@ -293,6 +405,15 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['customer_phone'] === null) {
             $invalidProperties[] = "'customer_phone' can't be null";
         }
+        $allowedValues = $this->getCustomerBankCodeAllowableValues();
+        if (!is_null($this->container['customer_bank_code']) && !in_array($this->container['customer_bank_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'customer_bank_code', must be one of '%s'",
+                $this->container['customer_bank_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -385,6 +506,97 @@ class LinkCustomerDetailsEntity implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable customer_name cannot be null');
         }
         $this->container['customer_name'] = $customer_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_bank_account_number
+     *
+     * @return string|null
+     */
+    public function getCustomerBankAccountNumber()
+    {
+        return $this->container['customer_bank_account_number'];
+    }
+
+    /**
+     * Sets customer_bank_account_number
+     *
+     * @param string|null $customer_bank_account_number Customer Bank Account Number
+     *
+     * @return self
+     */
+    public function setCustomerBankAccountNumber($customer_bank_account_number)
+    {
+        if (is_null($customer_bank_account_number)) {
+            throw new \InvalidArgumentException('non-nullable customer_bank_account_number cannot be null');
+        }
+        $this->container['customer_bank_account_number'] = $customer_bank_account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_bank_ifsc
+     *
+     * @return string|null
+     */
+    public function getCustomerBankIfsc()
+    {
+        return $this->container['customer_bank_ifsc'];
+    }
+
+    /**
+     * Sets customer_bank_ifsc
+     *
+     * @param string|null $customer_bank_ifsc Customer Bank Ifsc
+     *
+     * @return self
+     */
+    public function setCustomerBankIfsc($customer_bank_ifsc)
+    {
+        if (is_null($customer_bank_ifsc)) {
+            throw new \InvalidArgumentException('non-nullable customer_bank_ifsc cannot be null');
+        }
+        $this->container['customer_bank_ifsc'] = $customer_bank_ifsc;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_bank_code
+     *
+     * @return int|null
+     */
+    public function getCustomerBankCode()
+    {
+        return $this->container['customer_bank_code'];
+    }
+
+    /**
+     * Sets customer_bank_code
+     *
+     * @param int|null $customer_bank_code Customer Bank Code
+     *
+     * @return self
+     */
+    public function setCustomerBankCode($customer_bank_code)
+    {
+        if (is_null($customer_bank_code)) {
+            throw new \InvalidArgumentException('non-nullable customer_bank_code cannot be null');
+        }
+        $allowedValues = $this->getCustomerBankCodeAllowableValues();
+        if (!in_array($customer_bank_code, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'customer_bank_code', must be one of '%s'",
+                    $customer_bank_code,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['customer_bank_code'] = $customer_bank_code;
 
         return $this;
     }

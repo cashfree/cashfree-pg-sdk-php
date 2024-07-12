@@ -36,7 +36,7 @@ use \Cashfree\ObjectSerializer;
  * CustomerDetails Class Doc Comment
  *
  * @category Class
- * @description The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
+ * @description The customer details that are necessary.
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
