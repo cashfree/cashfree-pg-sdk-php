@@ -108,9 +108,9 @@ class SubscriptionCustomerDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "customer_bank_account_holder_name"
+     * Test attribute "customer_bank_holder_name"
      */
-    public function testPropertyCustomerBankAccountHolderName()
+    public function testPropertyCustomerBankHolderName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

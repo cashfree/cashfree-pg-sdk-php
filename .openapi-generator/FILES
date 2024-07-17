@@ -71,7 +71,6 @@ docs/Model/CreateVendorResponse.md
 docs/Model/CryptogramEntity.md
 docs/Model/CustomerDetails.md
 docs/Model/CustomerDetailsCardlessEMI.md
-docs/Model/CustomerDetailsResponse.md
 docs/Model/CustomerEntity.md
 docs/Model/DiscountDetails.md
 docs/Model/EMIOffer.md
@@ -316,7 +315,6 @@ lib/Model/CreateVendorResponse.php
 lib/Model/CryptogramEntity.php
 lib/Model/CustomerDetails.php
 lib/Model/CustomerDetailsCardlessEMI.php
-lib/Model/CustomerDetailsResponse.php
 lib/Model/CustomerEntity.php
 lib/Model/DiscountDetails.php
 lib/Model/EMIOffer.php
@@ -559,7 +557,6 @@ test/Model/CreateVendorRequestTest.php
 test/Model/CreateVendorResponseTest.php
 test/Model/CryptogramEntityTest.php
 test/Model/CustomerDetailsCardlessEMITest.php
-test/Model/CustomerDetailsResponseTest.php
 test/Model/CustomerDetailsTest.php
 test/Model/CustomerEntityTest.php
 test/Model/DiscountDetailsTest.php

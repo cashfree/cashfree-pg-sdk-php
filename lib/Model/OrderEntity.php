@@ -70,7 +70,7 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_note' => 'string',
         'created_at' => '\DateTime',
         'order_splits' => '\Cashfree\Model\VendorSplit[]',
-        'customer_details' => '\Cashfree\Model\CustomerDetailsResponse',
+        'customer_details' => '\Cashfree\Model\CustomerDetails',
         'order_meta' => '\Cashfree\Model\OrderMeta',
         'order_tags' => 'array<string,string>'
     ];
@@ -686,7 +686,7 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets customer_details
      *
-     * @return \Cashfree\Model\CustomerDetailsResponse|null
+     * @return \Cashfree\Model\CustomerDetails|null
      */
     public function getCustomerDetails()
     {
@@ -696,7 +696,7 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets customer_details
      *
-     * @param \Cashfree\Model\CustomerDetailsResponse|null $customer_details customer_details
+     * @param \Cashfree\Model\CustomerDetails|null $customer_details customer_details
      *
      * @return self
      */

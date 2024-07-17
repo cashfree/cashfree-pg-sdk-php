@@ -66,7 +66,7 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
         'payment_schedule_date' => 'string',
         'payment_remarks' => 'string',
         'payment_type' => 'string',
-        'payment_method' => 'object'
+        'payment_method' => 'string'
     ];
 
     /**
@@ -443,7 +443,7 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
     /**
      * Sets payment_amount
      *
-     * @param float|null $payment_amount The charge amount of the payment. Required in case of charge.
+     * @param float|null $payment_amount The charge amount of the payment. Requried in case of charge.
      *
      * @return self
      */
@@ -541,7 +541,7 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
     /**
      * Gets payment_method
      *
-     * @return object|null
+     * @return string|null
      */
     public function getPaymentMethod()
     {
@@ -551,7 +551,7 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
     /**
      * Sets payment_method
      *
-     * @param object|null $payment_method Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
+     * @param string|null $payment_method Payment method. Can be upi or card or enach or pnach.
      *
      * @return self
      */
