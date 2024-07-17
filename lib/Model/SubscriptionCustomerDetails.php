@@ -62,7 +62,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
         'customer_name' => 'string',
         'customer_email' => 'string',
         'customer_phone' => 'string',
-        'customer_bank_account_holder_name' => 'string',
+        'customer_bank_holder_name' => 'string',
         'customer_bank_account_number' => 'string',
         'customer_bank_ifsc' => 'string',
         'customer_bank_code' => 'string',
@@ -80,7 +80,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
         'customer_name' => null,
         'customer_email' => null,
         'customer_phone' => null,
-        'customer_bank_account_holder_name' => null,
+        'customer_bank_holder_name' => null,
         'customer_bank_account_number' => null,
         'customer_bank_ifsc' => null,
         'customer_bank_code' => null,
@@ -96,7 +96,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
         'customer_name' => false,
 		'customer_email' => false,
 		'customer_phone' => false,
-		'customer_bank_account_holder_name' => false,
+		'customer_bank_holder_name' => false,
 		'customer_bank_account_number' => false,
 		'customer_bank_ifsc' => false,
 		'customer_bank_code' => false,
@@ -192,7 +192,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
         'customer_name' => 'customer_name',
         'customer_email' => 'customer_email',
         'customer_phone' => 'customer_phone',
-        'customer_bank_account_holder_name' => 'customer_bank_account_holder_name',
+        'customer_bank_holder_name' => 'customer_bank_holder_name',
         'customer_bank_account_number' => 'customer_bank_account_number',
         'customer_bank_ifsc' => 'customer_bank_ifsc',
         'customer_bank_code' => 'customer_bank_code',
@@ -208,7 +208,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
         'customer_name' => 'setCustomerName',
         'customer_email' => 'setCustomerEmail',
         'customer_phone' => 'setCustomerPhone',
-        'customer_bank_account_holder_name' => 'setCustomerBankAccountHolderName',
+        'customer_bank_holder_name' => 'setCustomerBankHolderName',
         'customer_bank_account_number' => 'setCustomerBankAccountNumber',
         'customer_bank_ifsc' => 'setCustomerBankIfsc',
         'customer_bank_code' => 'setCustomerBankCode',
@@ -224,7 +224,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
         'customer_name' => 'getCustomerName',
         'customer_email' => 'getCustomerEmail',
         'customer_phone' => 'getCustomerPhone',
-        'customer_bank_account_holder_name' => 'getCustomerBankAccountHolderName',
+        'customer_bank_holder_name' => 'getCustomerBankHolderName',
         'customer_bank_account_number' => 'getCustomerBankAccountNumber',
         'customer_bank_ifsc' => 'getCustomerBankIfsc',
         'customer_bank_code' => 'getCustomerBankCode',
@@ -291,7 +291,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('customer_name', $data ?? [], null);
         $this->setIfExists('customer_email', $data ?? [], null);
         $this->setIfExists('customer_phone', $data ?? [], null);
-        $this->setIfExists('customer_bank_account_holder_name', $data ?? [], null);
+        $this->setIfExists('customer_bank_holder_name', $data ?? [], null);
         $this->setIfExists('customer_bank_account_number', $data ?? [], null);
         $this->setIfExists('customer_bank_ifsc', $data ?? [], null);
         $this->setIfExists('customer_bank_code', $data ?? [], null);
@@ -428,28 +428,28 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets customer_bank_account_holder_name
+     * Gets customer_bank_holder_name
      *
      * @return string|null
      */
-    public function getCustomerBankAccountHolderName()
+    public function getCustomerBankHolderName()
     {
-        return $this->container['customer_bank_account_holder_name'];
+        return $this->container['customer_bank_holder_name'];
     }
 
     /**
-     * Sets customer_bank_account_holder_name
+     * Sets customer_bank_holder_name
      *
-     * @param string|null $customer_bank_account_holder_name Bank holder name of the customer.
+     * @param string|null $customer_bank_holder_name Bank holder name of the customer.
      *
      * @return self
      */
-    public function setCustomerBankAccountHolderName($customer_bank_account_holder_name)
+    public function setCustomerBankHolderName($customer_bank_holder_name)
     {
-        if (is_null($customer_bank_account_holder_name)) {
-            throw new \InvalidArgumentException('non-nullable customer_bank_account_holder_name cannot be null');
+        if (is_null($customer_bank_holder_name)) {
+            throw new \InvalidArgumentException('non-nullable customer_bank_holder_name cannot be null');
         }
-        $this->container['customer_bank_account_holder_name'] = $customer_bank_account_holder_name;
+        $this->container['customer_bank_holder_name'] = $customer_bank_holder_name;
 
         return $this;
     }
