@@ -61,7 +61,7 @@ class SimulationResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'simulation_id' => 'string',
         'entity' => 'string',
-        'entity_id' => 'string',
+        'entity_id' => 'int',
         'entity_simulation' => '\Cashfree\Model\EntitySimulationResponse'
     ];
 
@@ -75,7 +75,7 @@ class SimulationResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'simulation_id' => null,
         'entity' => null,
-        'entity_id' => null,
+        'entity_id' => 'int64',
         'entity_simulation' => null
     ];
 
@@ -369,7 +369,7 @@ class SimulationResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets entity_id
      *
-     * @return string|null
+     * @return int|null
      */
     public function getEntityId()
     {
@@ -379,7 +379,7 @@ class SimulationResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets entity_id
      *
-     * @param string|null $entity_id entity_id
+     * @param int|null $entity_id entity_id
      *
      * @return self
      */
