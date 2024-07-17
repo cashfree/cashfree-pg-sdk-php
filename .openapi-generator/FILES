@@ -36,6 +36,7 @@ docs/Model/BalanceDetails.md
 docs/Model/BankDetails.md
 docs/Model/Banktransfer.md
 docs/Model/BanktransferPaymentMethod.md
+docs/Model/CARD.md
 docs/Model/Card.md
 docs/Model/CardEMI.md
 docs/Model/CardEMIPaymentMethod.md
@@ -54,10 +55,9 @@ docs/Model/CreateOrderRequest.md
 docs/Model/CreateOrderSettlementRequestBody.md
 docs/Model/CreateOrderSettlementRequestBodyMetaData.md
 docs/Model/CreatePlanRequest.md
-docs/Model/CreateSubscriptionPaymentAuthResponse.md
-docs/Model/CreateSubscriptionPaymentAuthResponseFailureDetails.md
-docs/Model/CreateSubscriptionPaymentChargeResponse.md
 docs/Model/CreateSubscriptionPaymentRequest.md
+docs/Model/CreateSubscriptionPaymentRequestPaymentMethod.md
+docs/Model/CreateSubscriptionPaymentResponse.md
 docs/Model/CreateSubscriptionRefundRequest.md
 docs/Model/CreateSubscriptionRequest.md
 docs/Model/CreateSubscriptionRequestAuthorizationDetails.md
@@ -76,6 +76,7 @@ docs/Model/CustomerEntity.md
 docs/Model/DiscountDetails.md
 docs/Model/EMIOffer.md
 docs/Model/EMIPlansArray.md
+docs/Model/ENACH.md
 docs/Model/ESOrderReconRequest.md
 docs/Model/ESOrderReconRequestFilters.md
 docs/Model/ESOrderReconRequestPagination.md
@@ -144,6 +145,7 @@ docs/Model/OrderCreateRefundRequest.md
 docs/Model/OrderEntity.md
 docs/Model/OrderMeta.md
 docs/Model/OrderPayData.md
+docs/Model/PNACH.md
 docs/Model/PayOrderEntity.md
 docs/Model/PayOrderRequest.md
 docs/Model/PayOrderRequestPaymentMethod.md
@@ -204,7 +206,6 @@ docs/Model/StaticSplitRequest.md
 docs/Model/StaticSplitRequestSchemeInner.md
 docs/Model/StaticSplitResponse.md
 docs/Model/StaticSplitResponseSchemeInner.md
-docs/Model/SubsCreatePayment200Response.md
 docs/Model/SubscriptionBankDetails.md
 docs/Model/SubscriptionCustomerDetails.md
 docs/Model/SubscriptionEligibilityRequest.md
@@ -214,6 +215,7 @@ docs/Model/SubscriptionEligibilityResponse.md
 docs/Model/SubscriptionEntity.md
 docs/Model/SubscriptionEntitySubscriptionMeta.md
 docs/Model/SubscriptionPaymentEntity.md
+docs/Model/SubscriptionPaymentEntityFailureDetails.md
 docs/Model/SubscriptionPaymentRefundEntity.md
 docs/Model/SubscriptionPaymentSplitItem.md
 docs/Model/TerminalDetails.md
@@ -223,6 +225,7 @@ docs/Model/TerminalTransactionEntity.md
 docs/Model/TerminateOrderRequest.md
 docs/Model/TransferDetails.md
 docs/Model/TransferDetailsTagsInner.md
+docs/Model/UPI.md
 docs/Model/UPIAuthorizeDetails.md
 docs/Model/UPIPaymentMethod.md
 docs/Model/UpdateTerminalEntity.md
@@ -231,7 +234,6 @@ docs/Model/UpdateTerminalRequestTerminalMeta.md
 docs/Model/UpdateTerminalStatusRequest.md
 docs/Model/UpdateVendorRequest.md
 docs/Model/UpdateVendorResponse.md
-docs/Model/UpdateVendorResponseRelatedDocsInner.md
 docs/Model/Upi.md
 docs/Model/UpiDetails.md
 docs/Model/UploadPnachImageResponse.md
@@ -243,6 +245,7 @@ docs/Model/VendorBalanceTransferCharges.md
 docs/Model/VendorDocumentDownloadResponse.md
 docs/Model/VendorDocumentsResponse.md
 docs/Model/VendorEntity.md
+docs/Model/VendorEntityRelatedDocsInner.md
 docs/Model/VendorSplit.md
 docs/Model/WalletOffer.md
 git_push.sh
@@ -281,6 +284,7 @@ lib/Model/BalanceDetails.php
 lib/Model/BankDetails.php
 lib/Model/Banktransfer.php
 lib/Model/BanktransferPaymentMethod.php
+lib/Model/CARD.php
 lib/Model/Card.php
 lib/Model/CardEMI.php
 lib/Model/CardEMIPaymentMethod.php
@@ -299,10 +303,9 @@ lib/Model/CreateOrderRequest.php
 lib/Model/CreateOrderSettlementRequestBody.php
 lib/Model/CreateOrderSettlementRequestBodyMetaData.php
 lib/Model/CreatePlanRequest.php
-lib/Model/CreateSubscriptionPaymentAuthResponse.php
-lib/Model/CreateSubscriptionPaymentAuthResponseFailureDetails.php
-lib/Model/CreateSubscriptionPaymentChargeResponse.php
 lib/Model/CreateSubscriptionPaymentRequest.php
+lib/Model/CreateSubscriptionPaymentRequestPaymentMethod.php
+lib/Model/CreateSubscriptionPaymentResponse.php
 lib/Model/CreateSubscriptionRefundRequest.php
 lib/Model/CreateSubscriptionRequest.php
 lib/Model/CreateSubscriptionRequestAuthorizationDetails.php
@@ -321,6 +324,7 @@ lib/Model/CustomerEntity.php
 lib/Model/DiscountDetails.php
 lib/Model/EMIOffer.php
 lib/Model/EMIPlansArray.php
+lib/Model/ENACH.php
 lib/Model/ESOrderReconRequest.php
 lib/Model/ESOrderReconRequestFilters.php
 lib/Model/ESOrderReconRequestPagination.php
@@ -390,6 +394,7 @@ lib/Model/OrderCreateRefundRequest.php
 lib/Model/OrderEntity.php
 lib/Model/OrderMeta.php
 lib/Model/OrderPayData.php
+lib/Model/PNACH.php
 lib/Model/PayOrderEntity.php
 lib/Model/PayOrderRequest.php
 lib/Model/PayOrderRequestPaymentMethod.php
@@ -450,7 +455,6 @@ lib/Model/StaticSplitRequest.php
 lib/Model/StaticSplitRequestSchemeInner.php
 lib/Model/StaticSplitResponse.php
 lib/Model/StaticSplitResponseSchemeInner.php
-lib/Model/SubsCreatePayment200Response.php
 lib/Model/SubscriptionBankDetails.php
 lib/Model/SubscriptionCustomerDetails.php
 lib/Model/SubscriptionEligibilityRequest.php
@@ -460,6 +464,7 @@ lib/Model/SubscriptionEligibilityResponse.php
 lib/Model/SubscriptionEntity.php
 lib/Model/SubscriptionEntitySubscriptionMeta.php
 lib/Model/SubscriptionPaymentEntity.php
+lib/Model/SubscriptionPaymentEntityFailureDetails.php
 lib/Model/SubscriptionPaymentRefundEntity.php
 lib/Model/SubscriptionPaymentSplitItem.php
 lib/Model/TerminalDetails.php
@@ -469,6 +474,7 @@ lib/Model/TerminalTransactionEntity.php
 lib/Model/TerminateOrderRequest.php
 lib/Model/TransferDetails.php
 lib/Model/TransferDetailsTagsInner.php
+lib/Model/UPI.php
 lib/Model/UPIAuthorizeDetails.php
 lib/Model/UPIPaymentMethod.php
 lib/Model/UpdateTerminalEntity.php
@@ -477,7 +483,6 @@ lib/Model/UpdateTerminalRequestTerminalMeta.php
 lib/Model/UpdateTerminalStatusRequest.php
 lib/Model/UpdateVendorRequest.php
 lib/Model/UpdateVendorResponse.php
-lib/Model/UpdateVendorResponseRelatedDocsInner.php
 lib/Model/Upi.php
 lib/Model/UpiDetails.php
 lib/Model/UploadPnachImageResponse.php
@@ -489,6 +494,7 @@ lib/Model/VendorBalanceTransferCharges.php
 lib/Model/VendorDocumentDownloadResponse.php
 lib/Model/VendorDocumentsResponse.php
 lib/Model/VendorEntity.php
+lib/Model/VendorEntityRelatedDocsInner.php
 lib/Model/VendorSplit.php
 lib/Model/WalletOffer.php
 lib/ObjectSerializer.php
@@ -525,6 +531,7 @@ test/Model/BalanceDetailsTest.php
 test/Model/BankDetailsTest.php
 test/Model/BanktransferPaymentMethodTest.php
 test/Model/BanktransferTest.php
+test/Model/CARDTest.php
 test/Model/CardEMIPaymentMethodTest.php
 test/Model/CardEMITest.php
 test/Model/CardOfferTest.php
@@ -543,10 +550,9 @@ test/Model/CreateOrderRequestTest.php
 test/Model/CreateOrderSettlementRequestBodyMetaDataTest.php
 test/Model/CreateOrderSettlementRequestBodyTest.php
 test/Model/CreatePlanRequestTest.php
-test/Model/CreateSubscriptionPaymentAuthResponseFailureDetailsTest.php
-test/Model/CreateSubscriptionPaymentAuthResponseTest.php
-test/Model/CreateSubscriptionPaymentChargeResponseTest.php
+test/Model/CreateSubscriptionPaymentRequestPaymentMethodTest.php
 test/Model/CreateSubscriptionPaymentRequestTest.php
+test/Model/CreateSubscriptionPaymentResponseTest.php
 test/Model/CreateSubscriptionRefundRequestTest.php
 test/Model/CreateSubscriptionRequestAuthorizationDetailsTest.php
 test/Model/CreateSubscriptionRequestPlanDetailsTest.php
@@ -565,6 +571,7 @@ test/Model/CustomerEntityTest.php
 test/Model/DiscountDetailsTest.php
 test/Model/EMIOfferTest.php
 test/Model/EMIPlansArrayTest.php
+test/Model/ENACHTest.php
 test/Model/ESOrderReconRequestFiltersTest.php
 test/Model/ESOrderReconRequestPaginationTest.php
 test/Model/ESOrderReconRequestTest.php
@@ -633,6 +640,7 @@ test/Model/OrderCreateRefundRequestTest.php
 test/Model/OrderEntityTest.php
 test/Model/OrderMetaTest.php
 test/Model/OrderPayDataTest.php
+test/Model/PNACHTest.php
 test/Model/PayOrderEntityTest.php
 test/Model/PayOrderRequestPaymentMethodTest.php
 test/Model/PayOrderRequestTest.php
@@ -693,7 +701,6 @@ test/Model/StaticSplitRequestSchemeInnerTest.php
 test/Model/StaticSplitRequestTest.php
 test/Model/StaticSplitResponseSchemeInnerTest.php
 test/Model/StaticSplitResponseTest.php
-test/Model/SubsCreatePayment200ResponseTest.php
 test/Model/SubscriptionBankDetailsTest.php
 test/Model/SubscriptionCustomerDetailsTest.php
 test/Model/SubscriptionEligibilityRequestFiltersTest.php
@@ -702,6 +709,7 @@ test/Model/SubscriptionEligibilityRequestTest.php
 test/Model/SubscriptionEligibilityResponseTest.php
 test/Model/SubscriptionEntitySubscriptionMetaTest.php
 test/Model/SubscriptionEntityTest.php
+test/Model/SubscriptionPaymentEntityFailureDetailsTest.php
 test/Model/SubscriptionPaymentEntityTest.php
 test/Model/SubscriptionPaymentRefundEntityTest.php
 test/Model/SubscriptionPaymentSplitItemTest.php
@@ -714,12 +722,12 @@ test/Model/TransferDetailsTagsInnerTest.php
 test/Model/TransferDetailsTest.php
 test/Model/UPIAuthorizeDetailsTest.php
 test/Model/UPIPaymentMethodTest.php
+test/Model/UPITest.php
 test/Model/UpdateTerminalEntityTest.php
 test/Model/UpdateTerminalRequestTerminalMetaTest.php
 test/Model/UpdateTerminalRequestTest.php
 test/Model/UpdateTerminalStatusRequestTest.php
 test/Model/UpdateVendorRequestTest.php
-test/Model/UpdateVendorResponseRelatedDocsInnerTest.php
 test/Model/UpdateVendorResponseTest.php
 test/Model/UpiDetailsTest.php
 test/Model/UpiTest.php
@@ -731,6 +739,7 @@ test/Model/VendorBalanceTest.php
 test/Model/VendorBalanceTransferChargesTest.php
 test/Model/VendorDocumentDownloadResponseTest.php
 test/Model/VendorDocumentsResponseTest.php
+test/Model/VendorEntityRelatedDocsInnerTest.php
 test/Model/VendorEntityTest.php
 test/Model/VendorSplitTest.php
 test/Model/WalletOfferTest.php

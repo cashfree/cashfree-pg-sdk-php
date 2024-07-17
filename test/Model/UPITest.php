@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerDetailsTest
+ * UPITest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace Cashfree\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomerDetailsTest Class Doc Comment
+ * UPITest Class Doc Comment
  *
  * @category    Class
- * @description The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
+ * @description payment method upi.
  * @package     Cashfree
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomerDetailsTest extends TestCase
+class UPITest extends TestCase
 {
 
     /**
@@ -72,81 +72,27 @@ class CustomerDetailsTest extends TestCase
     }
 
     /**
-     * Test "CustomerDetails"
+     * Test "UPI"
      */
-    public function testCustomerDetails()
+    public function testUPI()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_id"
+     * Test attribute "upi_id"
      */
-    public function testPropertyCustomerId()
+    public function testPropertyUpiId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_email"
+     * Test attribute "channel"
      */
-    public function testPropertyCustomerEmail()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customer_phone"
-     */
-    public function testPropertyCustomerPhone()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customer_name"
-     */
-    public function testPropertyCustomerName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customer_bank_account_number"
-     */
-    public function testPropertyCustomerBankAccountNumber()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customer_bank_ifsc"
-     */
-    public function testPropertyCustomerBankIfsc()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customer_bank_code"
-     */
-    public function testPropertyCustomerBankCode()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "customer_uid"
-     */
-    public function testPropertyCustomerUid()
+    public function testPropertyChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

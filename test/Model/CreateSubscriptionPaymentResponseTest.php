@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerDetailsTest
+ * CreateSubscriptionPaymentResponseTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace Cashfree\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomerDetailsTest Class Doc Comment
+ * CreateSubscriptionPaymentResponseTest Class Doc Comment
  *
  * @category    Class
- * @description The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
+ * @description The response returned is Create Subscription Auth or Charge APIs.
  * @package     Cashfree
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomerDetailsTest extends TestCase
+class CreateSubscriptionPaymentResponseTest extends TestCase
 {
 
     /**
@@ -72,81 +72,99 @@ class CustomerDetailsTest extends TestCase
     }
 
     /**
-     * Test "CustomerDetails"
+     * Test "CreateSubscriptionPaymentResponse"
      */
-    public function testCustomerDetails()
+    public function testCreateSubscriptionPaymentResponse()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_id"
+     * Test attribute "cf_payment_id"
      */
-    public function testPropertyCustomerId()
+    public function testPropertyCfPaymentId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_email"
+     * Test attribute "failure_details"
      */
-    public function testPropertyCustomerEmail()
+    public function testPropertyFailureDetails()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_phone"
+     * Test attribute "payment_amount"
      */
-    public function testPropertyCustomerPhone()
+    public function testPropertyPaymentAmount()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_name"
+     * Test attribute "payment_id"
      */
-    public function testPropertyCustomerName()
+    public function testPropertyPaymentId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_account_number"
+     * Test attribute "payment_initiated_date"
      */
-    public function testPropertyCustomerBankAccountNumber()
+    public function testPropertyPaymentInitiatedDate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_ifsc"
+     * Test attribute "payment_status"
      */
-    public function testPropertyCustomerBankIfsc()
+    public function testPropertyPaymentStatus()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_code"
+     * Test attribute "payment_type"
      */
-    public function testPropertyCustomerBankCode()
+    public function testPropertyPaymentType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_uid"
+     * Test attribute "subscription_id"
      */
-    public function testPropertyCustomerUid()
+    public function testPropertySubscriptionId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "data"
+     */
+    public function testPropertyData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "payment_method"
+     */
+    public function testPropertyPaymentMethod()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -207,7 +207,7 @@ class SubscriptionApiTest extends TestCase
     /**
      * Test case for subscriptionDocumentUpload
      *
-     * Upload Physical Nach for Physical Nach Authorization..
+     * API to upload Physical Nach for Physical Nach Authorization..
      *
      */
     public function testSubscriptionDocumentUpload()
@@ -219,7 +219,7 @@ class SubscriptionApiTest extends TestCase
     /**
      * Test case for subscriptionEligibility
      *
-     * Get Eligible payment methods available for a subscription.
+     * API to get all the payment method details available for subscription payments..
      *
      */
     public function testSubscriptionEligibility()

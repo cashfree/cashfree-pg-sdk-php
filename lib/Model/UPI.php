@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateSubscriptionPaymentRequest
+ * UPI
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Cashfree\ObjectSerializer;
 
 /**
- * CreateSubscriptionPaymentRequest Class Doc Comment
+ * UPI Class Doc Comment
  *
  * @category Class
- * @description The request to be passed for the create subscription payment API.
+ * @description payment method upi.
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class UPI implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateSubscriptionPaymentRequest';
+    protected static $openAPIModelName = 'UPI';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +59,8 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subscription_id' => 'string',
-        'subscription_session_id' => 'string',
-        'payment_id' => 'string',
-        'payment_amount' => 'float',
-        'payment_schedule_date' => 'string',
-        'payment_remarks' => 'string',
-        'payment_type' => 'string',
-        'payment_method' => '\Cashfree\Model\CreateSubscriptionPaymentRequestPaymentMethod'
+        'upi_id' => 'string',
+        'channel' => 'string'
     ];
 
     /**
@@ -77,14 +71,8 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'subscription_id' => null,
-        'subscription_session_id' => null,
-        'payment_id' => null,
-        'payment_amount' => 'float64',
-        'payment_schedule_date' => null,
-        'payment_remarks' => null,
-        'payment_type' => null,
-        'payment_method' => null
+        'upi_id' => null,
+        'channel' => null
     ];
 
     /**
@@ -93,14 +81,8 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'subscription_id' => false,
-		'subscription_session_id' => false,
-		'payment_id' => false,
-		'payment_amount' => false,
-		'payment_schedule_date' => false,
-		'payment_remarks' => false,
-		'payment_type' => false,
-		'payment_method' => false
+        'upi_id' => false,
+		'channel' => false
     ];
 
     /**
@@ -189,14 +171,8 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'subscription_id' => 'subscription_id',
-        'subscription_session_id' => 'subscription_session_id',
-        'payment_id' => 'payment_id',
-        'payment_amount' => 'payment_amount',
-        'payment_schedule_date' => 'payment_schedule_date',
-        'payment_remarks' => 'payment_remarks',
-        'payment_type' => 'payment_type',
-        'payment_method' => 'payment_method'
+        'upi_id' => 'upi_id',
+        'channel' => 'channel'
     ];
 
     /**
@@ -205,14 +181,8 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'subscription_id' => 'setSubscriptionId',
-        'subscription_session_id' => 'setSubscriptionSessionId',
-        'payment_id' => 'setPaymentId',
-        'payment_amount' => 'setPaymentAmount',
-        'payment_schedule_date' => 'setPaymentScheduleDate',
-        'payment_remarks' => 'setPaymentRemarks',
-        'payment_type' => 'setPaymentType',
-        'payment_method' => 'setPaymentMethod'
+        'upi_id' => 'setUpiId',
+        'channel' => 'setChannel'
     ];
 
     /**
@@ -221,14 +191,8 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'subscription_id' => 'getSubscriptionId',
-        'subscription_session_id' => 'getSubscriptionSessionId',
-        'payment_id' => 'getPaymentId',
-        'payment_amount' => 'getPaymentAmount',
-        'payment_schedule_date' => 'getPaymentScheduleDate',
-        'payment_remarks' => 'getPaymentRemarks',
-        'payment_type' => 'getPaymentType',
-        'payment_method' => 'getPaymentMethod'
+        'upi_id' => 'getUpiId',
+        'channel' => 'getChannel'
     ];
 
     /**
@@ -288,14 +252,8 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('subscription_id', $data ?? [], null);
-        $this->setIfExists('subscription_session_id', $data ?? [], null);
-        $this->setIfExists('payment_id', $data ?? [], null);
-        $this->setIfExists('payment_amount', $data ?? [], null);
-        $this->setIfExists('payment_schedule_date', $data ?? [], null);
-        $this->setIfExists('payment_remarks', $data ?? [], null);
-        $this->setIfExists('payment_type', $data ?? [], null);
-        $this->setIfExists('payment_method', $data ?? [], null);
+        $this->setIfExists('upi_id', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
     }
 
     /**
@@ -325,15 +283,6 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['subscription_id'] === null) {
-            $invalidProperties[] = "'subscription_id' can't be null";
-        }
-        if ($this->container['payment_id'] === null) {
-            $invalidProperties[] = "'payment_id' can't be null";
-        }
-        if ($this->container['payment_type'] === null) {
-            $invalidProperties[] = "'payment_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -350,217 +299,55 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets subscription_id
-     *
-     * @return string
-     */
-    public function getSubscriptionId()
-    {
-        return $this->container['subscription_id'];
-    }
-
-    /**
-     * Sets subscription_id
-     *
-     * @param string $subscription_id A unique ID passed by merchant for identifying the subscription.
-     *
-     * @return self
-     */
-    public function setSubscriptionId($subscription_id)
-    {
-        if (is_null($subscription_id)) {
-            throw new \InvalidArgumentException('non-nullable subscription_id cannot be null');
-        }
-        $this->container['subscription_id'] = $subscription_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subscription_session_id
+     * Gets upi_id
      *
      * @return string|null
      */
-    public function getSubscriptionSessionId()
+    public function getUpiId()
     {
-        return $this->container['subscription_session_id'];
+        return $this->container['upi_id'];
     }
 
     /**
-     * Sets subscription_session_id
+     * Sets upi_id
      *
-     * @param string|null $subscription_session_id Session ID for the subscription. Required only for Auth.
+     * @param string|null $upi_id upi_id
      *
      * @return self
      */
-    public function setSubscriptionSessionId($subscription_session_id)
+    public function setUpiId($upi_id)
     {
-        if (is_null($subscription_session_id)) {
-            throw new \InvalidArgumentException('non-nullable subscription_session_id cannot be null');
+        if (is_null($upi_id)) {
+            throw new \InvalidArgumentException('non-nullable upi_id cannot be null');
         }
-        $this->container['subscription_session_id'] = $subscription_session_id;
+        $this->container['upi_id'] = $upi_id;
 
         return $this;
     }
 
     /**
-     * Gets payment_id
-     *
-     * @return string
-     */
-    public function getPaymentId()
-    {
-        return $this->container['payment_id'];
-    }
-
-    /**
-     * Sets payment_id
-     *
-     * @param string $payment_id A unique ID passed by merchant for identifying the subscription payment.
-     *
-     * @return self
-     */
-    public function setPaymentId($payment_id)
-    {
-        if (is_null($payment_id)) {
-            throw new \InvalidArgumentException('non-nullable payment_id cannot be null');
-        }
-        $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_amount
-     *
-     * @return float|null
-     */
-    public function getPaymentAmount()
-    {
-        return $this->container['payment_amount'];
-    }
-
-    /**
-     * Sets payment_amount
-     *
-     * @param float|null $payment_amount The charge amount of the payment. Required in case of charge.
-     *
-     * @return self
-     */
-    public function setPaymentAmount($payment_amount)
-    {
-        if (is_null($payment_amount)) {
-            throw new \InvalidArgumentException('non-nullable payment_amount cannot be null');
-        }
-        $this->container['payment_amount'] = $payment_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_schedule_date
+     * Gets channel
      *
      * @return string|null
      */
-    public function getPaymentScheduleDate()
+    public function getChannel()
     {
-        return $this->container['payment_schedule_date'];
+        return $this->container['channel'];
     }
 
     /**
-     * Sets payment_schedule_date
+     * Sets channel
      *
-     * @param string|null $payment_schedule_date The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes.
+     * @param string|null $channel Channel. can be link, qrcode, or collect
      *
      * @return self
      */
-    public function setPaymentScheduleDate($payment_schedule_date)
+    public function setChannel($channel)
     {
-        if (is_null($payment_schedule_date)) {
-            throw new \InvalidArgumentException('non-nullable payment_schedule_date cannot be null');
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
         }
-        $this->container['payment_schedule_date'] = $payment_schedule_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_remarks
-     *
-     * @return string|null
-     */
-    public function getPaymentRemarks()
-    {
-        return $this->container['payment_remarks'];
-    }
-
-    /**
-     * Sets payment_remarks
-     *
-     * @param string|null $payment_remarks Payment remarks.
-     *
-     * @return self
-     */
-    public function setPaymentRemarks($payment_remarks)
-    {
-        if (is_null($payment_remarks)) {
-            throw new \InvalidArgumentException('non-nullable payment_remarks cannot be null');
-        }
-        $this->container['payment_remarks'] = $payment_remarks;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_type
-     *
-     * @return string
-     */
-    public function getPaymentType()
-    {
-        return $this->container['payment_type'];
-    }
-
-    /**
-     * Sets payment_type
-     *
-     * @param string $payment_type Payment type. Can be AUTH or CHARGE.
-     *
-     * @return self
-     */
-    public function setPaymentType($payment_type)
-    {
-        if (is_null($payment_type)) {
-            throw new \InvalidArgumentException('non-nullable payment_type cannot be null');
-        }
-        $this->container['payment_type'] = $payment_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_method
-     *
-     * @return \Cashfree\Model\CreateSubscriptionPaymentRequestPaymentMethod|null
-     */
-    public function getPaymentMethod()
-    {
-        return $this->container['payment_method'];
-    }
-
-    /**
-     * Sets payment_method
-     *
-     * @param \Cashfree\Model\CreateSubscriptionPaymentRequestPaymentMethod|null $payment_method payment_method
-     *
-     * @return self
-     */
-    public function setPaymentMethod($payment_method)
-    {
-        if (is_null($payment_method)) {
-            throw new \InvalidArgumentException('non-nullable payment_method cannot be null');
-        }
-        $this->container['payment_method'] = $payment_method;
+        $this->container['channel'] = $channel;
 
         return $this;
     }

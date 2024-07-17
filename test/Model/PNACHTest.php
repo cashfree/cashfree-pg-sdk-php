@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerDetailsTest
+ * PNACHTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace Cashfree\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomerDetailsTest Class Doc Comment
+ * PNACHTest Class Doc Comment
  *
  * @category    Class
- * @description The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
+ * @description payment method pnach.
  * @package     Cashfree
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomerDetailsTest extends TestCase
+class PNACHTest extends TestCase
 {
 
     /**
@@ -72,81 +72,81 @@ class CustomerDetailsTest extends TestCase
     }
 
     /**
-     * Test "CustomerDetails"
+     * Test "PNACH"
      */
-    public function testCustomerDetails()
+    public function testPNACH()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_id"
+     * Test attribute "channel"
      */
-    public function testPropertyCustomerId()
+    public function testPropertyChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_email"
+     * Test attribute "account_holder_name"
      */
-    public function testPropertyCustomerEmail()
+    public function testPropertyAccountHolderName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_phone"
+     * Test attribute "account_number"
      */
-    public function testPropertyCustomerPhone()
+    public function testPropertyAccountNumber()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_name"
+     * Test attribute "account_bank_code"
      */
-    public function testPropertyCustomerName()
+    public function testPropertyAccountBankCode()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_account_number"
+     * Test attribute "account_type"
      */
-    public function testPropertyCustomerBankAccountNumber()
+    public function testPropertyAccountType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_ifsc"
+     * Test attribute "account_ifsc"
      */
-    public function testPropertyCustomerBankIfsc()
+    public function testPropertyAccountIfsc()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_code"
+     * Test attribute "mandate_creation_date"
      */
-    public function testPropertyCustomerBankCode()
+    public function testPropertyMandateCreationDate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_uid"
+     * Test attribute "mandate_start_date"
      */
-    public function testPropertyCustomerUid()
+    public function testPropertyMandateStartDate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

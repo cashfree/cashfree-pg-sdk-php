@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerDetailsTest
+ * CARDTest
  *
  * PHP version 7.4
  *
@@ -32,15 +32,15 @@ namespace Cashfree\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomerDetailsTest Class Doc Comment
+ * CARDTest Class Doc Comment
  *
  * @category    Class
- * @description The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
+ * @description payment method card.
  * @package     Cashfree
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomerDetailsTest extends TestCase
+class CARDTest extends TestCase
 {
 
     /**
@@ -72,81 +72,81 @@ class CustomerDetailsTest extends TestCase
     }
 
     /**
-     * Test "CustomerDetails"
+     * Test "CARD"
      */
-    public function testCustomerDetails()
+    public function testCARD()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_id"
+     * Test attribute "channel"
      */
-    public function testPropertyCustomerId()
+    public function testPropertyChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_email"
+     * Test attribute "card_number"
      */
-    public function testPropertyCustomerEmail()
+    public function testPropertyCardNumber()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_phone"
+     * Test attribute "card_holder_name"
      */
-    public function testPropertyCustomerPhone()
+    public function testPropertyCardHolderName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_name"
+     * Test attribute "card_expiry_mm"
      */
-    public function testPropertyCustomerName()
+    public function testPropertyCardExpiryMm()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_account_number"
+     * Test attribute "card_expiry_yy"
      */
-    public function testPropertyCustomerBankAccountNumber()
+    public function testPropertyCardExpiryYy()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_ifsc"
+     * Test attribute "card_cvv"
      */
-    public function testPropertyCustomerBankIfsc()
+    public function testPropertyCardCvv()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_bank_code"
+     * Test attribute "card_network"
      */
-    public function testPropertyCustomerBankCode()
+    public function testPropertyCardNetwork()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "customer_uid"
+     * Test attribute "card_type"
      */
-    public function testPropertyCustomerUid()
+    public function testPropertyCardType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
