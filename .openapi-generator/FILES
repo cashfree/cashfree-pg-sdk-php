@@ -36,7 +36,6 @@ docs/Model/BalanceDetails.md
 docs/Model/BankDetails.md
 docs/Model/Banktransfer.md
 docs/Model/BanktransferPaymentMethod.md
-docs/Model/CARD.md
 docs/Model/Card.md
 docs/Model/CardEMI.md
 docs/Model/CardEMIPaymentMethod.md
@@ -56,13 +55,17 @@ docs/Model/CreateOrderSettlementRequestBody.md
 docs/Model/CreateOrderSettlementRequestBodyMetaData.md
 docs/Model/CreatePlanRequest.md
 docs/Model/CreateSubscriptionPaymentRequest.md
+docs/Model/CreateSubscriptionPaymentRequestCard.md
+docs/Model/CreateSubscriptionPaymentRequestEnack.md
 docs/Model/CreateSubscriptionPaymentRequestPaymentMethod.md
+docs/Model/CreateSubscriptionPaymentRequestPnach.md
 docs/Model/CreateSubscriptionPaymentResponse.md
 docs/Model/CreateSubscriptionRefundRequest.md
 docs/Model/CreateSubscriptionRequest.md
 docs/Model/CreateSubscriptionRequestAuthorizationDetails.md
 docs/Model/CreateSubscriptionRequestPlanDetails.md
 docs/Model/CreateSubscriptionRequestSubscriptionMeta.md
+docs/Model/CreateSubscriptonPaymentRequestUpi.md
 docs/Model/CreateTerminalRequest.md
 docs/Model/CreateTerminalRequestTerminalMeta.md
 docs/Model/CreateTerminalTransactionRequest.md
@@ -76,7 +79,6 @@ docs/Model/CustomerEntity.md
 docs/Model/DiscountDetails.md
 docs/Model/EMIOffer.md
 docs/Model/EMIPlansArray.md
-docs/Model/ENACH.md
 docs/Model/ESOrderReconRequest.md
 docs/Model/ESOrderReconRequestFilters.md
 docs/Model/ESOrderReconRequestPagination.md
@@ -145,7 +147,6 @@ docs/Model/OrderCreateRefundRequest.md
 docs/Model/OrderEntity.md
 docs/Model/OrderMeta.md
 docs/Model/OrderPayData.md
-docs/Model/PNACH.md
 docs/Model/PayOrderEntity.md
 docs/Model/PayOrderRequest.md
 docs/Model/PayOrderRequestPaymentMethod.md
@@ -225,7 +226,6 @@ docs/Model/TerminalTransactionEntity.md
 docs/Model/TerminateOrderRequest.md
 docs/Model/TransferDetails.md
 docs/Model/TransferDetailsTagsInner.md
-docs/Model/UPI.md
 docs/Model/UPIAuthorizeDetails.md
 docs/Model/UPIPaymentMethod.md
 docs/Model/UpdateTerminalEntity.md
@@ -284,7 +284,6 @@ lib/Model/BalanceDetails.php
 lib/Model/BankDetails.php
 lib/Model/Banktransfer.php
 lib/Model/BanktransferPaymentMethod.php
-lib/Model/CARD.php
 lib/Model/Card.php
 lib/Model/CardEMI.php
 lib/Model/CardEMIPaymentMethod.php
@@ -304,13 +303,17 @@ lib/Model/CreateOrderSettlementRequestBody.php
 lib/Model/CreateOrderSettlementRequestBodyMetaData.php
 lib/Model/CreatePlanRequest.php
 lib/Model/CreateSubscriptionPaymentRequest.php
+lib/Model/CreateSubscriptionPaymentRequestCard.php
+lib/Model/CreateSubscriptionPaymentRequestEnack.php
 lib/Model/CreateSubscriptionPaymentRequestPaymentMethod.php
+lib/Model/CreateSubscriptionPaymentRequestPnach.php
 lib/Model/CreateSubscriptionPaymentResponse.php
 lib/Model/CreateSubscriptionRefundRequest.php
 lib/Model/CreateSubscriptionRequest.php
 lib/Model/CreateSubscriptionRequestAuthorizationDetails.php
 lib/Model/CreateSubscriptionRequestPlanDetails.php
 lib/Model/CreateSubscriptionRequestSubscriptionMeta.php
+lib/Model/CreateSubscriptonPaymentRequestUpi.php
 lib/Model/CreateTerminalRequest.php
 lib/Model/CreateTerminalRequestTerminalMeta.php
 lib/Model/CreateTerminalTransactionRequest.php
@@ -324,7 +327,6 @@ lib/Model/CustomerEntity.php
 lib/Model/DiscountDetails.php
 lib/Model/EMIOffer.php
 lib/Model/EMIPlansArray.php
-lib/Model/ENACH.php
 lib/Model/ESOrderReconRequest.php
 lib/Model/ESOrderReconRequestFilters.php
 lib/Model/ESOrderReconRequestPagination.php
@@ -394,7 +396,6 @@ lib/Model/OrderCreateRefundRequest.php
 lib/Model/OrderEntity.php
 lib/Model/OrderMeta.php
 lib/Model/OrderPayData.php
-lib/Model/PNACH.php
 lib/Model/PayOrderEntity.php
 lib/Model/PayOrderRequest.php
 lib/Model/PayOrderRequestPaymentMethod.php
@@ -474,7 +475,6 @@ lib/Model/TerminalTransactionEntity.php
 lib/Model/TerminateOrderRequest.php
 lib/Model/TransferDetails.php
 lib/Model/TransferDetailsTagsInner.php
-lib/Model/UPI.php
 lib/Model/UPIAuthorizeDetails.php
 lib/Model/UPIPaymentMethod.php
 lib/Model/UpdateTerminalEntity.php
@@ -531,7 +531,6 @@ test/Model/BalanceDetailsTest.php
 test/Model/BankDetailsTest.php
 test/Model/BanktransferPaymentMethodTest.php
 test/Model/BanktransferTest.php
-test/Model/CARDTest.php
 test/Model/CardEMIPaymentMethodTest.php
 test/Model/CardEMITest.php
 test/Model/CardOfferTest.php
@@ -550,7 +549,10 @@ test/Model/CreateOrderRequestTest.php
 test/Model/CreateOrderSettlementRequestBodyMetaDataTest.php
 test/Model/CreateOrderSettlementRequestBodyTest.php
 test/Model/CreatePlanRequestTest.php
+test/Model/CreateSubscriptionPaymentRequestCardTest.php
+test/Model/CreateSubscriptionPaymentRequestEnackTest.php
 test/Model/CreateSubscriptionPaymentRequestPaymentMethodTest.php
+test/Model/CreateSubscriptionPaymentRequestPnachTest.php
 test/Model/CreateSubscriptionPaymentRequestTest.php
 test/Model/CreateSubscriptionPaymentResponseTest.php
 test/Model/CreateSubscriptionRefundRequestTest.php
@@ -558,6 +560,7 @@ test/Model/CreateSubscriptionRequestAuthorizationDetailsTest.php
 test/Model/CreateSubscriptionRequestPlanDetailsTest.php
 test/Model/CreateSubscriptionRequestSubscriptionMetaTest.php
 test/Model/CreateSubscriptionRequestTest.php
+test/Model/CreateSubscriptonPaymentRequestUpiTest.php
 test/Model/CreateTerminalRequestTerminalMetaTest.php
 test/Model/CreateTerminalRequestTest.php
 test/Model/CreateTerminalTransactionRequestTest.php
@@ -571,7 +574,6 @@ test/Model/CustomerEntityTest.php
 test/Model/DiscountDetailsTest.php
 test/Model/EMIOfferTest.php
 test/Model/EMIPlansArrayTest.php
-test/Model/ENACHTest.php
 test/Model/ESOrderReconRequestFiltersTest.php
 test/Model/ESOrderReconRequestPaginationTest.php
 test/Model/ESOrderReconRequestTest.php
@@ -640,7 +642,6 @@ test/Model/OrderCreateRefundRequestTest.php
 test/Model/OrderEntityTest.php
 test/Model/OrderMetaTest.php
 test/Model/OrderPayDataTest.php
-test/Model/PNACHTest.php
 test/Model/PayOrderEntityTest.php
 test/Model/PayOrderRequestPaymentMethodTest.php
 test/Model/PayOrderRequestTest.php
@@ -722,7 +723,6 @@ test/Model/TransferDetailsTagsInnerTest.php
 test/Model/TransferDetailsTest.php
 test/Model/UPIAuthorizeDetailsTest.php
 test/Model/UPIPaymentMethodTest.php
-test/Model/UPITest.php
 test/Model/UpdateTerminalEntityTest.php
 test/Model/UpdateTerminalRequestTerminalMetaTest.php
 test/Model/UpdateTerminalRequestTest.php
