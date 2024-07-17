@@ -60,7 +60,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'entity' => 'string',
-        'entity_id' => 'string',
+        'entity_id' => 'int',
         'entity_simulation' => '\Cashfree\Model\EntitySimulationRequest'
     ];
 
@@ -73,7 +73,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'entity' => null,
-        'entity_id' => null,
+        'entity_id' => 'int64',
         'entity_simulation' => null
     ];
 
@@ -378,7 +378,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets entity_id
      *
-     * @return string
+     * @return int
      */
     public function getEntityId()
     {
@@ -388,7 +388,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets entity_id
      *
-     * @param string $entity_id In case of Entity type is PAYMENTS, entity_id will be transactionId
+     * @param int $entity_id In case of Entity type is PAYMENTS, entity_id will be transactionId
      *
      * @return self
      */
