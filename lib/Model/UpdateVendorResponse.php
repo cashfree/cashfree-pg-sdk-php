@@ -75,7 +75,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'kyc_details' => '\Cashfree\Model\KycDetails[]',
         'dashboard_access' => 'bool',
         'bank_details' => 'string',
-        'related_docs' => '\Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]'
+        'related_docs' => '\Cashfree\Model\VendorEntityRelatedDocsInner[]'
     ];
 
     /**
@@ -838,7 +838,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets related_docs
      *
-     * @return \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null
+     * @return \Cashfree\Model\VendorEntityRelatedDocsInner[]|null
      */
     public function getRelatedDocs()
     {
@@ -848,7 +848,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets related_docs
      *
-     * @param \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null $related_docs related_docs
+     * @param \Cashfree\Model\VendorEntityRelatedDocsInner[]|null $related_docs related_docs
      *
      * @return self
      */

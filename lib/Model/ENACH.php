@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateSubscriptionPaymentRequest
+ * ENACH
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Cashfree\ObjectSerializer;
 
 /**
- * CreateSubscriptionPaymentRequest Class Doc Comment
+ * ENACH Class Doc Comment
  *
  * @category Class
- * @description The request to be passed for the create subscription payment API.
+ * @description payment method enach.
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ENACH implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateSubscriptionPaymentRequest';
+    protected static $openAPIModelName = 'ENACH';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +59,13 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subscription_id' => 'string',
-        'subscription_session_id' => 'string',
-        'payment_id' => 'string',
-        'payment_amount' => 'float',
-        'payment_schedule_date' => 'string',
-        'payment_remarks' => 'string',
-        'payment_type' => 'string',
-        'payment_method' => '\Cashfree\Model\CreateSubscriptionPaymentRequestPaymentMethod'
+        'channel' => 'string',
+        'auth_mode' => 'string',
+        'account_holder_name' => 'string',
+        'account_number' => 'string',
+        'account_bank_code' => 'string',
+        'account_type' => 'string',
+        'account_ifsc' => 'string'
     ];
 
     /**
@@ -77,14 +76,13 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'subscription_id' => null,
-        'subscription_session_id' => null,
-        'payment_id' => null,
-        'payment_amount' => 'float64',
-        'payment_schedule_date' => null,
-        'payment_remarks' => null,
-        'payment_type' => null,
-        'payment_method' => null
+        'channel' => null,
+        'auth_mode' => null,
+        'account_holder_name' => null,
+        'account_number' => null,
+        'account_bank_code' => null,
+        'account_type' => null,
+        'account_ifsc' => null
     ];
 
     /**
@@ -93,14 +91,13 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'subscription_id' => false,
-		'subscription_session_id' => false,
-		'payment_id' => false,
-		'payment_amount' => false,
-		'payment_schedule_date' => false,
-		'payment_remarks' => false,
-		'payment_type' => false,
-		'payment_method' => false
+        'channel' => false,
+		'auth_mode' => false,
+		'account_holder_name' => false,
+		'account_number' => false,
+		'account_bank_code' => false,
+		'account_type' => false,
+		'account_ifsc' => false
     ];
 
     /**
@@ -189,14 +186,13 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'subscription_id' => 'subscription_id',
-        'subscription_session_id' => 'subscription_session_id',
-        'payment_id' => 'payment_id',
-        'payment_amount' => 'payment_amount',
-        'payment_schedule_date' => 'payment_schedule_date',
-        'payment_remarks' => 'payment_remarks',
-        'payment_type' => 'payment_type',
-        'payment_method' => 'payment_method'
+        'channel' => 'channel',
+        'auth_mode' => 'auth_mode',
+        'account_holder_name' => 'account_holder_name',
+        'account_number' => 'account_number',
+        'account_bank_code' => 'account_bank_code',
+        'account_type' => 'account_type',
+        'account_ifsc' => 'account_ifsc'
     ];
 
     /**
@@ -205,14 +201,13 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'subscription_id' => 'setSubscriptionId',
-        'subscription_session_id' => 'setSubscriptionSessionId',
-        'payment_id' => 'setPaymentId',
-        'payment_amount' => 'setPaymentAmount',
-        'payment_schedule_date' => 'setPaymentScheduleDate',
-        'payment_remarks' => 'setPaymentRemarks',
-        'payment_type' => 'setPaymentType',
-        'payment_method' => 'setPaymentMethod'
+        'channel' => 'setChannel',
+        'auth_mode' => 'setAuthMode',
+        'account_holder_name' => 'setAccountHolderName',
+        'account_number' => 'setAccountNumber',
+        'account_bank_code' => 'setAccountBankCode',
+        'account_type' => 'setAccountType',
+        'account_ifsc' => 'setAccountIfsc'
     ];
 
     /**
@@ -221,14 +216,13 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'subscription_id' => 'getSubscriptionId',
-        'subscription_session_id' => 'getSubscriptionSessionId',
-        'payment_id' => 'getPaymentId',
-        'payment_amount' => 'getPaymentAmount',
-        'payment_schedule_date' => 'getPaymentScheduleDate',
-        'payment_remarks' => 'getPaymentRemarks',
-        'payment_type' => 'getPaymentType',
-        'payment_method' => 'getPaymentMethod'
+        'channel' => 'getChannel',
+        'auth_mode' => 'getAuthMode',
+        'account_holder_name' => 'getAccountHolderName',
+        'account_number' => 'getAccountNumber',
+        'account_bank_code' => 'getAccountBankCode',
+        'account_type' => 'getAccountType',
+        'account_ifsc' => 'getAccountIfsc'
     ];
 
     /**
@@ -288,14 +282,13 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('subscription_id', $data ?? [], null);
-        $this->setIfExists('subscription_session_id', $data ?? [], null);
-        $this->setIfExists('payment_id', $data ?? [], null);
-        $this->setIfExists('payment_amount', $data ?? [], null);
-        $this->setIfExists('payment_schedule_date', $data ?? [], null);
-        $this->setIfExists('payment_remarks', $data ?? [], null);
-        $this->setIfExists('payment_type', $data ?? [], null);
-        $this->setIfExists('payment_method', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('auth_mode', $data ?? [], null);
+        $this->setIfExists('account_holder_name', $data ?? [], null);
+        $this->setIfExists('account_number', $data ?? [], null);
+        $this->setIfExists('account_bank_code', $data ?? [], null);
+        $this->setIfExists('account_type', $data ?? [], null);
+        $this->setIfExists('account_ifsc', $data ?? [], null);
     }
 
     /**
@@ -325,15 +318,6 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['subscription_id'] === null) {
-            $invalidProperties[] = "'subscription_id' can't be null";
-        }
-        if ($this->container['payment_id'] === null) {
-            $invalidProperties[] = "'payment_id' can't be null";
-        }
-        if ($this->container['payment_type'] === null) {
-            $invalidProperties[] = "'payment_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -350,217 +334,190 @@ class CreateSubscriptionPaymentRequest implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets subscription_id
-     *
-     * @return string
-     */
-    public function getSubscriptionId()
-    {
-        return $this->container['subscription_id'];
-    }
-
-    /**
-     * Sets subscription_id
-     *
-     * @param string $subscription_id A unique ID passed by merchant for identifying the subscription.
-     *
-     * @return self
-     */
-    public function setSubscriptionId($subscription_id)
-    {
-        if (is_null($subscription_id)) {
-            throw new \InvalidArgumentException('non-nullable subscription_id cannot be null');
-        }
-        $this->container['subscription_id'] = $subscription_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subscription_session_id
+     * Gets channel
      *
      * @return string|null
      */
-    public function getSubscriptionSessionId()
+    public function getChannel()
     {
-        return $this->container['subscription_session_id'];
+        return $this->container['channel'];
     }
 
     /**
-     * Sets subscription_session_id
+     * Sets channel
      *
-     * @param string|null $subscription_session_id Session ID for the subscription. Required only for Auth.
+     * @param string|null $channel Channel. can be link
      *
      * @return self
      */
-    public function setSubscriptionSessionId($subscription_session_id)
+    public function setChannel($channel)
     {
-        if (is_null($subscription_session_id)) {
-            throw new \InvalidArgumentException('non-nullable subscription_session_id cannot be null');
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
         }
-        $this->container['subscription_session_id'] = $subscription_session_id;
+        $this->container['channel'] = $channel;
 
         return $this;
     }
 
     /**
-     * Gets payment_id
-     *
-     * @return string
-     */
-    public function getPaymentId()
-    {
-        return $this->container['payment_id'];
-    }
-
-    /**
-     * Sets payment_id
-     *
-     * @param string $payment_id A unique ID passed by merchant for identifying the subscription payment.
-     *
-     * @return self
-     */
-    public function setPaymentId($payment_id)
-    {
-        if (is_null($payment_id)) {
-            throw new \InvalidArgumentException('non-nullable payment_id cannot be null');
-        }
-        $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_amount
-     *
-     * @return float|null
-     */
-    public function getPaymentAmount()
-    {
-        return $this->container['payment_amount'];
-    }
-
-    /**
-     * Sets payment_amount
-     *
-     * @param float|null $payment_amount The charge amount of the payment. Required in case of charge.
-     *
-     * @return self
-     */
-    public function setPaymentAmount($payment_amount)
-    {
-        if (is_null($payment_amount)) {
-            throw new \InvalidArgumentException('non-nullable payment_amount cannot be null');
-        }
-        $this->container['payment_amount'] = $payment_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_schedule_date
+     * Gets auth_mode
      *
      * @return string|null
      */
-    public function getPaymentScheduleDate()
+    public function getAuthMode()
     {
-        return $this->container['payment_schedule_date'];
+        return $this->container['auth_mode'];
     }
 
     /**
-     * Sets payment_schedule_date
+     * Sets auth_mode
      *
-     * @param string|null $payment_schedule_date The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes.
+     * @param string|null $auth_mode Authentication mode. can be debit_card, aadhaar, or net_banking
      *
      * @return self
      */
-    public function setPaymentScheduleDate($payment_schedule_date)
+    public function setAuthMode($auth_mode)
     {
-        if (is_null($payment_schedule_date)) {
-            throw new \InvalidArgumentException('non-nullable payment_schedule_date cannot be null');
+        if (is_null($auth_mode)) {
+            throw new \InvalidArgumentException('non-nullable auth_mode cannot be null');
         }
-        $this->container['payment_schedule_date'] = $payment_schedule_date;
+        $this->container['auth_mode'] = $auth_mode;
 
         return $this;
     }
 
     /**
-     * Gets payment_remarks
+     * Gets account_holder_name
      *
      * @return string|null
      */
-    public function getPaymentRemarks()
+    public function getAccountHolderName()
     {
-        return $this->container['payment_remarks'];
+        return $this->container['account_holder_name'];
     }
 
     /**
-     * Sets payment_remarks
+     * Sets account_holder_name
      *
-     * @param string|null $payment_remarks Payment remarks.
+     * @param string|null $account_holder_name Account holder name
      *
      * @return self
      */
-    public function setPaymentRemarks($payment_remarks)
+    public function setAccountHolderName($account_holder_name)
     {
-        if (is_null($payment_remarks)) {
-            throw new \InvalidArgumentException('non-nullable payment_remarks cannot be null');
+        if (is_null($account_holder_name)) {
+            throw new \InvalidArgumentException('non-nullable account_holder_name cannot be null');
         }
-        $this->container['payment_remarks'] = $payment_remarks;
+        $this->container['account_holder_name'] = $account_holder_name;
 
         return $this;
     }
 
     /**
-     * Gets payment_type
+     * Gets account_number
      *
-     * @return string
+     * @return string|null
      */
-    public function getPaymentType()
+    public function getAccountNumber()
     {
-        return $this->container['payment_type'];
+        return $this->container['account_number'];
     }
 
     /**
-     * Sets payment_type
+     * Sets account_number
      *
-     * @param string $payment_type Payment type. Can be AUTH or CHARGE.
+     * @param string|null $account_number Account number
      *
      * @return self
      */
-    public function setPaymentType($payment_type)
+    public function setAccountNumber($account_number)
     {
-        if (is_null($payment_type)) {
-            throw new \InvalidArgumentException('non-nullable payment_type cannot be null');
+        if (is_null($account_number)) {
+            throw new \InvalidArgumentException('non-nullable account_number cannot be null');
         }
-        $this->container['payment_type'] = $payment_type;
+        $this->container['account_number'] = $account_number;
 
         return $this;
     }
 
     /**
-     * Gets payment_method
+     * Gets account_bank_code
      *
-     * @return \Cashfree\Model\CreateSubscriptionPaymentRequestPaymentMethod|null
+     * @return string|null
      */
-    public function getPaymentMethod()
+    public function getAccountBankCode()
     {
-        return $this->container['payment_method'];
+        return $this->container['account_bank_code'];
     }
 
     /**
-     * Sets payment_method
+     * Sets account_bank_code
      *
-     * @param \Cashfree\Model\CreateSubscriptionPaymentRequestPaymentMethod|null $payment_method payment_method
+     * @param string|null $account_bank_code Account bank code (required without AccountIFSC)
      *
      * @return self
      */
-    public function setPaymentMethod($payment_method)
+    public function setAccountBankCode($account_bank_code)
     {
-        if (is_null($payment_method)) {
-            throw new \InvalidArgumentException('non-nullable payment_method cannot be null');
+        if (is_null($account_bank_code)) {
+            throw new \InvalidArgumentException('non-nullable account_bank_code cannot be null');
         }
-        $this->container['payment_method'] = $payment_method;
+        $this->container['account_bank_code'] = $account_bank_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_type
+     *
+     * @return string|null
+     */
+    public function getAccountType()
+    {
+        return $this->container['account_type'];
+    }
+
+    /**
+     * Sets account_type
+     *
+     * @param string|null $account_type Account type
+     *
+     * @return self
+     */
+    public function setAccountType($account_type)
+    {
+        if (is_null($account_type)) {
+            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
+        }
+        $this->container['account_type'] = $account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_ifsc
+     *
+     * @return string|null
+     */
+    public function getAccountIfsc()
+    {
+        return $this->container['account_ifsc'];
+    }
+
+    /**
+     * Sets account_ifsc
+     *
+     * @param string|null $account_ifsc Account IFSC
+     *
+     * @return self
+     */
+    public function setAccountIfsc($account_ifsc)
+    {
+        if (is_null($account_ifsc)) {
+            throw new \InvalidArgumentException('non-nullable account_ifsc cannot be null');
+        }
+        $this->container['account_ifsc'] = $account_ifsc;
 
         return $this;
     }

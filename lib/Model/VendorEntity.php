@@ -73,7 +73,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_type' => 'string',
         'business_type' => 'string',
         'remarks' => 'string',
-        'related_docs' => '\Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]'
+        'related_docs' => '\Cashfree\Model\VendorEntityRelatedDocsInner[]'
     ];
 
     /**
@@ -770,7 +770,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets related_docs
      *
-     * @return \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null
+     * @return \Cashfree\Model\VendorEntityRelatedDocsInner[]|null
      */
     public function getRelatedDocs()
     {
@@ -780,7 +780,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets related_docs
      *
-     * @param \Cashfree\Model\UpdateVendorResponseRelatedDocsInner[]|null $related_docs related_docs
+     * @param \Cashfree\Model\VendorEntityRelatedDocsInner[]|null $related_docs related_docs
      *
      * @return self
      */

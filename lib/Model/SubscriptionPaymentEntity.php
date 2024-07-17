@@ -64,7 +64,7 @@ class SubscriptionPaymentEntity implements ModelInterface, ArrayAccess, \JsonSer
         'cf_subscription_id' => 'string',
         'cf_txn_id' => 'string',
         'cf_order_id' => 'string',
-        'failure_details' => '\Cashfree\Model\CreateSubscriptionPaymentAuthResponseFailureDetails',
+        'failure_details' => '\Cashfree\Model\SubscriptionPaymentEntityFailureDetails',
         'payment_amount' => 'float',
         'payment_id' => 'string',
         'payment_initiated_date' => 'string',
@@ -527,7 +527,7 @@ class SubscriptionPaymentEntity implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets failure_details
      *
-     * @return \Cashfree\Model\CreateSubscriptionPaymentAuthResponseFailureDetails|null
+     * @return \Cashfree\Model\SubscriptionPaymentEntityFailureDetails|null
      */
     public function getFailureDetails()
     {
@@ -537,7 +537,7 @@ class SubscriptionPaymentEntity implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets failure_details
      *
-     * @param \Cashfree\Model\CreateSubscriptionPaymentAuthResponseFailureDetails|null $failure_details failure_details
+     * @param \Cashfree\Model\SubscriptionPaymentEntityFailureDetails|null $failure_details failure_details
      *
      * @return self
      */
