@@ -70,7 +70,7 @@ class TerminalEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'terminal_note' => 'string',
         'terminal_phone_no' => 'string',
         'terminal_status' => 'string',
-        'terminal_meta' => 'string'
+        'terminal_meta' => '\Cashfree\Model\CreateTerminalRequestTerminalMeta'
     ];
 
     /**
@@ -668,7 +668,7 @@ class TerminalEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets terminal_meta
      *
-     * @return string|null
+     * @return \Cashfree\Model\CreateTerminalRequestTerminalMeta|null
      */
     public function getTerminalMeta()
     {
@@ -678,7 +678,7 @@ class TerminalEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets terminal_meta
      *
-     * @param string|null $terminal_meta terminal_meta
+     * @param \Cashfree\Model\CreateTerminalRequestTerminalMeta|null $terminal_meta terminal_meta
      *
      * @return self
      */
