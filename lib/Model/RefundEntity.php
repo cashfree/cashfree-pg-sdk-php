@@ -349,9 +349,6 @@ class RefundEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public const REFUND_TYPE_MERCHANT_INITIATED = 'MERCHANT_INITIATED';
     public const REFUND_TYPE_UNRECONCILED_AUTO_REFUND = 'UNRECONCILED_AUTO_REFUND';
     public const REFUND_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
-    public const REFUND_MODE_STANDARD = 'STANDARD';
-    public const REFUND_MODE_INSTANT = 'INSTANT';
-    public const REFUND_MODE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
      * Gets allowable values of the enum
@@ -394,20 +391,6 @@ class RefundEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             self::REFUND_TYPE_MERCHANT_INITIATED,
             self::REFUND_TYPE_UNRECONCILED_AUTO_REFUND,
             self::REFUND_TYPE_UNKNOWN_DEFAULT_OPEN_API,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRefundModeAllowableValues()
-    {
-        return [
-            self::REFUND_MODE_STANDARD,
-            self::REFUND_MODE_INSTANT,
-            self::REFUND_MODE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -497,15 +480,6 @@ class RefundEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'refund_type', must be one of '%s'",
                 $this->container['refund_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getRefundModeAllowableValues();
-        if (!is_null($this->container['refund_mode']) && !in_array($this->container['refund_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'refund_mode', must be one of '%s'",
-                $this->container['refund_mode'],
                 implode("', '", $allowedValues)
             );
         }
@@ -981,16 +955,6 @@ class RefundEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($refund_mode)) {
             throw new \InvalidArgumentException('non-nullable refund_mode cannot be null');
-        }
-        $allowedValues = $this->getRefundModeAllowableValues();
-        if (!in_array($refund_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'refund_mode', must be one of '%s'",
-                    $refund_mode,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['refund_mode'] = $refund_mode;
 
