@@ -521,7 +521,7 @@ class SubscriptionCustomerDetails implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets customer_bank_code
      *
-     * @param string|null $customer_bank_code Bank code of the customer.
+     * @param string|null $customer_bank_code Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf
      *
      * @return self
      */

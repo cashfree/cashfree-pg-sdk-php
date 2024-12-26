@@ -205,4 +205,13 @@ class OrderEntityTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "cart_details"
+     */
+    public function testPropertyCartDetails()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

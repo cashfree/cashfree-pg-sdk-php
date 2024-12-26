@@ -97,12 +97,36 @@ class OrdersApiTest extends TestCase
     }
 
     /**
+     * Test case for pGFetchOrderExtendedData
+     *
+     * Get Order Extended.
+     *
+     */
+    public function testPGFetchOrderExtendedData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for pGTerminateOrder
      *
      * Terminate Order.
      *
      */
     public function testPGTerminateOrder()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for pGUpdateOrderExtendedData
+     *
+     * Update Order Extended.
+     *
+     */
+    public function testPGUpdateOrderExtendedData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

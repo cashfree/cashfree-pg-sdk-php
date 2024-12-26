@@ -207,7 +207,7 @@ class SubscriptionApiTest extends TestCase
     /**
      * Test case for subscriptionDocumentUpload
      *
-     * API to upload Physical Nach for Physical Nach Authorization..
+     * API to upload file for Physical Nach Authorization..
      *
      */
     public function testSubscriptionDocumentUpload()

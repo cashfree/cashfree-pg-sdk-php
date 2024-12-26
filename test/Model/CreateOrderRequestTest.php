@@ -108,6 +108,15 @@ class CreateOrderRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "cart_details"
+     */
+    public function testPropertyCartDetails()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "customer_details"
      */
     public function testPropertyCustomerDetails()

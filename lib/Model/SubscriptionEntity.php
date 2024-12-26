@@ -68,6 +68,7 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_id' => 'string',
         'subscription_meta' => '\Cashfree\Model\SubscriptionEntitySubscriptionMeta',
         'subscription_note' => 'string',
+        'subscription_session_id' => 'string',
         'subscription_payment_splits' => '\Cashfree\Model\SubscriptionPaymentSplitItem[]',
         'subscription_status' => 'string',
         'subscription_tags' => 'object'
@@ -90,6 +91,7 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_id' => null,
         'subscription_meta' => null,
         'subscription_note' => null,
+        'subscription_session_id' => null,
         'subscription_payment_splits' => null,
         'subscription_status' => null,
         'subscription_tags' => null
@@ -110,6 +112,7 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
 		'subscription_id' => false,
 		'subscription_meta' => false,
 		'subscription_note' => false,
+		'subscription_session_id' => false,
 		'subscription_payment_splits' => false,
 		'subscription_status' => false,
 		'subscription_tags' => false
@@ -210,6 +213,7 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_id' => 'subscription_id',
         'subscription_meta' => 'subscription_meta',
         'subscription_note' => 'subscription_note',
+        'subscription_session_id' => 'subscription_session_id',
         'subscription_payment_splits' => 'subscription_payment_splits',
         'subscription_status' => 'subscription_status',
         'subscription_tags' => 'subscription_tags'
@@ -230,6 +234,7 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_id' => 'setSubscriptionId',
         'subscription_meta' => 'setSubscriptionMeta',
         'subscription_note' => 'setSubscriptionNote',
+        'subscription_session_id' => 'setSubscriptionSessionId',
         'subscription_payment_splits' => 'setSubscriptionPaymentSplits',
         'subscription_status' => 'setSubscriptionStatus',
         'subscription_tags' => 'setSubscriptionTags'
@@ -250,6 +255,7 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_id' => 'getSubscriptionId',
         'subscription_meta' => 'getSubscriptionMeta',
         'subscription_note' => 'getSubscriptionNote',
+        'subscription_session_id' => 'getSubscriptionSessionId',
         'subscription_payment_splits' => 'getSubscriptionPaymentSplits',
         'subscription_status' => 'getSubscriptionStatus',
         'subscription_tags' => 'getSubscriptionTags'
@@ -321,6 +327,7 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('subscription_id', $data ?? [], null);
         $this->setIfExists('subscription_meta', $data ?? [], null);
         $this->setIfExists('subscription_note', $data ?? [], null);
+        $this->setIfExists('subscription_session_id', $data ?? [], null);
         $this->setIfExists('subscription_payment_splits', $data ?? [], null);
         $this->setIfExists('subscription_status', $data ?? [], null);
         $this->setIfExists('subscription_tags', $data ?? [], null);
@@ -607,6 +614,33 @@ class SubscriptionEntity implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable subscription_note cannot be null');
         }
         $this->container['subscription_note'] = $subscription_note;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription_session_id
+     *
+     * @return string|null
+     */
+    public function getSubscriptionSessionId()
+    {
+        return $this->container['subscription_session_id'];
+    }
+
+    /**
+     * Sets subscription_session_id
+     *
+     * @param string|null $subscription_session_id Subscription Session Id.
+     *
+     * @return self
+     */
+    public function setSubscriptionSessionId($subscription_session_id)
+    {
+        if (is_null($subscription_session_id)) {
+            throw new \InvalidArgumentException('non-nullable subscription_session_id cannot be null');
+        }
+        $this->container['subscription_session_id'] = $subscription_session_id;
 
         return $this;
     }

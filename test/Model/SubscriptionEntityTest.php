@@ -162,6 +162,15 @@ class SubscriptionEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "subscription_session_id"
+     */
+    public function testPropertySubscriptionSessionId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "subscription_payment_splits"
      */
     public function testPropertySubscriptionPaymentSplits()
