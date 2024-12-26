@@ -72,7 +72,8 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_splits' => '\Cashfree\Model\VendorSplit[]',
         'customer_details' => '\Cashfree\Model\CustomerDetailsResponse',
         'order_meta' => '\Cashfree\Model\OrderMeta',
-        'order_tags' => 'array<string,string>'
+        'order_tags' => 'array<string,string>',
+        'cart_details' => '\Cashfree\Model\CartDetailsEntity'
     ];
 
     /**
@@ -96,7 +97,8 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_splits' => null,
         'customer_details' => null,
         'order_meta' => null,
-        'order_tags' => null
+        'order_tags' => null,
+        'cart_details' => null
     ];
 
     /**
@@ -118,7 +120,8 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'order_splits' => false,
 		'customer_details' => false,
 		'order_meta' => false,
-		'order_tags' => false
+		'order_tags' => false,
+		'cart_details' => false
     ];
 
     /**
@@ -220,7 +223,8 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_splits' => 'order_splits',
         'customer_details' => 'customer_details',
         'order_meta' => 'order_meta',
-        'order_tags' => 'order_tags'
+        'order_tags' => 'order_tags',
+        'cart_details' => 'cart_details'
     ];
 
     /**
@@ -242,7 +246,8 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_splits' => 'setOrderSplits',
         'customer_details' => 'setCustomerDetails',
         'order_meta' => 'setOrderMeta',
-        'order_tags' => 'setOrderTags'
+        'order_tags' => 'setOrderTags',
+        'cart_details' => 'setCartDetails'
     ];
 
     /**
@@ -264,7 +269,8 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'order_splits' => 'getOrderSplits',
         'customer_details' => 'getCustomerDetails',
         'order_meta' => 'getOrderMeta',
-        'order_tags' => 'getOrderTags'
+        'order_tags' => 'getOrderTags',
+        'cart_details' => 'getCartDetails'
     ];
 
     /**
@@ -338,6 +344,7 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('customer_details', $data ?? [], null);
         $this->setIfExists('order_meta', $data ?? [], null);
         $this->setIfExists('order_tags', $data ?? [], null);
+        $this->setIfExists('cart_details', $data ?? [], null);
     }
 
     /**
@@ -764,6 +771,33 @@ class OrderEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('invalid value for $order_tags when calling OrderEntity., number of items must be less than or equal to 15.');
         }
         $this->container['order_tags'] = $order_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets cart_details
+     *
+     * @return \Cashfree\Model\CartDetailsEntity|null
+     */
+    public function getCartDetails()
+    {
+        return $this->container['cart_details'];
+    }
+
+    /**
+     * Sets cart_details
+     *
+     * @param \Cashfree\Model\CartDetailsEntity|null $cart_details cart_details
+     *
+     * @return self
+     */
+    public function setCartDetails($cart_details)
+    {
+        if (is_null($cart_details)) {
+            throw new \InvalidArgumentException('non-nullable cart_details cannot be null');
+        }
+        $this->container['cart_details'] = $cart_details;
 
         return $this;
     }

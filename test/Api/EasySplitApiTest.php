@@ -73,6 +73,18 @@ class EasySplitApiTest extends TestCase
     }
 
     /**
+     * Test case for pGESCreateAdjustment
+     *
+     * Create Adjustment.
+     *
+     */
+    public function testPGESCreateAdjustment()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for pGESCreateOnDemandTransfer
      *
      * Create On Demand Transfer.
@@ -211,6 +223,18 @@ class EasySplitApiTest extends TestCase
      *
      */
     public function testPGOrderStaticSplit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for pGSplitOrderRecon
+     *
+     * Get Split and Settlement Details by OrderID.
+     *
+     */
+    public function testPGSplitOrderRecon()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

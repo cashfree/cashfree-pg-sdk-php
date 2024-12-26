@@ -585,7 +585,7 @@ class TerminalDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets terminal_phone_no
      *
-     * @param string $terminal_phone_no mobile num of the terminal/agent/storefront
+     * @param string $terminal_phone_no mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id.
      *
      * @return self
      */

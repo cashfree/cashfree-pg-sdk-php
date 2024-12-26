@@ -59,7 +59,8 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
       */
     protected static $openAPITypes = [
         'authorization_amount' => 'float',
-        'authorization_amount_refund' => 'bool'
+        'authorization_amount_refund' => 'bool',
+        'payment_methods' => 'string[]'
     ];
 
     /**
@@ -71,7 +72,8 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
       */
     protected static $openAPIFormats = [
         'authorization_amount' => 'float64',
-        'authorization_amount_refund' => null
+        'authorization_amount_refund' => null,
+        'payment_methods' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
       */
     protected static $openAPINullables = [
         'authorization_amount' => false,
-		'authorization_amount_refund' => false
+		'authorization_amount_refund' => false,
+		'payment_methods' => false
     ];
 
     /**
@@ -171,7 +174,8 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
      */
     protected static $attributeMap = [
         'authorization_amount' => 'authorization_amount',
-        'authorization_amount_refund' => 'authorization_amount_refund'
+        'authorization_amount_refund' => 'authorization_amount_refund',
+        'payment_methods' => 'payment_methods'
     ];
 
     /**
@@ -181,7 +185,8 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
      */
     protected static $setters = [
         'authorization_amount' => 'setAuthorizationAmount',
-        'authorization_amount_refund' => 'setAuthorizationAmountRefund'
+        'authorization_amount_refund' => 'setAuthorizationAmountRefund',
+        'payment_methods' => 'setPaymentMethods'
     ];
 
     /**
@@ -191,7 +196,8 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
      */
     protected static $getters = [
         'authorization_amount' => 'getAuthorizationAmount',
-        'authorization_amount_refund' => 'getAuthorizationAmountRefund'
+        'authorization_amount_refund' => 'getAuthorizationAmountRefund',
+        'payment_methods' => 'getPaymentMethods'
     ];
 
     /**
@@ -253,6 +259,7 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
     {
         $this->setIfExists('authorization_amount', $data ?? [], null);
         $this->setIfExists('authorization_amount_refund', $data ?? [], null);
+        $this->setIfExists('payment_methods', $data ?? [], null);
     }
 
     /**
@@ -347,6 +354,33 @@ class CreateSubscriptionRequestAuthorizationDetails implements ModelInterface, A
             throw new \InvalidArgumentException('non-nullable authorization_amount_refund cannot be null');
         }
         $this->container['authorization_amount_refund'] = $authorization_amount_refund;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_methods
+     *
+     * @return string[]|null
+     */
+    public function getPaymentMethods()
+    {
+        return $this->container['payment_methods'];
+    }
+
+    /**
+     * Sets payment_methods
+     *
+     * @param string[]|null $payment_methods Payment methods for the subscription. enach, pnach, upi, card are possible values.
+     *
+     * @return self
+     */
+    public function setPaymentMethods($payment_methods)
+    {
+        if (is_null($payment_methods)) {
+            throw new \InvalidArgumentException('non-nullable payment_methods cannot be null');
+        }
+        $this->container['payment_methods'] = $payment_methods;
 
         return $this;
     }

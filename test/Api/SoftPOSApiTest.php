@@ -97,6 +97,18 @@ class SoftPOSApiTest extends TestCase
     }
 
     /**
+     * Test case for sposDemapSoundboxVpa
+     *
+     * Demap Soundbox Vpa.
+     *
+     */
+    public function testSposDemapSoundboxVpa()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for sposFetchTerminal
      *
      * Get Terminal Status using Phone Number.
@@ -121,12 +133,48 @@ class SoftPOSApiTest extends TestCase
     }
 
     /**
+     * Test case for sposFetchTerminalSoundboxVpa
+     *
+     * Fetch Terminal Soundbox vpa.
+     *
+     */
+    public function testSposFetchTerminalSoundboxVpa()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for sposFetchTerminalTransaction
      *
      * Get Terminal Transaction.
      *
      */
     public function testSposFetchTerminalTransaction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for sposOnboardSoundboxVpa
+     *
+     * Onboard Soundbox Vpa.
+     *
+     */
+    public function testSposOnboardSoundboxVpa()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for sposUpdateSoundboxVpa
+     *
+     * Update Soundbox Vpa.
+     *
+     */
+    public function testSposUpdateSoundboxVpa()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

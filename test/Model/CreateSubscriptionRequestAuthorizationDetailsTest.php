@@ -97,4 +97,13 @@ class CreateSubscriptionRequestAuthorizationDetailsTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "payment_methods"
+     */
+    public function testPropertyPaymentMethods()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

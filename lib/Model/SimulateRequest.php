@@ -243,6 +243,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const ENTITY_PAYMENTS = 'PAYMENTS';
+    public const ENTITY_SUBS_PAYMENTS = 'SUBS_PAYMENTS';
     public const ENTITY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
@@ -254,6 +255,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::ENTITY_PAYMENTS,
+            self::ENTITY_SUBS_PAYMENTS,
             self::ENTITY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
@@ -351,7 +353,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets entity
      *
-     * @param string $entity Entity type should be PAYMENTS only.
+     * @param string $entity Entity type should be PAYMENTS or SUBS_PAYMENTS only.
      *
      * @return self
      */
@@ -388,7 +390,7 @@ class SimulateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets entity_id
      *
-     * @param string $entity_id In case of Entity type is PAYMENTS, entity_id will be transactionId
+     * @param string $entity_id If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId
      *
      * @return self
      */

@@ -62,6 +62,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'order_id' => 'string',
         'order_amount' => 'float',
         'order_currency' => 'string',
+        'cart_details' => '\Cashfree\Model\CartDetails',
         'customer_details' => '\Cashfree\Model\CustomerDetails',
         'terminal' => '\Cashfree\Model\TerminalDetails',
         'order_meta' => '\Cashfree\Model\OrderMeta',
@@ -82,6 +83,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'order_id' => null,
         'order_amount' => 'double',
         'order_currency' => null,
+        'cart_details' => null,
         'customer_details' => null,
         'terminal' => null,
         'order_meta' => null,
@@ -100,6 +102,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'order_id' => false,
 		'order_amount' => false,
 		'order_currency' => false,
+		'cart_details' => false,
 		'customer_details' => false,
 		'terminal' => false,
 		'order_meta' => false,
@@ -198,6 +201,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'order_id' => 'order_id',
         'order_amount' => 'order_amount',
         'order_currency' => 'order_currency',
+        'cart_details' => 'cart_details',
         'customer_details' => 'customer_details',
         'terminal' => 'terminal',
         'order_meta' => 'order_meta',
@@ -216,6 +220,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'order_id' => 'setOrderId',
         'order_amount' => 'setOrderAmount',
         'order_currency' => 'setOrderCurrency',
+        'cart_details' => 'setCartDetails',
         'customer_details' => 'setCustomerDetails',
         'terminal' => 'setTerminal',
         'order_meta' => 'setOrderMeta',
@@ -234,6 +239,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'order_id' => 'getOrderId',
         'order_amount' => 'getOrderAmount',
         'order_currency' => 'getOrderCurrency',
+        'cart_details' => 'getCartDetails',
         'customer_details' => 'getCustomerDetails',
         'terminal' => 'getTerminal',
         'order_meta' => 'getOrderMeta',
@@ -303,6 +309,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('order_id', $data ?? [], null);
         $this->setIfExists('order_amount', $data ?? [], null);
         $this->setIfExists('order_currency', $data ?? [], null);
+        $this->setIfExists('cart_details', $data ?? [], null);
         $this->setIfExists('customer_details', $data ?? [], null);
         $this->setIfExists('terminal', $data ?? [], null);
         $this->setIfExists('order_meta', $data ?? [], null);
@@ -476,6 +483,33 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable order_currency cannot be null');
         }
         $this->container['order_currency'] = $order_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets cart_details
+     *
+     * @return \Cashfree\Model\CartDetails|null
+     */
+    public function getCartDetails()
+    {
+        return $this->container['cart_details'];
+    }
+
+    /**
+     * Sets cart_details
+     *
+     * @param \Cashfree\Model\CartDetails|null $cart_details cart_details
+     *
+     * @return self
+     */
+    public function setCartDetails($cart_details)
+    {
+        if (is_null($cart_details)) {
+            throw new \InvalidArgumentException('non-nullable cart_details cannot be null');
+        }
+        $this->container['cart_details'] = $cart_details;
 
         return $this;
     }
