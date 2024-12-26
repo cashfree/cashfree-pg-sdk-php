@@ -69,7 +69,7 @@ class DisputesEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'resolved_at' => 'string',
         'dispute_status' => 'string',
         'cf_dispute_remarks' => 'string',
-        'preferred_evidence' => 'object',
+        'preferred_evidence' => '\Cashfree\Model\EvidencesToContestDispute[]',
         'dispute_evidence' => '\Cashfree\Model\Evidence[]',
         'order_details' => '\Cashfree\Model\OrderDetailsInDisputesEntity',
         'customer_details' => '\Cashfree\Model\CustomerDetailsInDisputesEntity'
@@ -832,7 +832,7 @@ class DisputesEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets preferred_evidence
      *
-     * @return object|null
+     * @return \Cashfree\Model\EvidencesToContestDispute[]|null
      */
     public function getPreferredEvidence()
     {
@@ -842,7 +842,7 @@ class DisputesEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preferred_evidence
      *
-     * @param object|null $preferred_evidence preferred_evidence
+     * @param \Cashfree\Model\EvidencesToContestDispute[]|null $preferred_evidence preferred_evidence
      *
      * @return self
      */
