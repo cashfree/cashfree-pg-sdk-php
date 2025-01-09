@@ -69,8 +69,8 @@ class DisputesEntityMerchantAccepted implements ModelInterface, ArrayAccess, \Js
         'resolved_at' => 'string',
         'dispute_status' => 'string',
         'cf_dispute_remarks' => 'string',
-        'preferred_evidence' => '\Cashfree\Model\EvidencesToContestDispute[]',
-        'dispute_evidence' => '\Cashfree\Model\Evidence[]',
+        'preferred_evidence' => 'array[]',
+        'dispute_evidence' => 'array[]',
         'order_details' => '\Cashfree\Model\OrderDetailsInDisputesEntity',
         'customer_details' => '\Cashfree\Model\CustomerDetailsInDisputesEntity'
     ];
@@ -832,7 +832,7 @@ class DisputesEntityMerchantAccepted implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets preferred_evidence
      *
-     * @return \Cashfree\Model\EvidencesToContestDispute[]|null
+     * @return array[]|null
      */
     public function getPreferredEvidence()
     {
@@ -842,7 +842,7 @@ class DisputesEntityMerchantAccepted implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets preferred_evidence
      *
-     * @param \Cashfree\Model\EvidencesToContestDispute[]|null $preferred_evidence preferred_evidence
+     * @param array[]|null $preferred_evidence preferred_evidence
      *
      * @return self
      */
@@ -859,7 +859,7 @@ class DisputesEntityMerchantAccepted implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets dispute_evidence
      *
-     * @return \Cashfree\Model\Evidence[]|null
+     * @return array[]|null
      */
     public function getDisputeEvidence()
     {
@@ -869,7 +869,7 @@ class DisputesEntityMerchantAccepted implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets dispute_evidence
      *
-     * @param \Cashfree\Model\Evidence[]|null $dispute_evidence dispute_evidence
+     * @param array[]|null $dispute_evidence dispute_evidence
      *
      * @return self
      */

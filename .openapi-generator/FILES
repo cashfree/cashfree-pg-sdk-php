@@ -87,7 +87,6 @@ docs/Model/CustomerDetailsResponse.md
 docs/Model/CustomerEntity.md
 docs/Model/DemapSoundboxVpaRequest.md
 docs/Model/DiscountDetails.md
-docs/Model/DisputeEvidence.md
 docs/Model/DisputesEntity.md
 docs/Model/DisputesEntityMerchantAccepted.md
 docs/Model/EMIOffer.md
@@ -206,7 +205,6 @@ docs/Model/PaymentWebhookErrorEntity.md
 docs/Model/PaymentWebhookGatewayDetailsEntity.md
 docs/Model/PaymentWebhookOrderEntity.md
 docs/Model/PlanEntity.md
-docs/Model/PreferredEvidence.md
 docs/Model/RateLimitError.md
 docs/Model/ReconEntity.md
 docs/Model/ReconEntityDataInner.md
@@ -370,7 +368,6 @@ lib/Model/CustomerDetailsResponse.php
 lib/Model/CustomerEntity.php
 lib/Model/DemapSoundboxVpaRequest.php
 lib/Model/DiscountDetails.php
-lib/Model/DisputeEvidence.php
 lib/Model/DisputesEntity.php
 lib/Model/DisputesEntityMerchantAccepted.php
 lib/Model/EMIOffer.php
@@ -490,7 +487,6 @@ lib/Model/PaymentWebhookErrorEntity.php
 lib/Model/PaymentWebhookGatewayDetailsEntity.php
 lib/Model/PaymentWebhookOrderEntity.php
 lib/Model/PlanEntity.php
-lib/Model/PreferredEvidence.php
 lib/Model/RateLimitError.php
 lib/Model/ReconEntity.php
 lib/Model/ReconEntityDataInner.php
@@ -652,7 +648,6 @@ test/Model/CustomerDetailsTest.php
 test/Model/CustomerEntityTest.php
 test/Model/DemapSoundboxVpaRequestTest.php
 test/Model/DiscountDetailsTest.php
-test/Model/DisputeEvidenceTest.php
 test/Model/DisputesEntityMerchantAcceptedTest.php
 test/Model/DisputesEntityTest.php
 test/Model/EMIOfferTest.php
@@ -771,7 +766,6 @@ test/Model/PaymentWebhookGatewayDetailsEntityTest.php
 test/Model/PaymentWebhookOrderEntityTest.php
 test/Model/PaymentWebhookTest.php
 test/Model/PlanEntityTest.php
-test/Model/PreferredEvidenceTest.php
 test/Model/RateLimitErrorTest.php
 test/Model/ReconEntityDataInnerTest.php
 test/Model/ReconEntityTest.php
