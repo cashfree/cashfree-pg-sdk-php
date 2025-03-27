@@ -36,7 +36,7 @@ Create Order
 ```php
 $cashfree = new \Cashfree\Cashfree();
 
-$x_api_version = "2022-09-01";
+$x_api_version = "2023-08-01";
 $create_orders_request = new \Cashfree\Model\CreateOrderRequest();
 $create_orders_request->setOrderAmount(1.0);
 $create_orders_request->setOrderCurrency("INR");
@@ -55,7 +55,7 @@ try {
 
 Get Order
 ```php
-$x_api_version = "2022-09-01";
+$x_api_version = "2023-08-01";
 try {
     $response = $cashfree->PGFetchOrder($x_api_version, "<order_id>");
     print_r($response);
