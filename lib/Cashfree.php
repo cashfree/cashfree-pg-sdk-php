@@ -91,7 +91,7 @@ class Cashfree {
         if($this->XEnableErrorAnalytics) {
             \Sentry\init([
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
-                'environment' => $env."",
+                'environment' => "",
                 'attach_stacktrace' => true,
                 'release' => '5.0.3',
                 'traces_sample_rate' => 1.0,
