@@ -1,0 +1,14 @@
+# # OrderMeta
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**return_url** | **string** | This is the [URL](https://www.cashfree.com/devstudio/thankyou?order_id&#x3D;devstudio_734905336776434862) to which the customer will be redirected after the payment reaches a terminal state (success, failed or cancelled). We recommend keeping context of &#x60;order_id&#x60; in your &#x60;return_url&#x60; so that you can identify the order when customer lands on your page. Cashfree triggers a **GET request** to this URL. Maximum URL length: 250 characters. | [optional]
+**notify_url** | **string** | Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250. | [optional]
+**payment_methods** | **mixed** | Specifies the allowed payment modes for this order. To restrict payment options,  provide a comma-separated list of values from the following options: &#x60;cc&#x60;, &#x60;dc&#x60;, &#x60;ccc&#x60;,  &#x60;ppc&#x60;, &#x60;nb&#x60;, &#x60;upi&#x60;, &#x60;paypal&#x60;, &#x60;app&#x60;, &#x60;paylater&#x60;, &#x60;cardlessemi&#x60;, &#x60;dcemi&#x60;, &#x60;ccemi&#x60;,  &#x60;banktransfer&#x60;, &#x60;applepay&#x60;. Leave this field blank to display all available payment methods. | [optional]
+**payment_methods_filters** | [**\OpenAPI\Client\Model\OrderMetaPaymentMethodsFilters**](OrderMetaPaymentMethodsFilters.md) |  | [optional]
+**offer_filters** | [**\OpenAPI\Client\Model\OrderMetaOfferFilters**](OrderMetaOfferFilters.md) |  | [optional]
+**upi_app_priority** | **mixed** | Set the priority of UPI apps that you want to show for this order. Pass values in list among following options - \&quot;gpay\&quot;,\&quot;phonepe\&quot;,\&quot;paytm\&quot;,\&quot;navi\&quot;,\&quot;cred\&quot;,\&quot;supermoney\&quot;,\&quot;amazonpay\&quot;,\&quot;bhim\&quot;,\&quot;mobikwik\&quot;,\&quot;airtel\&quot;,\&quot;popclub\&quot;,\&quot;kiwi\&quot;. | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
