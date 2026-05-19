@@ -1,7 +1,7 @@
 # Cashfree PG PHP SDK
 ![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg-sdk-php) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg-sdk-php/master) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg-sdk-php?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg-sdk-php)
 
-The Cashfree PG PHP SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side Go  applications. 
+The Cashfree PG PHP SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side PHP application.
 
 
 
@@ -21,12 +21,21 @@ Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com
 ```bash
 composer require cashfree/cashfree-pg
 ```
+
+## Version >=6
+
 ### Configuration
 
 ```php
-\Cashfree\Cashfree::$XClientId = "<x-client-id>";
-\Cashfree\Cashfree::$XClientSecret = "<x-client-secret>";
-\Cashfree\Cashfree::$XEnvironment = Cashfree\Cashfree::$SANDBOX;
+$cashfree = new \Cashfree\Cashfree(
+    \Cashfree\Cashfree::$SANDBOX,        // or \Cashfree\Cashfree::$PRODUCTION
+    "<x-client-id>",
+    "<x-client-secret>",
+    "",                                  // x-partner-api-key (leave blank if unused)
+    "",                                  // x-partner-merchant-id (leave blank if unused)
+    "",                                  // x-client-signature (leave blank if unused)
+    true                                 // enable error analytics
+);
 ```
 
 Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)
@@ -34,8 +43,49 @@ Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant D
 ### Basic Usage
 Create Order
 ```php
-$cashfree = new \Cashfree\Cashfree();
+$create_orders_request = new \Cashfree\Model\CreateOrderRequest();
+$create_orders_request->setOrderAmount(1.0);
+$create_orders_request->setOrderCurrency("INR");
+$customer_details = new \Cashfree\Model\CustomerDetails();
+$customer_details->setCustomerId("walterwNrcMi");
+$customer_details->setCustomerPhone("9999999999");
+$create_orders_request->setCustomerDetails($customer_details);
 
+try {
+    $result = $cashfree->PGCreateOrder($create_orders_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PGCreateOrder: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+Get Order
+```php
+try {
+    $response = $cashfree->PGFetchOrder("<order_id>");
+    print_r($response);
+} catch (Exception $e) {
+    echo 'Exception when calling PGFetchOrder: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+## Version <6
+
+### Configuration
+
+```php
+\Cashfree\Cashfree::$XClientId = "<x-client-id>";
+\Cashfree\Cashfree::$XClientSecret = "<x-client-secret>";
+\Cashfree\Cashfree::$XEnvironment = Cashfree\Cashfree::$SANDBOX;
+
+$cashfree = new \Cashfree\Cashfree();
+```
+
+Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)
+
+### Basic Usage
+Create Order
+```php
 $x_api_version = "2023-08-01";
 $create_orders_request = new \Cashfree\Model\CreateOrderRequest();
 $create_orders_request->setOrderAmount(1.0);
