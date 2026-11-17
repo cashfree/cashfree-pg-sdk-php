@@ -58,8 +58,8 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'card_issuer' => 'string[]',
-        'card_type' => 'string[]',
-        'card_network' => 'string[]'
+        'card_type' => '\Cashfree\Model\CardDowntimeCardTypeEnum[]',
+        'card_network' => '\Cashfree\Model\CardDowntimeCardNetworkEnum[]'
     ];
 
     /**
@@ -242,30 +242,6 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCardTypeAllowableValues()
-    {
-        return [
-            
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCardNetworkAllowableValues()
-    {
-        return [
-            
-        ];
-    }
-
-    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -357,7 +333,7 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card_type
      *
-     * @return string[]|null
+     * @return \Cashfree\Model\CardDowntimeCardTypeEnum[]|null
      */
     public function getCardType()
     {
@@ -367,7 +343,7 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_type
      *
-     * @param string[]|null $card_type card_type
+     * @param \Cashfree\Model\CardDowntimeCardTypeEnum[]|null $card_type card_type
      *
      * @return self
      */
@@ -375,15 +351,6 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($card_type)) {
             throw new \InvalidArgumentException('non-nullable card_type cannot be null');
-        }
-        $allowedValues = $this->getCardTypeAllowableValues();
-        if (array_diff($card_type, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'card_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['card_type'] = $card_type;
 
@@ -393,7 +360,7 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets card_network
      *
-     * @return string[]|null
+     * @return \Cashfree\Model\CardDowntimeCardNetworkEnum[]|null
      */
     public function getCardNetwork()
     {
@@ -403,7 +370,7 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets card_network
      *
-     * @param string[]|null $card_network card_network
+     * @param \Cashfree\Model\CardDowntimeCardNetworkEnum[]|null $card_network card_network
      *
      * @return self
      */
@@ -411,15 +378,6 @@ class CardDowntimeCard implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($card_network)) {
             throw new \InvalidArgumentException('non-nullable card_network cannot be null');
-        }
-        $allowedValues = $this->getCardNetworkAllowableValues();
-        if (array_diff($card_network, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'card_network', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['card_network'] = $card_network;
 

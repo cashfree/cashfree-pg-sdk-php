@@ -116,9 +116,9 @@ class SettlementReconEntityDataInnerPaymentDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "payment_mode"
+     * Test attribute "payment_group"
      */
-    public function testPropertypaymentMode()
+    public function testPropertypaymentGroup()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

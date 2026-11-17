@@ -64,7 +64,8 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         'cardless_emi' => '\Cashfree\Model\PaymentMethodAppInPaymentsEntityApp',
         'paylater' => '\Cashfree\Model\PaymentMethodAppInPaymentsEntityApp',
         'emi' => '\Cashfree\Model\PaymentMethodCardEMIInPaymentsEntityEmi',
-        'banktransfer' => '\Cashfree\Model\PaymentMethodBankTransferInPaymentsEntityBanktransfer'
+        'banktransfer' => '\Cashfree\Model\PaymentMethodBankTransferInPaymentsEntityBanktransfer',
+        'others' => 'object'
     ];
 
     /**
@@ -82,7 +83,8 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         'cardless_emi' => null,
         'paylater' => null,
         'emi' => null,
-        'banktransfer' => null
+        'banktransfer' => null,
+        'others' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
 		'cardless_emi' => false,
 		'paylater' => false,
 		'emi' => false,
-		'banktransfer' => false
+		'banktransfer' => false,
+		'others' => false
     ];
 
     /**
@@ -194,7 +197,8 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         'cardless_emi' => 'cardless_emi',
         'paylater' => 'paylater',
         'emi' => 'emi',
-        'banktransfer' => 'banktransfer'
+        'banktransfer' => 'banktransfer',
+        'others' => 'others'
     ];
 
     /**
@@ -210,7 +214,8 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         'cardless_emi' => 'setCardlessEmi',
         'paylater' => 'setPaylater',
         'emi' => 'setEmi',
-        'banktransfer' => 'setBanktransfer'
+        'banktransfer' => 'setBanktransfer',
+        'others' => 'setOthers'
     ];
 
     /**
@@ -226,7 +231,8 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         'cardless_emi' => 'getCardlessEmi',
         'paylater' => 'getPaylater',
         'emi' => 'getEmi',
-        'banktransfer' => 'getBanktransfer'
+        'banktransfer' => 'getBanktransfer',
+        'others' => 'getOthers'
     ];
 
     /**
@@ -294,6 +300,7 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('paylater', $data ?? [], null);
         $this->setIfExists('emi', $data ?? [], null);
         $this->setIfExists('banktransfer', $data ?? [], null);
+        $this->setIfExists('others', $data ?? [], null);
     }
 
     /**
@@ -550,6 +557,33 @@ class PaymentEntityPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable banktransfer cannot be null');
         }
         $this->container['banktransfer'] = $banktransfer;
+
+        return $this;
+    }
+
+    /**
+     * Gets others
+     *
+     * @return object|null
+     */
+    public function getOthers()
+    {
+        return $this->container['others'];
+    }
+
+    /**
+     * Sets others
+     *
+     * @param object|null $others others
+     *
+     * @return self
+     */
+    public function setOthers($others)
+    {
+        if (is_null($others)) {
+            throw new \InvalidArgumentException('non-nullable others cannot be null');
+        }
+        $this->container['others'] = $others;
 
         return $this;
     }

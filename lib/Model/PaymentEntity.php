@@ -640,7 +640,7 @@ class PaymentEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_group
      *
-     * @param string|null $payment_group Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi'].
+     * @param string|null $payment_group Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi', 'upi_credit_line'].
      *
      * @return self
      */

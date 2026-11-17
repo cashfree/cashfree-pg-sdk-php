@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * FetchSettlementsRequestFiltersTest Class Doc Comment
  *
  * @category    Class
- * @description Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+ * @description Specify either the Settlement ID, Settlement UTR, settlement status, or start date and end date to fetch the settlement details.
  * @package     Cashfree
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -92,6 +92,15 @@ class FetchSettlementsRequestFiltersTest extends TestCase
      * Test attribute "settlement_utrs"
      */
     public function testPropertysettlementUtrs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "settlement_status"
+     */
+    public function testPropertysettlementStatus()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

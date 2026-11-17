@@ -92,7 +92,7 @@ class Cashfree {
                 'dsn' => 'https://f694e61bc6394e80bd2f687a4249a204@o330525.ingest.sentry.io/4505248768327680',
                 'environment' => $env."",
                 'attach_stacktrace' => true,
-                'release' => '6.0.1',
+                'release' => '6.0.8',
                 'traces_sample_rate' => 1.0,
                 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
                     $cashfreepg = "cashfree-pg";
@@ -698,7 +698,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -1079,7 +1079,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -1461,7 +1461,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -1843,7 +1843,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -2225,7 +2225,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -2622,7 +2622,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -2964,7 +2964,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -3201,7 +3201,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -3453,7 +3453,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -3698,7 +3698,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -3925,7 +3925,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -4177,7 +4177,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -4421,7 +4421,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -4681,7 +4681,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -4925,7 +4925,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -5209,7 +5209,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -5453,7 +5453,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -5707,7 +5707,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -6018,7 +6018,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -6263,7 +6263,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -6506,7 +6506,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -6911,7 +6911,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -7292,7 +7292,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -7696,7 +7696,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -8104,7 +8104,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -8393,7 +8393,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -8775,7 +8775,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -9156,7 +9156,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -9538,7 +9538,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -9919,7 +9919,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -10301,7 +10301,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -10690,7 +10690,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -11086,7 +11086,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -11477,7 +11477,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -11858,7 +11858,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -12240,7 +12240,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -12644,7 +12644,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -13036,7 +13036,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -13448,7 +13448,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -13867,7 +13867,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -14286,7 +14286,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -14699,7 +14699,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -15108,7 +15108,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -15512,7 +15512,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -15756,7 +15756,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -16167,7 +16167,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -16586,7 +16586,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -16976,7 +16976,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -17395,7 +17395,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -17550,17 +17550,17 @@ class Cashfree {
 
             switch($statusCode) {
                 case 200:
-                    if ('\Cashfree\Model\SettlementEntity' === '\SplFileObject') {
+                    if ('\Cashfree\Model\GetAllSettlementsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Cashfree\Model\SettlementEntity' !== 'string') {
+                        if ('\Cashfree\Model\GetAllSettlementsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Cashfree\Model\SettlementEntity', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\GetAllSettlementsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17671,7 +17671,7 @@ class Cashfree {
                     ];
             }
 
-            $returnType = '\Cashfree\Model\SettlementEntity';
+            $returnType = '\Cashfree\Model\GetAllSettlementsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -17692,7 +17692,7 @@ class Cashfree {
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Cashfree\Model\SettlementEntity',
+                        '\Cashfree\Model\GetAllSettlementsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17794,7 +17794,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -18177,7 +18177,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -18315,18 +18315,18 @@ class Cashfree {
             }
 
             switch($statusCode) {
-                case 202:
-                    if ('object' === '\SplFileObject') {
+                case 200:
+                    if ('\Cashfree\Model\MarkOrderSettlementResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('object' !== 'string') {
+                        if ('\Cashfree\Model\MarkOrderSettlementResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\MarkOrderSettlementResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -18392,7 +18392,7 @@ class Cashfree {
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Cashfree\Model\MarkOrderSettlementResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -18410,10 +18410,10 @@ class Cashfree {
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 202:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Cashfree\Model\MarkOrderSettlementResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18483,7 +18483,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -18622,17 +18622,17 @@ class Cashfree {
 
             switch($statusCode) {
                 case 200:
-                    if ('\Cashfree\Model\SettlementEntity' === '\SplFileObject') {
+                    if ('\Cashfree\Model\OrderSettlementEntity' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Cashfree\Model\SettlementEntity' !== 'string') {
+                        if ('\Cashfree\Model\OrderSettlementEntity' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Cashfree\Model\SettlementEntity', []),
+                        ObjectSerializer::deserialize($content, '\Cashfree\Model\OrderSettlementEntity', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -18758,7 +18758,7 @@ class Cashfree {
                     ];
             }
 
-            $returnType = '\Cashfree\Model\SettlementEntity';
+            $returnType = '\Cashfree\Model\OrderSettlementEntity';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -18779,7 +18779,7 @@ class Cashfree {
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Cashfree\Model\SettlementEntity',
+                        '\Cashfree\Model\OrderSettlementEntity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18887,7 +18887,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -19223,7 +19223,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -19559,7 +19559,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -19895,7 +19895,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -20230,7 +20230,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -20611,7 +20611,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -20992,7 +20992,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -21373,7 +21373,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -21754,7 +21754,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -22161,7 +22161,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -22560,7 +22560,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -22950,7 +22950,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -23349,7 +23349,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -23730,7 +23730,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -24118,7 +24118,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -24514,7 +24514,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -24910,7 +24910,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -25306,7 +25306,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -25672,7 +25672,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -26030,7 +26030,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -26395,7 +26395,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -26761,7 +26761,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -27096,7 +27096,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -27432,7 +27432,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -27775,7 +27775,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -28142,7 +28142,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -28485,7 +28485,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -28829,7 +28829,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -29195,7 +29195,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -29552,7 +29552,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -29947,7 +29947,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -30326,7 +30326,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -30737,7 +30737,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -31157,7 +31157,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -31563,7 +31563,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -31975,7 +31975,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -32365,7 +32365,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
@@ -32746,7 +32746,7 @@ class Cashfree {
             $multipart
         );
 
-        $headers['x-sdk-platform'] = "phpsdk-6.0.1";
+        $headers['x-sdk-platform'] = "phpsdk-6.0.8";
         if ($this->XPartnerApiKey !== "") {
             $headers['x-partner-apikey'] = $this->XPartnerApiKey;
         }
