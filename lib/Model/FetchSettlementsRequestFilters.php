@@ -35,7 +35,7 @@ use \Cashfree\ObjectSerializer;
  * FetchSettlementsRequestFilters Class Doc Comment
  *
  * @category Class
- * @description Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+ * @description Specify either the Settlement ID, Settlement UTR, settlement status, or start date and end date to fetch the settlement details.
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,6 +60,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
     protected static $openAPITypes = [
         'cf_settlement_ids' => 'string[]',
         'settlement_utrs' => 'string[]',
+        'settlement_status' => 'string[]',
         'start_date' => 'string',
         'end_date' => 'string'
     ];
@@ -74,6 +75,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
     protected static $openAPIFormats = [
         'cf_settlement_ids' => null,
         'settlement_utrs' => null,
+        'settlement_status' => null,
         'start_date' => null,
         'end_date' => null
     ];
@@ -86,6 +88,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
     protected static $openAPINullables = [
         'cf_settlement_ids' => false,
 		'settlement_utrs' => false,
+		'settlement_status' => false,
 		'start_date' => false,
 		'end_date' => false
     ];
@@ -178,6 +181,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
     protected static $attributeMap = [
         'cf_settlement_ids' => 'cf_settlement_ids',
         'settlement_utrs' => 'settlement_utrs',
+        'settlement_status' => 'settlement_status',
         'start_date' => 'start_date',
         'end_date' => 'end_date'
     ];
@@ -190,6 +194,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
     protected static $setters = [
         'cf_settlement_ids' => 'setCfSettlementIds',
         'settlement_utrs' => 'setSettlementUtrs',
+        'settlement_status' => 'setSettlementStatus',
         'start_date' => 'setStartDate',
         'end_date' => 'setEndDate'
     ];
@@ -202,6 +207,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
     protected static $getters = [
         'cf_settlement_ids' => 'getCfSettlementIds',
         'settlement_utrs' => 'getSettlementUtrs',
+        'settlement_status' => 'getSettlementStatus',
         'start_date' => 'getStartDate',
         'end_date' => 'getEndDate'
     ];
@@ -247,6 +253,29 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const SETTLEMENT_STATUS_SUCCESS = 'SUCCESS';
+    public const SETTLEMENT_STATUS_PENDING = 'PENDING';
+    public const SETTLEMENT_STATUS_PENDING_WITH_CASHFREE = 'PENDING_WITH_CASHFREE';
+    public const SETTLEMENT_STATUS_PENDING_WITH_BANK = 'PENDING_WITH_BANK';
+    public const SETTLEMENT_STATUS_FAILED = 'FAILED';
+    public const SETTLEMENT_STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSettlementStatusAllowableValues()
+    {
+        return [
+            self::SETTLEMENT_STATUS_SUCCESS,
+            self::SETTLEMENT_STATUS_PENDING,
+            self::SETTLEMENT_STATUS_PENDING_WITH_CASHFREE,
+            self::SETTLEMENT_STATUS_PENDING_WITH_BANK,
+            self::SETTLEMENT_STATUS_FAILED,
+            self::SETTLEMENT_STATUS_UNKNOWN_DEFAULT_OPEN_API,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -265,6 +294,7 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('cf_settlement_ids', $data ?? [], null);
         $this->setIfExists('settlement_utrs', $data ?? [], null);
+        $this->setIfExists('settlement_status', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
     }
@@ -361,6 +391,42 @@ class FetchSettlementsRequestFilters implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable settlement_utrs cannot be null');
         }
         $this->container['settlement_utrs'] = $settlement_utrs;
+
+        return $this;
+    }
+
+    /**
+     * Gets settlement_status
+     *
+     * @return string[]|null
+     */
+    public function getSettlementStatus()
+    {
+        return $this->container['settlement_status'];
+    }
+
+    /**
+     * Sets settlement_status
+     *
+     * @param string[]|null $settlement_status List of settlement statuses to filter by. Possible values are SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK, FAILED.
+     *
+     * @return self
+     */
+    public function setSettlementStatus($settlement_status)
+    {
+        if (is_null($settlement_status)) {
+            throw new \InvalidArgumentException('non-nullable settlement_status cannot be null');
+        }
+        $allowedValues = $this->getSettlementStatusAllowableValues();
+        if (array_diff($settlement_status, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'settlement_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['settlement_status'] = $settlement_status;
 
         return $this;
     }

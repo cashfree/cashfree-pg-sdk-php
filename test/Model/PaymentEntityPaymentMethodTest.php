@@ -150,4 +150,13 @@ class PaymentEntityPaymentMethodTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "others"
+     */
+    public function testPropertyothers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

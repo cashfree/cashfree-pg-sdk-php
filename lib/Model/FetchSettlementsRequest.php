@@ -285,6 +285,9 @@ class FetchSettlementsRequest implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['pagination'] === null) {
             $invalidProperties[] = "'pagination' can't be null";
         }
+        if ($this->container['filters'] === null) {
+            $invalidProperties[] = "'filters' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -330,7 +333,7 @@ class FetchSettlementsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets filters
      *
-     * @return \Cashfree\Model\FetchSettlementsRequestFilters|null
+     * @return \Cashfree\Model\FetchSettlementsRequestFilters
      */
     public function getFilters()
     {
@@ -340,7 +343,7 @@ class FetchSettlementsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets filters
      *
-     * @param \Cashfree\Model\FetchSettlementsRequestFilters|null $filters filters
+     * @param \Cashfree\Model\FetchSettlementsRequestFilters $filters filters
      *
      * @return self
      */

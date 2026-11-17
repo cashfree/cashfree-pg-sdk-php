@@ -65,9 +65,9 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_id' => 'string',
         'added_on' => 'string',
         'updated_on' => 'string',
-        'bank' => '\Cashfree\Model\BankDetails[]',
+        'bank' => '\Cashfree\Model\BankDetails',
         'upi' => 'string',
-        'schedule_option' => '\Cashfree\Model\ScheduleOption[]',
+        'schedule_option' => '\Cashfree\Model\ScheduleOption',
         'vendor_type' => 'string',
         'account_type' => 'string',
         'business_type' => 'string',
@@ -113,9 +113,9 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
 		'vendor_id' => false,
 		'added_on' => false,
 		'updated_on' => false,
-		'bank' => false,
+		'bank' => true,
 		'upi' => false,
-		'schedule_option' => false,
+		'schedule_option' => true,
 		'vendor_type' => false,
 		'account_type' => false,
 		'business_type' => false,
@@ -580,7 +580,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets bank
      *
-     * @return \Cashfree\Model\BankDetails[]|null
+     * @return \Cashfree\Model\BankDetails|null
      */
     public function getBank()
     {
@@ -590,14 +590,21 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bank
      *
-     * @param \Cashfree\Model\BankDetails[]|null $bank bank
+     * @param \Cashfree\Model\BankDetails|null $bank bank
      *
      * @return self
      */
     public function setBank($bank)
     {
         if (is_null($bank)) {
-            throw new \InvalidArgumentException('non-nullable bank cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bank');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bank', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bank'] = $bank;
 
@@ -634,7 +641,7 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets schedule_option
      *
-     * @return \Cashfree\Model\ScheduleOption[]|null
+     * @return \Cashfree\Model\ScheduleOption|null
      */
     public function getScheduleOption()
     {
@@ -644,14 +651,21 @@ class VendorEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets schedule_option
      *
-     * @param \Cashfree\Model\ScheduleOption[]|null $schedule_option schedule_option
+     * @param \Cashfree\Model\ScheduleOption|null $schedule_option schedule_option
      *
      * @return self
      */
     public function setScheduleOption($schedule_option)
     {
         if (is_null($schedule_option)) {
-            throw new \InvalidArgumentException('non-nullable schedule_option cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'schedule_option');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('schedule_option', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['schedule_option'] = $schedule_option;
 

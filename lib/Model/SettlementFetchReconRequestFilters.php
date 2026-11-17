@@ -35,7 +35,7 @@ use \Cashfree\ObjectSerializer;
  * SettlementFetchReconRequestFilters Class Doc Comment
  *
  * @category Class
- * @description Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+ * @description Specify either the Settlement ID, Settlement UTR, or date range filters to fetch the settlement details.
  * @package  Cashfree
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,6 +60,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'cf_settlement_ids' => 'int[]',
         'settlement_utrs' => 'string[]',
+        'start_date_initiated_on' => 'string',
+        'end_date_initiated_on' => 'string',
+        'start_date_processed_on' => 'string',
+        'end_date_processed_on' => 'string',
         'start_date' => 'string',
         'end_date' => 'string'
     ];
@@ -74,6 +78,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'cf_settlement_ids' => null,
         'settlement_utrs' => null,
+        'start_date_initiated_on' => null,
+        'end_date_initiated_on' => null,
+        'start_date_processed_on' => null,
+        'end_date_processed_on' => null,
         'start_date' => null,
         'end_date' => null
     ];
@@ -86,6 +94,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     protected static $openAPINullables = [
         'cf_settlement_ids' => false,
 		'settlement_utrs' => false,
+		'start_date_initiated_on' => false,
+		'end_date_initiated_on' => false,
+		'start_date_processed_on' => false,
+		'end_date_processed_on' => false,
 		'start_date' => false,
 		'end_date' => false
     ];
@@ -178,6 +190,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'cf_settlement_ids' => 'cf_settlement_ids',
         'settlement_utrs' => 'settlement_utrs',
+        'start_date_initiated_on' => 'start_date_initiated_on',
+        'end_date_initiated_on' => 'end_date_initiated_on',
+        'start_date_processed_on' => 'start_date_processed_on',
+        'end_date_processed_on' => 'end_date_processed_on',
         'start_date' => 'start_date',
         'end_date' => 'end_date'
     ];
@@ -190,6 +206,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'cf_settlement_ids' => 'setCfSettlementIds',
         'settlement_utrs' => 'setSettlementUtrs',
+        'start_date_initiated_on' => 'setStartDateInitiatedOn',
+        'end_date_initiated_on' => 'setEndDateInitiatedOn',
+        'start_date_processed_on' => 'setStartDateProcessedOn',
+        'end_date_processed_on' => 'setEndDateProcessedOn',
         'start_date' => 'setStartDate',
         'end_date' => 'setEndDate'
     ];
@@ -202,6 +222,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'cf_settlement_ids' => 'getCfSettlementIds',
         'settlement_utrs' => 'getSettlementUtrs',
+        'start_date_initiated_on' => 'getStartDateInitiatedOn',
+        'end_date_initiated_on' => 'getEndDateInitiatedOn',
+        'start_date_processed_on' => 'getStartDateProcessedOn',
+        'end_date_processed_on' => 'getEndDateProcessedOn',
         'start_date' => 'getStartDate',
         'end_date' => 'getEndDate'
     ];
@@ -265,6 +289,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     {
         $this->setIfExists('cf_settlement_ids', $data ?? [], null);
         $this->setIfExists('settlement_utrs', $data ?? [], null);
+        $this->setIfExists('start_date_initiated_on', $data ?? [], null);
+        $this->setIfExists('end_date_initiated_on', $data ?? [], null);
+        $this->setIfExists('start_date_processed_on', $data ?? [], null);
+        $this->setIfExists('end_date_processed_on', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
     }
@@ -366,9 +394,118 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     }
 
     /**
+     * Gets start_date_initiated_on
+     *
+     * @return string|null
+     */
+    public function getStartDateInitiatedOn()
+    {
+        return $this->container['start_date_initiated_on'];
+    }
+
+    /**
+     * Sets start_date_initiated_on
+     *
+     * @param string|null $start_date_initiated_on Filter events by settlement initiation start date. Use ISO8601 format.
+     *
+     * @return self
+     */
+    public function setStartDateInitiatedOn($start_date_initiated_on)
+    {
+        if (is_null($start_date_initiated_on)) {
+            throw new \InvalidArgumentException('non-nullable start_date_initiated_on cannot be null');
+        }
+        $this->container['start_date_initiated_on'] = $start_date_initiated_on;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date_initiated_on
+     *
+     * @return string|null
+     */
+    public function getEndDateInitiatedOn()
+    {
+        return $this->container['end_date_initiated_on'];
+    }
+
+    /**
+     * Sets end_date_initiated_on
+     *
+     * @param string|null $end_date_initiated_on Filter events by settlement initiation end date. Use ISO8601 format.
+     *
+     * @return self
+     */
+    public function setEndDateInitiatedOn($end_date_initiated_on)
+    {
+        if (is_null($end_date_initiated_on)) {
+            throw new \InvalidArgumentException('non-nullable end_date_initiated_on cannot be null');
+        }
+        $this->container['end_date_initiated_on'] = $end_date_initiated_on;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date_processed_on
+     *
+     * @return string|null
+     */
+    public function getStartDateProcessedOn()
+    {
+        return $this->container['start_date_processed_on'];
+    }
+
+    /**
+     * Sets start_date_processed_on
+     *
+     * @param string|null $start_date_processed_on Filter events by settlement processed start date. Use ISO8601 format.
+     *
+     * @return self
+     */
+    public function setStartDateProcessedOn($start_date_processed_on)
+    {
+        if (is_null($start_date_processed_on)) {
+            throw new \InvalidArgumentException('non-nullable start_date_processed_on cannot be null');
+        }
+        $this->container['start_date_processed_on'] = $start_date_processed_on;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date_processed_on
+     *
+     * @return string|null
+     */
+    public function getEndDateProcessedOn()
+    {
+        return $this->container['end_date_processed_on'];
+    }
+
+    /**
+     * Sets end_date_processed_on
+     *
+     * @param string|null $end_date_processed_on Filter events by settlement processed end date. Use ISO8601 format.
+     *
+     * @return self
+     */
+    public function setEndDateProcessedOn($end_date_processed_on)
+    {
+        if (is_null($end_date_processed_on)) {
+            throw new \InvalidArgumentException('non-nullable end_date_processed_on cannot be null');
+        }
+        $this->container['end_date_processed_on'] = $end_date_processed_on;
+
+        return $this;
+    }
+
+    /**
      * Gets start_date
      *
      * @return string|null
+     * @deprecated
      */
     public function getStartDate()
     {
@@ -378,9 +515,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     /**
      * Sets start_date
      *
-     * @param string|null $start_date Specify the start date from when you want the settlement reconciliation details.
+     * @param string|null $start_date Deprecated: Use start_date_initiated_on or start_date_processed_on instead. Specify the start date from when you want the settlement reconciliation details.
      *
      * @return self
+     * @deprecated
      */
     public function setStartDate($start_date)
     {
@@ -396,6 +534,7 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
      * Gets end_date
      *
      * @return string|null
+     * @deprecated
      */
     public function getEndDate()
     {
@@ -405,9 +544,10 @@ class SettlementFetchReconRequestFilters implements ModelInterface, ArrayAccess,
     /**
      * Sets end_date
      *
-     * @param string|null $end_date Specify the end date till when you want the settlement reconciliation details.
+     * @param string|null $end_date Deprecated: Use end_date_initiated_on or end_date_processed_on instead. Specify the end date till when you want the settlement reconciliation details.
      *
      * @return self
+     * @deprecated
      */
     public function setEndDate($end_date)
     {
