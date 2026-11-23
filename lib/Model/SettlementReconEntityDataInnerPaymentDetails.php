@@ -61,13 +61,13 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
         'payment_currency' => 'string',
         'bank_reference' => 'string',
         'payment_time' => 'string',
-        'payment_mode' => 'string',
+        'payment_group' => 'string',
         'payment_service_charge' => 'float',
         'payment_service_tax' => 'float',
         'cf_payment_id' => 'string',
         'status' => 'string',
-        'forex_conversion_handling_charge' => 'string',
-        'forex_conversion_handling_tax' => 'string',
+        'forex_conversion_handling_charge' => 'float',
+        'forex_conversion_handling_tax' => 'float',
         'charges_currency' => 'string'
     ];
 
@@ -83,7 +83,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
         'payment_currency' => null,
         'bank_reference' => null,
         'payment_time' => null,
-        'payment_mode' => null,
+        'payment_group' => null,
         'payment_service_charge' => null,
         'payment_service_tax' => null,
         'cf_payment_id' => null,
@@ -103,7 +103,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
 		'payment_currency' => false,
 		'bank_reference' => false,
 		'payment_time' => false,
-		'payment_mode' => false,
+		'payment_group' => false,
 		'payment_service_charge' => false,
 		'payment_service_tax' => false,
 		'cf_payment_id' => false,
@@ -203,7 +203,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
         'payment_currency' => 'payment_currency',
         'bank_reference' => 'bank_reference',
         'payment_time' => 'payment_time',
-        'payment_mode' => 'payment_mode',
+        'payment_group' => 'payment_group',
         'payment_service_charge' => 'payment_service_charge',
         'payment_service_tax' => 'payment_service_tax',
         'cf_payment_id' => 'cf_payment_id',
@@ -223,7 +223,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
         'payment_currency' => 'setPaymentCurrency',
         'bank_reference' => 'setBankReference',
         'payment_time' => 'setPaymentTime',
-        'payment_mode' => 'setPaymentMode',
+        'payment_group' => 'setPaymentGroup',
         'payment_service_charge' => 'setPaymentServiceCharge',
         'payment_service_tax' => 'setPaymentServiceTax',
         'cf_payment_id' => 'setCfPaymentId',
@@ -243,7 +243,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
         'payment_currency' => 'getPaymentCurrency',
         'bank_reference' => 'getBankReference',
         'payment_time' => 'getPaymentTime',
-        'payment_mode' => 'getPaymentMode',
+        'payment_group' => 'getPaymentGroup',
         'payment_service_charge' => 'getPaymentServiceCharge',
         'payment_service_tax' => 'getPaymentServiceTax',
         'cf_payment_id' => 'getCfPaymentId',
@@ -314,7 +314,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
         $this->setIfExists('payment_currency', $data ?? [], null);
         $this->setIfExists('bank_reference', $data ?? [], null);
         $this->setIfExists('payment_time', $data ?? [], null);
-        $this->setIfExists('payment_mode', $data ?? [], null);
+        $this->setIfExists('payment_group', $data ?? [], null);
         $this->setIfExists('payment_service_charge', $data ?? [], null);
         $this->setIfExists('payment_service_tax', $data ?? [], null);
         $this->setIfExists('cf_payment_id', $data ?? [], null);
@@ -406,7 +406,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
     /**
      * Sets payment_currency
      *
-     * @param string|null $payment_currency Payment Curreny type - INR.
+     * @param string|null $payment_currency Payment Currency type - INR.
      *
      * @return self
      */
@@ -475,28 +475,28 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
     }
 
     /**
-     * Gets payment_mode
+     * Gets payment_group
      *
      * @return string|null
      */
-    public function getPaymentMode()
+    public function getPaymentGroup()
     {
-        return $this->container['payment_mode'];
+        return $this->container['payment_group'];
     }
 
     /**
-     * Sets payment_mode
+     * Sets payment_group
      *
-     * @param string|null $payment_mode Mode of the payment.
+     * @param string|null $payment_group Payment group/mode of the payment. Example - UPI, CREDIT_CARD.
      *
      * @return self
      */
-    public function setPaymentMode($payment_mode)
+    public function setPaymentGroup($payment_group)
     {
-        if (is_null($payment_mode)) {
-            throw new \InvalidArgumentException('non-nullable payment_mode cannot be null');
+        if (is_null($payment_group)) {
+            throw new \InvalidArgumentException('non-nullable payment_group cannot be null');
         }
-        $this->container['payment_mode'] = $payment_mode;
+        $this->container['payment_group'] = $payment_group;
 
         return $this;
     }
@@ -612,7 +612,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
     /**
      * Gets forex_conversion_handling_charge
      *
-     * @return string|null
+     * @return float|null
      */
     public function getForexConversionHandlingCharge()
     {
@@ -622,7 +622,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
     /**
      * Sets forex_conversion_handling_charge
      *
-     * @param string|null $forex_conversion_handling_charge Forex Conversion Service Charge.
+     * @param float|null $forex_conversion_handling_charge Forex Conversion Service Charge.
      *
      * @return self
      */
@@ -639,7 +639,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
     /**
      * Gets forex_conversion_handling_tax
      *
-     * @return string|null
+     * @return float|null
      */
     public function getForexConversionHandlingTax()
     {
@@ -649,7 +649,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
     /**
      * Sets forex_conversion_handling_tax
      *
-     * @param string|null $forex_conversion_handling_tax Forex Conversion Service Tax.
+     * @param float|null $forex_conversion_handling_tax Forex Conversion Service Tax.
      *
      * @return self
      */
@@ -676,7 +676,7 @@ class SettlementReconEntityDataInnerPaymentDetails implements ModelInterface, Ar
     /**
      * Sets charges_currency
      *
-     * @param string|null $charges_currency Forex Charges Curreny type - INR.
+     * @param string|null $charges_currency Forex Charges Currency type - INR.
      *
      * @return self
      */

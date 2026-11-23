@@ -285,6 +285,9 @@ class SettlementFetchReconRequest implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['pagination'] === null) {
             $invalidProperties[] = "'pagination' can't be null";
         }
+        if ($this->container['filters'] === null) {
+            $invalidProperties[] = "'filters' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -330,7 +333,7 @@ class SettlementFetchReconRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets filters
      *
-     * @return \Cashfree\Model\SettlementFetchReconRequestFilters|null
+     * @return \Cashfree\Model\SettlementFetchReconRequestFilters
      */
     public function getFilters()
     {
@@ -340,7 +343,7 @@ class SettlementFetchReconRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets filters
      *
-     * @param \Cashfree\Model\SettlementFetchReconRequestFilters|null $filters filters
+     * @param \Cashfree\Model\SettlementFetchReconRequestFilters $filters filters
      *
      * @return self
      */

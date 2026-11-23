@@ -57,13 +57,13 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'event_details' => '\Cashfree\Model\ReconEntityDataInnerEventDetails',
-        'order_details' => '\Cashfree\Model\ReconEntityDataInnerOrderDetails',
-        'customer_details' => '\Cashfree\Model\ReconEntityDataInnerCustomerDetails',
+        'event_details' => '\Cashfree\Model\SettlementReconEntityDataInnerEventDetails',
+        'order_details' => '\Cashfree\Model\SettlementReconEntityDataInnerOrderDetails',
+        'customer_details' => '\Cashfree\Model\SettlementReconEntityDataInnerCustomerDetails',
         'payment_details' => '\Cashfree\Model\SettlementReconEntityDataInnerPaymentDetails',
-        'settlement_details' => '\Cashfree\Model\ReconEntityDataInnerSettlementDetails',
-        'dispute_details' => '\Cashfree\Model\ReconEntityDataInnerDisputeDetails',
-        'refund_details' => '\Cashfree\Model\ReconEntityDataInnerRefundDetails'
+        'settlement_details' => '\Cashfree\Model\SettlementReconEntityDataInnerSettlementDetails',
+        'dispute_details' => '\Cashfree\Model\SettlementReconEntityDataInnerDisputeDetailsInner[]',
+        'refund_details' => '\Cashfree\Model\ReconEntityDataInnerRefundDetails[]'
     ];
 
     /**
@@ -334,7 +334,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets event_details
      *
-     * @return \Cashfree\Model\ReconEntityDataInnerEventDetails|null
+     * @return \Cashfree\Model\SettlementReconEntityDataInnerEventDetails|null
      */
     public function getEventDetails()
     {
@@ -344,7 +344,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets event_details
      *
-     * @param \Cashfree\Model\ReconEntityDataInnerEventDetails|null $event_details event_details
+     * @param \Cashfree\Model\SettlementReconEntityDataInnerEventDetails|null $event_details event_details
      *
      * @return self
      */
@@ -361,7 +361,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets order_details
      *
-     * @return \Cashfree\Model\ReconEntityDataInnerOrderDetails|null
+     * @return \Cashfree\Model\SettlementReconEntityDataInnerOrderDetails|null
      */
     public function getOrderDetails()
     {
@@ -371,7 +371,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets order_details
      *
-     * @param \Cashfree\Model\ReconEntityDataInnerOrderDetails|null $order_details order_details
+     * @param \Cashfree\Model\SettlementReconEntityDataInnerOrderDetails|null $order_details order_details
      *
      * @return self
      */
@@ -388,7 +388,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets customer_details
      *
-     * @return \Cashfree\Model\ReconEntityDataInnerCustomerDetails|null
+     * @return \Cashfree\Model\SettlementReconEntityDataInnerCustomerDetails|null
      */
     public function getCustomerDetails()
     {
@@ -398,7 +398,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets customer_details
      *
-     * @param \Cashfree\Model\ReconEntityDataInnerCustomerDetails|null $customer_details customer_details
+     * @param \Cashfree\Model\SettlementReconEntityDataInnerCustomerDetails|null $customer_details customer_details
      *
      * @return self
      */
@@ -442,7 +442,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets settlement_details
      *
-     * @return \Cashfree\Model\ReconEntityDataInnerSettlementDetails|null
+     * @return \Cashfree\Model\SettlementReconEntityDataInnerSettlementDetails|null
      */
     public function getSettlementDetails()
     {
@@ -452,7 +452,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets settlement_details
      *
-     * @param \Cashfree\Model\ReconEntityDataInnerSettlementDetails|null $settlement_details settlement_details
+     * @param \Cashfree\Model\SettlementReconEntityDataInnerSettlementDetails|null $settlement_details settlement_details
      *
      * @return self
      */
@@ -469,7 +469,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets dispute_details
      *
-     * @return \Cashfree\Model\ReconEntityDataInnerDisputeDetails|null
+     * @return \Cashfree\Model\SettlementReconEntityDataInnerDisputeDetailsInner[]|null
      */
     public function getDisputeDetails()
     {
@@ -479,7 +479,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets dispute_details
      *
-     * @param \Cashfree\Model\ReconEntityDataInnerDisputeDetails|null $dispute_details dispute_details
+     * @param \Cashfree\Model\SettlementReconEntityDataInnerDisputeDetailsInner[]|null $dispute_details List of disputes linked to this event.
      *
      * @return self
      */
@@ -496,7 +496,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets refund_details
      *
-     * @return \Cashfree\Model\ReconEntityDataInnerRefundDetails|null
+     * @return \Cashfree\Model\ReconEntityDataInnerRefundDetails[]|null
      */
     public function getRefundDetails()
     {
@@ -506,7 +506,7 @@ class SettlementReconEntityDataInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets refund_details
      *
-     * @param \Cashfree\Model\ReconEntityDataInnerRefundDetails|null $refund_details refund_details
+     * @param \Cashfree\Model\ReconEntityDataInnerRefundDetails[]|null $refund_details List of refunds linked to this event.
      *
      * @return self
      */

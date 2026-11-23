@@ -60,7 +60,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'email' => 'string',
         'status' => 'string',
-        'bank' => '\Cashfree\Model\BankDetails[]',
+        'bank' => '\Cashfree\Model\BankDetails',
         'upi' => 'string',
         'added_on' => 'string',
         'updated_on' => 'string',
@@ -70,8 +70,8 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'phone' => 'float',
         'name' => 'string',
         'vendor_id' => 'string',
-        'schedule_option' => '\Cashfree\Model\ScheduleOption[]',
-        'kyc_details' => '\Cashfree\Model\KycDetails[]',
+        'schedule_option' => '\Cashfree\Model\ScheduleOption',
+        'kyc_details' => '\Cashfree\Model\KycDetails',
         'dashboard_access' => 'bool',
         'bank_details' => 'string',
         'related_docs' => '\Cashfree\Model\VendorEntityRelatedDocsInner[]'
@@ -112,7 +112,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPINullables = [
         'email' => false,
 		'status' => false,
-		'bank' => false,
+		'bank' => true,
 		'upi' => false,
 		'added_on' => false,
 		'updated_on' => false,
@@ -122,8 +122,8 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 		'phone' => false,
 		'name' => false,
 		'vendor_id' => false,
-		'schedule_option' => false,
-		'kyc_details' => false,
+		'schedule_option' => true,
+		'kyc_details' => true,
 		'dashboard_access' => false,
 		'bank_details' => false,
 		'related_docs' => false
@@ -459,7 +459,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets bank
      *
-     * @return \Cashfree\Model\BankDetails[]|null
+     * @return \Cashfree\Model\BankDetails|null
      */
     public function getBank()
     {
@@ -469,14 +469,21 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets bank
      *
-     * @param \Cashfree\Model\BankDetails[]|null $bank bank
+     * @param \Cashfree\Model\BankDetails|null $bank bank
      *
      * @return self
      */
     public function setBank($bank)
     {
         if (is_null($bank)) {
-            throw new \InvalidArgumentException('non-nullable bank cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bank');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bank', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bank'] = $bank;
 
@@ -729,7 +736,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets schedule_option
      *
-     * @return \Cashfree\Model\ScheduleOption[]|null
+     * @return \Cashfree\Model\ScheduleOption|null
      */
     public function getScheduleOption()
     {
@@ -739,14 +746,21 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets schedule_option
      *
-     * @param \Cashfree\Model\ScheduleOption[]|null $schedule_option schedule_option
+     * @param \Cashfree\Model\ScheduleOption|null $schedule_option schedule_option
      *
      * @return self
      */
     public function setScheduleOption($schedule_option)
     {
         if (is_null($schedule_option)) {
-            throw new \InvalidArgumentException('non-nullable schedule_option cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'schedule_option');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('schedule_option', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['schedule_option'] = $schedule_option;
 
@@ -756,7 +770,7 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets kyc_details
      *
-     * @return \Cashfree\Model\KycDetails[]|null
+     * @return \Cashfree\Model\KycDetails|null
      */
     public function getKycDetails()
     {
@@ -766,14 +780,21 @@ class UpdateVendorResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets kyc_details
      *
-     * @param \Cashfree\Model\KycDetails[]|null $kyc_details kyc_details
+     * @param \Cashfree\Model\KycDetails|null $kyc_details kyc_details
      *
      * @return self
      */
     public function setKycDetails($kyc_details)
     {
         if (is_null($kyc_details)) {
-            throw new \InvalidArgumentException('non-nullable kyc_details cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'kyc_details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('kyc_details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['kyc_details'] = $kyc_details;
 

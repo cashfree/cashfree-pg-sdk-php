@@ -50,6 +50,8 @@ docs/Model/BanktransferPaymentMethod.md
 docs/Model/Card.md
 docs/Model/CardDowntime.md
 docs/Model/CardDowntimeCard.md
+docs/Model/CardDowntimeCardNetworkEnum.md
+docs/Model/CardDowntimeCardTypeEnum.md
 docs/Model/CardEMI.md
 docs/Model/CardEMIPaymentMethod.md
 docs/Model/CardOffer.md
@@ -141,6 +143,8 @@ docs/Model/FetchSettlementsRequest.md
 docs/Model/FetchSettlementsRequestFilters.md
 docs/Model/FetchSettlementsRequestPagination.md
 docs/Model/FetchTerminalQRCodesEntity.md
+docs/Model/GetAllSettlementsResponse.md
+docs/Model/GetAllSettlementsResponseDataInner.md
 docs/Model/GetAllTerminalPaymentEntity.md
 docs/Model/GetAllTerminalTransactionRequest.md
 docs/Model/GetCardBinRequest.md
@@ -166,6 +170,8 @@ docs/Model/ManageSubscriptionPaymentRequest.md
 docs/Model/ManageSubscriptionPaymentRequestActionDetails.md
 docs/Model/ManageSubscriptionRequest.md
 docs/Model/ManageSubscriptionRequestActionDetails.md
+docs/Model/MarkOrderSettlementResponse.md
+docs/Model/MarkOrderSettlementResponseMetaData.md
 docs/Model/NetBankingDowntime.md
 docs/Model/NetBankingDowntimeNetBanking.md
 docs/Model/NetBankingPaymentMethod.md
@@ -208,6 +214,11 @@ docs/Model/OrderMetaPaymentMethodsFilters.md
 docs/Model/OrderMetaPaymentMethodsFiltersMethods.md
 docs/Model/OrderPayData.md
 docs/Model/OrderPaymentMethodFilters.md
+docs/Model/OrderSettlementEntity.md
+docs/Model/OrderSettlementEntityCustomerDetails.md
+docs/Model/OrderSettlementEntityOrderDetails.md
+docs/Model/OrderSettlementEntityPaymentDetails.md
+docs/Model/OrderSettlementEntitySettlementDetails.md
 docs/Model/OrderUpdateRefundRequest.md
 docs/Model/PARRequest.md
 docs/Model/PGCreatePAR200Response.md
@@ -238,6 +249,7 @@ docs/Model/PaymentMethodCardInPaymentsEntityCard.md
 docs/Model/PaymentMethodCardlessEMIInPaymentsEntity.md
 docs/Model/PaymentMethodNetBankingInPaymentsEntity.md
 docs/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
+docs/Model/PaymentMethodOthersInPaymentsEntity.md
 docs/Model/PaymentMethodPaylaterInPaymentsEntity.md
 docs/Model/PaymentMethodUPIInPaymentsEntity.md
 docs/Model/PaymentMethodUPIInPaymentsEntityUpi.md
@@ -278,7 +290,12 @@ docs/Model/SettlementFetchReconRequest.md
 docs/Model/SettlementFetchReconRequestFilters.md
 docs/Model/SettlementReconEntity.md
 docs/Model/SettlementReconEntityDataInner.md
+docs/Model/SettlementReconEntityDataInnerCustomerDetails.md
+docs/Model/SettlementReconEntityDataInnerDisputeDetailsInner.md
+docs/Model/SettlementReconEntityDataInnerEventDetails.md
+docs/Model/SettlementReconEntityDataInnerOrderDetails.md
 docs/Model/SettlementReconEntityDataInnerPaymentDetails.md
+docs/Model/SettlementReconEntityDataInnerSettlementDetails.md
 docs/Model/SettlementSimulationResponse.md
 docs/Model/SettlementWebhook.md
 docs/Model/SettlementWebhookDataEntity.md
@@ -411,6 +428,8 @@ lib/Model/BanktransferPaymentMethod.php
 lib/Model/Card.php
 lib/Model/CardDowntime.php
 lib/Model/CardDowntimeCard.php
+lib/Model/CardDowntimeCardNetworkEnum.php
+lib/Model/CardDowntimeCardTypeEnum.php
 lib/Model/CardEMI.php
 lib/Model/CardEMIPaymentMethod.php
 lib/Model/CardOffer.php
@@ -502,6 +521,8 @@ lib/Model/FetchSettlementsRequest.php
 lib/Model/FetchSettlementsRequestFilters.php
 lib/Model/FetchSettlementsRequestPagination.php
 lib/Model/FetchTerminalQRCodesEntity.php
+lib/Model/GetAllSettlementsResponse.php
+lib/Model/GetAllSettlementsResponseDataInner.php
 lib/Model/GetAllTerminalPaymentEntity.php
 lib/Model/GetAllTerminalTransactionRequest.php
 lib/Model/GetCardBinRequest.php
@@ -527,6 +548,8 @@ lib/Model/ManageSubscriptionPaymentRequest.php
 lib/Model/ManageSubscriptionPaymentRequestActionDetails.php
 lib/Model/ManageSubscriptionRequest.php
 lib/Model/ManageSubscriptionRequestActionDetails.php
+lib/Model/MarkOrderSettlementResponse.php
+lib/Model/MarkOrderSettlementResponseMetaData.php
 lib/Model/ModelInterface.php
 lib/Model/NetBankingDowntime.php
 lib/Model/NetBankingDowntimeNetBanking.php
@@ -570,6 +593,11 @@ lib/Model/OrderMetaPaymentMethodsFilters.php
 lib/Model/OrderMetaPaymentMethodsFiltersMethods.php
 lib/Model/OrderPayData.php
 lib/Model/OrderPaymentMethodFilters.php
+lib/Model/OrderSettlementEntity.php
+lib/Model/OrderSettlementEntityCustomerDetails.php
+lib/Model/OrderSettlementEntityOrderDetails.php
+lib/Model/OrderSettlementEntityPaymentDetails.php
+lib/Model/OrderSettlementEntitySettlementDetails.php
 lib/Model/OrderUpdateRefundRequest.php
 lib/Model/PARRequest.php
 lib/Model/PGCreatePAR200Response.php
@@ -600,6 +628,7 @@ lib/Model/PaymentMethodCardInPaymentsEntityCard.php
 lib/Model/PaymentMethodCardlessEMIInPaymentsEntity.php
 lib/Model/PaymentMethodNetBankingInPaymentsEntity.php
 lib/Model/PaymentMethodNetBankingInPaymentsEntityNetbanking.php
+lib/Model/PaymentMethodOthersInPaymentsEntity.php
 lib/Model/PaymentMethodPaylaterInPaymentsEntity.php
 lib/Model/PaymentMethodUPIInPaymentsEntity.php
 lib/Model/PaymentMethodUPIInPaymentsEntityUpi.php
@@ -640,7 +669,12 @@ lib/Model/SettlementFetchReconRequest.php
 lib/Model/SettlementFetchReconRequestFilters.php
 lib/Model/SettlementReconEntity.php
 lib/Model/SettlementReconEntityDataInner.php
+lib/Model/SettlementReconEntityDataInnerCustomerDetails.php
+lib/Model/SettlementReconEntityDataInnerDisputeDetailsInner.php
+lib/Model/SettlementReconEntityDataInnerEventDetails.php
+lib/Model/SettlementReconEntityDataInnerOrderDetails.php
 lib/Model/SettlementReconEntityDataInnerPaymentDetails.php
+lib/Model/SettlementReconEntityDataInnerSettlementDetails.php
 lib/Model/SettlementSimulationResponse.php
 lib/Model/SettlementWebhook.php
 lib/Model/SettlementWebhookDataEntity.php
@@ -767,7 +801,9 @@ test/Model/BalanceDetailsTest.php
 test/Model/BankDetailsTest.php
 test/Model/BanktransferPaymentMethodTest.php
 test/Model/BanktransferTest.php
+test/Model/CardDowntimeCardNetworkEnumTest.php
 test/Model/CardDowntimeCardTest.php
+test/Model/CardDowntimeCardTypeEnumTest.php
 test/Model/CardDowntimeTest.php
 test/Model/CardEMIPaymentMethodTest.php
 test/Model/CardEMITest.php
@@ -861,6 +897,8 @@ test/Model/FetchSettlementsRequestFiltersTest.php
 test/Model/FetchSettlementsRequestPaginationTest.php
 test/Model/FetchSettlementsRequestTest.php
 test/Model/FetchTerminalQRCodesEntityTest.php
+test/Model/GetAllSettlementsResponseDataInnerTest.php
+test/Model/GetAllSettlementsResponseTest.php
 test/Model/GetAllTerminalPaymentEntityTest.php
 test/Model/GetAllTerminalTransactionRequestTest.php
 test/Model/GetCardBinRequestTest.php
@@ -886,6 +924,8 @@ test/Model/ManageSubscriptionPaymentRequestActionDetailsTest.php
 test/Model/ManageSubscriptionPaymentRequestTest.php
 test/Model/ManageSubscriptionRequestActionDetailsTest.php
 test/Model/ManageSubscriptionRequestTest.php
+test/Model/MarkOrderSettlementResponseMetaDataTest.php
+test/Model/MarkOrderSettlementResponseTest.php
 test/Model/NetBankingDowntimeNetBankingTest.php
 test/Model/NetBankingDowntimeTest.php
 test/Model/NetBankingPaymentMethodTest.php
@@ -928,6 +968,11 @@ test/Model/OrderMetaPaymentMethodsFiltersTest.php
 test/Model/OrderMetaTest.php
 test/Model/OrderPayDataTest.php
 test/Model/OrderPaymentMethodFiltersTest.php
+test/Model/OrderSettlementEntityCustomerDetailsTest.php
+test/Model/OrderSettlementEntityOrderDetailsTest.php
+test/Model/OrderSettlementEntityPaymentDetailsTest.php
+test/Model/OrderSettlementEntitySettlementDetailsTest.php
+test/Model/OrderSettlementEntityTest.php
 test/Model/OrderUpdateRefundRequestTest.php
 test/Model/PARRequestTest.php
 test/Model/PGCreatePAR200ResponseTest.php
@@ -958,6 +1003,7 @@ test/Model/PaymentMethodCardInPaymentsEntityTest.php
 test/Model/PaymentMethodCardlessEMIInPaymentsEntityTest.php
 test/Model/PaymentMethodNetBankingInPaymentsEntityNetbankingTest.php
 test/Model/PaymentMethodNetBankingInPaymentsEntityTest.php
+test/Model/PaymentMethodOthersInPaymentsEntityTest.php
 test/Model/PaymentMethodPaylaterInPaymentsEntityTest.php
 test/Model/PaymentMethodUPIInPaymentsEntityTest.php
 test/Model/PaymentMethodUPIInPaymentsEntityUpiTest.php
@@ -996,7 +1042,12 @@ test/Model/ScheduleOptionTest.php
 test/Model/SettlementEntityTest.php
 test/Model/SettlementFetchReconRequestFiltersTest.php
 test/Model/SettlementFetchReconRequestTest.php
+test/Model/SettlementReconEntityDataInnerCustomerDetailsTest.php
+test/Model/SettlementReconEntityDataInnerDisputeDetailsInnerTest.php
+test/Model/SettlementReconEntityDataInnerEventDetailsTest.php
+test/Model/SettlementReconEntityDataInnerOrderDetailsTest.php
 test/Model/SettlementReconEntityDataInnerPaymentDetailsTest.php
+test/Model/SettlementReconEntityDataInnerSettlementDetailsTest.php
 test/Model/SettlementReconEntityDataInnerTest.php
 test/Model/SettlementReconEntityTest.php
 test/Model/SettlementSimulationResponseTest.php
